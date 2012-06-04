@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC926BFC1550A1BF00EB73EF /* AJNMObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926BFB1550A1BF00EB73EF /* AJNMObject.m */; };
+		AC926BFF1550A1CB00EB73EF /* AJNMInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926BFE1550A1CB00EB73EF /* AJNMInterface.m */; };
+		AC926C021550A1DC00EB73EF /* AJNMMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C011550A1DC00EB73EF /* AJNMMethod.m */; };
+		AC926C051550A1ED00EB73EF /* AJNMSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C041550A1ED00EB73EF /* AJNMSignal.m */; };
+		AC926C081550A1FE00EB73EF /* AJNMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C071550A1FE00EB73EF /* AJNMProperty.m */; };
+		AC926C0B1550A20D00EB73EF /* AJNMArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C0A1550A20D00EB73EF /* AJNMArgument.m */; };
+		AC926C0E1550A21A00EB73EF /* AJNMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C0D1550A21A00EB73EF /* AJNMAnnotation.m */; };
+		AC926C121550A48C00EB73EF /* AJNMType.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C111550A48C00EB73EF /* AJNMType.m */; };
+		AC926C151550AC2700EB73EF /* AJNMModelElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C141550AC2700EB73EF /* AJNMModelElement.m */; };
+		AC926C181551A8EE00EB73EF /* AJNMObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC926C171551A8ED00EB73EF /* AJNMObjectModel.m */; };
+		ACD9B2A11523A39400F9B0F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD9B2A01523A39400F9B0F1 /* Cocoa.framework */; };
+		ACD9B2AB1523A39400F9B0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACD9B2A91523A39400F9B0F1 /* InfoPlist.strings */; };
+		ACD9B2AD1523A39400F9B0F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B2AC1523A39400F9B0F1 /* main.m */; };
+		ACD9B2B11523A39400F9B0F1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = ACD9B2AF1523A39400F9B0F1 /* Credits.rtf */; };
+		ACD9B2B41523A39400F9B0F1 /* AJNMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B2B31523A39400F9B0F1 /* AJNMAppDelegate.m */; };
+		ACD9B2B71523A39400F9B0F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD9B2B51523A39400F9B0F1 /* MainMenu.xib */; };
+		ACD9B2BF1523A39500F9B0F1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD9B2BE1523A39500F9B0F1 /* SenTestingKit.framework */; };
+		ACD9B2C01523A39500F9B0F1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD9B2A01523A39400F9B0F1 /* Cocoa.framework */; };
+		ACD9B2C81523A39500F9B0F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACD9B2C61523A39500F9B0F1 /* InfoPlist.strings */; };
+		ACD9B2CB1523A39500F9B0F1 /* AllJoynModelerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B2CA1523A39500F9B0F1 /* AllJoynModelerTests.m */; };
+		ACD9B2D61523A47000F9B0F1 /* AJNMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD9B2D51523A47000F9B0F1 /* AJNMViewController.m */; };
+		ACFCF77A1566A46700BC922D /* SConscript in Resources */ = {isa = PBXBuildFile; fileRef = ACFCF7791566A46700BC922D /* SConscript */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACD9B2C11523A39500F9B0F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACD9B2931523A39400F9B0F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACD9B29B1523A39400F9B0F1;
+			remoteInfo = AllJoynModeler;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC926BFA1550A1BF00EB73EF /* AJNMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMObject.h; sourceTree = "<group>"; };
+		AC926BFB1550A1BF00EB73EF /* AJNMObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMObject.m; sourceTree = "<group>"; };
+		AC926BFD1550A1CB00EB73EF /* AJNMInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMInterface.h; sourceTree = "<group>"; };
+		AC926BFE1550A1CB00EB73EF /* AJNMInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMInterface.m; sourceTree = "<group>"; };
+		AC926C001550A1DC00EB73EF /* AJNMMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMMethod.h; sourceTree = "<group>"; };
+		AC926C011550A1DC00EB73EF /* AJNMMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMMethod.m; sourceTree = "<group>"; };
+		AC926C031550A1ED00EB73EF /* AJNMSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMSignal.h; sourceTree = "<group>"; };
+		AC926C041550A1ED00EB73EF /* AJNMSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMSignal.m; sourceTree = "<group>"; };
+		AC926C061550A1FE00EB73EF /* AJNMProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMProperty.h; sourceTree = "<group>"; };
+		AC926C071550A1FE00EB73EF /* AJNMProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMProperty.m; sourceTree = "<group>"; };
+		AC926C091550A20D00EB73EF /* AJNMArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMArgument.h; sourceTree = "<group>"; };
+		AC926C0A1550A20D00EB73EF /* AJNMArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMArgument.m; sourceTree = "<group>"; };
+		AC926C0C1550A21A00EB73EF /* AJNMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMAnnotation.h; sourceTree = "<group>"; };
+		AC926C0D1550A21A00EB73EF /* AJNMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMAnnotation.m; sourceTree = "<group>"; };
+		AC926C101550A48C00EB73EF /* AJNMType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMType.h; sourceTree = "<group>"; };
+		AC926C111550A48C00EB73EF /* AJNMType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMType.m; sourceTree = "<group>"; };
+		AC926C131550AC2600EB73EF /* AJNMModelElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMModelElement.h; sourceTree = "<group>"; };
+		AC926C141550AC2700EB73EF /* AJNMModelElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMModelElement.m; sourceTree = "<group>"; };
+		AC926C161551A8ED00EB73EF /* AJNMObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMObjectModel.h; sourceTree = "<group>"; };
+		AC926C171551A8ED00EB73EF /* AJNMObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMObjectModel.m; sourceTree = "<group>"; };
+		ACD9B29C1523A39400F9B0F1 /* AllJoynModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllJoynModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD9B2A01523A39400F9B0F1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ACD9B2A31523A39400F9B0F1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ACD9B2A41523A39400F9B0F1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ACD9B2A51523A39400F9B0F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ACD9B2A81523A39400F9B0F1 /* AllJoynModeler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllJoynModeler-Info.plist"; sourceTree = "<group>"; };
+		ACD9B2AA1523A39400F9B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACD9B2AC1523A39400F9B0F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ACD9B2AE1523A39400F9B0F1 /* AllJoynModeler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllJoynModeler-Prefix.pch"; sourceTree = "<group>"; };
+		ACD9B2B01523A39400F9B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		ACD9B2B21523A39400F9B0F1 /* AJNMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJNMAppDelegate.h; sourceTree = "<group>"; };
+		ACD9B2B31523A39400F9B0F1 /* AJNMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJNMAppDelegate.m; sourceTree = "<group>"; };
+		ACD9B2B61523A39400F9B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		ACD9B2BD1523A39500F9B0F1 /* AllJoynModelerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllJoynModelerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD9B2BE1523A39500F9B0F1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		ACD9B2C51523A39500F9B0F1 /* AllJoynModelerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllJoynModelerTests-Info.plist"; sourceTree = "<group>"; };
+		ACD9B2C71523A39500F9B0F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACD9B2C91523A39500F9B0F1 /* AllJoynModelerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllJoynModelerTests.h; sourceTree = "<group>"; };
+		ACD9B2CA1523A39500F9B0F1 /* AllJoynModelerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllJoynModelerTests.m; sourceTree = "<group>"; };
+		ACD9B2D41523A47000F9B0F1 /* AJNMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMViewController.h; sourceTree = "<group>"; };
+		ACD9B2D51523A47000F9B0F1 /* AJNMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNMViewController.m; sourceTree = "<group>"; };
+		ACFCF7791566A46700BC922D /* SConscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACD9B2991523A39400F9B0F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2A11523A39400F9B0F1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD9B2B91523A39500F9B0F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2BF1523A39500F9B0F1 /* SenTestingKit.framework in Frameworks */,
+				ACD9B2C01523A39500F9B0F1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC926C0F1550A22A00EB73EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC926BFA1550A1BF00EB73EF /* AJNMObject.h */,
+				AC926BFB1550A1BF00EB73EF /* AJNMObject.m */,
+				AC926BFD1550A1CB00EB73EF /* AJNMInterface.h */,
+				AC926BFE1550A1CB00EB73EF /* AJNMInterface.m */,
+				AC926C001550A1DC00EB73EF /* AJNMMethod.h */,
+				AC926C011550A1DC00EB73EF /* AJNMMethod.m */,
+				AC926C031550A1ED00EB73EF /* AJNMSignal.h */,
+				AC926C041550A1ED00EB73EF /* AJNMSignal.m */,
+				AC926C061550A1FE00EB73EF /* AJNMProperty.h */,
+				AC926C071550A1FE00EB73EF /* AJNMProperty.m */,
+				AC926C091550A20D00EB73EF /* AJNMArgument.h */,
+				AC926C0A1550A20D00EB73EF /* AJNMArgument.m */,
+				AC926C0C1550A21A00EB73EF /* AJNMAnnotation.h */,
+				AC926C0D1550A21A00EB73EF /* AJNMAnnotation.m */,
+				AC926C101550A48C00EB73EF /* AJNMType.h */,
+				AC926C111550A48C00EB73EF /* AJNMType.m */,
+				AC926C131550AC2600EB73EF /* AJNMModelElement.h */,
+				AC926C141550AC2700EB73EF /* AJNMModelElement.m */,
+				AC926C161551A8ED00EB73EF /* AJNMObjectModel.h */,
+				AC926C171551A8ED00EB73EF /* AJNMObjectModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		ACD9B2911523A39400F9B0F1 = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2A61523A39400F9B0F1 /* AllJoynModeler */,
+				ACD9B2C31523A39500F9B0F1 /* AllJoynModelerTests */,
+				ACD9B29F1523A39400F9B0F1 /* Frameworks */,
+				ACD9B29D1523A39400F9B0F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACD9B29D1523A39400F9B0F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B29C1523A39400F9B0F1 /* AllJoynModeler.app */,
+				ACD9B2BD1523A39500F9B0F1 /* AllJoynModelerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACD9B29F1523A39400F9B0F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2A01523A39400F9B0F1 /* Cocoa.framework */,
+				ACD9B2BE1523A39500F9B0F1 /* SenTestingKit.framework */,
+				ACD9B2A21523A39400F9B0F1 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACD9B2A21523A39400F9B0F1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2A31523A39400F9B0F1 /* AppKit.framework */,
+				ACD9B2A41523A39400F9B0F1 /* CoreData.framework */,
+				ACD9B2A51523A39400F9B0F1 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ACD9B2A61523A39400F9B0F1 /* AllJoynModeler */ = {
+			isa = PBXGroup;
+			children = (
+				AC926C0F1550A22A00EB73EF /* Model */,
+				ACFCF7791566A46700BC922D /* SConscript */,
+				ACD9B2B21523A39400F9B0F1 /* AJNMAppDelegate.h */,
+				ACD9B2B31523A39400F9B0F1 /* AJNMAppDelegate.m */,
+				ACD9B2D41523A47000F9B0F1 /* AJNMViewController.h */,
+				ACD9B2D51523A47000F9B0F1 /* AJNMViewController.m */,
+				ACD9B2B51523A39400F9B0F1 /* MainMenu.xib */,
+				ACD9B2A71523A39400F9B0F1 /* Supporting Files */,
+			);
+			path = AllJoynModeler;
+			sourceTree = "<group>";
+		};
+		ACD9B2A71523A39400F9B0F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2A81523A39400F9B0F1 /* AllJoynModeler-Info.plist */,
+				ACD9B2A91523A39400F9B0F1 /* InfoPlist.strings */,
+				ACD9B2AC1523A39400F9B0F1 /* main.m */,
+				ACD9B2AE1523A39400F9B0F1 /* AllJoynModeler-Prefix.pch */,
+				ACD9B2AF1523A39400F9B0F1 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACD9B2C31523A39500F9B0F1 /* AllJoynModelerTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2C91523A39500F9B0F1 /* AllJoynModelerTests.h */,
+				ACD9B2CA1523A39500F9B0F1 /* AllJoynModelerTests.m */,
+				ACD9B2C41523A39500F9B0F1 /* Supporting Files */,
+			);
+			path = AllJoynModelerTests;
+			sourceTree = "<group>";
+		};
+		ACD9B2C41523A39500F9B0F1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACD9B2C51523A39500F9B0F1 /* AllJoynModelerTests-Info.plist */,
+				ACD9B2C61523A39500F9B0F1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACD9B29B1523A39400F9B0F1 /* AllJoynModeler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACD9B2CE1523A39500F9B0F1 /* Build configuration list for PBXNativeTarget "AllJoynModeler" */;
+			buildPhases = (
+				ACD9B2981523A39400F9B0F1 /* Sources */,
+				ACD9B2991523A39400F9B0F1 /* Frameworks */,
+				ACD9B29A1523A39400F9B0F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AllJoynModeler;
+			productName = AllJoynModeler;
+			productReference = ACD9B29C1523A39400F9B0F1 /* AllJoynModeler.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACD9B2BC1523A39500F9B0F1 /* AllJoynModelerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACD9B2D11523A39500F9B0F1 /* Build configuration list for PBXNativeTarget "AllJoynModelerTests" */;
+			buildPhases = (
+				ACD9B2B81523A39500F9B0F1 /* Sources */,
+				ACD9B2B91523A39500F9B0F1 /* Frameworks */,
+				ACD9B2BA1523A39500F9B0F1 /* Resources */,
+				ACD9B2BB1523A39500F9B0F1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACD9B2C21523A39500F9B0F1 /* PBXTargetDependency */,
+			);
+			name = AllJoynModelerTests;
+			productName = AllJoynModelerTests;
+			productReference = ACD9B2BD1523A39500F9B0F1 /* AllJoynModelerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACD9B2931523A39400F9B0F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AJNM;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "2012 Qualcomm Innovation Center, Inc.";
+			};
+			buildConfigurationList = ACD9B2961523A39400F9B0F1 /* Build configuration list for PBXProject "AllJoynModeler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ACD9B2911523A39400F9B0F1;
+			productRefGroup = ACD9B29D1523A39400F9B0F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACD9B29B1523A39400F9B0F1 /* AllJoynModeler */,
+				ACD9B2BC1523A39500F9B0F1 /* AllJoynModelerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACD9B29A1523A39400F9B0F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2AB1523A39400F9B0F1 /* InfoPlist.strings in Resources */,
+				ACD9B2B11523A39400F9B0F1 /* Credits.rtf in Resources */,
+				ACD9B2B71523A39400F9B0F1 /* MainMenu.xib in Resources */,
+				ACFCF77A1566A46700BC922D /* SConscript in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD9B2BA1523A39500F9B0F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2C81523A39500F9B0F1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ACD9B2BB1523A39500F9B0F1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACD9B2981523A39400F9B0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2AD1523A39400F9B0F1 /* main.m in Sources */,
+				ACD9B2B41523A39400F9B0F1 /* AJNMAppDelegate.m in Sources */,
+				ACD9B2D61523A47000F9B0F1 /* AJNMViewController.m in Sources */,
+				AC926BFC1550A1BF00EB73EF /* AJNMObject.m in Sources */,
+				AC926BFF1550A1CB00EB73EF /* AJNMInterface.m in Sources */,
+				AC926C021550A1DC00EB73EF /* AJNMMethod.m in Sources */,
+				AC926C051550A1ED00EB73EF /* AJNMSignal.m in Sources */,
+				AC926C081550A1FE00EB73EF /* AJNMProperty.m in Sources */,
+				AC926C0B1550A20D00EB73EF /* AJNMArgument.m in Sources */,
+				AC926C0E1550A21A00EB73EF /* AJNMAnnotation.m in Sources */,
+				AC926C121550A48C00EB73EF /* AJNMType.m in Sources */,
+				AC926C151550AC2700EB73EF /* AJNMModelElement.m in Sources */,
+				AC926C181551A8EE00EB73EF /* AJNMObjectModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACD9B2B81523A39500F9B0F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACD9B2CB1523A39500F9B0F1 /* AllJoynModelerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACD9B2C21523A39500F9B0F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACD9B29B1523A39400F9B0F1 /* AllJoynModeler */;
+			targetProxy = ACD9B2C11523A39500F9B0F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACD9B2A91523A39400F9B0F1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD9B2AA1523A39400F9B0F1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ACD9B2AF1523A39400F9B0F1 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD9B2B01523A39400F9B0F1 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		ACD9B2B51523A39400F9B0F1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD9B2B61523A39400F9B0F1 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		ACD9B2C61523A39500F9B0F1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACD9B2C71523A39500F9B0F1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACD9B2CC1523A39500F9B0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ACD9B2CD1523A39500F9B0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ACD9B2CF1523A39500F9B0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynModeler/AllJoynModeler-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynModeler/AllJoynModeler-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ACD9B2D01523A39500F9B0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynModeler/AllJoynModeler-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynModeler/AllJoynModeler-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		ACD9B2D21523A39500F9B0F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllJoynModeler.app/Contents/MacOS/AllJoynModeler";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynModeler/AllJoynModeler-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynModelerTests/AllJoynModelerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		ACD9B2D31523A39500F9B0F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AllJoynModeler.app/Contents/MacOS/AllJoynModeler";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynModeler/AllJoynModeler-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynModelerTests/AllJoynModelerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACD9B2961523A39400F9B0F1 /* Build configuration list for PBXProject "AllJoynModeler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD9B2CC1523A39500F9B0F1 /* Debug */,
+				ACD9B2CD1523A39500F9B0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACD9B2CE1523A39500F9B0F1 /* Build configuration list for PBXNativeTarget "AllJoynModeler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD9B2CF1523A39500F9B0F1 /* Debug */,
+				ACD9B2D01523A39500F9B0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACD9B2D11523A39500F9B0F1 /* Build configuration list for PBXNativeTarget "AllJoynModelerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACD9B2D21523A39500F9B0F1 /* Debug */,
+				ACD9B2D31523A39500F9B0F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACD9B2931523A39400F9B0F1 /* Project object */;
+}
