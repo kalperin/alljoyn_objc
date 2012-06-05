@@ -293,13 +293,12 @@ void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>Si
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal <xsl:value-of select="@name"/>
     //
-    if (<xsl:value-of select="@name"/>SignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
-        
-        // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
-        <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
-        assert(<xsl:value-of select="@name"/>SignalMember);
-    }
+    const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
+    
+    // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
+    <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
+    assert(<xsl:value-of select="@name"/>SignalMember);
+
     
     // Register signal handler for <xsl:value-of select="@name"/>
     status =  bus.RegisterSignalHandler(this,
@@ -317,15 +316,13 @@ void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>Si
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal <xsl:value-of select="@name"/>
     //
-    if (<xsl:value-of select="@name"/>SignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
-        
-        // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
-        <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
-        assert(<xsl:value-of select="@name"/>SignalMember);
-    }
+    const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
     
-    // Register signal handler for <xsl:value-of select="@name"/>
+    // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
+    <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
+    assert(<xsl:value-of select="@name"/>SignalMember);
+    
+    // Unregister signal handler for <xsl:value-of select="@name"/>
     status =  bus.UnregisterSignalHandler(this,
         static_cast&lt;MessageReceiver::SignalHandler&gt;(&#38;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandlerImpl::<xsl:value-of select="@name"/>SignalHandler),
         <xsl:value-of select="@name"/>SignalMember,
