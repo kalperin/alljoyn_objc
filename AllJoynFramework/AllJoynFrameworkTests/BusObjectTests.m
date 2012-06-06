@@ -42,9 +42,11 @@ const NSInteger kBusObjectTestsServicePort = 999;
 @property (nonatomic) BOOL shouldAcceptSessionJoinerNamed;
 @property (nonatomic) BOOL didJoinInSession;
 @property (nonatomic) AJNSessionId testSessionId;
+@property (nonatomic, strong) NSString *testSessionJoiner;
 @property (nonatomic) BOOL isTestClient;
 @property (nonatomic) BOOL clientConnectionCompleted;
 @property (nonatomic) BOOL didSuccessfullyCallMethodSynchronously;
+@property (nonatomic) BOOL didReceiveSignal;
 
 @end
 
@@ -64,9 +66,11 @@ const NSInteger kBusObjectTestsServicePort = 999;
 @synthesize shouldAcceptSessionJoinerNamed = _shouldAcceptSessionJoinerNamed;
 @synthesize didJoinInSession = _didJoinInSession;
 @synthesize testSessionId = _testSessionId;
+@synthesize testSessionJoiner = _testSessionJoiner;
 @synthesize isTestClient = _isTestClient;
 @synthesize clientConnectionCompleted = _clientConnectionCompleted;
 @synthesize didSuccessfullyCallMethodSynchronously = _didSuccessfullyCallMethodSynchronously;
+@synthesize didReceiveSignal = _didReceiveSignal;
 @synthesize handle = _handle;
 
 - (void)setUp
@@ -92,6 +96,9 @@ const NSInteger kBusObjectTestsServicePort = 999;
     self.isTestClient = NO;
     self.clientConnectionCompleted = NO;
     self.didSuccessfullyCallMethodSynchronously = NO;
+    self.didReceiveSignal = NO;
+    self.testSessionId = -1;
+    self.testSessionJoiner = nil;
 }
 
 - (void)tearDown
@@ -117,6 +124,9 @@ const NSInteger kBusObjectTestsServicePort = 999;
     self.isTestClient = NO;
     self.clientConnectionCompleted = NO;
     self.didSuccessfullyCallMethodSynchronously = NO;
+    self.didReceiveSignal = NO;
+    self.testSessionId = -1;
+    self.testSessionJoiner = nil;
     
     [super tearDown];
 }
@@ -249,9 +259,9 @@ const NSInteger kBusObjectTestsServicePort = 999;
     STAssertTrue([proxy.testStringProperty compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to.");
     STAssertTrue([basicObject.testStringProperty compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to.");
     
-//    basicObject.testStringProperty = @"Foo bar?";
-//    STAssertTrue([proxy.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the proxy object does not match what it was just set to.");
-//    STAssertTrue([basicObject.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the service object does not match what it was just set to.");
+    basicObject.testStringProperty = @"Foo bar?";
+    STAssertTrue([proxy.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the proxy object does not match what it was just set to.");
+    STAssertTrue([basicObject.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the service object does not match what it was just set to.");
     
     status = [client.bus disconnectWithArguments:@"null:"];
     STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
@@ -276,15 +286,21 @@ const NSInteger kBusObjectTestsServicePort = 999;
     [client tearDown];    
 }
 
-- (void)testShouldSendSignalSuccessfully
+- (void)testShouldSendAndReceiveSignalSuccessfully
 {
     BusObjectTests *client = [[BusObjectTests alloc] init];
     BasicObject *basicObject = nil;
+    BasicObject *clientBasicObject = nil;
     
     [client setUp];
     
     client.isTestClient = YES;
+
+    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
+    clientBasicObject = [[BasicObject alloc] initWithBusAttachment:client.bus onPath:kBusObjectTestsObjectPath];
     
+    [self.bus registerBusObject:basicObject];
+    [client.bus registerBasicStringsDelegateSignalHandler:client];
     [self.bus registerBusListener:self];
     [client.bus registerBusListener:client];
     
@@ -301,11 +317,6 @@ const NSInteger kBusObjectTestsServicePort = 999;
     status = [self.bus requestWellKnownName:kBusObjectTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
     STAssertTrue(status == ER_OK, @"Request for well known name failed.");
     
-    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
-    
-    [self.bus registerBusObject:basicObject];
-    
-    [self.bus registerBasicStringsDelegateSignalHandler:self];
     
     AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
     
@@ -323,8 +334,8 @@ const NSInteger kBusObjectTestsServicePort = 999;
     STAssertTrue(client.clientConnectionCompleted, @"The client did not report that it connected.");
     STAssertTrue(client.testSessionId == self.testSessionId, @"The client session id does not match the service session id.");
     
-
     [basicObject sendTestStringPropertyChangedFrom:@"Hello World" to:@"Foo Bar" inSession:self.testSessionId toDestination:nil];
+    STAssertTrue([client waitForSignalToBeReceived:kBusObjectTestsWaitTimeBeforeFailure], @"The signal handler was not called.");
     
     status = [client.bus disconnectWithArguments:@"null:"];
     STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
@@ -352,6 +363,11 @@ const NSInteger kBusObjectTestsServicePort = 999;
 - (BOOL)waitForBusToStop:(NSTimeInterval)timeoutSeconds
 {
     return [self waitForCompletion:timeoutSeconds onFlag:&_busWillStopCompleted];
+}
+
+- (BOOL)waitForSignalToBeReceived:(NSTimeInterval)timeoutSeconds
+{
+    return [self waitForCompletion:timeoutSeconds onFlag:&_didReceiveSignal];
 }
 
 - (BOOL)waitForCompletion:(NSTimeInterval)timeoutSeconds onFlag:(BOOL*)flag
@@ -469,6 +485,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
     NSLog(@"AJNSessionPortListener::didJoin:%@ inSessionWithId:%u onSessionPort:%u withSessionOptions:", joiner, sessionId, sessionPort);    
     if (sessionPort == kBusObjectTestsServicePort) {
         self.testSessionId = sessionId;
+        self.testSessionJoiner = joiner;
         self.didJoinInSession = YES;
     }
 }
@@ -477,7 +494,8 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
 - (void)didReceiveTestStringPropertyChangedFrom:(NSString *)oldString to:(NSString *)newString inSession:(AJNSessionId)sessionId fromSender:(NSString *)sender
 {
-    
+    NSLog(@"BasicStringsDelegateSignalHandler::didReceiveTestStringPropertyChangedFrom:%@ to:%@ inSession:%u fromSender:%@", oldString, newString, sessionId, sender);
+    self.didReceiveSignal = YES;
 }
 
 - (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId)sessionId fromSender:(NSString*)sender

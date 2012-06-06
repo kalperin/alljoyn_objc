@@ -554,7 +554,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         // add the signals to the interface description
         //
     
-        status = [interfaceDescription addSignalWithName:@"TestStringPropertyChanged" inputSignature:@"" argumentNames:[NSArray arrayWithObjects:@"oldString",@"newString", nil]];
+        status = [interfaceDescription addSignalWithName:@"TestStringPropertyChanged" inputSignature:@"ss" argumentNames:[NSArray arrayWithObjects:@"oldString",@"newString", nil]];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add signal to interface:  TestStringPropertyChanged" userInfo:nil];
@@ -589,7 +589,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         // add the signals to the interface description
         //
     
-        status = [interfaceDescription addSignalWithName:@"Chat" inputSignature:@"" argumentNames:[NSArray arrayWithObjects:@"message", nil]];
+        status = [interfaceDescription addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObjects:@"message", nil]];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add signal to interface:  Chat" userInfo:nil];
@@ -1048,17 +1048,17 @@ BasicStringsDelegateSignalHandlerImpl::~BasicStringsDelegateSignalHandlerImpl()
 void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal TestStringPropertyChanged
     //
-    if (TestStringPropertyChangedSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-        
-        // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
-        TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
-        assert(TestStringPropertyChangedSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
+    
+    // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
+    TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
+    assert(TestStringPropertyChangedSignalMember);
+
     
     // Register signal handler for TestStringPropertyChanged
     status =  bus.RegisterSignalHandler(this,
@@ -1074,13 +1074,12 @@ void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttach
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal TestSignalWithNoArgs
     //
-    if (TestSignalWithNoArgsSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-        
-        // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
-        TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
-        assert(TestSignalWithNoArgsSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
+    
+    // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
+    TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
+    assert(TestSignalWithNoArgsSignalMember);
+
     
     // Register signal handler for TestSignalWithNoArgs
     status =  bus.RegisterSignalHandler(this,
@@ -1098,19 +1097,18 @@ void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttach
 void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal TestStringPropertyChanged
     //
-    if (TestStringPropertyChangedSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-        
-        // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
-        TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
-        assert(TestStringPropertyChangedSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
     
-    // Register signal handler for TestStringPropertyChanged
+    // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
+    TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
+    assert(TestStringPropertyChangedSignalMember);
+    
+    // Unregister signal handler for TestStringPropertyChanged
     status =  bus.UnregisterSignalHandler(this,
         static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandler),
         TestStringPropertyChangedSignalMember,
@@ -1124,15 +1122,13 @@ void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAtta
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal TestSignalWithNoArgs
     //
-    if (TestSignalWithNoArgsSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-        
-        // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
-        TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
-        assert(TestSignalWithNoArgsSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
     
-    // Register signal handler for TestSignalWithNoArgs
+    // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
+    TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
+    assert(TestSignalWithNoArgsSignalMember);
+    
+    // Unregister signal handler for TestSignalWithNoArgs
     status =  bus.UnregisterSignalHandler(this,
         static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestSignalWithNoArgsSignalHandler),
         TestSignalWithNoArgsSignalMember,
@@ -1156,12 +1152,12 @@ void BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandl
         
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
-        
+        AJNSessionId sessionId = msg->GetSessionId();        
         NSLog(@"Received TestStringPropertyChanged signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestStringPropertyChangedFrom:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] to:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] inSession:msg->GetSessionId() fromSender:from];
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestStringPropertyChangedFrom:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] to:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId fromSender:from];
                 
         });
         
@@ -1174,12 +1170,12 @@ void BasicStringsDelegateSignalHandlerImpl::TestSignalWithNoArgsSignalHandler(co
         
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
-        
+        AJNSessionId sessionId = msg->GetSessionId();        
         NSLog(@"Received TestSignalWithNoArgs signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithNoArgsInSession:msg->GetSessionId() fromSender:from];            
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithNoArgsInSession:sessionId fromSender:from];            
                 
         });
         
@@ -1250,17 +1246,17 @@ BasicChatDelegateSignalHandlerImpl::~BasicChatDelegateSignalHandlerImpl()
 void BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal Chat
     //
-    if (ChatSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
-        
-        // Store the Chat signal member away so it can be quickly looked up
-        ChatSignalMember = interface->GetMember("Chat");
-        assert(ChatSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
+    
+    // Store the Chat signal member away so it can be quickly looked up
+    ChatSignalMember = interface->GetMember("Chat");
+    assert(ChatSignalMember);
+
     
     // Register signal handler for Chat
     status =  bus.RegisterSignalHandler(this,
@@ -1278,19 +1274,18 @@ void BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachmen
 void BasicChatDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal Chat
     //
-    if (ChatSignalMember == NULL) {
-        const ajn::InterfaceDescription* interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
-        
-        // Store the Chat signal member away so it can be quickly looked up
-        ChatSignalMember = interface->GetMember("Chat");
-        assert(ChatSignalMember);
-    }
+    interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
     
-    // Register signal handler for Chat
+    // Store the Chat signal member away so it can be quickly looked up
+    ChatSignalMember = interface->GetMember("Chat");
+    assert(ChatSignalMember);
+    
+    // Unregister signal handler for Chat
     status =  bus.UnregisterSignalHandler(this,
         static_cast<MessageReceiver::SignalHandler>(&BasicChatDelegateSignalHandlerImpl::ChatSignalHandler),
         ChatSignalMember,
@@ -1312,12 +1307,12 @@ void BasicChatDelegateSignalHandlerImpl::ChatSignalHandler(const ajn::InterfaceD
         
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
-        
+        AJNSessionId sessionId = msg->GetSessionId();        
         NSLog(@"Received Chat signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicChatDelegateSignalHandler>)m_delegate didReceiveMessage:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inSession:msg->GetSessionId() fromSender:from];
+            [(id<BasicChatDelegateSignalHandler>)m_delegate didReceiveMessage:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId fromSender:from];
                 
         });
         
