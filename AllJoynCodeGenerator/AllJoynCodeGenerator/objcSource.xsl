@@ -263,12 +263,14 @@ public:
 void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &#38;bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     <xsl:apply-templates select="signal" mode="cpp-signal-handler-impl-register"/>
 }
 
 void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &#38;bus)
 {
     QStatus status = ER_OK;
+    const ajn::InterfaceDescription* interface = NULL;
     <xsl:apply-templates select="signal" mode="cpp-signal-handler-impl-unregister"/>
 }
 
@@ -293,7 +295,7 @@ void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>Si
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal <xsl:value-of select="@name"/>
     //
-    const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
+    interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
     
     // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
     <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
@@ -316,7 +318,7 @@ void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>Si
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal <xsl:value-of select="@name"/>
     //
-    const ajn::InterfaceDescription* interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
+    interface = bus.GetInterface([@"<xsl:value-of select="../@name"/>" UTF8String]);
     
     // Store the <xsl:value-of select="@name"/> signal member away so it can be quickly looked up
     <xsl:value-of select="@name"/>SignalMember = interface->GetMember("<xsl:value-of select="@name"/>");
@@ -346,16 +348,16 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         <xsl:apply-templates select="arg" mode="cpp-unpack-message-arg"/>
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
-        
+        AJNSessionId sessionId = msg->GetSessionId();        
         NSLog(@"Received <xsl:value-of select="@name"/> signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             <xsl:choose>
                 <xsl:when test="count(arg) > 0">
-            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:apply-templates select="./arg" mode="objc-messageCall"/> inSession:msg->GetSessionId() fromSender:from];
+            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:apply-templates select="./arg" mode="objc-messageCall"/> inSession:sessionId fromSender:from];
                 </xsl:when>
                 <xsl:otherwise>
-            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:value-of select="@name"/>InSession:msg->GetSessionId() fromSender:from];            
+            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:value-of select="@name"/>InSession:sessionId fromSender:from];            
                 </xsl:otherwise>
             </xsl:choose>
         });
@@ -737,7 +739,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 </xsl:template>
 
 <xsl:template match="signal" mode="objc-interface-signal-descriptions">
-        status = [interfaceDescription addSignalWithName:@"<xsl:value-of select="@name"/>" inputSignature:@"<xsl:for-each select="arg[@direction='in']"><xsl:value-of select="@type"/></xsl:for-each>" argumentNames:[NSArray arrayWithObjects:<xsl:for-each select="arg">@"<xsl:value-of select="@name"/>",</xsl:for-each> nil]];
+        status = [interfaceDescription addSignalWithName:@"<xsl:value-of select="@name"/>" inputSignature:@"<xsl:for-each select="arg"><xsl:value-of select="@type"/></xsl:for-each>" argumentNames:[NSArray arrayWithObjects:<xsl:for-each select="arg">@"<xsl:value-of select="@name"/>",</xsl:for-each> nil]];
         
         if (status != ER_OK &#38;&#38; status != ER_BUS_MEMBER_ALREADY_EXISTS) {
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add signal to interface:  <xsl:value-of select="@name"/>" userInfo:nil];
