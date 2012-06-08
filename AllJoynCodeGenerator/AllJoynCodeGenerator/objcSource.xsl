@@ -423,9 +423,10 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     
     MsgArg propValue;
     
-    QStatus status = self.proxyBusObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", propValue);
+    QStatus status = self.proxyBusObject->GetProperty([@"<xsl:value-of select="../@name"/>" UTF8String], [@"<xsl:value-of select="@name"/>" UTF8String], propValue);
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
+        return nil;
     }
     <xsl:apply-templates select="." mode="objc-prop-accessor-return"/>
 }
@@ -439,7 +440,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 
     arg.Set("<xsl:value-of select="@type"/>", [propertyValue <xsl:call-template name="objcArgTypeConversionToCpp"/>]);    
     
-    QStatus status = self.proxyBusObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", arg); 
+    QStatus status = self.proxyBusObject->SetProperty([@"<xsl:value-of select="../@name"/>" UTF8String], [@"<xsl:value-of select="@name"/>" UTF8String], arg); 
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to set property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }
@@ -464,11 +465,16 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     // make the function call using the C++ proxy object
     //
     QStatus status = self.proxyBusObject->MethodCall([@"<xsl:value-of select="../@name"/>" UTF8String], "<xsl:value-of select="@name"/>", inArgs, <xsl:value-of select="count(./arg[@direction='in'])"/>, reply, 5000);
-    if (ER_OK == status) {
-    
-    }
-    else {
-    
+    if (ER_OK != status) {
+        NSLog(@"ERROR: ProxyBusObject::MethodCall on <xsl:value-of select="../@name"/> failed. %@", [AJNStatus descriptionForStatusCode:status]);
+        <xsl:choose>
+            <xsl:when test="count(./arg[@direction='out']) = 1">
+        return nil;
+            </xsl:when>
+            <xsl:otherwise>
+        return;
+            </xsl:otherwise>
+        </xsl:choose>
     }
 
     <xsl:if test="count(./arg[@direction='out']) > 0">
@@ -843,7 +849,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     
     status = AddMethodHandlers(methodEntriesFor<xsl:value-of select="./annotation[@name='org.alljoyn.lang.objc']/@value"/>, sizeof(methodEntriesFor<xsl:value-of select="./annotation[@name='org.alljoyn.lang.objc']/@value"/>) / sizeof(methodEntriesFor<xsl:value-of select="./annotation[@name='org.alljoyn.lang.objc']/@value"/>[0]));
     if (ER_OK != status) {
-        // TODO: perform error checking here
+        NSLog(@"ERROR: An error occurred while adding method handlers for interface <xsl:value-of select="@name"/> to the interface description. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     </xsl:if>
     
@@ -912,7 +918,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     <xsl:apply-templates select="arg[@direction='out']" mode="cpp-msg-arg-for-method-reply"/>
     QStatus status = MethodReply(msg, outArgs, <xsl:value-of select="count(arg[@direction='out'])"/>);
     if (ER_OK != status) {
-        // TODO: exception handling
+        NSLog(@"ERROR: An error occurred when attempting to send a method reply for <xsl:value-of select="@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }        
     </xsl:if>
     
