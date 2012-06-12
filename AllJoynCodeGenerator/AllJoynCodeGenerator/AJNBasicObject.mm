@@ -1,4 +1,20 @@
 ////////////////////////////////////////////////////////////////////////////////
+// Copyright 2012, Qualcomm Innovation Center, Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -53,6 +69,7 @@ public:
 	void MethodWithMultipleOutArgs(const InterfaceDescription::Member* member, Message& msg);
 	void MethodWithOnlyOutArgs(const InterfaceDescription::Member* member, Message& msg);
 	void methodWithNoReturnAndNoArgs(const InterfaceDescription::Member* member, Message& msg);
+	void methodWithReturnAndNoInArgs(const InterfaceDescription::Member* member, Message& msg);
 
     
     // signals
@@ -74,7 +91,8 @@ BasicObjectImpl::BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicS
     AJNBusObjectImpl(bus,path,aDelegate)
 {
     const InterfaceDescription* interfaceDescription = NULL;
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     
     
     // Add the org.alljoyn.bus.sample.strings interface to this object
@@ -102,6 +120,10 @@ BasicObjectImpl::BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicS
 
 		{
 			interfaceDescription->GetMember("methodWithNoReturnAndNoArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::methodWithNoReturnAndNoArgs)
+		},
+
+		{
+			interfaceDescription->GetMember("methodWithReturnAndNoInArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::methodWithReturnAndNoInArgs)
 		}
     
     };
@@ -330,6 +352,40 @@ void BasicObjectImpl::methodWithNoReturnAndNoArgs(const InterfaceDescription::Me
 }
 
 
+void BasicObjectImpl::methodWithReturnAndNoInArgs(const InterfaceDescription::Member *member, Message& msg)
+{
+    @autoreleasepool {
+    
+    
+    
+    // declare the output arguments
+    //
+    
+	NSString* outArg0;
+
+    
+    // call the Objective-C delegate method
+    //
+    
+	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithReturnAndNoInArgs];
+            
+        
+    // formulate the reply
+    //
+    MsgArg outArgs[1];
+    
+    outArgs[0].Set("s", [outArg0 UTF8String]);
+
+    QStatus status = MethodReply(msg, outArgs, 1);
+    if (ER_OK != status) {
+        NSLog(@"ERROR: An error occurred when attempting to send a method reply for methodWithReturnAndNoInArgs. %@", [AJNStatus descriptionForStatusCode:status]);
+    }        
+    
+    
+    }
+}
+
+
 QStatus BasicObjectImpl::SendTestStringPropertyChanged(const char * oldString,const char * newString, const char* destination, SessionId sessionId, uint16_t timeToLive, uint8_t flags)
 {
 
@@ -408,7 +464,8 @@ PingObjectImpl::PingObjectImpl(BusAttachment &bus, const char *path, id<PingObje
     AJNBusObjectImpl(bus,path,aDelegate)
 {
     const InterfaceDescription* interfaceDescription = NULL;
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     
     
     // Add the org.alljoyn.bus.samples.ping interface to this object
@@ -486,7 +543,9 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 {
     self = [super initWithBusAttachment:busAttachment onPath:path];
     if (self) {
-        QStatus status = ER_OK;
+        QStatus status;
+
+        status = ER_OK;
         
         AJNInterfaceDescription *interfaceDescription;
         
@@ -533,6 +592,12 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: methodWithNoReturnAndNoArgs" userInfo:nil];
+        }
+
+        status = [interfaceDescription addMethodWithName:@"methodWithReturnAndNoInArgs" inputSignature:@"" outputSignature:@"s" argumentNames:[NSArray arrayWithObjects:@"outStr", nil]];
+        
+        if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: methodWithReturnAndNoInArgs" userInfo:nil];
         }
 
         // add the signals to the interface description
@@ -628,6 +693,15 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
 - (void)methodWithNoReturnAndNoArgs
+{
+    //
+    // GENERATED CODE - DO NOT EDIT
+    //
+    // Create a category or subclass in separate .h/.m files
+    @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
+}
+
+- (NSString*)methodWithReturnAndNoInArgs
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -852,6 +926,36 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
 }
 
+- (NSString*)methodWithReturnAndNoInArgs
+{
+    [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
+    
+    // prepare the input arguments
+    //
+    
+    Message reply(*((BusAttachment*)self.bus.handle));    
+    MsgArg inArgs[0];
+    
+
+    // make the function call using the C++ proxy object
+    //
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "methodWithReturnAndNoInArgs", inArgs, 0, reply, 5000);
+    if (ER_OK != status) {
+        NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
+        
+        return nil;
+            
+    }
+
+    
+    // pass the output arguments back to the caller
+    //
+        
+    return [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
+        
+
+}
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -877,7 +981,9 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 {
     self = [super initWithBusAttachment:busAttachment onPath:path];
     if (self) {
-        QStatus status = ER_OK;
+        QStatus status;
+
+        status = ER_OK;
         
         AJNInterfaceDescription *interfaceDescription;
         
@@ -1033,7 +1139,8 @@ BasicStringsDelegateSignalHandlerImpl::~BasicStringsDelegateSignalHandlerImpl()
 
 void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
@@ -1082,7 +1189,8 @@ void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttach
 
 void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
@@ -1231,7 +1339,8 @@ BasicChatDelegateSignalHandlerImpl::~BasicChatDelegateSignalHandlerImpl()
 
 void BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////
@@ -1259,7 +1368,8 @@ void BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachmen
 
 void BasicChatDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     
     ////////////////////////////////////////////////////////////////////////////

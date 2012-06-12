@@ -174,7 +174,7 @@
     </xsl:choose>
     <xsl:text>)</xsl:text>
     <xsl:choose>
-        <xsl:when test="count(./arg) = 0">
+        <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:value-of select="@name"/>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">

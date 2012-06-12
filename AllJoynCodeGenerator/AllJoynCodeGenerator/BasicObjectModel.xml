@@ -52,6 +52,9 @@
                 </arg>                
             </method>
             <method name="methodWithNoReturnAndNoArgs"/>
+            <method name="methodWithReturnAndNoInArgs">
+                <arg name="outStr" type="s" direction="out"/>
+            </method>
             <property name="testStringProperty" type="s" access="readwrite"/>
             <signal name="TestStringPropertyChanged">
                 <arg name="oldString" type="s">

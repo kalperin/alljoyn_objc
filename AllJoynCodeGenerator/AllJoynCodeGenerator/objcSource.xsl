@@ -102,7 +102,8 @@ public:
     AJNBusObjectImpl(bus,path,aDelegate)
 {
     const InterfaceDescription* interfaceDescription = NULL;
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     
     <xsl:apply-templates select="./interface" mode="cpp-interface-creation"/>
 
@@ -163,7 +164,9 @@ QStatus <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/
 {
     self = [super initWithBusAttachment:busAttachment onPath:path];
     if (self) {
-        QStatus status = ER_OK;
+        QStatus status;
+
+        status = ER_OK;
         
         AJNInterfaceDescription *interfaceDescription;
         
@@ -262,14 +265,16 @@ public:
 
 void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &#38;bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     <xsl:apply-templates select="signal" mode="cpp-signal-handler-impl-register"/>
 }
 
 void <xsl:value-of select="annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachment &#38;bus)
 {
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     const ajn::InterfaceDescription* interface = NULL;
     <xsl:apply-templates select="signal" mode="cpp-signal-handler-impl-unregister"/>
 }
@@ -545,7 +550,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     return [NSNumber numberWithUnsignedChar:propValue.v_variant.val->v_byte];
         </xsl:when>
         <xsl:when test="@type='b'">
-    return [NSNumber numberWithBool:propValue.v_variant.val->v_bool];
+    return propValue.v_variant.val->v_bool;
         </xsl:when>
         <xsl:when test="@type='n'">
     return [NSNumber numberWithShort:propValue.v_variant.val->v_int16];
@@ -583,7 +588,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     return [NSNumber numberWithUnsignedChar:reply-&gt;GetArg()-&gt;v_byte];
         </xsl:when>
         <xsl:when test="@type='b'">
-    return [NSNumber numberWithBool:reply-&gt;GetArg()-&gt;v_bool];
+    return reply-&gt;GetArg()-&gt;v_bool;
         </xsl:when>
         <xsl:when test="@type='n'">
     return [NSNumber numberWithShort:reply-&gt;GetArg()-&gt;v_int16];
@@ -621,7 +626,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     *<xsl:value-of select="@name"/> = [NSNumber numberWithUnsignedChar:reply-&gt;GetArg()-&gt;v_byte];
         </xsl:when>
         <xsl:when test="@type='b'">
-    *<xsl:value-of select="@name"/> = [NSNumber numberWithBool:reply-&gt;GetArg()-&gt;v_bool];
+    *<xsl:value-of select="@name"/> = reply-&gt;GetArg()-&gt;v_bool;
         </xsl:when>
         <xsl:when test="@type='n'">
     *<xsl:value-of select="@name"/> = [NSNumber numberWithShort:reply-&gt;GetArg()-&gt;v_int16];
@@ -665,7 +670,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     </xsl:choose>
     <xsl:text>)</xsl:text>
     <xsl:choose>
-        <xsl:when test="count(./arg) = 0">
+        <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:value-of select="@name"/>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
@@ -765,7 +770,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:if test="@access='readwrite' or @access='read'">
         if (strcmp(propName, "<xsl:value-of select="@name"/>") == 0)
         {
-            status = val.Set( "<xsl:value-of select="@type"/>", [((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/><xsl:text> </xsl:text><xsl:call-template name="objcArgTypeConversionToCpp"/>] );
+            status = val.Set( "<xsl:value-of select="@type"/>", <xsl:if test="@type!='b'">[</xsl:if>((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/><xsl:text> </xsl:text><xsl:if test="@type!='b'"><xsl:call-template name="objcArgTypeConversionToCpp"/>]</xsl:if> );
         }
     </xsl:if>
 </xsl:template>
@@ -899,7 +904,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     //
     <xsl:choose>
         <xsl:when test="count(arg[@direction='out'])=1">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/>];
+            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg)=1"><xsl:value-of select="@name"/></xsl:when><xsl:otherwise><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:otherwise></xsl:choose>];
             
         </xsl:when>
         <xsl:when test="count(arg[@direction='out'])>1">
@@ -936,7 +941,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
 </xsl:template>
 
 <xsl:template match="arg" mode="cpp-msg-arg-for-method-reply">
-    outArgs[<xsl:value-of select="position()-1"/>].Set("<xsl:value-of select="@type"/>", [outArg<xsl:value-of select="position()-1"/><xsl:text> </xsl:text><xsl:call-template name="objcArgTypeConversionToCpp"/>]);
+    outArgs[<xsl:value-of select="position()-1"/>].Set("<xsl:value-of select="@type"/>", <xsl:if test="@type!='b'">[</xsl:if>outArg<xsl:value-of select="position()-1"/><xsl:text> </xsl:text><xsl:if test="@type!='b'"><xsl:call-template name="objcArgTypeConversionToCpp"/>]</xsl:if>);
 </xsl:template>
 
 <xsl:template match="arg" mode="cpp-msg-arg-for-method-call">
