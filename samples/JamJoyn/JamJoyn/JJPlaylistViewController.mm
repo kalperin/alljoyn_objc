@@ -33,11 +33,14 @@ struct JJSong
 
 @interface JJPlaylistViewController () <JJManagerDelegate>
 
+@property (nonatomic) BOOL willShowSongDetails;
+
 @end
 
 @implementation JJPlaylistViewController
 
 @synthesize tableView = _tableView;
+@synthesize willShowSongDetails = _willShowSongDetails;
 
 - (void)viewDidLoad
 {
@@ -52,7 +55,19 @@ struct JJSong
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    self.willShowSongDetails = NO;
+    
     JJManager.sharedInstance.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    if (!self.willShowSongDetails) {
+        [JJManager.sharedInstance leaveRoom];    
+    }
 }
 
 - (void)viewDidUnload
@@ -147,7 +162,7 @@ struct JJSong
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    self.willShowSongDetails = YES;
 }
 
 - (void)roomsChanged

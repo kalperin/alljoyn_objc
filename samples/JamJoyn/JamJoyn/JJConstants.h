@@ -17,7 +17,10 @@
 #import "AJNSessionOptions.h"
 
 extern const AJNSessionPort kServicePort;
+extern const AJNSessionPort kMediaServicePort;
 extern NSString * const kServicePath;
+extern NSString * const kMediaSourceServicePath;
+extern NSString * const kMediaStreamServicePath;
 extern NSString * const kServiceName;
 extern NSString * const kInterfaceName;
 extern NSString * const kAppName;

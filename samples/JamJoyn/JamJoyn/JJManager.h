@@ -35,6 +35,7 @@ struct JJSong;
 @property (nonatomic, strong) id<JJManagerDelegate> delegate;
 
 - (void)joinRoom:(NSInteger)roomIndex;
+- (void)leaveRoom;
 
 - (void)play;
 - (void)stop;

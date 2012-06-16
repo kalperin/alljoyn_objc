@@ -485,6 +485,21 @@ public:
     return status;
 }
 
+- (AJNSessionPort)bindSessionOnAnyPortWithOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate
+{
+    AJNSessionPortListenerImpl *listenerImpl = new AJNSessionPortListenerImpl(self, delegate);
+    AJNSessionPort sessionPort = kAJNSessionPortAny;
+    QStatus status = self.busAttachment->BindSessionPort(sessionPort, *((ajn::SessionOpts*)options.handle), *listenerImpl);
+    @synchronized(self.sessionPortListeners) {
+        [self.sessionPortListeners addObject:[NSValue valueWithPointer:listenerImpl]];
+    }
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttachment::bindSessionOnPort:withOptions:withDelegate: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return sessionPort;    
+}
+
+
 - (QStatus)unbindSessionFromPort:(AJNSessionPort)port
 {
     QStatus status = self.busAttachment->UnbindSessionPort(port);
@@ -676,7 +691,7 @@ public:
     return self.busAttachment->ClearKeys([peerId UTF8String]);
 }
 
-- (QStatus)getKeyExpiration:(uint32_t*)timeout forRemotePeerId:(NSString*)peerId
+- (QStatus)keyExpiration:(uint32_t*)timeout forRemotePeerId:(NSString*)peerId
 {
     return self.busAttachment->GetKeyExpiration([peerId UTF8String], *timeout);
 }

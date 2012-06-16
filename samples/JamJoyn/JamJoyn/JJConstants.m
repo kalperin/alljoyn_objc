@@ -17,6 +17,9 @@
 #import "JJConstants.h"
 
 const AJNSessionPort kServicePort = 101;
+const AJNSessionPort kMediaServicePort = 123;
+NSString * const kMediaSourceServicePath = @"/org/alljoyn/MediaSource";
+NSString * const kMediaStreamServicePath = @"/org/alljoyn/MediaSource/mp3";
 NSString * const kServicePath = @"/commandPasserService";
 NSString * const kServiceName = @"org.alljoyn.bus.samples.commandpasser";
 NSString * const kInterfaceName = @"org.alljoyn.bus.samples.commandpasser";

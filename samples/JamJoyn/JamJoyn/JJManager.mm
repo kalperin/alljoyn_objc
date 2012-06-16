@@ -14,10 +14,18 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <AVFoundation/AVFoundation.h>
 #import "JJManager.h"
 #import "JJConstants.h"
 #import "JJService.h"
+#import "JJMediaSource.h"
+#import "JJMp3MediaStream.h"
 #import <alljoyn/BusAttachment.h>
+#import <ajstream/MP3Reader.h>
+#import <ajstream/MediaSource.h>
+#import <ajstream/MediaPacer.h>
+
+using namespace ajn;
 
 struct JJSong
 {
@@ -32,6 +40,157 @@ struct JJSong
     qcc::String busId;    
 };
 
+class AudioStream : public MediaStream, MediaPacer {
+    
+public:
+    
+    AudioStream(BusAttachment& bus, const char* name, MP3Reader& reader, uint32_t jitter, uint32_t prefill) :
+    MediaStream(bus, name, reader.GetDescription()),
+    MediaPacer(reader.GetDescription(), jitter),
+    reader(reader),
+    prefill(prefill)
+    {
+        buffer = new uint8_t[reader.MaxFrameLen];
+    }
+    
+    ~AudioStream()
+    {
+        MediaPacer::Stop();
+        delete buffer;
+    }
+    
+private:
+    
+    bool OnOpen(qcc::SocketFd sinkSocket)
+    {
+        QStatus status = reader.Open();
+        if (status == ER_OK) {
+            printf("Stream %s opened sock %u\n", GetStreamName().c_str(), sinkSocket);
+            sock = sinkSocket;
+            startTime = 0;
+            timestamp = startTime;
+            return true;
+        } else {
+            printf("Failed to open MP3\n");
+            return false;
+        }
+    }
+    
+    void OnClose()
+    {
+        printf("Stream %s closed\n", GetStreamName().c_str());
+        MediaPacer::Stop();
+        reader.Close();
+    }
+    
+    bool OnPlay()
+    {
+        printf("Stream %s play\n", GetStreamName().c_str());
+        if (!IsRunning()) {
+            MediaPacer::Start(sock, timestamp, prefill);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    bool OnPause()
+    {
+        printf("Stream %s pause\n", GetStreamName().c_str());
+        if (IsRunning()) {
+            MediaPacer::Stop();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    bool OnSeekRelative(int32_t offset, MediaSeekUnits units)
+    {
+        printf("Stream %s seek relative %d\n", GetStreamName().c_str(), offset);
+        if (MediaPacer::IsRunning()) {
+            MediaPacer::Stop();
+        }
+        QStatus status = reader.SetPosRelative(offset, units);
+        if (status == ER_OK) {
+            timestamp = startTime + reader.GetTimestamp();
+            printf("Starting Stream on Socket=%u, timestamp=%u, prefill=%u\n", sock, timestamp, prefill);
+            MediaPacer::Start(sock, timestamp, prefill);
+            return true;
+        }
+        printf("SetPosAbsolute failed %s\n", QCC_StatusText(status));
+        return false;
+    }
+    
+    bool OnSeekAbsolute(uint32_t position, MediaSeekUnits units)
+    {
+        printf("Stream %s seek absolute %u\n", GetStreamName().c_str(), position);
+        if (MediaPacer::IsRunning()) {
+            MediaPacer::Stop();
+        }
+        QStatus status = reader.SetPosAbsolute(position, units);
+        if (status == ER_OK) {
+            timestamp = startTime + reader.GetTimestamp();
+            printf("Starting Stream on Socket=%u, timestamp=%u, prefill=%u\n", sock, timestamp, prefill);
+            MediaPacer::Start(sock, timestamp, prefill);
+            return true;
+        }
+        printf("SetPosAbsolute failed %s\n", QCC_StatusText(status));
+        return false;
+    }
+    
+    void JitterMiss(uint32_t timestamp, qcc::SocketFd socket, uint32_t jitter)
+    {
+        printf("Failed to meet jitter target - actual jitter = %d\n", jitter);
+    }
+    
+    QStatus RequestFrames(uint32_t timestamp, qcc::SocketFd socket, size_t maxFrames, size_t& count)
+    {
+        QStatus status = ER_OK;
+        
+        for (count = 0; (count < maxFrames) && (status == ER_OK); ++count) {
+            size_t len;
+            bool lostSync;
+            status = reader.ReadFrame(buffer, reader.MaxFrameLen, len, lostSync);
+            if (status == ER_OK) {
+                if (lostSync) {
+                    printf("Lost sync\n");
+                }
+                uint8_t*ptr = buffer;
+                while (len) {
+                    int ret = ::write(socket, ptr, len);
+                    if (ret < 0) {
+                        /* Write is blocking so EAGAIN or EBUSY means the output buffer is full */
+                        if ((errno == EAGAIN) || (errno == EBUSY)) {
+                            usleep(50 * 1000);
+                            continue;
+                        }
+                        printf("write to %d failed with \"%s\"\n", socket, ::strerror(errno));
+                        status = ER_WRITE_ERROR;
+                        break;
+                    }
+                    printf("Wrote %d bytes\n", ret);
+                    ptr += ret;
+                    len -= ret;
+                }
+            }
+        }
+        /* Close the stream if the read or write failed */
+        if (status != ER_OK) {
+            Close();
+        }
+        return status;
+    }
+    
+private:
+    uint32_t startTime;   /* The timestamp corresponding to the start of the stream */
+    uint32_t timestamp;   /* The timestamp for the current positition in the stream */
+    qcc::SocketFd sock;   /* The socket to write the MP3 frame to */
+    MP3Reader& reader;    /* The MP3 reader */
+    uint8_t* buffer;
+    uint32_t prefill;     /* Prefill milliseconds when starting a stream */
+    
+};
 
 static JJManager *s_manager;
 
@@ -41,18 +200,30 @@ static JJManager *s_manager;
 
 @end
 
+@interface MediaSessionPortListener : NSObject <AJNSessionPortListener>
+
+@end
+
+
 @interface JJManager()<AJNBusListener, AJNSessionListener, AJNSessionPortListener, JamJoynServiceDelegate> {
     JJSong *currentPlaylist;
+    MP3Reader *musicFileReader;
+    MediaSource *mediaSource;
+    AudioStream *audioStream;
     NSInteger playlistSongCount;
 }
 
 @property (nonatomic, strong) NSMutableArray *theRooms;
 @property (nonatomic, strong) JamJoynServiceObjectProxy *jamjoynService;
 @property (nonatomic, strong) AJNJamJoynServiceObject *serviceObject;
+@property (nonatomic, strong) MediaSessionPortListener *mediaSessionListener;
 @property (nonatomic) AJNSessionId sessionId;
 @property (nonatomic) BOOL isPlaying;
+@property (nonatomic, strong) NSString *mediaPath;
 
 @property (nonatomic, strong) AJNBusAttachment *bus;
+
+- (void)openAudioStream;
 
 @end
 
@@ -65,10 +236,12 @@ static JJManager *s_manager;
 @synthesize bus = _bus;
 @synthesize jamjoynService = _jamjoynService;
 @synthesize serviceObject = _serviceObject;
+@synthesize mediaSessionListener = _mediaSessionListener;
 @synthesize handle = _handle;
 @synthesize currentRoom = _currentRoom;
 @synthesize currentSong = _currentSong;
 @synthesize isPlaying = _isPlaying;
+@synthesize mediaPath = _mediaPath;
 
 - (NSArray *)rooms
 {
@@ -103,6 +276,10 @@ static JJManager *s_manager;
 {
     self = [super init];
     if (self) {
+        
+        musicFileReader = new MP3Reader();       
+        
+        self.mediaSessionListener = [[MediaSessionPortListener alloc] init];
 
         self.bus = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
         
@@ -126,8 +303,59 @@ static JJManager *s_manager;
         
         [self.bus findAdvertisedName:@"org.alljoyn.bus.samples.commandpasser"];    
         
+        // media source session
+        //
+        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+        
+        mediaSource = new MediaSource(*((BusAttachment*)self.bus.handle));
+        
+        [self.bus registerBusObject:[[AJNBusObject alloc] initWithHandle:(AJNHandle)mediaSource]];
+        
+        [self.bus bindSessionOnPort:kMediaServicePort withOptions:sessionOptions withDelegate:self.mediaSessionListener];
+        
+        
    }
     return self;
+}
+
+- (void)sendSong
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101" ofType:@"mp3"];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
+    AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    
+    NSArray *metadata = [asset commonMetadata];
+    NSMutableDictionary *metaDataLookup = [[NSMutableDictionary alloc] init];
+    for ( AVMetadataItem* item in metadata ) {
+        NSString *key = [item commonKey];
+        NSString *value = [item stringValue];
+        NSLog(@"key = %@, value = %@", key, value);
+        [metaDataLookup setValue:value forKey:key];
+    }
+    
+    JJSong *song = new JJSong();
+    
+    song->album = [[metaDataLookup valueForKey:@"albumName"] UTF8String];
+    song->albumId = 0;
+    song->artist = [[metaDataLookup valueForKey:@"creator"] UTF8String];
+    song->songId = 0;
+    song->songName = [[metaDataLookup valueForKey:@"title"] UTF8String];
+    song->songPath = [[@"STREAM:" stringByAppendingString:path] UTF8String];
+    song->fileName = [@"Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3" UTF8String];
+    song->busId = [self.bus.uniqueIdentifier UTF8String];
+    
+    [self.jamjoynService sendSongs:song];
+}
+
+-(void)openAudioStream
+{
+    // create the audio stream and add it to the source
+    //
+    NSLog(@"Opening %@ file...", self.mediaPath);
+    audioStream = new AudioStream(*((BusAttachment*)self.bus.handle), "mp3", *musicFileReader, 100, 1000);
+    QStatus status = mediaSource->AddStream(*audioStream);
+
+    NSLog(@"Open media file complete");    
 }
 
 - (void)joinRoom:(NSInteger)roomIndex
@@ -140,8 +368,25 @@ static JJManager *s_manager;
     
     [self.serviceObject announceNickName:@"iOS_R0x0r" isHost:NO inSession:self.sessionId toDestination:nil];
     
-    self.jamjoynService = [[JamJoynServiceObjectProxy alloc] initWithBusAttachment:self.bus serviceName:room objectPath:kServicePath sessionId:self.sessionId];
+    self.jamjoynService = [[JamJoynServiceObjectProxy alloc] initWithBusAttachment:self.bus serviceName:room objectPath:kServicePath sessionId:self.sessionId];    
     
+    [self.jamjoynService introspectRemoteObject];
+    
+    [self sendSong];
+}
+
+- (void)leaveRoom
+{
+    [self.bus leaveSession:self.sessionId];
+    
+    if (audioStream) {
+        mediaSource->RemoveStream(*audioStream);
+        delete audioStream;
+        audioStream = nil;
+    }    
+    
+    self.mediaPath = nil;
+    self.sessionId = -1;
 }
 
 - (void)play
@@ -186,10 +431,6 @@ static JJManager *s_manager;
     
     [self.delegate roomsChanged];
     
-//    
-//    if ([self.delegate respondsToSelector:@selector(didUpdateConversations)]) {
-//        [self.delegate didUpdateConversations];
-//    }    
 }
 
 - (void)didLoseAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask)transport namePrefix:(NSString*)namePrefix
@@ -197,28 +438,6 @@ static JJManager *s_manager;
     NSLog(@"JJManager::didLoseAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix);
     
     [self.delegate roomsChanged];
-    
-//    NSString *conversationName = [NSString stringWithFormat:@"%@", [[name componentsSeparatedByString:@"."] lastObject]];
-//    
-//    NSLog(@"Lost chat conversation: \"%@\"\n", conversationName);
-//    
-//    @synchronized(self.conversationNames) {
-//        if ([self.conversationNames containsObject:conversationName]) {
-//            NSLog(@"Chat session for conversation %@ not found. Adding to dictionary...", conversationName);
-//            
-//            [self.conversationNames removeObject:conversationName];
-//        }
-//        
-//        AJNCConversation *conversation = [self.nameToConversationTable objectForKey:conversationName];
-//        if (conversation) {
-//            [self.nameToConversationTable removeObjectForKey:conversationName];
-//            [self.busAttachment unregisterBusObject:conversation.chatObject];
-//        }
-//    }
-//    
-//    if ([self.delegate respondsToSelector:@selector(didUpdateConversations)]) {
-//        [self.delegate didUpdateConversations];
-//    }
 }
 
 - (void)nameOwnerChanged:(NSString *)name to:(NSString *)newOwner from:(NSString *)previousOwner
@@ -249,34 +468,17 @@ static JJManager *s_manager;
 - (void)didAddMemberNamed:(NSString*)memberName toSession:(AJNSessionId)sessionId
 {
     NSLog(@"JJManager::didAddMemberNamed:%@ toSession:%u", memberName, sessionId);  
-//    for (AJNCConversation *conversation in self.nameToConversationTable.allValues) {
-//        if (conversation.identifier == sessionId) {
-//            conversation.totalParticipants += 1;
-//        }
-//    }
 }
 
 - (void)didRemoveMemberNamed:(NSString*)memberName fromSession:(AJNSessionId)sessionId
 {
     NSLog(@"JJManager::didRemoveMemberNamed:%@ fromSession:%u", memberName, sessionId);                    
-//    for (AJNCConversation *conversation in self.nameToConversationTable.allValues) {
-//        if (conversation.identifier == sessionId) {
-//            conversation.totalParticipants -= 1;
-//        }
-//    }
 }
 
 #pragma mark - JamJoynServiceDelegate
 
 - (void)receiveSongList:(JJSong *)songs size:(long)songCount
 {
-//    JJSong *song = songs;
-//    NSLog(@"Song: %s %s", song->songName.c_str(), song->album.c_str());
-//    song = songs + 1;
-//    NSLog(@"Song: %s %s", song->songName.c_str(), song->album.c_str());
-//    song = songs + 2;
-//    NSLog(@"Song: %s %s", song->songName.c_str(), song->album.c_str());
-
     currentPlaylist = songs;
     playlistSongCount = songCount;
     
@@ -300,6 +502,29 @@ static JJManager *s_manager;
             NSLog(@"Play state set to TRUE");
         }
     }
+    else if ([command compare:@"startStreamSong"] == NSOrderedSame) {
+                
+        // begin streaming the song to the player
+        //
+        NSArray *argumentTokens = [arguments componentsSeparatedByString:@"|"];
+        self.mediaPath = [argumentTokens objectAtIndex:0];
+        NSString *wellKnownName = [NSString stringWithFormat:@"org.alljoyn.Media.Server%@",[argumentTokens objectAtIndex:1]];
+
+        // create the media playback objects so the music file can be streamed
+        //
+        QStatus status = musicFileReader->SetFile([self.mediaPath UTF8String]);
+        
+        if (audioStream) {
+            mediaSource->RemoveStream(*audioStream);
+            delete audioStream;
+        }
+
+        // create a new session for this media server
+        //
+        [self.bus requestWellKnownName:wellKnownName withFlags:kAJNBusNameFlagDoNotQueue | kAJNBusNameFlagAllowReplacement];        
+        
+        [self.bus advertiseName:wellKnownName withTransportMask:kAJNTransportMaskAny];
+    }
 }
 
 #pragma mark - Class methods
@@ -320,5 +545,21 @@ static JJManager *s_manager;
     }
 }
 
+
+@end
+
+@implementation MediaSessionPortListener
+
+- (BOOL)shouldAcceptSessionJoinerNamed:(NSString *)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions *)options
+{
+    NSLog(@"Media session accept called.");
+    [[JJManager sharedInstance] openAudioStream];
+    return true;
+}
+
+- (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
+{
+    NSLog(@"Media session did join!");
+}
 
 @end

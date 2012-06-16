@@ -85,6 +85,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 - (BOOL)doesWellKnownNameHaveOwner:(NSString*)name;
 
 - (QStatus)bindSessionOnPort:(AJNSessionPort)port withOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
+- (AJNSessionPort)bindSessionOnAnyPortWithOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
 - (QStatus)unbindSessionFromPort:(AJNSessionPort)port;
 - (AJNSessionId)joinSessionWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options;
 - (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options joinCompletedDelegate:(id<AJNSessionDelegate>)completionDelegate context:(AJNHandle)context;
@@ -109,7 +110,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 - (QStatus)reloadKeyStore;
 - (void)clearKeyStore;
 - (QStatus)clearKeysForRemotePeerWithId:(NSString*)peerId;
-- (QStatus)getKeyExpiration:(uint32_t*)timeout forRemotePeerId:(NSString*)peerId;
+- (QStatus)keyExpiration:(uint32_t*)timeout forRemotePeerId:(NSString*)peerId;
 - (QStatus)setKeyExpiration:(uint32_t)timeout forRemotePeerId:(NSString*)peerId;
 
 - (NSString*)guidForPeerNamed:(NSString*)peerName;

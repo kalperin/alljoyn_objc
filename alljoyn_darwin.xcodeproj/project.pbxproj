@@ -3200,6 +3200,84 @@
 		AC5C56001549E8E700C13A0B /* AllJoynDebugObj.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AllJoynDebugObj.cc; sourceTree = "<group>"; };
 		AC5C56011549E93500C13A0B /* NullTransport.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = NullTransport.cc; path = ../src/NullTransport.cc; sourceTree = "<group>"; };
 		AC5C56021549E93500C13A0B /* NullTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NullTransport.h; path = ../src/NullTransport.h; sourceTree = "<group>"; };
+		ACA3BCBE1587FE780010F1C5 /* AllJoynStreamingDocumentation */ = {isa = PBXFileReference; lastKnownFileType = text; path = AllJoynStreamingDocumentation; sourceTree = "<group>"; };
+		ACA3BCBF1587FE780010F1C5 /* Doxygen_html */ = {isa = PBXFileReference; lastKnownFileType = text; path = Doxygen_html; sourceTree = "<group>"; };
+		ACA3BCC01587FE780010F1C5 /* footer.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = footer.html; sourceTree = "<group>"; };
+		ACA3BCC11587FE780010F1C5 /* header.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = header.html; sourceTree = "<group>"; };
+		ACA3BCC31587FE780010F1C5 /* legal_notice.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = legal_notice.html; sourceTree = "<group>"; };
+		ACA3BCC41587FE780010F1C5 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+		ACA3BCC81587FE780010F1C5 /* MediaCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaCommon.h; sourceTree = "<group>"; };
+		ACA3BCC91587FE780010F1C5 /* MediaHTTPStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaHTTPStreamer.h; sourceTree = "<group>"; };
+		ACA3BCCA1587FE780010F1C5 /* MediaPacer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaPacer.h; sourceTree = "<group>"; };
+		ACA3BCCB1587FE780010F1C5 /* MediaSink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaSink.h; sourceTree = "<group>"; };
+		ACA3BCCC1587FE780010F1C5 /* MediaSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaSource.h; sourceTree = "<group>"; };
+		ACA3BCCD1587FE780010F1C5 /* MP3Reader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3Reader.h; sourceTree = "<group>"; };
+		ACA3BCCE1587FE780010F1C5 /* Status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
+		ACA3BCCF1587FE780010F1C5 /* NOTICE */ = {isa = PBXFileReference; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
+		ACA3BCD01587FE780010F1C5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		ACA3BCD11587FE780010F1C5 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		ACA3BCD51587FE780010F1C5 /* .classpath */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = .classpath; sourceTree = "<group>"; };
+		ACA3BCD61587FE780010F1C5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ACA3BCD71587FE780010F1C5 /* .project */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = .project; sourceTree = "<group>"; };
+		ACA3BCD91587FE780010F1C5 /* org.eclipse.jdt.core.prefs */ = {isa = PBXFileReference; lastKnownFileType = text; path = org.eclipse.jdt.core.prefs; sourceTree = "<group>"; };
+		ACA3BCDA1587FE780010F1C5 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
+		ACA3BCDB1587FE780010F1C5 /* default.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = default.properties; sourceTree = "<group>"; };
+		ACA3BCDD1587FE780010F1C5 /* Android.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
+		ACA3BCDE1587FE780010F1C5 /* Application.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Application.mk; sourceTree = "<group>"; };
+		ACA3BCDF1587FE780010F1C5 /* media_player_jni.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_player_jni.cpp; sourceTree = "<group>"; };
+		ACA3BCE01587FE780010F1C5 /* opensles_class.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = opensles_class.cpp; sourceTree = "<group>"; };
+		ACA3BCE11587FE780010F1C5 /* opensles_class.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opensles_class.h; sourceTree = "<group>"; };
+		ACA3BCE21587FE780010F1C5 /* org_alljoyn_bus_samples_mediaplayer_MediaPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = org_alljoyn_bus_samples_mediaplayer_MediaPlayer.h; sourceTree = "<group>"; };
+		ACA3BCE51587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BCE71587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BCE91587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BCEB1587FE780010F1C5 /* main.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = main.xml; sourceTree = "<group>"; };
+		ACA3BCEC1587FE780010F1C5 /* message.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = message.xml; sourceTree = "<group>"; };
+		ACA3BCED1587FE780010F1C5 /* service.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = service.xml; sourceTree = "<group>"; };
+		ACA3BCEF1587FE780010F1C5 /* mainmenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mainmenu.xml; sourceTree = "<group>"; };
+		ACA3BCF11587FE780010F1C5 /* id.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = id.xml; sourceTree = "<group>"; };
+		ACA3BCF21587FE780010F1C5 /* strings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
+		ACA3BCF91587FE780010F1C5 /* FoundName.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = FoundName.java; sourceTree = "<group>"; };
+		ACA3BCFA1587FE780010F1C5 /* FoundNameAdapter.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = FoundNameAdapter.java; sourceTree = "<group>"; };
+		ACA3BCFB1587FE780010F1C5 /* MediaPlayer.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = MediaPlayer.java; sourceTree = "<group>"; };
+		ACA3BCFD1587FE780010F1C5 /* .classpath */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = .classpath; sourceTree = "<group>"; };
+		ACA3BCFE1587FE780010F1C5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		ACA3BCFF1587FE780010F1C5 /* .project */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = .project; sourceTree = "<group>"; };
+		ACA3BD011587FE780010F1C5 /* org.eclipse.jdt.core.prefs */ = {isa = PBXFileReference; lastKnownFileType = text; path = org.eclipse.jdt.core.prefs; sourceTree = "<group>"; };
+		ACA3BD021587FE780010F1C5 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
+		ACA3BD031587FE780010F1C5 /* default.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = default.properties; sourceTree = "<group>"; };
+		ACA3BD051587FE780010F1C5 /* Android.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Android.mk; sourceTree = "<group>"; };
+		ACA3BD061587FE780010F1C5 /* Application.mk */ = {isa = PBXFileReference; lastKnownFileType = text; path = Application.mk; sourceTree = "<group>"; };
+		ACA3BD071587FE780010F1C5 /* MediaServer_jni.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaServer_jni.cpp; sourceTree = "<group>"; };
+		ACA3BD081587FE780010F1C5 /* org_alljoyn_bus_samples_mediaserver_MediaServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = org_alljoyn_bus_samples_mediaserver_MediaServer.h; sourceTree = "<group>"; };
+		ACA3BD0B1587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BD0D1587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BD0F1587FE780010F1C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		ACA3BD111587FE780010F1C5 /* main.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = main.xml; sourceTree = "<group>"; };
+		ACA3BD121587FE780010F1C5 /* message.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = message.xml; sourceTree = "<group>"; };
+		ACA3BD141587FE780010F1C5 /* mainmenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mainmenu.xml; sourceTree = "<group>"; };
+		ACA3BD161587FE780010F1C5 /* strings.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = strings.xml; sourceTree = "<group>"; };
+		ACA3BD1D1587FE780010F1C5 /* MediaServer.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; path = MediaServer.java; sourceTree = "<group>"; };
+		ACA3BD1F1587FE780010F1C5 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		ACA3BD201587FE780010F1C5 /* media_player.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_player.cc; sourceTree = "<group>"; };
+		ACA3BD211587FE780010F1C5 /* media_server.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_server.cc; sourceTree = "<group>"; };
+		ACA3BD221587FE780010F1C5 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+		ACA3BD241587FE780010F1C5 /* media_player.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_player.cc; sourceTree = "<group>"; };
+		ACA3BD251587FE780010F1C5 /* media_server.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = media_server.cc; sourceTree = "<group>"; };
+		ACA3BD261587FE780010F1C5 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+		ACA3BD271587FE780010F1C5 /* SConstruct */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConstruct; sourceTree = "<group>"; };
+		ACA3BD281587FE780010F1C5 /* SConstruct.top */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConstruct.top; sourceTree = "<group>"; };
+		ACA3BD2C1587FE780010F1C5 /* MediaCommon.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaCommon.cc; sourceTree = "<group>"; };
+		ACA3BD2D1587FE780010F1C5 /* MediaHTTPStreamer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaHTTPStreamer.cc; sourceTree = "<group>"; };
+		ACA3BD2E1587FE780010F1C5 /* MediaPacer.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaPacer.cc; sourceTree = "<group>"; };
+		ACA3BD2F1587FE780010F1C5 /* MediaSink.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSink.cc; sourceTree = "<group>"; };
+		ACA3BD301587FE780010F1C5 /* MediaSource.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSource.cc; sourceTree = "<group>"; };
+		ACA3BD311587FE780010F1C5 /* MP3Reader.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MP3Reader.cc; sourceTree = "<group>"; };
+		ACA3BD321587FE780010F1C5 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
+		ACA3BD331587FE780010F1C5 /* Status.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Status.xml; sourceTree = "<group>"; };
+		ACA3BD351587FE780010F1C5 /* mediastream.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mediastream.cc; sourceTree = "<group>"; };
+		ACA3BD361587FE780010F1C5 /* mediastream.exe.manifest */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mediastream.exe.manifest; sourceTree = "<group>"; };
+		ACA3BD371587FE780010F1C5 /* SConscript */ = {isa = PBXFileReference; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
 		ACB4B0E0150E63E30054D964 /* AllJoynDebugObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllJoynDebugObj.h; sourceTree = "<group>"; };
 		ACB4B0E1150E63E30054D964 /* AllJoynObj.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AllJoynObj.cc; sourceTree = "<group>"; };
 		ACB4B0E2150E63E30054D964 /* AllJoynObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllJoynObj.h; sourceTree = "<group>"; };
@@ -8880,9 +8958,432 @@
 			path = VMS;
 			sourceTree = "<group>";
 		};
+		ACA3BC3D1587FE780010F1C5 /* alljoyn_streaming */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCBC1587FE780010F1C5 /* docs */,
+				ACA3BCC51587FE780010F1C5 /* inc */,
+				ACA3BCCF1587FE780010F1C5 /* NOTICE */,
+				ACA3BCD01587FE780010F1C5 /* README.md */,
+				ACA3BCD11587FE780010F1C5 /* README.txt */,
+				ACA3BCD21587FE780010F1C5 /* samples */,
+				ACA3BD261587FE780010F1C5 /* SConscript */,
+				ACA3BD271587FE780010F1C5 /* SConstruct */,
+				ACA3BD281587FE780010F1C5 /* SConstruct.top */,
+				ACA3BD291587FE780010F1C5 /* src */,
+				ACA3BD341587FE780010F1C5 /* test */,
+			);
+			name = alljoyn_streaming;
+			path = ../alljoyn_streaming;
+			sourceTree = "<group>";
+		};
+		ACA3BCBC1587FE780010F1C5 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCBE1587FE780010F1C5 /* AllJoynStreamingDocumentation */,
+				ACA3BCBF1587FE780010F1C5 /* Doxygen_html */,
+				ACA3BCC01587FE780010F1C5 /* footer.html */,
+				ACA3BCC11587FE780010F1C5 /* header.html */,
+				ACA3BCC21587FE780010F1C5 /* legal */,
+				ACA3BCC41587FE780010F1C5 /* SConscript */,
+			);
+			path = docs;
+			sourceTree = "<group>";
+		};
+		ACA3BCC21587FE780010F1C5 /* legal */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCC31587FE780010F1C5 /* legal_notice.html */,
+			);
+			path = legal;
+			sourceTree = "<group>";
+		};
+		ACA3BCC51587FE780010F1C5 /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCC71587FE780010F1C5 /* ajstream */,
+				ACA3BCCE1587FE780010F1C5 /* Status.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		ACA3BCC71587FE780010F1C5 /* ajstream */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCC81587FE780010F1C5 /* MediaCommon.h */,
+				ACA3BCC91587FE780010F1C5 /* MediaHTTPStreamer.h */,
+				ACA3BCCA1587FE780010F1C5 /* MediaPacer.h */,
+				ACA3BCCB1587FE780010F1C5 /* MediaSink.h */,
+				ACA3BCCC1587FE780010F1C5 /* MediaSource.h */,
+				ACA3BCCD1587FE780010F1C5 /* MP3Reader.h */,
+			);
+			path = ajstream;
+			sourceTree = "<group>";
+		};
+		ACA3BCD21587FE780010F1C5 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCD31587FE780010F1C5 /* android */,
+				ACA3BD1E1587FE780010F1C5 /* linux */,
+				ACA3BD221587FE780010F1C5 /* SConscript */,
+				ACA3BD231587FE780010F1C5 /* windows */,
+			);
+			path = samples;
+			sourceTree = "<group>";
+		};
+		ACA3BCD31587FE780010F1C5 /* android */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCD41587FE780010F1C5 /* player */,
+				ACA3BCFC1587FE780010F1C5 /* server */,
+			);
+			path = android;
+			sourceTree = "<group>";
+		};
+		ACA3BCD41587FE780010F1C5 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCD51587FE780010F1C5 /* .classpath */,
+				ACA3BCD61587FE780010F1C5 /* .gitignore */,
+				ACA3BCD71587FE780010F1C5 /* .project */,
+				ACA3BCD81587FE780010F1C5 /* .settings */,
+				ACA3BCDA1587FE780010F1C5 /* AndroidManifest.xml */,
+				ACA3BCDB1587FE780010F1C5 /* default.properties */,
+				ACA3BCDC1587FE780010F1C5 /* jni */,
+				ACA3BCE31587FE780010F1C5 /* res */,
+				ACA3BCF31587FE780010F1C5 /* src */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		ACA3BCD81587FE780010F1C5 /* .settings */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCD91587FE780010F1C5 /* org.eclipse.jdt.core.prefs */,
+			);
+			path = .settings;
+			sourceTree = "<group>";
+		};
+		ACA3BCDC1587FE780010F1C5 /* jni */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCDD1587FE780010F1C5 /* Android.mk */,
+				ACA3BCDE1587FE780010F1C5 /* Application.mk */,
+				ACA3BCDF1587FE780010F1C5 /* media_player_jni.cpp */,
+				ACA3BCE01587FE780010F1C5 /* opensles_class.cpp */,
+				ACA3BCE11587FE780010F1C5 /* opensles_class.h */,
+				ACA3BCE21587FE780010F1C5 /* org_alljoyn_bus_samples_mediaplayer_MediaPlayer.h */,
+			);
+			path = jni;
+			sourceTree = "<group>";
+		};
+		ACA3BCE31587FE780010F1C5 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCE41587FE780010F1C5 /* drawable-hdpi */,
+				ACA3BCE61587FE780010F1C5 /* drawable-ldpi */,
+				ACA3BCE81587FE780010F1C5 /* drawable-mdpi */,
+				ACA3BCEA1587FE780010F1C5 /* layout */,
+				ACA3BCEE1587FE780010F1C5 /* menu */,
+				ACA3BCF01587FE780010F1C5 /* values */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		ACA3BCE41587FE780010F1C5 /* drawable-hdpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCE51587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-hdpi";
+			sourceTree = "<group>";
+		};
+		ACA3BCE61587FE780010F1C5 /* drawable-ldpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCE71587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-ldpi";
+			sourceTree = "<group>";
+		};
+		ACA3BCE81587FE780010F1C5 /* drawable-mdpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCE91587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-mdpi";
+			sourceTree = "<group>";
+		};
+		ACA3BCEA1587FE780010F1C5 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCEB1587FE780010F1C5 /* main.xml */,
+				ACA3BCEC1587FE780010F1C5 /* message.xml */,
+				ACA3BCED1587FE780010F1C5 /* service.xml */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		ACA3BCEE1587FE780010F1C5 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCEF1587FE780010F1C5 /* mainmenu.xml */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		ACA3BCF01587FE780010F1C5 /* values */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF11587FE780010F1C5 /* id.xml */,
+				ACA3BCF21587FE780010F1C5 /* strings.xml */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
+		ACA3BCF31587FE780010F1C5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF41587FE780010F1C5 /* org */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		ACA3BCF41587FE780010F1C5 /* org */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF51587FE780010F1C5 /* alljoyn */,
+			);
+			path = org;
+			sourceTree = "<group>";
+		};
+		ACA3BCF51587FE780010F1C5 /* alljoyn */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF61587FE780010F1C5 /* bus */,
+			);
+			path = alljoyn;
+			sourceTree = "<group>";
+		};
+		ACA3BCF61587FE780010F1C5 /* bus */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF71587FE780010F1C5 /* samples */,
+			);
+			path = bus;
+			sourceTree = "<group>";
+		};
+		ACA3BCF71587FE780010F1C5 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF81587FE780010F1C5 /* mediaplayer */,
+			);
+			path = samples;
+			sourceTree = "<group>";
+		};
+		ACA3BCF81587FE780010F1C5 /* mediaplayer */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCF91587FE780010F1C5 /* FoundName.java */,
+				ACA3BCFA1587FE780010F1C5 /* FoundNameAdapter.java */,
+				ACA3BCFB1587FE780010F1C5 /* MediaPlayer.java */,
+			);
+			path = mediaplayer;
+			sourceTree = "<group>";
+		};
+		ACA3BCFC1587FE780010F1C5 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BCFD1587FE780010F1C5 /* .classpath */,
+				ACA3BCFE1587FE780010F1C5 /* .gitignore */,
+				ACA3BCFF1587FE780010F1C5 /* .project */,
+				ACA3BD001587FE780010F1C5 /* .settings */,
+				ACA3BD021587FE780010F1C5 /* AndroidManifest.xml */,
+				ACA3BD031587FE780010F1C5 /* default.properties */,
+				ACA3BD041587FE780010F1C5 /* jni */,
+				ACA3BD091587FE780010F1C5 /* res */,
+				ACA3BD171587FE780010F1C5 /* src */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		ACA3BD001587FE780010F1C5 /* .settings */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD011587FE780010F1C5 /* org.eclipse.jdt.core.prefs */,
+			);
+			path = .settings;
+			sourceTree = "<group>";
+		};
+		ACA3BD041587FE780010F1C5 /* jni */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD051587FE780010F1C5 /* Android.mk */,
+				ACA3BD061587FE780010F1C5 /* Application.mk */,
+				ACA3BD071587FE780010F1C5 /* MediaServer_jni.cpp */,
+				ACA3BD081587FE780010F1C5 /* org_alljoyn_bus_samples_mediaserver_MediaServer.h */,
+			);
+			path = jni;
+			sourceTree = "<group>";
+		};
+		ACA3BD091587FE780010F1C5 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD0A1587FE780010F1C5 /* drawable-hdpi */,
+				ACA3BD0C1587FE780010F1C5 /* drawable-ldpi */,
+				ACA3BD0E1587FE780010F1C5 /* drawable-mdpi */,
+				ACA3BD101587FE780010F1C5 /* layout */,
+				ACA3BD131587FE780010F1C5 /* menu */,
+				ACA3BD151587FE780010F1C5 /* values */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		ACA3BD0A1587FE780010F1C5 /* drawable-hdpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD0B1587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-hdpi";
+			sourceTree = "<group>";
+		};
+		ACA3BD0C1587FE780010F1C5 /* drawable-ldpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD0D1587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-ldpi";
+			sourceTree = "<group>";
+		};
+		ACA3BD0E1587FE780010F1C5 /* drawable-mdpi */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD0F1587FE780010F1C5 /* icon.png */,
+			);
+			path = "drawable-mdpi";
+			sourceTree = "<group>";
+		};
+		ACA3BD101587FE780010F1C5 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD111587FE780010F1C5 /* main.xml */,
+				ACA3BD121587FE780010F1C5 /* message.xml */,
+			);
+			path = layout;
+			sourceTree = "<group>";
+		};
+		ACA3BD131587FE780010F1C5 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD141587FE780010F1C5 /* mainmenu.xml */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		ACA3BD151587FE780010F1C5 /* values */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD161587FE780010F1C5 /* strings.xml */,
+			);
+			path = values;
+			sourceTree = "<group>";
+		};
+		ACA3BD171587FE780010F1C5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD181587FE780010F1C5 /* org */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		ACA3BD181587FE780010F1C5 /* org */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD191587FE780010F1C5 /* alljoyn */,
+			);
+			path = org;
+			sourceTree = "<group>";
+		};
+		ACA3BD191587FE780010F1C5 /* alljoyn */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD1A1587FE780010F1C5 /* bus */,
+			);
+			path = alljoyn;
+			sourceTree = "<group>";
+		};
+		ACA3BD1A1587FE780010F1C5 /* bus */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD1B1587FE780010F1C5 /* samples */,
+			);
+			path = bus;
+			sourceTree = "<group>";
+		};
+		ACA3BD1B1587FE780010F1C5 /* samples */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD1C1587FE780010F1C5 /* mediaserver */,
+			);
+			path = samples;
+			sourceTree = "<group>";
+		};
+		ACA3BD1C1587FE780010F1C5 /* mediaserver */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD1D1587FE780010F1C5 /* MediaServer.java */,
+			);
+			path = mediaserver;
+			sourceTree = "<group>";
+		};
+		ACA3BD1E1587FE780010F1C5 /* linux */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD1F1587FE780010F1C5 /* Makefile */,
+				ACA3BD201587FE780010F1C5 /* media_player.cc */,
+				ACA3BD211587FE780010F1C5 /* media_server.cc */,
+			);
+			path = linux;
+			sourceTree = "<group>";
+		};
+		ACA3BD231587FE780010F1C5 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD241587FE780010F1C5 /* media_player.cc */,
+				ACA3BD251587FE780010F1C5 /* media_server.cc */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+		ACA3BD291587FE780010F1C5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD2C1587FE780010F1C5 /* MediaCommon.cc */,
+				ACA3BD2D1587FE780010F1C5 /* MediaHTTPStreamer.cc */,
+				ACA3BD2E1587FE780010F1C5 /* MediaPacer.cc */,
+				ACA3BD2F1587FE780010F1C5 /* MediaSink.cc */,
+				ACA3BD301587FE780010F1C5 /* MediaSource.cc */,
+				ACA3BD311587FE780010F1C5 /* MP3Reader.cc */,
+				ACA3BD321587FE780010F1C5 /* SConscript */,
+				ACA3BD331587FE780010F1C5 /* Status.xml */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		ACA3BD341587FE780010F1C5 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				ACA3BD351587FE780010F1C5 /* mediastream.cc */,
+				ACA3BD361587FE780010F1C5 /* mediastream.exe.manifest */,
+				ACA3BD371587FE780010F1C5 /* SConscript */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		ACB4AFAF150E631F0054D964 = {
 			isa = PBXGroup;
 			children = (
+				ACA3BC3D1587FE780010F1C5 /* alljoyn_streaming */,
 				AC0DC7FC1519336B000E302F /* build_core */,
 				AC0DBDEF15191719000E302F /* build_darwin */,
 				ACB4AFBC150E63E20054D964 /* alljoyn_core */,
@@ -13592,6 +14093,34 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = alljoyn_core_ios;
 		};
+		ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
+			buildConfigurationList = ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/scons;
+			buildWorkingDirectory = ../alljoyn_streaming;
+			dependencies = (
+			);
+			name = alljoyn_streaming_osx;
+			passBuildSettingsInEnvironment = 1;
+			productName = alljoyn_streaming_osx;
+		};
+		ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off --$(ACTION)";
+			buildConfigurationList = ACA3BC3A1587FDBC0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_ios" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/scons;
+			buildWorkingDirectory = ../alljoyn_streaming;
+			dependencies = (
+			);
+			name = alljoyn_streaming_ios;
+			passBuildSettingsInEnvironment = 1;
+			productName = alljoyn_streaming_ios;
+		};
 		ACAD17DB156D532D0065497D /* bbclient */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
@@ -13655,6 +14184,8 @@
 			targets = (
 				ACB4AFB6150E631F0054D964 /* alljoyn_core_osx */,
 				AC0DC84C151A46F0000E302F /* alljoyn_core_ios */,
+				ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */,
+				ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */,
 				ACAD17DB156D532D0065497D /* bbclient */,
 				ACBFEDE5156DAA7D008082DE /* bbservice */,
 			);
@@ -13680,6 +14211,52 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		ACA3BC351587FC5E0010F1C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ACA3BC361587FC5E0010F1C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ACA3BC3B1587FDBC0010F1C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "";
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ACA3BC3C1587FDBC0010F1C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -13808,6 +14385,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3BC351587FC5E0010F1C5 /* Debug */,
+				ACA3BC361587FC5E0010F1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ACA3BC3A1587FDBC0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA3BC3B1587FDBC0010F1C5 /* Debug */,
+				ACA3BC3C1587FDBC0010F1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		ACAD17DE156D532D0065497D /* Build configuration list for PBXLegacyTarget "bbclient" */ = {
 			isa = XCConfigurationList;

@@ -131,7 +131,7 @@
 		ACB44E5915485F3E00FF7DBC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		ACB44E5A15485F3E00FF7DBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACB44E5D15485F3E00FF7DBC /* AllJoynFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllJoynFramework-Prefix.pch"; sourceTree = "<group>"; };
-		ACB44E6615485F3E00FF7DBC /* AllJoynFramework_OSXTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AllJoynFramework_OSXTests.octest; path = AllJoynFrameworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB44E6615485F3E00FF7DBC /* AllJoynFrameworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllJoynFrameworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB44E6715485F3E00FF7DBC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		ACB44E6F15485F3E00FF7DBC /* AllJoynFrameworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllJoynFrameworkTests-Info.plist"; sourceTree = "<group>"; };
 		ACB44E7115485F3E00FF7DBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				ACB44E5215485F3E00FF7DBC /* libAllJoynFramework.a */,
-				ACB44E6615485F3E00FF7DBC /* AllJoynFramework_OSXTests.octest */,
+				ACB44E6615485F3E00FF7DBC /* AllJoynFrameworkTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 			);
 			name = AllJoynFrameworkTests;
 			productName = AllJoynFrameworkTests;
-			productReference = ACB44E6615485F3E00FF7DBC /* AllJoynFramework_OSXTests.octest */;
+			productReference = ACB44E6615485F3E00FF7DBC /* AllJoynFrameworkTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -705,6 +705,7 @@
 					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01\"",
 				);
 				OTHER_CFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
 				);

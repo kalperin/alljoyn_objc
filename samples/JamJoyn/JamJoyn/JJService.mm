@@ -37,6 +37,7 @@
 
 #import "JJConstants.h"
 #import "JJService.h"
+#import "JJManager.h"
 
 struct JJSong
 {
@@ -52,6 +53,10 @@ struct JJSong
 };
 
 using namespace ajn;
+
+@interface JJManager(Private)<JamJoynServiceDelegate>
+
+@end
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -152,7 +157,7 @@ SetPlaylistSongsSignalMember = interfaceDescription->GetMember("SetPlaylistSongs
 void JamJoynServiceObjectImpl::Command(const InterfaceDescription::Member *member, Message& msg)
 {
     
-    
+    @autoreleasepool{
     // get all input arguments
     //
     
@@ -165,6 +170,7 @@ void JamJoynServiceObjectImpl::Command(const InterfaceDescription::Member *membe
     //
     
 	[(id<JamJoynService>)delegate sendCommand:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] argument:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding]];
+    }
 }
 
 
@@ -199,15 +205,6 @@ void JamJoynServiceObjectImpl::SetByteData(const InterfaceDescription::Member *m
 void JamJoynServiceObjectImpl::sendMySongs(const InterfaceDescription::Member *member, Message& msg)
 {
     
-    
-    // get all input arguments
-    //
-    
-    
-    // call the Objective-C delegate method
-    //
-    
-//	[(id<JamJoynService>)delegate ];            
         
 }
 
@@ -215,15 +212,6 @@ void JamJoynServiceObjectImpl::sendMySongs(const InterfaceDescription::Member *m
 void JamJoynServiceObjectImpl::sendSongInfo(const InterfaceDescription::Member *member, Message& msg)
 {
     
-    
-    // get all input arguments
-    //
-    
-    
-    // call the Objective-C delegate method
-    //
-    
-//	[(id<JamJoynService>)delegate ];            
         
 }
 
@@ -380,11 +368,7 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
     
 - (void)sendCommand:(NSString*)command argument:(NSString*)arg
 {
-    //
-    // GENERATED CODE - DO NOT EDIT
-    //
-    // Create a category or subclass in separate .h/.m files
-    @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
+    [[JJManager sharedInstance] receivedCommand:command withArguments:arg];
 }
 
 - (void)setSongFileName:(NSString*)filename titleName:(NSString*)title albumName:(NSString*)album artistName:(NSString*)artist numberOfChunks:(NSNumber*)numChunks chunkIndex:(NSNumber*)chunkIndex bytes:(char *)bytes
@@ -506,7 +490,7 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
 
     // make the function call using the C++ proxy object
     //
-    QStatus status = self.proxyBusObject->MethodCall([@"/commandPasserService" UTF8String], "SetByteData", inArgs, 7, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.samples.commandpasser" UTF8String], "SetByteData", inArgs, 7, reply, 5000);
     if (ER_OK == status) {
     
     }
@@ -533,7 +517,7 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
 
     // make the function call using the C++ proxy object
     //
-    QStatus status = self.proxyBusObject->MethodCall([@"/commandPasserService" UTF8String], "sendMySongs", inArgs, 1, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.samples.commandpasser" UTF8String], "sendMySongs", inArgs, 1, reply, 5000);
     if (ER_OK == status) {
     
     }
@@ -547,29 +531,30 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
 
 - (void)sendSongs:(JJSong *)song
 {
-    [self addInterfaceNamed:@"org.alljoyn.bus.samples.commandpasser"];
+    @autoreleasepool {
+        
+        [self addInterfaceNamed:@"org.alljoyn.bus.samples.commandpasser"];
     
-    // prepare the input arguments
-    //
-    
-    Message reply(*((BusAttachment*)self.bus.handle));    
-    MsgArg inArgs[1];
-    
-    inArgs[0].Set("(sssssiiss)", song);
 
-
-    // make the function call using the C++ proxy object
-    //
-    QStatus status = self.proxyBusObject->MethodCall([@"/commandPasserService" UTF8String], "sendSongInfo", inArgs, 1, reply, 5000);
-    if (ER_OK == status) {
-    
+        // prepare the input arguments
+        //
+        
+        Message reply(*((BusAttachment*)self.bus.handle));    
+        MsgArg inArgs[1];
+        
+        inArgs[0].Set("(sssssiiss)", song->songPath.c_str(), song->songName.c_str(), song->artist.c_str(), song->album.c_str(), song->artPath.c_str(), song->songId, song->albumId, song->fileName.c_str(), song->busId.c_str());
+        
+        
+        // make the function call using the C++ proxy object
+        //
+        QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.samples.commandpasser" UTF8String], "sendSongInfo", inArgs, 1, reply, 5000);
+        if (ER_OK == status) {
+            
+        }
+        else {
+            
+        }
     }
-    else {
-    
-    }
-
-    
-
 }
 
 @end
