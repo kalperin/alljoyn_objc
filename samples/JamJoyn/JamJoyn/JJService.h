@@ -131,7 +131,7 @@ struct JJSong;
 @protocol JamJoynServiceDelegate <AJNSignalHandler>
 
 - (void)receiveSongList:(JJSong*)songs size:(long)songCount;
-- (void)announcementReceived;
+- (void)announcementReceivedFromSender:(NSString*)sender withNickName:(NSString*)nickName isHost:(BOOL)isHost;
 - (void)receivedCommand:(NSString*)command withArguments:(NSString*)arguments;
 
 @end

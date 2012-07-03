@@ -43,34 +43,23 @@
 		AC3E27D81559926D002449CF /* JJConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3E27D71559926D002449CF /* JJConstants.m */; };
 		AC3E27DB1559A099002449CF /* JJRoomTableViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3E27DA1559A098002449CF /* JJRoomTableViewControllerViewController.m */; };
 		AC3E28591559D32C002449CF /* JJService.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3E28581559D32C002449CF /* JJService.mm */; };
+		AC4546E81594E20800F81B44 /* icon-48x48.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546E71594E20800F81B44 /* icon-48x48.png */; };
+		AC4546EB1594E27F00F81B44 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546EA1594E27F00F81B44 /* icon.png */; };
+		AC4546F31594E72600F81B44 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546F21594E72600F81B44 /* Default-Landscape~ipad.png */; };
+		AC4546F51594E73100F81B44 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546F41594E73100F81B44 /* Default-Portrait~ipad.png */; };
+		AC4546F81594E7AD00F81B44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546F61594E7AC00F81B44 /* Default.png */; };
+		AC4546F91594E7AD00F81B44 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546F71594E7AD00F81B44 /* Default-Landscape.png */; };
+		AC4546FB1594E7D800F81B44 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4546FA1594E7D800F81B44 /* Default@2x.png */; };
+		AC4546FD159506BD00F81B44 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4546FC159506BD00F81B44 /* AudioToolbox.framework */; };
+		AC4546FF159507F700F81B44 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4546FE159507F700F81B44 /* MediaPlayer.framework */; };
+		AC45470115950F7D00F81B44 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = AC45470015950F7D00F81B44 /* play.png */; };
+		AC4547031598C41500F81B44 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4547021598C41400F81B44 /* pause.png */; };
+		AC4547051598C41F00F81B44 /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = AC4547041598C41F00F81B44 /* stop.png */; };
+		AC45470715992F4400F81B44 /* Alljoyn-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC45470615992F4300F81B44 /* Alljoyn-Icon.png */; };
 		AC9ADC0A155C148A007B46FA /* JJPlaylistViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC9ADC09155C148A007B46FA /* JJPlaylistViewController.mm */; };
 		AC9ADC0E155C149F007B46FA /* JJSongViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC9ADC0D155C149F007B46FA /* JJSongViewController.mm */; };
 		ACA3BBCF1586B46D0010F1C5 /* JJMediaSourceModel.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBCE1586B46D0010F1C5 /* JJMediaSourceModel.xml */; };
 		ACA3BBD51586BA7E0010F1C5 /* JJMediaStreamModel.xml in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBD41586BA7D0010F1C5 /* JJMediaStreamModel.xml */; };
-		ACA3BBF51587A5310010F1C5 /* Classical Selection I.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBD71587A5310010F1C5 /* Classical Selection I.jpg */; };
-		ACA3BBF61587A5310010F1C5 /* Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBD81587A5310010F1C5 /* Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */; };
-		ACA3BBF71587A5310010F1C5 /* Epic Classical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBDA1587A5310010F1C5 /* Epic Classical.jpg */; };
-		ACA3BBF81587A5310010F1C5 /* Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBDB1587A5310010F1C5 /* Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */; };
-		ACA3BBF91587A5310010F1C5 /* Popular Classics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBDD1587A5310010F1C5 /* Popular Classics.jpg */; };
-		ACA3BBFA1587A5310010F1C5 /* Ride_of_the_Valkyries_JM_0044_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBDE1587A5310010F1C5 /* Ride_of_the_Valkyries_JM_0044_01901.mp3 */; };
-		ACA3BBFB1587A5310010F1C5 /* RAF Brass and Wind Bands 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE01587A5310010F1C5 /* RAF Brass and Wind Bands 3.jpg */; };
-		ACA3BBFC1587A5310010F1C5 /* Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE11587A5310010F1C5 /* Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */; };
-		ACA3BBFD1587A5310010F1C5 /* 1000_RNM_0019_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE31587A5310010F1C5 /* 1000_RNM_0019_00101.mp3 */; };
-		ACA3BBFE1587A5310010F1C5 /* RNM 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE41587A5310010F1C5 /* RNM 19.jpg */; };
-		ACA3BBFF1587A5310010F1C5 /* Burning_for_Love_RNM_0019_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE51587A5310010F1C5 /* Burning_for_Love_RNM_0019_01901.mp3 */; };
-		ACA3BC001587A5310010F1C5 /* I_m_on_Fire_RNM_0019_00301.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE61587A5310010F1C5 /* I_m_on_Fire_RNM_0019_00301.mp3 */; };
-		ACA3BC011587A5310010F1C5 /* Wildcat_RNM_0019_01501.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE71587A5310010F1C5 /* Wildcat_RNM_0019_01501.mp3 */; };
-		ACA3BC021587A5310010F1C5 /* RNM 34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBE91587A5310010F1C5 /* RNM 34.jpg */; };
-		ACA3BC031587A5310010F1C5 /* RNM 34.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBEA1587A5310010F1C5 /* RNM 34.png */; };
-		ACA3BC041587A5310010F1C5 /* Hopeless_Disposition_RNM_0034_00301.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBEB1587A5310010F1C5 /* Hopeless_Disposition_RNM_0034_00301.mp3 */; };
-		ACA3BC051587A5310010F1C5 /* Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBEC1587A5310010F1C5 /* Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */; };
-		ACA3BC061587A5310010F1C5 /* Rest_of_My_Life_RNM_0034_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBED1587A5310010F1C5 /* Rest_of_My_Life_RNM_0034_00101.mp3 */; };
-		ACA3BC071587A5310010F1C5 /* Sad_Love_Song_RNM_0034_01401.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBEE1587A5310010F1C5 /* Sad_Love_Song_RNM_0034_01401.mp3 */; };
-		ACA3BC081587A5310010F1C5 /* RNM 50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBF01587A5310010F1C5 /* RNM 50.jpg */; };
-		ACA3BC091587A5310010F1C5 /* California_RNM_0050_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBF11587A5310010F1C5 /* California_RNM_0050_00101.mp3 */; };
-		ACA3BC0A1587A5310010F1C5 /* Reasons_RNM_0050_01201.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBF21587A5310010F1C5 /* Reasons_RNM_0050_01201.mp3 */; };
-		ACA3BC0B1587A5310010F1C5 /* Red_Scare_RNM_0050_01601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBF31587A5310010F1C5 /* Red_Scare_RNM_0050_01601.mp3 */; };
-		ACA3BC0C1587A5310010F1C5 /* Showtime_RNM_0050_00601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACA3BBF41587A5310010F1C5 /* Showtime_RNM_0050_00601.mp3 */; };
 		ACA3BD4D158908310010F1C5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA3BD4C158908310010F1C5 /* AVFoundation.framework */; };
 		ACA776FA1586714C00DF22E1 /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACA776F41586714C00DF22E1 /* AJNAuthenticationListenerImpl.mm */; };
 		ACA776FB1586714C00DF22E1 /* AJNKeyStoreListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACA776F71586714C00DF22E1 /* AJNKeyStoreListenerImpl.mm */; };
@@ -81,6 +70,31 @@
 		ACEE2F2315894BEB003511B1 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F1F15894BEB003511B1 /* liballjoyn.a */; };
 		ACEE2F2615894C1D003511B1 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F2415894C1D003511B1 /* libcrypto.a */; };
 		ACEE2F2715894C1D003511B1 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F2515894C1D003511B1 /* libssl.a */; };
+		ACF4F7B51591391000B02724 /* Classical Selection I.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7971591391000B02724 /* Classical Selection I.jpg */; };
+		ACF4F7B61591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7981591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */; };
+		ACF4F7B71591391000B02724 /* Epic Classical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F79A1591391000B02724 /* Epic Classical.jpg */; };
+		ACF4F7B81591391000B02724 /* Epic Classical\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F79B1591391000B02724 /* Epic Classical\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */; };
+		ACF4F7B91591391000B02724 /* Popular Classics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F79D1591391000B02724 /* Popular Classics.jpg */; };
+		ACF4F7BA1591391000B02724 /* Popular Classics\Ride_of_the_Valkyries_JM_0044_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F79E1591391000B02724 /* Popular Classics\Ride_of_the_Valkyries_JM_0044_01901.mp3 */; };
+		ACF4F7BB1591391000B02724 /* RAF Brass and Wind Bands 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A01591391000B02724 /* RAF Brass and Wind Bands 3.jpg */; };
+		ACF4F7BC1591391000B02724 /* RAF Brass and Wind Bands 3\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A11591391000B02724 /* RAF Brass and Wind Bands 3\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */; };
+		ACF4F7BD1591391000B02724 /* RNM 19.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A31591391000B02724 /* RNM 19.jpg */; };
+		ACF4F7BE1591391000B02724 /* RNM 19\1000_RNM_0019_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A41591391000B02724 /* RNM 19\1000_RNM_0019_00101.mp3 */; };
+		ACF4F7BF1591391000B02724 /* RNM 19\Burning_for_Love_RNM_0019_01901.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A51591391000B02724 /* RNM 19\Burning_for_Love_RNM_0019_01901.mp3 */; };
+		ACF4F7C01591391000B02724 /* RNM 19\I_m_on_Fire_RNM_0019_00301.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A61591391000B02724 /* RNM 19\I_m_on_Fire_RNM_0019_00301.mp3 */; };
+		ACF4F7C11591391000B02724 /* RNM 19\Wildcat_RNM_0019_01501.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A71591391000B02724 /* RNM 19\Wildcat_RNM_0019_01501.mp3 */; };
+		ACF4F7C21591391000B02724 /* RNM 34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7A91591391000B02724 /* RNM 34.jpg */; };
+		ACF4F7C31591391000B02724 /* RNM 34.png in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7AA1591391000B02724 /* RNM 34.png */; };
+		ACF4F7C41591391000B02724 /* RNM 34\Hopeless_Disposition_RNM_0034_00301.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7AB1591391000B02724 /* RNM 34\Hopeless_Disposition_RNM_0034_00301.mp3 */; };
+		ACF4F7C51591391000B02724 /* RNM 34\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7AC1591391000B02724 /* RNM 34\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */; };
+		ACF4F7C61591391000B02724 /* RNM 34\Rest_of_My_Life_RNM_0034_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7AD1591391000B02724 /* RNM 34\Rest_of_My_Life_RNM_0034_00101.mp3 */; };
+		ACF4F7C71591391000B02724 /* RNM 34\Sad_Love_Song_RNM_0034_01401.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7AE1591391000B02724 /* RNM 34\Sad_Love_Song_RNM_0034_01401.mp3 */; };
+		ACF4F7C81591391000B02724 /* RNM 50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7B01591391000B02724 /* RNM 50.jpg */; };
+		ACF4F7C91591391000B02724 /* RNM 50\California_RNM_0050_00101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7B11591391000B02724 /* RNM 50\California_RNM_0050_00101.mp3 */; };
+		ACF4F7CA1591391000B02724 /* RNM 50\Reasons_RNM_0050_01201.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7B21591391000B02724 /* RNM 50\Reasons_RNM_0050_01201.mp3 */; };
+		ACF4F7CB1591391000B02724 /* RNM 50\Red_Scare_RNM_0050_01601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7B31591391000B02724 /* RNM 50\Red_Scare_RNM_0050_01601.mp3 */; };
+		ACF4F7CC1591391000B02724 /* RNM 50\Showtime_RNM_0050_00601.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7B41591391000B02724 /* RNM 50\Showtime_RNM_0050_00601.mp3 */; };
+		ACFB22451590FB1600E80DC9 /* JJAddSongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB22441590FB1600E80DC9 /* JJAddSongViewController.m */; };
 		ACFCF7861566A52100BC922D /* SConscript in Resources */ = {isa = PBXBuildFile; fileRef = ACFCF7851566A52100BC922D /* SConscript */; };
 /* End PBXBuildFile section */
 
@@ -166,36 +180,25 @@
 		AC3E27DA1559A098002449CF /* JJRoomTableViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJRoomTableViewControllerViewController.m; sourceTree = "<group>"; };
 		AC3E28571559D32C002449CF /* JJService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJService.h; sourceTree = "<group>"; };
 		AC3E28581559D32C002449CF /* JJService.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJService.mm; sourceTree = "<group>"; };
+		AC4546E71594E20800F81B44 /* icon-48x48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-48x48.png"; sourceTree = "<group>"; };
+		AC4546EA1594E27F00F81B44 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AC4546F21594E72600F81B44 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		AC4546F41594E73100F81B44 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		AC4546F61594E7AC00F81B44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AC4546F71594E7AD00F81B44 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		AC4546FA1594E7D800F81B44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AC4546FC159506BD00F81B44 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AC4546FE159507F700F81B44 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AC45470015950F7D00F81B44 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		AC4547021598C41400F81B44 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		AC4547041598C41F00F81B44 /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
+		AC45470615992F4300F81B44 /* Alljoyn-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alljoyn-Icon.png"; sourceTree = "<group>"; };
 		AC9ADC08155C148A007B46FA /* JJPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPlaylistViewController.h; sourceTree = "<group>"; };
 		AC9ADC09155C148A007B46FA /* JJPlaylistViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJPlaylistViewController.mm; sourceTree = "<group>"; };
 		AC9ADC0C155C149F007B46FA /* JJSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJSongViewController.h; sourceTree = "<group>"; };
 		AC9ADC0D155C149F007B46FA /* JJSongViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = JJSongViewController.mm; sourceTree = "<group>"; };
 		ACA3BBCE1586B46D0010F1C5 /* JJMediaSourceModel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JJMediaSourceModel.xml; sourceTree = "<group>"; };
 		ACA3BBD41586BA7D0010F1C5 /* JJMediaStreamModel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JJMediaStreamModel.xml; sourceTree = "<group>"; };
-		ACA3BBD71587A5310010F1C5 /* Classical Selection I.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Classical Selection I.jpg"; sourceTree = "<group>"; };
-		ACA3BBD81587A5310010F1C5 /* Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3; sourceTree = "<group>"; };
-		ACA3BBDA1587A5310010F1C5 /* Epic Classical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epic Classical.jpg"; sourceTree = "<group>"; };
-		ACA3BBDB1587A5310010F1C5 /* Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swan_Lake__Scene_Finale_WOM_0108_00401.mp3; sourceTree = "<group>"; };
-		ACA3BBDD1587A5310010F1C5 /* Popular Classics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Popular Classics.jpg"; sourceTree = "<group>"; };
-		ACA3BBDE1587A5310010F1C5 /* Ride_of_the_Valkyries_JM_0044_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ride_of_the_Valkyries_JM_0044_01901.mp3; sourceTree = "<group>"; };
-		ACA3BBE01587A5310010F1C5 /* RAF Brass and Wind Bands 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RAF Brass and Wind Bands 3.jpg"; sourceTree = "<group>"; };
-		ACA3BBE11587A5310010F1C5 /* Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3; sourceTree = "<group>"; };
-		ACA3BBE31587A5310010F1C5 /* 1000_RNM_0019_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1000_RNM_0019_00101.mp3; sourceTree = "<group>"; };
-		ACA3BBE41587A5310010F1C5 /* RNM 19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 19.jpg"; sourceTree = "<group>"; };
-		ACA3BBE51587A5310010F1C5 /* Burning_for_Love_RNM_0019_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Burning_for_Love_RNM_0019_01901.mp3; sourceTree = "<group>"; };
-		ACA3BBE61587A5310010F1C5 /* I_m_on_Fire_RNM_0019_00301.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = I_m_on_Fire_RNM_0019_00301.mp3; sourceTree = "<group>"; };
-		ACA3BBE71587A5310010F1C5 /* Wildcat_RNM_0019_01501.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wildcat_RNM_0019_01501.mp3; sourceTree = "<group>"; };
-		ACA3BBE91587A5310010F1C5 /* RNM 34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 34.jpg"; sourceTree = "<group>"; };
-		ACA3BBEA1587A5310010F1C5 /* RNM 34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RNM 34.png"; sourceTree = "<group>"; };
-		ACA3BBEB1587A5310010F1C5 /* Hopeless_Disposition_RNM_0034_00301.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hopeless_Disposition_RNM_0034_00301.mp3; sourceTree = "<group>"; };
-		ACA3BBEC1587A5310010F1C5 /* Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3; sourceTree = "<group>"; };
-		ACA3BBED1587A5310010F1C5 /* Rest_of_My_Life_RNM_0034_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rest_of_My_Life_RNM_0034_00101.mp3; sourceTree = "<group>"; };
-		ACA3BBEE1587A5310010F1C5 /* Sad_Love_Song_RNM_0034_01401.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sad_Love_Song_RNM_0034_01401.mp3; sourceTree = "<group>"; };
-		ACA3BBF01587A5310010F1C5 /* RNM 50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 50.jpg"; sourceTree = "<group>"; };
-		ACA3BBF11587A5310010F1C5 /* California_RNM_0050_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = California_RNM_0050_00101.mp3; sourceTree = "<group>"; };
-		ACA3BBF21587A5310010F1C5 /* Reasons_RNM_0050_01201.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Reasons_RNM_0050_01201.mp3; sourceTree = "<group>"; };
-		ACA3BBF31587A5310010F1C5 /* Red_Scare_RNM_0050_01601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Red_Scare_RNM_0050_01601.mp3; sourceTree = "<group>"; };
-		ACA3BBF41587A5310010F1C5 /* Showtime_RNM_0050_00601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Showtime_RNM_0050_00601.mp3; sourceTree = "<group>"; };
 		ACA3BD4C158908310010F1C5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		ACA776F21586714C00DF22E1 /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
 		ACA776F31586714C00DF22E1 /* AJNAuthenticationListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListenerImpl.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.h; sourceTree = "<group>"; };
@@ -211,6 +214,32 @@
 		ACEE2F1F15894BEB003511B1 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_streaming/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACEE2F2415894C1D003511B1 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		ACEE2F2515894C1D003511B1 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		ACF4F7971591391000B02724 /* Classical Selection I.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Classical Selection I.jpg"; sourceTree = "<group>"; };
+		ACF4F7981591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Classical Selection I\\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3"; sourceTree = "<group>"; };
+		ACF4F79A1591391000B02724 /* Epic Classical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epic Classical.jpg"; sourceTree = "<group>"; };
+		ACF4F79B1591391000B02724 /* Epic Classical\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Epic Classical\\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3"; sourceTree = "<group>"; };
+		ACF4F79D1591391000B02724 /* Popular Classics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Popular Classics.jpg"; sourceTree = "<group>"; };
+		ACF4F79E1591391000B02724 /* Popular Classics\Ride_of_the_Valkyries_JM_0044_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Popular Classics\\Ride_of_the_Valkyries_JM_0044_01901.mp3"; sourceTree = "<group>"; };
+		ACF4F7A01591391000B02724 /* RAF Brass and Wind Bands 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RAF Brass and Wind Bands 3.jpg"; sourceTree = "<group>"; };
+		ACF4F7A11591391000B02724 /* RAF Brass and Wind Bands 3\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RAF Brass and Wind Bands 3\\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3"; sourceTree = "<group>"; };
+		ACF4F7A31591391000B02724 /* RNM 19.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 19.jpg"; sourceTree = "<group>"; };
+		ACF4F7A41591391000B02724 /* RNM 19\1000_RNM_0019_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 19\\1000_RNM_0019_00101.mp3"; sourceTree = "<group>"; };
+		ACF4F7A51591391000B02724 /* RNM 19\Burning_for_Love_RNM_0019_01901.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 19\\Burning_for_Love_RNM_0019_01901.mp3"; sourceTree = "<group>"; };
+		ACF4F7A61591391000B02724 /* RNM 19\I_m_on_Fire_RNM_0019_00301.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 19\\I_m_on_Fire_RNM_0019_00301.mp3"; sourceTree = "<group>"; };
+		ACF4F7A71591391000B02724 /* RNM 19\Wildcat_RNM_0019_01501.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 19\\Wildcat_RNM_0019_01501.mp3"; sourceTree = "<group>"; };
+		ACF4F7A91591391000B02724 /* RNM 34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 34.jpg"; sourceTree = "<group>"; };
+		ACF4F7AA1591391000B02724 /* RNM 34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RNM 34.png"; sourceTree = "<group>"; };
+		ACF4F7AB1591391000B02724 /* RNM 34\Hopeless_Disposition_RNM_0034_00301.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 34\\Hopeless_Disposition_RNM_0034_00301.mp3"; sourceTree = "<group>"; };
+		ACF4F7AC1591391000B02724 /* RNM 34\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 34\\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3"; sourceTree = "<group>"; };
+		ACF4F7AD1591391000B02724 /* RNM 34\Rest_of_My_Life_RNM_0034_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 34\\Rest_of_My_Life_RNM_0034_00101.mp3"; sourceTree = "<group>"; };
+		ACF4F7AE1591391000B02724 /* RNM 34\Sad_Love_Song_RNM_0034_01401.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 34\\Sad_Love_Song_RNM_0034_01401.mp3"; sourceTree = "<group>"; };
+		ACF4F7B01591391000B02724 /* RNM 50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "RNM 50.jpg"; sourceTree = "<group>"; };
+		ACF4F7B11591391000B02724 /* RNM 50\California_RNM_0050_00101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 50\\California_RNM_0050_00101.mp3"; sourceTree = "<group>"; };
+		ACF4F7B21591391000B02724 /* RNM 50\Reasons_RNM_0050_01201.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 50\\Reasons_RNM_0050_01201.mp3"; sourceTree = "<group>"; };
+		ACF4F7B31591391000B02724 /* RNM 50\Red_Scare_RNM_0050_01601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 50\\Red_Scare_RNM_0050_01601.mp3"; sourceTree = "<group>"; };
+		ACF4F7B41591391000B02724 /* RNM 50\Showtime_RNM_0050_00601.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "RNM 50\\Showtime_RNM_0050_00601.mp3"; sourceTree = "<group>"; };
+		ACFB22431590FB1600E80DC9 /* JJAddSongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJAddSongViewController.h; sourceTree = "<group>"; };
+		ACFB22441590FB1600E80DC9 /* JJAddSongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJAddSongViewController.m; sourceTree = "<group>"; };
 		ACFCF7851566A52100BC922D /* SConscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,9 +248,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4546FF159507F700F81B44 /* MediaPlayer.framework in Frameworks */,
 				ACEE2F2615894C1D003511B1 /* libcrypto.a in Frameworks */,
 				ACEE2F2715894C1D003511B1 /* libssl.a in Frameworks */,
 				ACA3BD4D158908310010F1C5 /* AVFoundation.framework in Frameworks */,
+				AC4546FD159506BD00F81B44 /* AudioToolbox.framework in Frameworks */,
 				AC3E26FF15597AD2002449CF /* UIKit.framework in Frameworks */,
 				AC3E270115597AD2002449CF /* Foundation.framework in Frameworks */,
 				AC3E270315597AD2002449CF /* CoreGraphics.framework in Frameworks */,
@@ -248,6 +279,9 @@
 		AC3E26EF15597AD1002449CF = {
 			isa = PBXGroup;
 			children = (
+				AC4546FA1594E7D800F81B44 /* Default@2x.png */,
+				AC4546F41594E73100F81B44 /* Default-Portrait~ipad.png */,
+				AC4546F21594E72600F81B44 /* Default-Landscape~ipad.png */,
 				AC3E270415597AD2002449CF /* JamJoyn */,
 				AC3E272515597AD2002449CF /* JamJoynTests */,
 				AC3E26FD15597AD2002449CF /* Frameworks */,
@@ -273,6 +307,8 @@
 				ACEE2F1D15894BEB003511B1 /* libajdaemon.a */,
 				ACEE2F1E15894BEB003511B1 /* libajstream.a */,
 				ACEE2F1F15894BEB003511B1 /* liballjoyn.a */,
+				AC4546FE159507F700F81B44 /* MediaPlayer.framework */,
+				AC4546FC159506BD00F81B44 /* AudioToolbox.framework */,
 				ACA3BD4C158908310010F1C5 /* AVFoundation.framework */,
 				AC3E26FE15597AD2002449CF /* UIKit.framework */,
 				AC3E270015597AD2002449CF /* Foundation.framework */,
@@ -285,9 +321,17 @@
 		AC3E270415597AD2002449CF /* JamJoyn */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BC0E1587A5570010F1C5 /* Music */,
+				ACF4F7951591391000B02724 /* Sample Music */,
 				AC3E278C15597C50002449CF /* AllJoyn */,
 				ACFCF7851566A52100BC922D /* SConscript */,
+				AC4546F61594E7AC00F81B44 /* Default.png */,
+				AC4546F71594E7AD00F81B44 /* Default-Landscape.png */,
+				AC4546E71594E20800F81B44 /* icon-48x48.png */,
+				AC45470615992F4300F81B44 /* Alljoyn-Icon.png */,
+				AC4546EA1594E27F00F81B44 /* icon.png */,
+				AC4547041598C41F00F81B44 /* stop.png */,
+				AC4547021598C41400F81B44 /* pause.png */,
+				AC45470015950F7D00F81B44 /* play.png */,
 				AC3E270D15597AD2002449CF /* JJAppDelegate.h */,
 				AC3E270E15597AD2002449CF /* JJAppDelegate.m */,
 				AC3E271015597AD2002449CF /* MainStoryboard_iPhone.storyboard */,
@@ -296,6 +340,8 @@
 				AC3E27D71559926D002449CF /* JJConstants.m */,
 				AC3E27D315598A73002449CF /* JJManager.h */,
 				AC3E27D415598A73002449CF /* JJManager.mm */,
+				ACFB22431590FB1600E80DC9 /* JJAddSongViewController.h */,
+				ACFB22441590FB1600E80DC9 /* JJAddSongViewController.m */,
 				AC9ADC08155C148A007B46FA /* JJPlaylistViewController.h */,
 				AC9ADC09155C148A007B46FA /* JJPlaylistViewController.mm */,
 				AC3E27D91559A098002449CF /* JJRoomTableViewControllerViewController.h */,
@@ -401,91 +447,91 @@
 			name = AllJoyn;
 			sourceTree = "<group>";
 		};
-		ACA3BBD61587A5310010F1C5 /* Classical Selection I */ = {
+		ACF4F7951591391000B02724 /* Sample Music */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBD71587A5310010F1C5 /* Classical Selection I.jpg */,
-				ACA3BBD81587A5310010F1C5 /* Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */,
+				ACF4F7961591391000B02724 /* Classical Selection I */,
+				ACF4F7991591391000B02724 /* Epic Classical */,
+				ACF4F79C1591391000B02724 /* Popular Classics 1 */,
+				ACF4F79F1591391000B02724 /* RAF Brass and Wind Bands 3 */,
+				ACF4F7A21591391000B02724 /* RNM 19 */,
+				ACF4F7A81591391000B02724 /* RNM 34 */,
+				ACF4F7AF1591391000B02724 /* RNM 50 */,
+			);
+			path = "Sample Music";
+			sourceTree = "<group>";
+		};
+		ACF4F7961591391000B02724 /* Classical Selection I */ = {
+			isa = PBXGroup;
+			children = (
+				ACF4F7971591391000B02724 /* Classical Selection I.jpg */,
+				ACF4F7981591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */,
 			);
 			path = "Classical Selection I";
 			sourceTree = "<group>";
 		};
-		ACA3BBD91587A5310010F1C5 /* Epic Classical */ = {
+		ACF4F7991591391000B02724 /* Epic Classical */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBDA1587A5310010F1C5 /* Epic Classical.jpg */,
-				ACA3BBDB1587A5310010F1C5 /* Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */,
+				ACF4F79A1591391000B02724 /* Epic Classical.jpg */,
+				ACF4F79B1591391000B02724 /* Epic Classical\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 */,
 			);
 			path = "Epic Classical";
 			sourceTree = "<group>";
 		};
-		ACA3BBDC1587A5310010F1C5 /* Popular Classics 1 */ = {
+		ACF4F79C1591391000B02724 /* Popular Classics 1 */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBDD1587A5310010F1C5 /* Popular Classics.jpg */,
-				ACA3BBDE1587A5310010F1C5 /* Ride_of_the_Valkyries_JM_0044_01901.mp3 */,
+				ACF4F79D1591391000B02724 /* Popular Classics.jpg */,
+				ACF4F79E1591391000B02724 /* Popular Classics\Ride_of_the_Valkyries_JM_0044_01901.mp3 */,
 			);
 			path = "Popular Classics 1";
 			sourceTree = "<group>";
 		};
-		ACA3BBDF1587A5310010F1C5 /* RAF Brass and Wind Bands 3 */ = {
+		ACF4F79F1591391000B02724 /* RAF Brass and Wind Bands 3 */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBE01587A5310010F1C5 /* RAF Brass and Wind Bands 3.jpg */,
-				ACA3BBE11587A5310010F1C5 /* Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */,
+				ACF4F7A01591391000B02724 /* RAF Brass and Wind Bands 3.jpg */,
+				ACF4F7A11591391000B02724 /* RAF Brass and Wind Bands 3\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 */,
 			);
 			path = "RAF Brass and Wind Bands 3";
 			sourceTree = "<group>";
 		};
-		ACA3BBE21587A5310010F1C5 /* RNM 19 */ = {
+		ACF4F7A21591391000B02724 /* RNM 19 */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBE31587A5310010F1C5 /* 1000_RNM_0019_00101.mp3 */,
-				ACA3BBE41587A5310010F1C5 /* RNM 19.jpg */,
-				ACA3BBE51587A5310010F1C5 /* Burning_for_Love_RNM_0019_01901.mp3 */,
-				ACA3BBE61587A5310010F1C5 /* I_m_on_Fire_RNM_0019_00301.mp3 */,
-				ACA3BBE71587A5310010F1C5 /* Wildcat_RNM_0019_01501.mp3 */,
+				ACF4F7A31591391000B02724 /* RNM 19.jpg */,
+				ACF4F7A41591391000B02724 /* RNM 19\1000_RNM_0019_00101.mp3 */,
+				ACF4F7A51591391000B02724 /* RNM 19\Burning_for_Love_RNM_0019_01901.mp3 */,
+				ACF4F7A61591391000B02724 /* RNM 19\I_m_on_Fire_RNM_0019_00301.mp3 */,
+				ACF4F7A71591391000B02724 /* RNM 19\Wildcat_RNM_0019_01501.mp3 */,
 			);
 			path = "RNM 19";
 			sourceTree = "<group>";
 		};
-		ACA3BBE81587A5310010F1C5 /* RNM 34 */ = {
+		ACF4F7A81591391000B02724 /* RNM 34 */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBE91587A5310010F1C5 /* RNM 34.jpg */,
-				ACA3BBEA1587A5310010F1C5 /* RNM 34.png */,
-				ACA3BBEB1587A5310010F1C5 /* Hopeless_Disposition_RNM_0034_00301.mp3 */,
-				ACA3BBEC1587A5310010F1C5 /* Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */,
-				ACA3BBED1587A5310010F1C5 /* Rest_of_My_Life_RNM_0034_00101.mp3 */,
-				ACA3BBEE1587A5310010F1C5 /* Sad_Love_Song_RNM_0034_01401.mp3 */,
+				ACF4F7A91591391000B02724 /* RNM 34.jpg */,
+				ACF4F7AA1591391000B02724 /* RNM 34.png */,
+				ACF4F7AB1591391000B02724 /* RNM 34\Hopeless_Disposition_RNM_0034_00301.mp3 */,
+				ACF4F7AC1591391000B02724 /* RNM 34\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 */,
+				ACF4F7AD1591391000B02724 /* RNM 34\Rest_of_My_Life_RNM_0034_00101.mp3 */,
+				ACF4F7AE1591391000B02724 /* RNM 34\Sad_Love_Song_RNM_0034_01401.mp3 */,
 			);
 			path = "RNM 34";
 			sourceTree = "<group>";
 		};
-		ACA3BBEF1587A5310010F1C5 /* RNM 50 */ = {
+		ACF4F7AF1591391000B02724 /* RNM 50 */ = {
 			isa = PBXGroup;
 			children = (
-				ACA3BBF01587A5310010F1C5 /* RNM 50.jpg */,
-				ACA3BBF11587A5310010F1C5 /* California_RNM_0050_00101.mp3 */,
-				ACA3BBF21587A5310010F1C5 /* Reasons_RNM_0050_01201.mp3 */,
-				ACA3BBF31587A5310010F1C5 /* Red_Scare_RNM_0050_01601.mp3 */,
-				ACA3BBF41587A5310010F1C5 /* Showtime_RNM_0050_00601.mp3 */,
+				ACF4F7B01591391000B02724 /* RNM 50.jpg */,
+				ACF4F7B11591391000B02724 /* RNM 50\California_RNM_0050_00101.mp3 */,
+				ACF4F7B21591391000B02724 /* RNM 50\Reasons_RNM_0050_01201.mp3 */,
+				ACF4F7B31591391000B02724 /* RNM 50\Red_Scare_RNM_0050_01601.mp3 */,
+				ACF4F7B41591391000B02724 /* RNM 50\Showtime_RNM_0050_00601.mp3 */,
 			);
 			path = "RNM 50";
-			sourceTree = "<group>";
-		};
-		ACA3BC0E1587A5570010F1C5 /* Music */ = {
-			isa = PBXGroup;
-			children = (
-				ACA3BBD61587A5310010F1C5 /* Classical Selection I */,
-				ACA3BBD91587A5310010F1C5 /* Epic Classical */,
-				ACA3BBDC1587A5310010F1C5 /* Popular Classics 1 */,
-				ACA3BBDF1587A5310010F1C5 /* RAF Brass and Wind Bands 3 */,
-				ACA3BBE21587A5310010F1C5 /* RNM 19 */,
-				ACA3BBE81587A5310010F1C5 /* RNM 34 */,
-				ACA3BBEF1587A5310010F1C5 /* RNM 50 */,
-			);
-			name = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,30 +614,41 @@
 				ACFCF7861566A52100BC922D /* SConscript in Resources */,
 				ACA3BBCF1586B46D0010F1C5 /* JJMediaSourceModel.xml in Resources */,
 				ACA3BBD51586BA7E0010F1C5 /* JJMediaStreamModel.xml in Resources */,
-				ACA3BBF51587A5310010F1C5 /* Classical Selection I.jpg in Resources */,
-				ACA3BBF61587A5310010F1C5 /* Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 in Resources */,
-				ACA3BBF71587A5310010F1C5 /* Epic Classical.jpg in Resources */,
-				ACA3BBF81587A5310010F1C5 /* Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 in Resources */,
-				ACA3BBF91587A5310010F1C5 /* Popular Classics.jpg in Resources */,
-				ACA3BBFA1587A5310010F1C5 /* Ride_of_the_Valkyries_JM_0044_01901.mp3 in Resources */,
-				ACA3BBFB1587A5310010F1C5 /* RAF Brass and Wind Bands 3.jpg in Resources */,
-				ACA3BBFC1587A5310010F1C5 /* Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 in Resources */,
-				ACA3BBFD1587A5310010F1C5 /* 1000_RNM_0019_00101.mp3 in Resources */,
-				ACA3BBFE1587A5310010F1C5 /* RNM 19.jpg in Resources */,
-				ACA3BBFF1587A5310010F1C5 /* Burning_for_Love_RNM_0019_01901.mp3 in Resources */,
-				ACA3BC001587A5310010F1C5 /* I_m_on_Fire_RNM_0019_00301.mp3 in Resources */,
-				ACA3BC011587A5310010F1C5 /* Wildcat_RNM_0019_01501.mp3 in Resources */,
-				ACA3BC021587A5310010F1C5 /* RNM 34.jpg in Resources */,
-				ACA3BC031587A5310010F1C5 /* RNM 34.png in Resources */,
-				ACA3BC041587A5310010F1C5 /* Hopeless_Disposition_RNM_0034_00301.mp3 in Resources */,
-				ACA3BC051587A5310010F1C5 /* Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 in Resources */,
-				ACA3BC061587A5310010F1C5 /* Rest_of_My_Life_RNM_0034_00101.mp3 in Resources */,
-				ACA3BC071587A5310010F1C5 /* Sad_Love_Song_RNM_0034_01401.mp3 in Resources */,
-				ACA3BC081587A5310010F1C5 /* RNM 50.jpg in Resources */,
-				ACA3BC091587A5310010F1C5 /* California_RNM_0050_00101.mp3 in Resources */,
-				ACA3BC0A1587A5310010F1C5 /* Reasons_RNM_0050_01201.mp3 in Resources */,
-				ACA3BC0B1587A5310010F1C5 /* Red_Scare_RNM_0050_01601.mp3 in Resources */,
-				ACA3BC0C1587A5310010F1C5 /* Showtime_RNM_0050_00601.mp3 in Resources */,
+				ACF4F7B51591391000B02724 /* Classical Selection I.jpg in Resources */,
+				ACF4F7B61591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 in Resources */,
+				ACF4F7B71591391000B02724 /* Epic Classical.jpg in Resources */,
+				ACF4F7B81591391000B02724 /* Epic Classical\Swan_Lake__Scene_Finale_WOM_0108_00401.mp3 in Resources */,
+				ACF4F7B91591391000B02724 /* Popular Classics.jpg in Resources */,
+				ACF4F7BA1591391000B02724 /* Popular Classics\Ride_of_the_Valkyries_JM_0044_01901.mp3 in Resources */,
+				ACF4F7BB1591391000B02724 /* RAF Brass and Wind Bands 3.jpg in Resources */,
+				ACF4F7BC1591391000B02724 /* RAF Brass and Wind Bands 3\Battle_Hymn_of_the_Republic_KPM_0651_01901.mp3 in Resources */,
+				ACF4F7BD1591391000B02724 /* RNM 19.jpg in Resources */,
+				ACF4F7BE1591391000B02724 /* RNM 19\1000_RNM_0019_00101.mp3 in Resources */,
+				ACF4F7BF1591391000B02724 /* RNM 19\Burning_for_Love_RNM_0019_01901.mp3 in Resources */,
+				ACF4F7C01591391000B02724 /* RNM 19\I_m_on_Fire_RNM_0019_00301.mp3 in Resources */,
+				ACF4F7C11591391000B02724 /* RNM 19\Wildcat_RNM_0019_01501.mp3 in Resources */,
+				ACF4F7C21591391000B02724 /* RNM 34.jpg in Resources */,
+				ACF4F7C31591391000B02724 /* RNM 34.png in Resources */,
+				ACF4F7C41591391000B02724 /* RNM 34\Hopeless_Disposition_RNM_0034_00301.mp3 in Resources */,
+				ACF4F7C51591391000B02724 /* RNM 34\Love_Is_a_Tricky_Thing_RNM_0034_01601.mp3 in Resources */,
+				ACF4F7C61591391000B02724 /* RNM 34\Rest_of_My_Life_RNM_0034_00101.mp3 in Resources */,
+				ACF4F7C71591391000B02724 /* RNM 34\Sad_Love_Song_RNM_0034_01401.mp3 in Resources */,
+				ACF4F7C81591391000B02724 /* RNM 50.jpg in Resources */,
+				ACF4F7C91591391000B02724 /* RNM 50\California_RNM_0050_00101.mp3 in Resources */,
+				ACF4F7CA1591391000B02724 /* RNM 50\Reasons_RNM_0050_01201.mp3 in Resources */,
+				ACF4F7CB1591391000B02724 /* RNM 50\Red_Scare_RNM_0050_01601.mp3 in Resources */,
+				ACF4F7CC1591391000B02724 /* RNM 50\Showtime_RNM_0050_00601.mp3 in Resources */,
+				AC4546E81594E20800F81B44 /* icon-48x48.png in Resources */,
+				AC4546EB1594E27F00F81B44 /* icon.png in Resources */,
+				AC4546F31594E72600F81B44 /* Default-Landscape~ipad.png in Resources */,
+				AC4546F51594E73100F81B44 /* Default-Portrait~ipad.png in Resources */,
+				AC4546F81594E7AD00F81B44 /* Default.png in Resources */,
+				AC4546F91594E7AD00F81B44 /* Default-Landscape.png in Resources */,
+				AC4546FB1594E7D800F81B44 /* Default@2x.png in Resources */,
+				AC45470115950F7D00F81B44 /* play.png in Resources */,
+				AC4547031598C41500F81B44 /* pause.png in Resources */,
+				AC4547051598C41F00F81B44 /* stop.png in Resources */,
+				AC45470715992F4400F81B44 /* Alljoyn-Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +739,7 @@
 				ACA776FA1586714C00DF22E1 /* AJNAuthenticationListenerImpl.mm in Sources */,
 				ACA776FB1586714C00DF22E1 /* AJNKeyStoreListenerImpl.mm in Sources */,
 				ACA776FC1586714C00DF22E1 /* AJNSecurityCredentials.mm in Sources */,
+				ACFB22451590FB1600E80DC9 /* JJAddSongViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,7 +910,7 @@
 					"-DQCC_OS_DARWIN",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\" \"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\" \"$(SRCROOT)/../../../alljoyn_streaming/build/darwin/arm/$(CONFIGURATION)/dist/inc/ajstream\"";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/../../../alljoyn_streaming/build/darwin/arm/$(CONFIGURATION)/dist/lib\" \"$(SRCROOT)/../../../alljoyn_streaming/build/darwin/arm/$(CONFIGURATION)/dist/lib\" \"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\" \"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/debug/iphoneos/dist/lib\" \"$(SRCROOT)/../../../alljoyn_streaming/build/darwin/arm/debug/dist/lib\" \"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

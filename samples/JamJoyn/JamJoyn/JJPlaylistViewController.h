@@ -19,8 +19,22 @@
 @interface JJPlaylistViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *songLabel;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *currentPlaybackPositionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *playbackTimeRemainingLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (weak, nonatomic) IBOutlet UISlider *playbackProgressSlider;
 
 - (IBAction)didTouchPlayButton:(id)sender;
 - (IBAction)didTouchPauseButton:(id)sender;
 - (IBAction)didTouchStopButton:(id)sender;
+- (IBAction)didTouchAddSongButton:(id)sender;
+- (IBAction)didTouchVolumeUpButton:(id)sender;
+- (IBAction)didTouchVolumeDownButton:(id)sender;
+- (IBAction)didTouchEditButton:(id)sender;
+- (IBAction)playbackSliderPositionDidChange:(id)sender;
+
 @end

@@ -46,7 +46,7 @@
 {
     [super viewWillAppear:animated];
     JJManager.sharedInstance.delegate = self;
-    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -82,6 +82,8 @@
     
     // Configure the cell...
     cell.textLabel.text = [[[JJManager.sharedInstance.rooms objectAtIndex:indexPath.row] componentsSeparatedByString:@"."] objectAtIndex:5];
+    
+    cell.imageView.image = [UIImage imageNamed:@"Alljoyn-Icon"];
     
     return cell;
 }
@@ -142,10 +144,6 @@
 - (void)roomsChanged
 {
     [self.tableView reloadData];
-}
-
-- (void)playListReceived
-{
 }
 
 @end

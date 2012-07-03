@@ -145,9 +145,9 @@ JamJoynServiceObjectImpl::JamJoynServiceObjectImpl(BusAttachment &bus, const cha
     //
     CommandSignalSignalMember = interfaceDescription->GetMember("CommandSignal");
     assert(CommandSignalSignalMember);    
-AnnounceSignalMember = interfaceDescription->GetMember("Announce");
+    AnnounceSignalMember = interfaceDescription->GetMember("Announce");
     assert(AnnounceSignalMember);    
-SetPlaylistSongsSignalMember = interfaceDescription->GetMember("SetPlaylistSongs");
+    SetPlaylistSongsSignalMember = interfaceDescription->GetMember("SetPlaylistSongs");
     assert(SetPlaylistSongsSignalMember);    
 
 
@@ -272,8 +272,6 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
 @implementation AJNJamJoynServiceObject
 
 @dynamic handle;
-
-
 
 - (JamJoynServiceObjectImpl*)busObject
 {
@@ -747,13 +745,13 @@ void JJServiceSignalHandlerImpl::AnnounceServiceSignalHandler(const ajn::Interfa
     @autoreleasepool {
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
+        NSString *nickName = [NSString stringWithCString:msg->GetArg(0)->v_string.str encoding:NSUTF8StringEncoding];
+        BOOL isHost = msg->GetArg(1)->v_bool;
         
         NSLog(@"Received signal from %@ on path %@ for session id %u [%s > %s] this=%u", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast", (uint)this);
         
-        
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [(id<JamJoynServiceDelegate>)m_delegate announcementReceived];
+            [(id<JamJoynServiceDelegate>)m_delegate announcementReceivedFromSender:from withNickName:nickName isHost:isHost];
         });
         
     }

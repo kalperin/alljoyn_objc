@@ -18,10 +18,23 @@
 
 struct JJSong;
 
+typedef enum {
+    kJJPlaybackStatusUnknown = 0,
+    kJJPlaybackStatusPlaying,
+    kJJPlaybackStatusStopped,
+    kJJPlaybackStatusPaused
+} JJPlaybackStatus;
+
 @protocol JJManagerDelegate <NSObject>
+
+@optional
 
 - (void)roomsChanged;
 - (void)playListReceived;
+- (void)didUpdatePlaybackStatus:(JJPlaybackStatus)status;
+- (void)didUpdateCurrentPlaybackPosition:(int)position;
+- (void)receivedStreamDuration:(int)duration;
+- (void)nowPlayingSong:(NSString*)song onAlbum:(NSString*)album atIndex:(NSInteger)index;
 
 @end
 
@@ -33,6 +46,10 @@ struct JJSong;
 @property (readonly, nonatomic) NSInteger playlistSongCount;
 @property (nonatomic) NSInteger currentSong;
 @property (nonatomic, strong) id<JJManagerDelegate> delegate;
+@property (readonly) BOOL isStarted;
+
+- (void)startService;
+- (void)stopService;
 
 - (void)joinRoom:(NSInteger)roomIndex;
 - (void)leaveRoom;
@@ -40,6 +57,12 @@ struct JJSong;
 - (void)play;
 - (void)stop;
 - (void)pause;
+- (void)volumeUp;
+- (void)volumeDown;
+- (void)seekTo:(NSInteger)position;
+
+- (void)sendSongNamed:(NSString*)songName;
+- (void)removeSongAtIndex:(NSInteger)index;
 
 + (JJManager *)sharedInstance;
 

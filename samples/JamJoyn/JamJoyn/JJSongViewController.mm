@@ -20,15 +20,15 @@
 
 struct JJSong
 {
-int32_t songId;
-qcc::String songPath;
-qcc::String songName;
-qcc::String artist;
-qcc::String album;
-int32_t albumId;
-qcc::String artPath;
-qcc::String fileName;
-qcc::String busId;    
+    int32_t songId;
+    qcc::String songPath;
+    qcc::String songName;
+    qcc::String artist;
+    qcc::String album;
+    int32_t albumId;
+    qcc::String artPath;
+    qcc::String fileName;
+    qcc::String busId;    
 };
 
 
@@ -39,6 +39,7 @@ qcc::String busId;
 @implementation JJSongViewController
 
 @synthesize tableView;
+@synthesize albumImageView;
 @synthesize titleLabel;
 @synthesize albumLabel;
 @synthesize artistLabel;
@@ -70,6 +71,7 @@ qcc::String busId;
     [self setArtistLabel:nil];
     [self setTableView:nil];
     [self setTableView:nil];
+    [self setAlbumImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -78,10 +80,19 @@ qcc::String busId;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
     JJSong *song = JJManager.sharedInstance.playlist + JJManager.sharedInstance.currentSong;
     self.titleLabel.text = [NSString stringWithCString:song->songName.c_str() encoding:NSUTF8StringEncoding];
     self.albumLabel.text = [NSString stringWithCString:song->album.c_str() encoding:NSUTF8StringEncoding];
     self.artistLabel.text = [NSString stringWithCString:song->artist.c_str() encoding:NSUTF8StringEncoding]; 
+    
+    NSString *albumPrefix = [[[[NSString stringWithCString:song->songPath.c_str() encoding:NSUTF8StringEncoding] lastPathComponent] componentsSeparatedByString:@"\\"] objectAtIndex:0];
+    albumPrefix = [albumPrefix stringByAppendingString:@".jpg"];
+    UIImage *image = [UIImage imageNamed:albumPrefix];
+    if (!image) {
+        image = [UIImage imageNamed:@"Alljoyn-Icon"];
+    }    
+    self.albumImageView.image = image;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

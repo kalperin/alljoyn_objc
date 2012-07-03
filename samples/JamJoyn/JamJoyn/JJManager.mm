@@ -15,6 +15,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioServices.h>
 #import "JJManager.h"
 #import "JJConstants.h"
 #import "JJService.h"
@@ -211,6 +212,7 @@ static JJManager *s_manager;
     MediaSource *mediaSource;
     AudioStream *audioStream;
     NSInteger playlistSongCount;
+    float currentVolume;
 }
 
 @property (nonatomic, strong) NSMutableArray *theRooms;
@@ -220,6 +222,8 @@ static JJManager *s_manager;
 @property (nonatomic) AJNSessionId sessionId;
 @property (nonatomic) BOOL isPlaying;
 @property (nonatomic, strong) NSString *mediaPath;
+@property (nonatomic, strong) NSMutableArray *peers;
+@property (nonatomic, strong) NSString *songSessionName;
 
 @property (nonatomic, strong) AJNBusAttachment *bus;
 
@@ -242,6 +246,9 @@ static JJManager *s_manager;
 @synthesize currentSong = _currentSong;
 @synthesize isPlaying = _isPlaying;
 @synthesize mediaPath = _mediaPath;
+@synthesize peers = _peers;
+@synthesize isStarted = _isStarted;
+@synthesize songSessionName = _songSessionName;
 
 - (NSArray *)rooms
 {
@@ -256,6 +263,14 @@ static JJManager *s_manager;
 - (NSInteger)playlistSongCount
 {
     return playlistSongCount;
+}
+
+- (NSMutableArray *)peers
+{
+    if (_peers == nil) {
+        _peers = [[NSMutableArray alloc] init];
+    }
+    return _peers;
 }
 
 - (NSMutableArray *)theRooms
@@ -277,55 +292,106 @@ static JJManager *s_manager;
     self = [super init];
     if (self) {
         
-        musicFileReader = new MP3Reader();       
+        [self startService];
         
-        self.mediaSessionListener = [[MediaSessionPortListener alloc] init];
-
-        self.bus = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
-        
-        [self.bus registerBusListener:self];
-        
-        [self.bus createInterfacesFromXml:kXMLInterfaceDescription];
-
-        // start the bus and begin listening for bus traffic
-        //
-        [self.bus start];
-        
-        [self.bus connectWithArguments:@"null:"];
-        
-        // register signal handler
-        //
-        [self.bus registerJamJoynServiceObjectSignalHandler:self];
-        
-        self.serviceObject = [[AJNJamJoynServiceObject alloc] initWithBusAttachment:self.bus onPath:kServicePath];
-        
-        [self.bus registerBusObject:self.serviceObject];
-        
-        [self.bus findAdvertisedName:@"org.alljoyn.bus.samples.commandpasser"];    
-        
-        // media source session
-        //
-        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
-        
-        mediaSource = new MediaSource(*((BusAttachment*)self.bus.handle));
-        
-        [self.bus registerBusObject:[[AJNBusObject alloc] initWithHandle:(AJNHandle)mediaSource]];
-        
-        [self.bus bindSessionOnPort:kMediaServicePort withOptions:sessionOptions withDelegate:self.mediaSessionListener];
-        
-        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(volumeChanged:)
+         name:@"AVSystemController_SystemVolumeDidChangeNotification"
+         object:nil];
    }
     return self;
 }
 
-- (void)sendSong
+- (void)dealloc
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101" ofType:@"mp3"];
-    NSURL *url = [[NSURL alloc] initFileURLWithPath:path];
-    AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)startService
+{
+    if (self.isStarted) {
+        return;
+    }
+    _isStarted = YES;    
     
+    self.mediaSessionListener = [[MediaSessionPortListener alloc] init];
+    
+    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
+    
+    [self.bus registerBusListener:self];
+    
+    [self.bus createInterfacesFromXml:kXMLInterfaceDescription];
+    
+    // start the bus and begin listening for bus traffic
+    //
+    [self.bus start];
+    
+    [self.bus connectWithArguments:@"null:"];
+    
+    // register signal handler
+    //
+    [self.bus registerJamJoynServiceObjectSignalHandler:self];
+    
+    self.serviceObject = [[AJNJamJoynServiceObject alloc] initWithBusAttachment:self.bus onPath:kServicePath];
+    
+    [self.bus registerBusObject:self.serviceObject];
+    
+    [self.bus findAdvertisedName:@"org.alljoyn.bus.samples.commandpasser"];    
+    
+    // media source session
+    //
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    mediaSource = new MediaSource(*((BusAttachment*)self.bus.handle));
+    
+    [self.bus registerBusObject:[[AJNBusObject alloc] initWithHandle:(AJNHandle)mediaSource]];
+    
+    [self.bus bindSessionOnPort:kMediaServicePort withOptions:sessionOptions withDelegate:self.mediaSessionListener];
+}
+
+- (void)stopService
+{
+    if (!self.isStarted) {
+        return;
+    }
+    
+    _isStarted = NO;
+    
+    [self.peers removeAllObjects];
+    self.peers = nil;
+    
+    [self.bus unregisterBusObject:[[AJNBusObject alloc] initWithHandle:(AJNHandle)mediaSource]];
+    
+    [self.bus cancelFindAdvertisedName:@"org.alljoyn.bus.samples.commandpasser"];
+    
+    [self.bus unregisterBusObject:self.serviceObject];
+    
+    [self.bus unregisterSignalHandler:self];
+    
+    [self.bus disconnectWithArguments:@"null:"];
+    
+    [self.bus stop];
+    
+    [self.bus unregisterBusListener:self];
+    
+    if (mediaSource) {
+        delete mediaSource;
+        mediaSource = nil;
+    }
+    self.serviceObject = nil;
+    self.mediaSessionListener = nil;    
+    self.bus = nil;
+}
+
+- (void)sendSongNamed:(NSString*)songName
+{
+    NSString *songPath = [[NSBundle mainBundle] pathForResource:songName ofType:@"mp3"];
+    NSURL *url = [[NSURL alloc] initFileURLWithPath:songPath];
+    AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];    
     NSArray *metadata = [asset commonMetadata];
     NSMutableDictionary *metaDataLookup = [[NSMutableDictionary alloc] init];
+    
     for ( AVMetadataItem* item in metadata ) {
         NSString *key = [item commonKey];
         NSString *value = [item stringValue];
@@ -340,11 +406,22 @@ static JJManager *s_manager;
     song->artist = [[metaDataLookup valueForKey:@"creator"] UTF8String];
     song->songId = 0;
     song->songName = [[metaDataLookup valueForKey:@"title"] UTF8String];
-    song->songPath = [[@"STREAM:" stringByAppendingString:path] UTF8String];
-    song->fileName = [@"Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3" UTF8String];
+    song->songPath = [[@"STREAM:" stringByAppendingString:songPath] UTF8String];
+    song->fileName = [[songPath lastPathComponent] UTF8String];
     song->busId = [self.bus.uniqueIdentifier UTF8String];
     
     [self.jamjoynService sendSongs:song];
+}
+
+- (void)removeSongAtIndex:(NSInteger)index
+{
+    if (self.currentSong == index && audioStream) {
+        audioStream->Close();
+    }
+    playlistSongCount--;
+    self.currentSong = 0;
+    [self.jamjoynService sendCommand:@"removeSong" argument:[NSString stringWithFormat:@"%u", index]];
+    
 }
 
 -(void)openAudioStream
@@ -352,10 +429,14 @@ static JJManager *s_manager;
     // create the audio stream and add it to the source
     //
     NSLog(@"Opening %@ file...", self.mediaPath);
-    audioStream = new AudioStream(*((BusAttachment*)self.bus.handle), "mp3", *musicFileReader, 100, 1000);
+    audioStream = new AudioStream(*((BusAttachment*)self.bus.handle), "mp3", *musicFileReader, 100, 100);
     QStatus status = mediaSource->AddStream(*audioStream);
-
-    NSLog(@"Open media file complete");    
+    if (status != ER_OK) {
+        NSLog(@"ERROR: Failed to add stream to media source.");
+    }
+    else {
+        NSLog(@"Open media file complete");    
+    }
 }
 
 - (void)joinRoom:(NSInteger)roomIndex
@@ -366,13 +447,13 @@ static JJManager *s_manager;
     
     self.sessionId = [self.bus joinSessionWithName:room onPort:kServicePort withDelegate:self options:sessionOptions];
     
-    [self.serviceObject announceNickName:@"iOS_R0x0r" isHost:NO inSession:self.sessionId toDestination:nil];
-    
-    self.jamjoynService = [[JamJoynServiceObjectProxy alloc] initWithBusAttachment:self.bus serviceName:room objectPath:kServicePath sessionId:self.sessionId];    
-    
-    [self.jamjoynService introspectRemoteObject];
-    
-    [self sendSong];
+    if (self.sessionId != -1) {
+        [self.serviceObject announceNickName:@"iOS_R0x0r" isHost:NO inSession:self.sessionId toDestination:nil];
+        
+        self.jamjoynService = [[JamJoynServiceObjectProxy alloc] initWithBusAttachment:self.bus serviceName:room objectPath:kServicePath sessionId:self.sessionId];    
+        
+        [self.jamjoynService introspectRemoteObject];
+    }
 }
 
 - (void)leaveRoom
@@ -380,6 +461,7 @@ static JJManager *s_manager;
     [self.bus leaveSession:self.sessionId];
     
     if (audioStream) {
+        audioStream->Close();
         mediaSource->RemoveStream(*audioStream);
         delete audioStream;
         audioStream = nil;
@@ -391,12 +473,17 @@ static JJManager *s_manager;
 
 - (void)play
 {
-    JJSong *song = self.playlist + self.currentSong;
-    NSString *argument;
-    if (!self.isPlaying) {
+    if (self.playlistSongCount) {
+        if (self.currentSong >= self.playlistSongCount) {
+            self.currentSong = 0;
+        }
+        JJSong *song = self.playlist + self.currentSong;
+        NSString *argument;
+
         argument = [NSString stringWithFormat:@"%s|-|%s", song->songName.c_str(), song->album.c_str()];
+
+        [self.jamjoynService sendCommand:@"playSong" argument:argument];
     }
-    [self.jamjoynService sendCommand:@"playSong" argument:argument];
 }
 
 - (void)stop
@@ -408,6 +495,40 @@ static JJManager *s_manager;
 - (void)pause
 {
     [self.jamjoynService sendCommand:@"pauseSong" argument:nil];        
+}
+
+- (void)volumeChanged:(NSNotification *)notification
+{
+    float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
+    
+    NSLog(@"Volume changed to %f", volume);    
+    
+    float delta = volume - currentVolume;
+    
+    if (delta > 0 || volume == 1.0) {
+        [self volumeUp];
+    }
+    else if (delta < 0 || volume == 0.0) {
+        [self volumeDown];
+    }
+
+    currentVolume = volume;
+}
+
+- (void)volumeUp
+{
+    [self.jamjoynService sendCommand:@"changeVolume" argument:@"up"];
+}
+
+- (void)volumeDown
+{
+    [self.jamjoynService sendCommand:@"changeVolume" argument:@"down"];    
+}
+
+- (void)seekTo:(NSInteger)position
+{
+    NSLog(@"Seek to %i", position);
+    [self.jamjoynService sendCommand:@"seekToLocation" argument:[NSString stringWithFormat:@"%i", position]];
 }
 
 #pragma mark - AJNBusListener delegate methods
@@ -429,15 +550,27 @@ static JJManager *s_manager;
         
     }
     
-    [self.delegate roomsChanged];
-    
+    if ([self.delegate respondsToSelector:@selector(roomsChanged)]) {
+        [self.delegate roomsChanged];
+    }
 }
 
 - (void)didLoseAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask)transport namePrefix:(NSString*)namePrefix
 {
     NSLog(@"JJManager::didLoseAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix);
     
-    [self.delegate roomsChanged];
+    @synchronized(self.theRooms) {
+        if ([self.theRooms containsObject:name]) {
+            NSLog(@"JamJoyn session will be removed for %@.", name);
+            
+            [self.theRooms removeObject:name];
+        }
+        
+    }
+
+    if ([self.delegate respondsToSelector:@selector(roomsChanged)]) {
+        [self.delegate roomsChanged];
+    }
 }
 
 - (void)nameOwnerChanged:(NSString *)name to:(NSString *)newOwner from:(NSString *)previousOwner
@@ -479,51 +612,141 @@ static JJManager *s_manager;
 
 - (void)receiveSongList:(JJSong *)songs size:(long)songCount
 {
+    NSLog(@"Received a play list with %ld songs", songCount);
+    
     currentPlaylist = songs;
     playlistSongCount = songCount;
     
-    [self.delegate playListReceived];
+    if ([self.delegate respondsToSelector:@selector(playListReceived)]) {
+        [self.delegate playListReceived];
+    }
 }
 
-- (void)announcementReceived
+- (void)announcementReceivedFromSender:(NSString *)sender withNickName:(NSString *)nickName isHost:(BOOL)isHost
 {
+    NSLog(@"Announcement received from %@ aka %@ isHost=%@. My bus name is %@.", sender, nickName, isHost ? @"YES" : @"NO", self.bus.uniqueName);
+    
+    // do not bother sending the playlist to ourselves
+    //
+    if ([sender compare:self.bus.uniqueName] == NSOrderedSame) {
+        return;
+    }
+    
     [self.jamjoynService sendCommand:@"setPlayList" argument:nil];        
+    
+    JamJoynServiceObjectProxy *jamjoynPeer = [[JamJoynServiceObjectProxy alloc] initWithBusAttachment:self.bus serviceName:sender objectPath:kServicePath sessionId:self.sessionId];
+
+    [self.peers addObject:jamjoynPeer];
 }
 
 - (void)receivedCommand:(NSString *)command withArguments:(NSString *)arguments
 {
+    NSLog(@"Received command %@ with arguments %@", command, arguments);
+    
     if ([command compare:@"changePlayPauseStatus"] == NSOrderedSame) {
+        NSLog(@"Playback status changed to %@", arguments);
+        JJPlaybackStatus playbackStatus;
         if ([arguments compare:@"play"] == NSOrderedSame) {
             self.isPlaying = false;
+            playbackStatus = kJJPlaybackStatusPaused;
             NSLog(@"Play state set to FALSE");
         }
         else if ([arguments compare:@"pause"] == NSOrderedSame) {
             self.isPlaying = true;
+            playbackStatus = kJJPlaybackStatusPlaying;
             NSLog(@"Play state set to TRUE");
+        }
+        if ([self.delegate respondsToSelector:@selector(didUpdatePlaybackStatus:)]) {
+            [self.delegate didUpdatePlaybackStatus:playbackStatus];
         }
     }
     else if ([command compare:@"startStreamSong"] == NSOrderedSame) {
-                
+        
+        // cancel the advertised name before requesting a new name for the playback
+        // session
+        //
+        if (self.songSessionName) {
+            [self.bus cancelAdvertisedName:self.songSessionName withTransportMask:kAJNTransportMaskAny];        
+        }
+        
         // begin streaming the song to the player
         //
         NSArray *argumentTokens = [arguments componentsSeparatedByString:@"|"];
         self.mediaPath = [argumentTokens objectAtIndex:0];
-        NSString *wellKnownName = [NSString stringWithFormat:@"org.alljoyn.Media.Server%@",[argumentTokens objectAtIndex:1]];
-
+        self.songSessionName = [NSString stringWithFormat:@"org.alljoyn.Media.Server%@",[argumentTokens objectAtIndex:1]];
+        NSLog(@"Start streaming %@ from %@", self.mediaPath, self.songSessionName);                
+        
+        // create the MP3 reader
+        //
+        if (musicFileReader) {
+            delete musicFileReader;
+            musicFileReader = nil;
+        }
+        musicFileReader = new MP3Reader();               
+        
         // create the media playback objects so the music file can be streamed
         //
-        QStatus status = musicFileReader->SetFile([self.mediaPath UTF8String]);
+        @try {
+            QStatus status = musicFileReader->SetFile([self.mediaPath UTF8String]);
+            if (status != ER_OK) {
+                NSLog(@"ERROR: Failed to set the file used by the MP3 reader.");
+            }
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Exception: caught exception!!!");
+        }
+        @finally {
+            
+        }
         
         if (audioStream) {
             mediaSource->RemoveStream(*audioStream);
             delete audioStream;
+            audioStream = nil;
         }
 
         // create a new session for this media server
         //
-        [self.bus requestWellKnownName:wellKnownName withFlags:kAJNBusNameFlagDoNotQueue | kAJNBusNameFlagAllowReplacement];        
+        [self.bus requestWellKnownName:self.songSessionName withFlags:kAJNBusNameFlagDoNotQueue | kAJNBusNameFlagAllowReplacement];        
         
-        [self.bus advertiseName:wellKnownName withTransportMask:kAJNTransportMaskAny];
+        [self.bus advertiseName:self.songSessionName withTransportMask:kAJNTransportMaskAny];
+    }
+    else if ([command compare:@"setCurrentTime"] == NSOrderedSame) {
+        if ([self.delegate respondsToSelector:@selector(didUpdateCurrentPlaybackPosition:)]) {
+            [self.delegate didUpdateCurrentPlaybackPosition:[arguments intValue]];
+        }
+    }
+    else if ([command compare:@"setDuration"] == NSOrderedSame) {
+        if ([self.delegate respondsToSelector:@selector(receivedStreamDuration:)]) {
+            [self.delegate receivedStreamDuration:[arguments intValue]];
+        }
+    }
+    else if ([command compare:@"nowPlaying"] == NSOrderedSame) {
+        if ([self.delegate respondsToSelector:@selector(nowPlayingSong:onAlbum:atIndex:)]) {
+            NSArray *tokens = [arguments componentsSeparatedByString:@"|-|"];
+            if (tokens.count == 2) {
+                NSString *nowPlayingSong = [tokens objectAtIndex:0];
+                NSString *nowPlayingAlbum = [tokens objectAtIndex:1];
+                NSInteger nowPlayingSongIndex = -1;
+                for (int i = 0; i < self.playlistSongCount; i++) {
+                    NSString *songName = [NSString stringWithCString:self.playlist[i].songName.c_str() encoding:NSUTF8StringEncoding];
+                    NSString *albumName = [NSString stringWithCString:self.playlist[i].album.c_str() encoding:NSUTF8StringEncoding];
+                    if ([songName compare:nowPlayingSong] == NSOrderedSame &&
+                        [albumName compare:nowPlayingAlbum] == NSOrderedSame) {
+                        nowPlayingSongIndex = i;
+                        break;
+                    }
+                }
+                NSLog(@"Now playing song %@ with index %i of album %@", nowPlayingSong, nowPlayingSongIndex, nowPlayingAlbum);
+                [self.delegate nowPlayingSong:nowPlayingSong onAlbum:nowPlayingAlbum atIndex:nowPlayingSongIndex];                
+            }
+        }
+    }
+    else if ([command compare:@"sendSongList"] == NSOrderedSame) {
+        
+        // send songs available on this device to everyone in the room
+        //
+        
     }
 }
 
