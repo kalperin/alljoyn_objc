@@ -169,9 +169,8 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
     status = [self.bus deleteInterface:iface];
     STAssertTrue(status == ER_OK, @"Bus failed to delete interface.");
     
-// TODO: investigate why this fails    
-//    iface = [self.bus interfaceWithName:kBusAttachmentTestsInterfaceName];
-//    STAssertNil(iface, @"Bus retrieved interface that had already been deleted.");
+    iface = [self.bus interfaceWithName:kBusAttachmentTestsInterfaceName];
+    STAssertNil(iface, @"Bus retrieved interface that had already been deleted.");
 }
 
 - (void)testShouldNotDeleteInterface

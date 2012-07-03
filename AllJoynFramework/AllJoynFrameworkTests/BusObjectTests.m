@@ -255,13 +255,19 @@ const NSInteger kBusObjectTestsServicePort = 999;
     
     [proxy introspectRemoteObject];
 
+    NSString *proxyPropertyValue;
+    NSString *servicePropertyValue;
     proxy.testStringProperty = @"Hello World!!!";
-//    STAssertTrue([proxy.testStringProperty compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to.");
-    STAssertTrue([basicObject.testStringProperty compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to.");
+    proxyPropertyValue = proxy.testStringProperty;
+    servicePropertyValue = basicObject.testStringProperty;
+    STAssertTrue([proxyPropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
+    STAssertTrue([servicePropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
     
-    basicObject.testStringProperty = @"Foo bar?";
-    STAssertTrue([proxy.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the proxy object does not match what it was just set to.");
-//    STAssertTrue([basicObject.testStringProperty compare:@"Foo bar?"] == NSOrderedSame, @"The value of the property in the service object does not match what it was just set to.");
+    basicObject.testStringProperty = @"Foo bar???";
+    proxyPropertyValue = proxy.testStringProperty;
+    servicePropertyValue = basicObject.testStringProperty;    
+    STAssertTrue([proxyPropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
+    STAssertTrue([servicePropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
     
     status = [client.bus disconnectWithArguments:@"null:"];
     STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");

@@ -14,8 +14,8 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "AJNSecurityCredentials.h"
 #import <alljoyn/AuthListener.h>
+#import "AJNSecurityCredentials.h"
 
 const AJNSecurityCredentialType kAJNSecurityCredentialTypePassword     = 0x0001; /**< Bit 0 indicates credentials include a password, pincode, or passphrase */
 const AJNSecurityCredentialType kAJNSecurityCredentialTypeUserName    = 0x0002; /**< Bit 1 indicates credentials include a user name */
@@ -27,7 +27,33 @@ const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime   = 0x0
 const uint16_t AJNSecurityCredentialRequestNewPassword = 0x1001; /**< Indicates the credential request is for a newly created password */
 const uint16_t AJNSecurityCredentialRequestOneTimePassword = 0x2001; /**< Indicates the credential request is for a one time use password */
 
+@interface AJNObject(Private)
+
+@property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
+
+@end
+
+
 @implementation AJNSecurityCredentials
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.handle = new ajn::AuthListener::Credentials();
+        self.shouldDeleteHandleOnDealloc = YES;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    if (self.shouldDeleteHandleOnDealloc) {
+        ajn::AuthListener::Credentials *credentials = static_cast<ajn::AuthListener::Credentials*>(self.handle);
+        delete credentials;
+        self.handle = nil;
+    }
+}
 
 - (ajn::AuthListener::Credentials*)credentials
 {

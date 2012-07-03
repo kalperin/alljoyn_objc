@@ -69,6 +69,7 @@ static NSString * const kInterfaceXML = @"<interface name=\"org.alljoyn.bus.objc
     [super tearDown];
 }
 
+
 - (void)testShouldCreateInterface
 {
     AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kInterfaceName];
