@@ -14,6 +14,7 @@
 		AC3A984B1577D60600CFF856 /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3A98491577D60500CFF856 /* AJNAuthenticationListenerImpl.mm */; };
 		AC3A984E1577DE2900CFF856 /* AJNSecurityCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3A984C1577DE2700CFF856 /* AJNSecurityCredentials.h */; };
 		AC3A984F1577DE2900CFF856 /* AJNSecurityCredentials.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3A984D1577DE2800CFF856 /* AJNSecurityCredentials.mm */; };
+		AC4FF04115A3A928006C2FB4 /* AuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF04015A3A928006C2FB4 /* AuthenticationTests.m */; };
 		AC5C55D51548B0CC00C13A0B /* BusAttachmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5C55D41548B0CC00C13A0B /* BusAttachmentTests.m */; };
 		AC5C55D91548B53D00C13A0B /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55D61548B53D00C13A0B /* BundledDaemon.o */; };
 		AC5C55DA1548B53D00C13A0B /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55D71548B53D00C13A0B /* libajdaemon.a */; };
@@ -101,6 +102,8 @@
 		AC3A98491577D60500CFF856 /* AJNAuthenticationListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNAuthenticationListenerImpl.mm; sourceTree = "<group>"; };
 		AC3A984C1577DE2700CFF856 /* AJNSecurityCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNSecurityCredentials.h; sourceTree = "<group>"; };
 		AC3A984D1577DE2800CFF856 /* AJNSecurityCredentials.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNSecurityCredentials.mm; sourceTree = "<group>"; };
+		AC4FF03F15A3A928006C2FB4 /* AuthenticationTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationTests.h; sourceTree = "<group>"; };
+		AC4FF04015A3A928006C2FB4 /* AuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationTests.m; sourceTree = "<group>"; };
 		AC5C55D31548B0CC00C13A0B /* BusAttachmentTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusAttachmentTests.h; sourceTree = "<group>"; };
 		AC5C55D41548B0CC00C13A0B /* BusAttachmentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusAttachmentTests.m; sourceTree = "<group>"; };
 		AC5C55D61548B53D00C13A0B /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../alljoyn_core/build/darwin/x86/debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				ACDD11D815797DE1004D34DE /* AJNBasicObject.mm */,
 				ACDD11BE157969B4004D34DE /* BasicObject.h */,
 				ACDD11BF157969B4004D34DE /* BasicObject.m */,
+				AC4FF03F15A3A928006C2FB4 /* AuthenticationTests.h */,
+				AC4FF04015A3A928006C2FB4 /* AuthenticationTests.m */,
 				AC5C55D31548B0CC00C13A0B /* BusAttachmentTests.h */,
 				AC5C55D41548B0CC00C13A0B /* BusAttachmentTests.m */,
 				ACDD11B415795A2A004D34DE /* BusObjectTests.h */,
@@ -550,6 +555,7 @@
 				ACDD11C1157969B4004D34DE /* BasicObject.m in Sources */,
 				ACDD11D915797DE1004D34DE /* AJNBasicObject.mm in Sources */,
 				AC77324715A3452B00C7A9A4 /* TestAuthenticationListener.m in Sources */,
+				AC4FF04115A3A928006C2FB4 /* AuthenticationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

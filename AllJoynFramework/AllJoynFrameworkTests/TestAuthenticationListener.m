@@ -114,13 +114,13 @@ static NSString *privateKey =
     if ([authenticationMechanism compare:@"ALLJOYN_SRP_LOGON"] == NSOrderedSame) {
         if (mask & kAJNSecurityCredentialTypeUserName) {
             if (authenticationCount == 1) {
-                [securityCredentials setUserName:@"Mr Bogus"];
+                [securityCredentials setUserName:@"Code Monkey"];
             } else {
                 [securityCredentials setUserName:userName];
             }
         }
         if (mask & kAJNSecurityCredentialTypePassword) {
-            [securityCredentials setPassword:@"123456"];
+            [securityCredentials setPassword:@"123banana321"];
         }
         return securityCredentials;
     }
@@ -130,18 +130,19 @@ static NSString *privateKey =
 
 - (void)authenticationUsing:(NSString*)authenticationMechanism forRemotePeer:(NSString*)peer didCompleteWithStatus:(BOOL)success
 {
-    NSLog(@"Authentication %@ for peer %@ %@\n", authenticationMechanism, peer, success ? " was succesful" : " failed");    
+    NSLog(@"Authentication %@ for peer %@ %@\n", authenticationMechanism, peer, success ? @" was succesful" : @" failed");    
 }
 
 - (BOOL)verifySecurityCredentials:(AJNSecurityCredentials*)credentials usingAuthenticationMechanism:(NSString*)authenticationMechanism forRemotePeer:(NSString*)peerName
 {
+    bool result = false;
     if ([authenticationMechanism compare:@"ALLJOYN_RSA_KEYX"] == NSOrderedSame) {
         if ([credentials isCredentialTypeSet:kAJNSecurityCredentialTypeCertificateChain]) {
             NSLog(@"Verify\n%@\n", credentials.certificateChain);
-            return true;
+            result = true;
         }
     }
-    return false;        
+    return result;        
 }
 
 - (void)securityViolationOccurredWithErrorCode:(QStatus)errorCode forMessage:(AJNMessage*)message
