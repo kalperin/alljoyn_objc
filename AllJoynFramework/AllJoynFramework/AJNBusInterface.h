@@ -18,6 +18,9 @@
 
 #import "AJNBusObject.h"
 
+/** Base protocol for all bus interfaces. Applications derive from this protocol when creating
+ *  a new bus interface.
+ */
 @protocol AJNBusInterface <AJNBusObject>
 
 @end

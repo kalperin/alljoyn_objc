@@ -70,7 +70,7 @@ const NSInteger kAuthenticationTestsServicePort = 999;
     
     // Set-up code here. Executed before each test case is run.
     //
-    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowingRemoteMessages:YES];
+    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowRemoteMessages:YES];
     self.listenerDidRegisterWithBusCompleted = NO;
     self.listenerDidUnregisterWithBusCompleted = NO;
     self.didFindAdvertisedNameCompleted = NO;
@@ -269,6 +269,5 @@ const NSInteger kAuthenticationTestsServicePort = 999;
 {
     
 }
-
 
 @end

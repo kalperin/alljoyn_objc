@@ -20,6 +20,8 @@
 #import "AJNBusListener.h"
 #import "AJNBusAttachment.h"
 
+/** Internal class to bind the C++ API bus listener with the objective-c bus listener
+ */
 class AJNBusListenerImpl : public ajn::BusListener
 {
 protected:

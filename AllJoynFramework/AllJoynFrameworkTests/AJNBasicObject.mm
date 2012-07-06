@@ -512,7 +512,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // create an interface description
         //
-        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.sample.strings"];
+        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.sample.strings" enableSecurity:NO];
 
     
         // add the properties to the interface description
@@ -574,7 +574,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // create an interface description
         //
-        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.chat"];
+        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.chat" enableSecurity:NO];
 
     
         // add the properties to the interface description
@@ -903,7 +903,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // create an interface description
         //
-        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.ping"];
+        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.ping" enableSecurity:NO];
 
     
         // add the methods to the interface description

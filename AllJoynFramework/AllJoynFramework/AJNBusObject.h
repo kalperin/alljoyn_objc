@@ -21,18 +21,45 @@
 @class AJNBusAttachment;
 @class AJNInterfaceDescription;
 
+/**
+ * Message Bus Object base protocol. All application bus object protocols should inherit this.
+ */
 @protocol AJNBusObject<AJNHandle>
 
+/**
+ * Return the path for the object
+ *
+ * @return Object path
+ */
 @property (nonatomic, readonly) NSString *path;
 
+/**
+ * Get the name of this object.
+ * The name is the last component of the path.
+ *
+ * @return Last component of object path.
+ */
 @property (nonatomic, readonly) NSString *name;
 
+/**
+ * AJNBusObject initialization.
+ *
+ * @param busAttachment  Bus that this object exists on.
+ * @param path           Object path for object.
+ */
 - (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onPath:(NSString*)path;
 
+/**
+ * Called by the message bus when the object has been successfully registered. The object can
+ * perform any initialization such as adding match rules at this time.
+ */
 - (void)objectWasRegistered;
 
 @end
 
+/**
+ * Message Bus Object base class.
+ */
 @interface AJNBusObject : AJNObject<AJNBusObject>
 
 @property (nonatomic, readonly) NSString *path;

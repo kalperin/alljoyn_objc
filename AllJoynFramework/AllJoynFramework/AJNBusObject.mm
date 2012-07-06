@@ -23,6 +23,9 @@
 
 @interface AJNBusObject()
 
+/**
+ * The bus attachment this object is associated with.
+ */
 @property (nonatomic, strong) AJNBusAttachment *bus;
 
 @end
@@ -31,6 +34,9 @@
 
 @synthesize bus = _bus;
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (AJNBusObjectImpl*)busObject
 {
     return static_cast<AJNBusObjectImpl*>(self.handle);

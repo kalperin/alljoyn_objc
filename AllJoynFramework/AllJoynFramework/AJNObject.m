@@ -18,6 +18,9 @@
 
 @interface AJNObject()
 
+/**
+ * Flag indicating whether or not the object pointed to by handle should be deleted when an instance of this class is deallocated.
+ */
 @property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
 
 @end

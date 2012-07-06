@@ -56,7 +56,7 @@ static NSString * const kInterfaceXML = @"<interface name=\"org.alljoyn.bus.objc
     
     // Set-up code here. Executed before each test case is run.
     //
-    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowingRemoteMessages:YES];
+    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowRemoteMessages:YES];
 }
 
 - (void)tearDown
@@ -72,7 +72,7 @@ static NSString * const kInterfaceXML = @"<interface name=\"org.alljoyn.bus.objc
 
 - (void)testShouldCreateInterface
 {
-    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kInterfaceName];
+    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kInterfaceName enableSecurity:NO];
     STAssertNotNil(iface, @"Bus failed to create interface.");
     
     [iface activate];

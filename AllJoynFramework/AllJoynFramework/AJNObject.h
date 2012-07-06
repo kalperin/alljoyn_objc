@@ -17,12 +17,21 @@
 #import <Foundation/Foundation.h>
 #import "AJNHandle.h"
 
+/** The base class for all ALLJoyn API objects */
 @interface AJNObject : NSObject<AJNHandle>
 
+/** A handle to the C++ API object associated with this objective-c class */
 @property (nonatomic, assign) AJNHandle handle;
 
+/** Initialize the API object
+    @param handle The handle to the C++ API object associated with this objective-c API object
+ */
 - (id)initWithHandle:(AJNHandle)handle;
 
+/** Initialize the API object
+ @param handle The handle to the C++ API object associated with this objective-c API object.
+ @param deletionFlag A flag indicating whether or not the objective-c class should call delete on the handle when dealloc is called.
+ */
 - (id)initWithHandle:(AJNHandle)handle shouldDeleteHandleOnDealloc:(BOOL)deletionFlag;
 
 @end

@@ -16,6 +16,9 @@
 
 #import "AJNBus.h"
 
-const AJNBusNameFlag kAJNBusNameFlagAllowReplacement = 0x01;     /**< RequestName input flag: Allow others to take ownership of this name */
-const AJNBusNameFlag kAJNBusNameFlagReplaceExisting  = 0x02;     /**< RequestName input flag: Attempt to take ownership of name if already taken */
-const AJNBusNameFlag kAJNBusNameFlagDoNotQueue       = 0x04;     /**< RequestName input flag: Fail if name cannot be immediately obtained */
+/**< RequestName input flag: Allow others to take ownership of this name */
+const AJNBusNameFlag kAJNBusNameFlagAllowReplacement = 0x01;     
+/**< RequestName input flag: Attempt to take ownership of name if already taken */
+const AJNBusNameFlag kAJNBusNameFlagReplaceExisting  = 0x02;     
+/**< RequestName input flag: Fail if name cannot be immediately obtained */
+const AJNBusNameFlag kAJNBusNameFlagDoNotQueue       = 0x04;     

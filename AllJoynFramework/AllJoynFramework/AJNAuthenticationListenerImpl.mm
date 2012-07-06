@@ -18,6 +18,8 @@
 
 @interface AJNSecurityCredentials(Private)
 
+/** Helper to access the underlying AllJoyn C++ API object that this objective-c class encapsulates
+ */
 - (ajn::AuthListener::Credentials*)credentials;
 
 @end

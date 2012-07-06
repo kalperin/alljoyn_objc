@@ -84,7 +84,7 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
     
     // Set-up code here. Executed before each test case is run.
     //
-    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowingRemoteMessages:YES];
+    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowRemoteMessages:YES];
     
     self.listenerDidRegisterWithBusCompleted = NO;
     self.listenerDidUnregisterWithBusCompleted = NO;
@@ -141,7 +141,7 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
 
 - (void)testShouldCreateInterface
 {
-    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName];
+    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName enableSecurity:NO];
     STAssertNotNil(iface, @"Bus failed to create interface.");
     
     [iface activate];
@@ -161,7 +161,7 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
 
 - (void)testShouldDeleteInterface
 {
-    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName];
+    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName enableSecurity:NO];
     STAssertNotNil(iface, @"Bus failed to create interface.");
     QStatus status = [iface addMethodWithName:kBusAttachmentTestsInterfaceMethod inputSignature:@"s" outputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"behavior"]];
     STAssertTrue(status == ER_OK, @"Interface description failed to add method to interface.");
@@ -175,7 +175,7 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
 
 - (void)testShouldNotDeleteInterface
 {
-    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName];
+    AJNInterfaceDescription *iface = [self.bus createInterfaceWithName:kBusAttachmentTestsInterfaceName enableSecurity:NO];
     STAssertNotNil(iface, @"Bus failed to create interface.");
     QStatus status = [iface addMethodWithName:kBusAttachmentTestsInterfaceMethod inputSignature:@"s" outputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"behavior"]];
     STAssertTrue(status == ER_OK, @"Interface description failed to add method to interface.");

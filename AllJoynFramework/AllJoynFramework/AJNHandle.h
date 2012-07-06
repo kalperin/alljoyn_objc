@@ -16,10 +16,20 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Type definition for the AJNHandle, which is used to refer to C++ API objects.
+ */
 typedef void* AJNHandle;
 
+/**
+ * The objective-c base class that serves as a wrapper for a C++ API class. The instance
+ * of the C++ API object is maintained in the handle property.
+ */
 @protocol AJNHandle <NSObject>
 
+/**
+ * Holds a pointer to a C++ API object.
+ */
 @property (nonatomic, assign) AJNHandle handle;
 
 @end

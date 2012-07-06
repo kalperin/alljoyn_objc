@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		AC4FF04815A6087D006C2FB4 /* API Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AC4FF04915A6087D006C2FB4 /* Build configuration list for PBXAggregateTarget "API Documentation" */;
+			buildPhases = (
+				AC4FF04C15A6089F006C2FB4 /* Build API Documentation */,
+			);
+			dependencies = (
+			);
+			name = "API Documentation";
+			productName = "API Documentation";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		AC3A98441577CF9700CFF856 /* AJNKeyStoreListenerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3A98421577CF9600CFF856 /* AJNKeyStoreListenerImpl.h */; };
 		AC3A98451577CF9700CFF856 /* AJNKeyStoreListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3A98431577CF9600CFF856 /* AJNKeyStoreListenerImpl.mm */; };
@@ -484,6 +498,7 @@
 			targets = (
 				ACB44E5115485F3E00FF7DBC /* AllJoynFramework */,
 				ACB44E6515485F3E00FF7DBC /* AllJoynFrameworkTests */,
+				AC4FF04815A6087D006C2FB4 /* API Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -500,6 +515,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AC4FF04C15A6089F006C2FB4 /* Build API Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build API Documentation";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
+		};
 		ACB44E6415485F3E00FF7DBC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,6 +610,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AC4FF04A15A6087D006C2FB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC4FF04B15A6087D006C2FB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		ACB44E7615485F3E00FF7DBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -730,6 +773,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC4FF04915A6087D006C2FB4 /* Build configuration list for PBXAggregateTarget "API Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC4FF04A15A6087D006C2FB4 /* Debug */,
+				AC4FF04B15A6087D006C2FB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		ACB44E4C15485F3E00FF7DBC /* Build configuration list for PBXProject "AllJoynFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

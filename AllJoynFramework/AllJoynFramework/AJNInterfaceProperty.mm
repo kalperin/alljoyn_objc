@@ -19,6 +19,7 @@
 
 @implementation AJNInterfaceProperty
 
+/** The underlying C++ API object encapsulated by the AJNInterfaceProperty class */
 - (ajn::InterfaceDescription::Property*)property
 {
     return static_cast<ajn::InterfaceDescription::Property*>(self.handle);
@@ -39,12 +40,5 @@
     return self.property->access;
 }
 
-- (id)initWithHandle:(AJNHandle)handle
-{
-    self = [super initWithHandle:handle];
-    if (self) {
-    }
-    return self;
-}
 
 @end

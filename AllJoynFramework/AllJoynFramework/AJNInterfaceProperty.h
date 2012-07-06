@@ -16,20 +16,26 @@
 
 #import "AJNObject.h"
 
-/** @name Access type */
-// @{
+/** Property access permissions flag type */
 typedef uint8_t AJNInterfacePropertyAccessPermissionsFlags;
 
-static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessReadFlag      = 1; /**< Read Access type */
-static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessWriteFlag     = 2; /**< Write Access type */
-static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessReadWriteFlag = 3; /**< Read-Write Access type */
-// @}
+/** Read-only property access permissions flag */
+static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessReadFlag      = 1;
+/** Write-only property access permissions flag */
+static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessWriteFlag     = 2;
+/** Read-Write property access permissions flag */
+static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessReadWriteFlag = 3;
 
-
+/** A class that contains the metadata for a property of an interface */
 @interface AJNInterfaceProperty : AJNObject
 
+/** Name of the property */
 @property (nonatomic, readonly) NSString *name;
+
+/** Signature of the property */
 @property (nonatomic, readonly) NSString *signature;
+
+/** Access permissions flags for the property */
 @property (nonatomic, readonly) AJNInterfacePropertyAccessPermissionsFlags accessPermissions;
 
 @end

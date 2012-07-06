@@ -19,6 +19,8 @@
 #import "AJNObject.h"
 #import "AJNAuthenticationListener.h"
 
+/** Internal class that binds an objective-c authentication listener delegate to the AllJoyn C++ authentication listener
+ */
 class AJNAuthenticationListenerImpl : public ajn::AuthListener
 {
 protected:

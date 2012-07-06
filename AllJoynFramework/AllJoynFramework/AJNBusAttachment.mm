@@ -43,10 +43,17 @@ using namespace ajn;
 //  Asynchronous session join callback implementation
 //
 
+/** Internal class to manage asynchronous join session callbacks
+ */
 class AJNJoinSessionAsyncCallbackImpl : public ajn::BusAttachment::JoinSessionAsyncCB
 {
 private:
+    /** The objective-c delegate to communicate with whenever JoinSessionCB is called.
+     */
     id<AJNSessionDelegate> m_delegate;
+    
+    /** The objective-c block to call when JoinSessionCB is called.
+     */
     AJNJoinSessionBlock m_block;
 public:
     /** Constructors */
@@ -90,15 +97,36 @@ public:
 };
 ////////////////////////////////////////////////////////////////////////////////
 
+/** Private AJNBusAttachment interface
+ */
 @interface AJNBusAttachment()
 
+/** Array of all registered bus listeners
+ */
 @property (nonatomic, strong) NSMutableArray *busListeners;
+
+/** Array of all registered session listeners
+ */
 @property (nonatomic, strong) NSMutableArray *sessionListeners;
+
+/** Array of all registered session port listeners
+ */
 @property (nonatomic, strong) NSMutableArray *sessionPortListeners;
+
+/** Array of all registered signal handlers
+ */
 @property (nonatomic, strong) NSMutableArray *signalHandlers;
+
+/** Array of all registered key store listeners
+ */
 @property (nonatomic, strong) NSMutableArray *keyStoreListeners;
+
+/** Array of all authentication listeners
+ */
 @property (nonatomic, strong) NSMutableArray *authenticationListeners;
 
+/** C++ AllJoyn API object
+ */
 @property (nonatomic, readonly) BusAttachment *busAttachment;
 
 @end
@@ -112,11 +140,15 @@ public:
 @synthesize keyStoreListeners = _keyStoreListeners;
 @synthesize authenticationListeners = _authenticationListeners;
 
+/** Accessor for the internal C++ API object this objective-c class encapsulates
+ */
 - (ajn::BusAttachment*)busAttachment
 {
     return static_cast<ajn::BusAttachment*>(self.handle);
 }
 
+/** Array of all registered bus listeners
+ */
 - (NSMutableArray*)busListeners
 {
     if (_busListeners == nil) {
@@ -125,6 +157,8 @@ public:
     return _busListeners;
 }
 
+/** Array of all registered session listeners
+ */
 - (NSMutableArray*)sessionListeners
 {
     if (_sessionListeners == nil) {
@@ -133,6 +167,8 @@ public:
     return _sessionListeners;
 }
 
+/** Array of all registered session port listeners
+ */
 - (NSMutableArray*)sessionPortListeners
 {
     if (_sessionPortListeners == nil) {
@@ -141,6 +177,8 @@ public:
     return _sessionPortListeners;
 }
 
+/** Array of all registered signal handlers
+ */
 - (NSMutableArray*)signalHandlers
 {
     if (_signalHandlers == nil) {
@@ -149,6 +187,8 @@ public:
     return _signalHandlers;
 }
 
+/** Array of all registered key store listeners
+ */
 - (NSMutableArray*)keyStoreListeners
 {
     if (_keyStoreListeners == nil) {
@@ -157,6 +197,8 @@ public:
     return _keyStoreListeners;
 }
 
+/** Array of all authentication listeners
+ */
 - (NSMutableArray*)authenticationListeners
 {
     if (_authenticationListeners == nil) {
@@ -180,9 +222,9 @@ public:
     return self.busAttachment->IsStopping();
 }
 
-- (uint32_t)concurrency
+- (NSUInteger)concurrency
 {
-    return self.concurrency;
+    return self.busAttachment->GetConcurrency();
 }
 
 - (NSString*)uniqueName
@@ -215,13 +257,22 @@ public:
     return [[AJNProxyBusObject alloc] initWithHandle:(AJNHandle)(&self.busAttachment->GetAllJoynDebugObj())];
 }
 
-- (id)initWithApplicationName:(NSString*)applicationName allowingRemoteMessages:(BOOL)allowRemoteMessages
+- (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL)allowRemoteMessages
 {
     self = [super init];
     if (self) {
         self.handle = new ajn::BusAttachment([applicationName UTF8String], allowRemoteMessages);
     }
     return self;
+}
+
+- (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL)allowRemoteMessages maximumConcurrentOperations:(NSUInteger)maximumConcurrentOperations
+{
+    self = [super init];
+    if (self) {
+        self.handle = new ajn::BusAttachment([applicationName UTF8String], allowRemoteMessages, maximumConcurrentOperations);
+    }
+    return self;    
 }
 
 - (void)destroy
@@ -233,6 +284,8 @@ public:
     self.handle = NULL;    
 }
 
+/** Destroys all C++ API objects that are maintained in association with this bus attachment
+ */
 - (void)dealloc
 {
     @synchronized(self.busListeners) {
@@ -287,11 +340,11 @@ public:
     self.handle = NULL;
 }
 
-- (AJNInterfaceDescription*)createInterfaceWithName:(NSString *)interfaceName
+- (AJNInterfaceDescription*)createInterfaceWithName:(NSString *)interfaceName enableSecurity:(BOOL)shouldEnableSecurity
 {
     AJNInterfaceDescription *interfaceDescription;
     ajn::InterfaceDescription *handle;
-    QStatus status = self.busAttachment->CreateInterface([interfaceName UTF8String], handle);
+    QStatus status = self.busAttachment->CreateInterface([interfaceName UTF8String], handle, shouldEnableSecurity);
     if (status != ER_OK && status != ER_BUS_IFACE_ALREADY_EXISTS) {
         NSLog(@"ERROR: BusAttachment failed to create interface named %@. %s", interfaceName, QCC_StatusText(status));
     }
@@ -424,6 +477,15 @@ public:
         NSLog(@"ERROR: AJNBusAttachment::stop failed. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     return status;
+}
+
+- (QStatus)waitUntilStopCompleted
+{
+    QStatus status = self.busAttachment->Join();
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttachment::waitUntilStopCompleted failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;    
 }
 
 - (QStatus)connectWithArguments:(NSString*)connectionArguments
