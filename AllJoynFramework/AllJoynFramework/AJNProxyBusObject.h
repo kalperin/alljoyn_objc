@@ -26,33 +26,176 @@
 @class AJNMessageArgument;
 @class AJNProxyBusObject;
 
+/**
+ * Asynchronous callback delegate for proxy bus object
+ */
 @protocol AJNProxyBusObjectDelegate <NSObject>
 
 @optional
 
+/**
+ * Callback registered with AJNProxyBusObject::introspectRemoteObjectAsync
+ *
+ * @param object       Remote bus object that was introspected
+ * @param context   Context passed into introspectRemoteObjectAsync
+ * @param status ER_OK if successful
+ */
 - (void)didCompleteIntrospectionOfObject:(AJNProxyBusObject*)object context:(AJNHandle)context withStatus:(QStatus)status;
 
+/**
+ * Reply handler for asynchronous method call.
+ *
+ * @param replyMessage  The received message.
+ * @param context       User-defined context passed to MethodCall and returned upon reply.
+ */
 - (void)didReceiveMethodReply:(AJNMessage*)replyMessage context:(AJNHandle)context;
 
 @end
 
+/**
+ * Each ProxyBusObject instance represents a single DBus/AllJoyn object registered
+ * somewhere on the bus. ProxyBusObjects are used to make method calls on these
+ * remotely located DBus objects.
+ */
 @interface AJNProxyBusObject : AJNObject
 
+/**
+ * Return the absolute object path for the remote object.
+ *
+ * @return Object path
+ */
 @property (nonatomic, readonly) NSString *path;
+
+/**
+ * Return the remote service name for this object.
+ *
+ * @return Service name (typically a well-known service name but may be a unique name)
+ */
 @property (nonatomic, readonly) NSString *serviceName;
+
+/**
+ * Return the session Id for this object.
+ *
+ * @return Session Id
+ */
 @property (nonatomic, readonly) AJNSessionId sessionId;
+
+/**
+ * Returns the interfaces implemented by this object. Note that all proxy bus objects
+ * automatically inherit the "org.freedesktop.DBus.Peer" which provides the built-in "ping"
+ * method, so this method always returns at least that one interface.
+ *
+ * @return  The interfaces implemented by the object.
+ */
 @property (nonatomic, readonly) NSArray *interfaces;
+
+/**
+ * Returns an array of ProxyBusObjects for the children of this ProxyBusObject.
+ *
+ * @return  The children of the object, or nil if there are none.
+ */
 @property (nonatomic, readonly) NSArray *children;
+
+/**
+ * Indicates if this is a valid (usable) proxy bus object.
+ *
+ * @return true if a valid proxy bus object, false otherwise.
+ */
 @property (nonatomic, readonly) BOOL isValid;
 
+/**
+ * Create an empty proxy object that refers to an object at given remote service name. Note
+ * that the created proxy object does not contain information about the interfaces that the
+ * actual remote object implements with the exception that org.freedesktop.DBus.Peer
+ * interface is special-cased (per the DBus spec) and can always be called on any object. Nor
+ * does it contain information about the child objects that the actual remote object might
+ * contain.
+ *
+ * To fill in this object with the interfaces and child object names that the actual remote
+ * object describes in its introspection data, call IntrospectRemoteObject() or
+ * IntrospectRemoteObjectAsync().
+ *
+ * @param busAttachment  The bus.
+ * @param serviceName    The remote service name (well-known or unique).
+ * @param path           The absolute (non-relative) object path for the remote object.
+ * @param sessionId      The session id the be used for communicating with remote object.
+ */
 - (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment serviceName:(NSString*)serviceName objectPath:(NSString*)path sessionId:(AJNSessionId)sessionId;
 
+/**
+ * Add an existing interface to this object using the interface's name.
+ *
+ * @param interfaceName   Name of existing interface to add to this object.
+ * @return  - ER_OK if successful.
+ *          - An error status otherwise.
+ */
 - (QStatus)addInterfaceNamed:(NSString*)interfaceName;
+
+/**
+ * Add an interface to this ProxyBusObject.
+ *
+ * Occasionally, AllJoyn library user may wish to call a method on
+ * a ProxyBusObject that was not reported during introspection of the remote object.
+ * When this happens, the InterfaceDescription will have to be registered with the
+ * Bus manually and the interface will have to be added to the ProxyBusObject using this method.
+ * @remark
+ * The interface added via this call must have been previously registered with the
+ * Bus. (i.e. it must have come from a call to Bus::GetInterface()).
+ *
+ * @param interfaceDescription    The interface to add to this object. Must come from Bus::GetInterface().
+ * @return  - ER_OK if successful.
+ *          - An error status otherwise
+ */
 - (QStatus)addInterfaceFromDescription:(AJNInterfaceDescription*)interfaceDescription;
+
+/**
+ * Returns a pointer to an interface description. Returns nil if the object does not implement
+ * the requested interface.
+ *
+ * @param name  The name of interface to get.
+ *
+ * @return  - A pointer to the requested interface description.
+ *          - nil if requested interface is not implemented or not found
+ */
 - (AJNInterfaceDescription*)interfaceWithName:(NSString*)name;
+
+/**
+ * Tests if this object implements the requested interface.
+ *
+ * @param name  The interface to check
+ *
+ * @return  TRUE if the object implements the requested interface
+ */
 - (BOOL)implementsInterfaceWithName:(NSString*)name;
 
+/**
+ * Get a path descendant ProxyBusObject (child) by its relative path name.
+ *
+ * For example, if this ProxyBusObject's path is "/foo/bar", then you can
+ * retrieve the ProxyBusObject for "/foo/bar/bat/baz" by calling
+ * GetChild("bat/baz")
+ *
+ * @param path the relative path for the child.
+ *
+ * @return  - The (potentially deep) descendant ProxyBusObject
+ *          - nil if not found.
+ */
 - (AJNProxyBusObject*)childAtPath:(NSString*)path;
+
+/**
+ * Add a child object (direct or deep object path descendant) to this object.
+ * If you add a deep path descendant, this method will create intermediate
+ * ProxyBusObject children as needed.
+ *
+ * @remark  - It is an error to try to add a child that already exists.
+ *          - It is an error to try to add a child that has an object path that is not a descendant of this object's path.
+ *
+ * @param child  Child ProxyBusObject
+ * @return
+ *      - #ER_OK if successful.
+ *      - #ER_BUS_BAD_CHILD_PATH if the path is a bad path
+ *      - #ER_BUS_OBJ_ALREADY_EXISTS the the object already exists on the ProxyBusObject
+ */
 - (QStatus)addChild:(AJNProxyBusObject*)child;
 - (QStatus)removeChildAtPath:(NSString*)path;
 
@@ -63,17 +206,165 @@
 - (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags;
 - (QStatus)callMethodWithNameAsync:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags;
 
+/**
+ * Query the remote object on the bus to determine the interfaces and
+ * children that exist. Use this information to populate this proxy's
+ * interfaces and children.
+ *
+ * This call causes messages to be send on the bus, therefore it cannot
+ * be called within AllJoyn callbacks (method/signal/reply handlers or
+ * ObjectRegistered callbacks, etc.)
+ *
+ * @return  - ER_OK if successful
+ *          - An error status otherwise
+ */
 - (QStatus)introspectRemoteObject;
+
+/**
+ * Query the remote object on the bus to determine the interfaces and
+ * children that exist. Use this information to populate this object's
+ * interfaces and children.
+ *
+ * This call executes asynchronously. When the introspection response
+ * is received from the actual remote object, this ProxyBusObject will
+ * be updated and the callback will be called.
+ *
+ * This call exists primarily to allow introspection of remote objects
+ * to be done inside AllJoyn method/signal/reply handlers and ObjectRegistered
+ * callbacks.
+ *
+ * @param listener  Pointer to the object that will receive the callback.
+ * @param callback  Method on listener that will be called.
+ * @param context   User defined context which will be passed as-is to callback.
+ * @return  - ER_OK if successful.
+ *          - An error status otherwise
+ */
 - (QStatus)introspectRemoteObjectAsync:(id<AJNProxyBusObjectDelegate>)completionHandler context:(AJNHandle)context;
+
+/**
+ * Initialize this proxy object from an XML string. Calling this method does several things:
+ *
+ *  - Create and register any new InterfaceDescription(s) that are mentioned in the XML.
+ *     (Interfaces that are already registered with the bus are left "as-is".)
+ *  - Add all the interfaces mentioned in the introspection data to this ProxyBusObject.
+ *  - Recursively create any child ProxyBusObject(s) and create/add their associated @n
+ *     interfaces as mentioned in the XML. Then add the descendant object(s) to the appropriate
+ *     descendant of this ProxyBusObject (in the children collection). If the named child object
+ *     already exists as a child of the appropriate ProxyBusObject, then it is updated
+ *     to include any new interfaces or children mentioned in the XML.
+ *
+ * Note that when this method fails during parsing, the return code will be set accordingly.
+ * However, any interfaces which were successfully parsed prior to the failure
+ * may be registered with the bus. Similarly, any objects that were successfully created
+ * before the failure will exist in this object's set of children.
+ *
+ * @param xmlProxyObjectDescription         An XML string in DBus introspection format.
+ * @param identifier  An optional identifying string to include in error logging messages.
+ *
+ * @return  - ER_OK if parsing is completely successful.
+ *          - An error status otherwise.
+ */
 - (QStatus)buildFromXml:(NSString*)xmlProxyObjectDescription errorLogId:(NSString*)identifier;
 
+/**
+ * Get a property from an interface on the remote object.
+ *
+ * @param propertyName    The name of the property to get. 
+ * @param interfaceName   Name of interface to retrieve property from.
+ *
+ * @return The property's value wrapped in an AJNMessageArgument object if successful. Otherwise, the return value is nil.
+ */
 - (AJNMessageArgument*)propertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName;
+
+/**
+ * Get all properties from an interface on the remote object.
+ *
+ * @param values            Property values returned as an array of dictionary entries, signature "a{sv}".
+ * @param interfaceName     Name of interface to retrieve all properties from.
+ *
+ * @return  - ER_OK if the property was obtained.
+ *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
+ *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
+ */
 - (QStatus)propertyValues:(AJNMessageArgument**)values ofInterfaceWithName:(NSString*)interfaceName;
+
+/**
+ * Set a property on an interface on the remote object.
+ *
+ * @param propertyName  The name of the property to set 
+ * @param interfaceName     Interface that holds the property
+ * @param value     The value to set
+ *
+ * @return  - ER_OK if the property was set
+ *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
+ *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
+ */
 - (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toValue:(AJNMessageArgument*)value;
+
+/**
+ * Set a uint32 property.
+ *
+ * @param propertyName  The name of the property to set 
+ * @param interfaceName     Interface that holds the property
+ * @param value         The uint32 value to set
+ *
+ * @return
+ *      - #ER_OK if the property was set
+ *      - #ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
+ *      - #ER_BUS_NO_SUCH_PROPERTY if the property does not exist
+ */
 - (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toIntValue:(NSInteger)value;
+
+/**
+ * Set a string property.
+ *
+ * @param propertyName  The name of the property to set 
+ * @param interfaceName     Interface that holds the property
+ * @param value         The string value to set
+ *
+ * @return  - ER_OK if the property was set
+ *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
+ *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
+ */
 - (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toStringValue:(NSString*)value;
 
+/**
+ * Explicitly secure the connection to the remote peer for this proxy object. Peer-to-peer
+ * connections can only be secured if EnablePeerSecurity() was previously called on the bus
+ * attachment for this proxy object. If the peer-to-peer connection is already secure this
+ * function does nothing. Note that peer-to-peer connections are automatically secured when a
+ * method call requiring encryption is sent.
+ *
+ * This call causes messages to be send on the bus, therefore it cannot be called within AllJoyn
+ * callbacks (method/signal/reply handlers or ObjectRegistered callbacks, etc.)
+ *
+ * @param forceAuthentication  If true, forces an re-authentication even if the peer connection is already
+ *                   authenticated.
+ *
+ * @return  - ER_OK if the connection was secured or an error status indicating that the
+ *            connection could not be secured.
+ *          - ER_BUS_NO_AUTHENTICATION_MECHANISM if BusAttachment::EnablePeerSecurity() has not been called.
+ *          - ER_AUTH_FAIL if the attempt(s) to authenticate the peer failed.
+ *          - Other error status codes indicating a failure.
+ */
 - (QStatus)secureConnection:(BOOL)forceAuthentication;
+
+/**
+ * Asynchronously secure the connection to the remote peer for this proxy object. Peer-to-peer
+ * connections can only be secured if EnablePeerSecurity() was previously called on the bus
+ * attachment for this proxy object. If the peer-to-peer connection is already secure this
+ * function does nothing. Note that peer-to-peer connections are automatically secured when a
+ * method call requiring encryption is sent.
+ *
+ * Notification of success or failure is via the AuthListener passed to EnablePeerSecurity().
+ *
+ * @param forceAuthentication  If true, forces an re-authentication even if the peer connection is already
+ *                   authenticated.
+ *
+ * @return  - ER_OK if securing could begin.
+ *          - ER_BUS_NO_AUTHENTICATION_MECHANISM if BusAttachment::EnablePeerSecurity() has not been called.
+ *          - Other error status codes indicating a failure.
+ */
 - (QStatus)secureConnectionAsync:(BOOL)forceAuthentication;
 
 @end

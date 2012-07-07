@@ -28,12 +28,18 @@ using namespace ajn;
 
 @interface AJNMessage()
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 @property (nonatomic, readonly) _Message *message;
 
 @end
 
 @implementation AJNMessage
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (_Message*)message
 {
     return static_cast<Message*>(self.handle)->operator->();
@@ -66,6 +72,11 @@ using namespace ajn;
     return time;
 }
 
+- (BOOL)isUnreliable
+{
+    return self.message->IsUnreliable();
+}
+
 - (BOOL)isEncrypted
 {
     return self.message->IsEncrypted();
@@ -96,6 +107,11 @@ using namespace ajn;
 - (uint32_t)callSerialNumber
 {
     return self.message->GetCallSerial();
+}
+
+- (AJNMessageHeaderFields *)headerFields 
+{
+    return [[AJNMessageHeaderFields alloc] initWithHandle:(AJNHandle)(&(self.message->GetHeaderFields()))];
 }
 
 - (uint32_t)replySerialNumber

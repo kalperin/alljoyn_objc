@@ -97,8 +97,6 @@ public:
 };
 ////////////////////////////////////////////////////////////////////////////////
 
-/** Private AJNBusAttachment interface
- */
 @interface AJNBusAttachment()
 
 /** Array of all registered bus listeners

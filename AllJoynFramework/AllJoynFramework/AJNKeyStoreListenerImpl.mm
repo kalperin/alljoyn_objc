@@ -44,9 +44,8 @@ AJNKeyStoreListenerImpl::~AJNKeyStoreListenerImpl()
  *
  * @param keyStore   Reference to the KeyStore to be loaded.
  *
- * @return
- *      - #ER_OK if the load request was satisfied
- *      - An error status otherwise
+ * @return  - ER_OK if the load request was satisfied
+ *          - An error status otherwise
  *
  */
 QStatus AJNKeyStoreListenerImpl::LoadRequest(KeyStore& keyStore)
@@ -65,9 +64,8 @@ QStatus AJNKeyStoreListenerImpl::LoadRequest(KeyStore& keyStore)
  *
  * @param keyStore   Reference to the KeyStore to be stored.
  *
- * @return
- *      - #ER_OK if the store request was satisfied
- *      - An error status otherwise
+ * @return  - ER_OK if the store request was satisfied
+ *          - An error status otherwise
  */
 QStatus AJNKeyStoreListenerImpl::StoreRequest(KeyStore& keyStore)
 {
@@ -78,3 +76,43 @@ QStatus AJNKeyStoreListenerImpl::StoreRequest(KeyStore& keyStore)
     }
     return status;    
 }
+
+/**
+ * Get the current keys from the key store as an encrypted byte string.
+ *
+ * @param keyStore  The keyStore to get from. This is the keystore indicated in the StoreRequest call.
+ * @param sink      The byte string to write the keys to.
+ * @return  - ER_OK if successful
+ *          - An error status otherwise
+ */
+QStatus AJNKeyStoreListenerImpl::GetKeys(ajn::KeyStore& keyStore, qcc::String& sink)
+{
+    NSLog(@"AJNKeyStoreListenerImpl::GetKeys");    
+    QStatus status = ER_NONE;
+    if (m_delegate) {
+        status = [m_delegate getKeys:&keyStore sink:[NSString stringWithCString:sink.c_str() encoding:NSUTF8StringEncoding]];
+    }
+    return status;        
+}
+
+/**
+ * Put keys into the key store from an encrypted byte string.
+ *
+ * @param keyStore  The keyStore to put to. This is the keystore indicated in the LoadRequest call.
+ * @param source    The byte string containing the encrypted key store contents.
+ * @param password  The password required to decrypt the key data
+ *
+ * @return  - ER_OK if successful
+ *          - An error status otherwise
+ *
+ */
+QStatus AJNKeyStoreListenerImpl::PutKeys(ajn::KeyStore& keyStore, const qcc::String& source, const qcc::String& password)
+{    
+    NSLog(@"AJNKeyStoreListenerImpl::PutKeys");    
+    QStatus status = ER_NONE;
+    if (m_delegate) {
+        status = [m_delegate putKeys:&keyStore source:[NSString stringWithCString:source.c_str() encoding:NSUTF8StringEncoding] password:[NSString stringWithCString:password.c_str() encoding:NSUTF8StringEncoding]];
+    }
+    return status;        
+}
+

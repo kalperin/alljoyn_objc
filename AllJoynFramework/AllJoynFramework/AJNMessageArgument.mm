@@ -21,12 +21,18 @@ using namespace ajn;
 
 @interface AJNMessageArgument()
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 @property (nonatomic, readonly) MsgArg *msgArg;
 
 @end
 
 @implementation AJNMessageArgument
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (MsgArg *)msgArg
 {
     return (MsgArg*)self.handle;

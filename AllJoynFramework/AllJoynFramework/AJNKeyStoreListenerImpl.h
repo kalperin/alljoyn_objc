@@ -49,7 +49,7 @@ public:
      * @param keyStore   Reference to the KeyStore to be loaded.
      *
      * @return
-     *      - #ER_OK if the load request was satisfied
+     *      - ER_OK if the load request was satisfied
      *      - An error status otherwise
      *
      */
@@ -63,10 +63,37 @@ public:
      * @param keyStore   Reference to the KeyStore to be stored.
      *
      * @return
-     *      - #ER_OK if the store request was satisfied
+     *      - ER_OK if the store request was satisfied
      *      - An error status otherwise
      */
     QStatus StoreRequest(ajn::KeyStore& keyStore);
+    
+    
+    /**
+     * Get the current keys from the key store as an encrypted byte string.
+     *
+     * @param keyStore  The keyStore to get from. This is the keystore indicated in the StoreRequest call.
+     * @param sink      The byte string to write the keys to.
+     * @return
+     *      - ER_OK if successful
+     *      - An error status otherwise
+     */
+    QStatus GetKeys(ajn::KeyStore& keyStore, qcc::String& sink);
+    
+
+    /**
+     * Put keys into the key store from an encrypted byte string.
+     *
+     * @param keyStore  The keyStore to put to. This is the keystore indicated in the LoadRequest call.
+     * @param source    The byte string containing the encrypted key store contents.
+     * @param password  The password required to decrypt the key data
+     *
+     * @return
+     *      - ER_OK if successful
+     *      - An error status otherwise
+     *
+     */
+    QStatus PutKeys(ajn::KeyStore& keyStore, const qcc::String& source, const qcc::String& password);
     
 
     /**

@@ -21,26 +21,70 @@
 // @{
 typedef uint8_t AJNInterfaceAnnotationFlags;
 
-static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationNoReplyFlag     = 1; /**< No reply annotate flag */
-static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  = 2; /**< Deprecated annotate flag */
+/**< No reply annotate flag */
+static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationNoReplyFlag     = 1; 
+/**< Deprecated annotate flag */
+static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  = 2; 
 // @}
 
 typedef enum {
-    kAJNMessageTypeInvalid          = 0, ///< an invalid message type
-    kAJNMessageTypeMethodCall       = 1, ///< a method call message type
-    kAJNMessageTypeMethodReturn     = 2, ///< a method return message type
-    kAJNMessageTypeError            = 3, ///< an error message type
-    kAJNMessageTypeSignal           = 4  ///< a signal message type    
+    
+    ///< an invalid message type
+    kAJNMessageTypeInvalid          = 0, 
+    
+    ///< a method call message type
+    kAJNMessageTypeMethodCall       = 1, 
+    
+    ///< a method return message type
+    kAJNMessageTypeMethodReturn     = 2, 
+    
+    ///< an error message type
+    kAJNMessageTypeError            = 3, 
+    
+    ///< a signal message type    
+    kAJNMessageTypeSignal           = 4  
+    
 } AJNMessageType;
 
+
+/**
+ * Class representing a member of an interface.
+ */
 @interface AJNInterfaceMember : AJNObject
 
+/**
+ * Type of the member.
+ */
 @property (nonatomic, readonly) AJNMessageType type;
+
+/**
+ * Name of the member.
+ */
 @property (nonatomic, readonly) NSString *name;
+
+/**
+ * Input type signature of the member. This is nil for a signal member.
+ */
 @property (nonatomic, readonly) NSString *inputSignature;
+
+/**
+ * Output type signature of the member.
+ */
 @property (nonatomic, readonly) NSString *outputSignature;
+
+/**
+ * Comma separated list of names of all arguments. This can be nil.
+ */
 @property (nonatomic, readonly) NSArray *argumentNames;
+
+/**
+ * Exclusive OR of flags kAJNInterfaceAnnotationNoReplyFlag and kAJNInterfaceAnnotationDeprecatedFlag.
+ */
 @property (nonatomic, readonly) AJNInterfaceAnnotationFlags annotation;
+
+/**
+ * Required permissions to invoke this call.
+ */
 @property (nonatomic, readonly) NSString *accessPermissions;
 
 @end

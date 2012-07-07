@@ -19,12 +19,18 @@
 
 @interface AJNInterfaceDescription()
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 @property (nonatomic, readonly) ajn::InterfaceDescription* interfaceDescription;
 
 @end
 
 @implementation AJNInterfaceDescription
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (ajn::InterfaceDescription*)interfaceDescription
 {
     return static_cast<ajn::InterfaceDescription*>(self.handle);

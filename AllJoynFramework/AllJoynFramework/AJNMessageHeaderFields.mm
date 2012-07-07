@@ -14,33 +14,32 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <alljoyn/InterfaceDescription.h>
-#import "AJNInterfaceProperty.h"
+#import <alljoyn/Message.h>
+#import "AJNMessageHeaderFields.h"
+#import "AJNMessageArgument.h"
 
-@implementation AJNInterfaceProperty
+@implementation AJNMessageHeaderFields
 
 /**
  * Helper to return the C++ API object that is encapsulated by this objective-c class
  */
-- (ajn::InterfaceDescription::Property*)property
+- (ajn::HeaderFields*)messageHeaderFields 
 {
-    return static_cast<ajn::InterfaceDescription::Property*>(self.handle);
+    return static_cast<ajn::HeaderFields*>(self.handle);
 }
 
-- (NSString*)name
+- (NSArray *)values
 {
-    return [NSString stringWithCString:self.property->name.c_str() encoding:NSUTF8StringEncoding];
+    NSMutableArray *theValues = [[NSMutableArray alloc] initWithCapacity:kAJNMessageHeaderFieldTypeFieldUnknown];
+    for (int i = 0; i < kAJNMessageHeaderFieldTypeFieldUnknown; i++) {
+        [theValues addObject:[[AJNMessageArgument alloc] initWithHandle:&(self.messageHeaderFields->field[i])]];
+    }
+    return theValues;
 }
 
-- (NSString*)signature
+- (NSString *)stringValue
 {
-    return [NSString stringWithCString:self.property->signature.c_str() encoding:NSUTF8StringEncoding];
+    return [NSString stringWithCString:self.messageHeaderFields->ToString().c_str() encoding:NSUTF8StringEncoding];
 }
-
-- (AJNInterfacePropertyAccessPermissionsFlags)accessPermissions
-{
-    return self.property->access;
-}
-
 
 @end

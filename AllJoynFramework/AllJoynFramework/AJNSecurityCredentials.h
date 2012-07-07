@@ -23,12 +23,23 @@
 // @{
 typedef uint16_t AJNSecurityCredentialType;
 
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePassword; /**< Bit 0 indicates credentials include a password, pincode, or passphrase */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeUserName; /**< Bit 1 indicates credentials include a user name */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeCertificateChain; /**< Bit 2 indicates credentials include a chain of PEM-encoded X509 certificates */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePrivateKey; /**< Bit 3 indicates credentials include a PEM-encoded private key */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeLogonEntry; /**< Bit 4 indicates credentials include a logon entry that can be used to logon a remote user */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime; /**< Bit 5 indicates credentials include an expiration time */
+/**< Bit 0 indicates credentials include a password, pincode, or passphrase */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePassword; 
+
+/**< Bit 1 indicates credentials include a user name */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeUserName; 
+
+/**< Bit 2 indicates credentials include a chain of PEM-encoded X509 certificates */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeCertificateChain; 
+
+/**< Bit 3 indicates credentials include a PEM-encoded private key */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePrivateKey; 
+
+/**< Bit 4 indicates credentials include a logon entry that can be used to logon a remote user */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeLogonEntry; 
+
+/**< Bit 5 indicates credentials include an expiration time */
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime; 
 // @}
 
 /**
@@ -39,8 +50,11 @@ extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime;
 
 typedef uint16_t AJNSecurityCredentialRequest;
 
-extern const uint16_t AJNSecurityCredentialRequestNewPassword; /**< Indicates the credential request is for a newly created password */
-extern const uint16_t AJNSecurityCredentialRequestOneTimePassword; /**< Indicates the credential request is for a one time use password */
+/**< Indicates the credential request is for a newly created password */
+extern const uint16_t AJNSecurityCredentialRequestNewPassword; 
+
+/**< Indicates the credential request is for a one time use password */
+extern const uint16_t AJNSecurityCredentialRequestOneTimePassword; 
 // @}
 
 @interface AJNSecurityCredentials : AJNObject

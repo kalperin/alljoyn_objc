@@ -20,6 +20,9 @@
 
 @interface AJNInterfaceMember()
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 @property (nonatomic, readonly) ajn::InterfaceDescription::Member *member;
 
 @end
@@ -61,6 +64,9 @@
     return [NSString stringWithCString:self.member->accessPerms.c_str() encoding:NSUTF8StringEncoding];
 }
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (ajn::InterfaceDescription::Member*)member
 {
     return static_cast<ajn::InterfaceDescription::Member*>(self.handle);

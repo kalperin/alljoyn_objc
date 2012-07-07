@@ -26,7 +26,9 @@ static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAcc
 /** Read-Write property access permissions flag */
 static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAccessReadWriteFlag = 3;
 
-/** A class that contains the metadata for a property of an interface */
+/**
+ * A class that contains the metadata for a property of an interface 
+ */
 @interface AJNInterfaceProperty : AJNObject
 
 /** Name of the property */

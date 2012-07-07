@@ -34,7 +34,7 @@
 @class AJNInterfaceDescription;
 @class AJNInterfaceMember;
 
-/** Block defintion for joining a session asynchronously */
+/** Block definition for joining a session asynchronously */
 typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSessionOptions *opts, void *context);
 
 /** Delegate used to receive notifications when joining a session asynchronously
@@ -98,7 +98,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 @property (nonatomic, readonly) NSString *uniqueIdentifier;
 
 /**
- * Check is peer security has been enabled for this bus attachment.
+ * Check if peer security has been enabled for this bus attachment.
  *
  * @return   Returns true if peer security has been enabled, false otherwise.
  */
@@ -174,9 +174,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param interfaceName             The requested interface name.
  * @param shouldEnableSecurity      If true the interface is secure and method calls and signals will be encrypted.
  *
- * @return
- *      - Interface description
- *      - nil if cannot be created.
+ * @return  - Interface description
+ *          - nil if cannot be created.
  */
 - (AJNInterfaceDescription*)createInterfaceWithName:(NSString*)interfaceName enableSecurity:(BOOL)shouldEnableSecurity;
 
@@ -185,9 +184,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param interfaceName       Interface name
  *
- * @return
- *      - A pointer to the registered interface
- *      - nil if interface doesn't exist
+ * @return  - A pointer to the registered interface
+ *          - nil if interface doesn't exist
  */
 - (AJNInterfaceDescription*)interfaceWithName:(NSString*)interfaceName;
 
@@ -198,9 +196,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param interfaceName  The name of the un-activated interface to be deleted.
  *
- * @return
- *      - #ER_OK if deletion was successful
- *      - #ER_BUS_NO_SUCH_INTERFACE if interface was not found
+ * @return  - ER_OK if deletion was successful
+ *          - ER_BUS_NO_SUCH_INTERFACE if interface was not found
  */
 - (QStatus)deleteInterfaceWithName:(NSString*)interfaceName;
 
@@ -211,9 +208,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param interfaceDescription  The un-activated interface to be deleted.
  *
- * @return
- *      - #ER_OK if deletion was successful
- *      - #ER_BUS_NO_SUCH_INTERFACE if interface was not found
+ * @return  - ER_OK if deletion was successful
+ *          - ER_BUS_NO_SUCH_INTERFACE if interface was not found
  */
 - (QStatus)deleteInterface:(AJNInterfaceDescription*)interfaceDescription;
 
@@ -228,9 +224,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param xmlString     An XML string in DBus introspection format.
  *
- * @return
- *      - #ER_OK if parsing is completely successful.
- *      - An error status otherwise.
+ * @return  - ER_OK if parsing is completely successful.
+ *          - An error status otherwise.
  */
 - (QStatus)createInterfacesFromXml:(NSString*)xmlString;
 
@@ -274,9 +269,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param busObject      BusObject to register.
  *
- * @return
- *      - #ER_OK if successful.
- *      - #ER_BUS_BAD_OBJ_PATH for a bad object path
+ * @return  - ER_OK if successful.
+ *          - ER_BUS_BAD_OBJ_PATH for a bad object path
  */
 - (QStatus)registerBusObject:(AJNBusObject*)busObject;
 
@@ -367,10 +361,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * any bus attachment state when they are called.  These functions are only
  * present to help in orderly termination of complex threading systems.
  *
- * @return
- *      - #ER_OK if successful.
- *      - #ER_BUS_BUS_ALREADY_STARTED if already started
- *      - Other error status codes indicating a failure
+ * @return  - ER_OK if successful.
+ *          - ER_BUS_BUS_ALREADY_STARTED if already started
+ *          - Other error status codes indicating a failure
  */
 - (QStatus)start;
 
@@ -393,10 +386,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @see start
  * @see waitUntilStopCompleted
  *
- * @return
- *     - #ER_OK if successful.
- *     - An error QStatus if unable to begin the process of stopping the
- *       message bus threads.
+ * @return  - ER_OK if successful.
+ *          - An error QStatus if unable to begin the process of stopping the message bus threads.
  */
 - (QStatus)stop;
 
@@ -424,10 +415,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @see start
  * @see stop
  *
- * @return
- *      - #ER_OK if successful.
- *      - #ER_BUS_BUS_ALREADY_STARTED if already started
- *      - Other error status codes indicating a failure
+ * @return  - ER_OK if successful.
+ *          - ER_BUS_BUS_ALREADY_STARTED if already started
+ *          - Other error status codes indicating a failure
  */
 - (QStatus)waitUntilStopCompleted;
 
@@ -437,9 +427,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param connectionArguments  A transport connection spec string of the form:
  *                     @c "<transport>:<param1>=<value1>,<param2>=<value2>...[;]"
  *
- * @return
- *      - #ER_OK if successful.
- *      - An error status otherwise
+ * @return  - ER_OK if successful.
+ *          - An error status otherwise
  */
 - (QStatus)connectWithArguments:(NSString*)connectionArguments;
 
@@ -448,10 +437,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param connectionArguments  The transport connection spec used to connect.
  *
- * @return
- *          - #ER_OK if successful
- *          - #ER_BUS_BUS_NOT_STARTED if the bus is not started
- *          - #ER_BUS_NOT_CONNECTED if the %BusAttachment is not connected to the bus
+ * @return  - ER_OK if successful
+ *          - ER_BUS_BUS_NOT_STARTED if the bus is not started
+ *          - ER_BUS_NOT_CONNECTED if the %BusAttachment is not connected to the bus
  *          - Other error status codes indicating a failure
  */
 - (QStatus)disconnectWithArguments:(NSString*)connectionArguments;
@@ -464,10 +452,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  name     Well-known name being requested.
  * @param  flags    Bitmask of bus name flags.
  *
- * @return
- *      - #ER_OK iff daemon response was received and request was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and request was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)requestWellKnownName:(NSString*)name withFlags:(AJNBusNameFlag)flags;
 
@@ -478,10 +465,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param  name          Well-known name being released.
  *
- * @return
- *      - #ER_OK iff daemon response was received amd the name was successfully released.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received amd the name was successfully released.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)releaseWellKnownName:(NSString*)name;
 
@@ -491,9 +477,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * and interprets the response.
  *
  * @param  name       The well known name that the caller is inquiring about.
- * @return
- *      - TRUE if name ownership was able to be determined.
- *      - FALSE otherwise.
+ * @return  - TRUE if name ownership was able to be determined.
+ *          - FALSE otherwise.
  */
 - (BOOL)doesWellKnownNameHaveOwner:(NSString*)name;
 
@@ -524,10 +509,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param delegate  Called by the bus when session related events occur.
  *
- * @return
- *      - #ER_OK iff daemon response was received and the bind operation was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and the bind operation was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)bindSessionOnPort:(AJNSessionPort)port withOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
 
@@ -557,9 +541,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param delegate  Called by the bus when session related events occur.
  *
- * @return
- *      - A valid session port number iff daemon response was received and the bind operation was successful.
- *      - kAJNSessionPortAny is returned if there was any error.
+ * @return  - A valid session port number iff daemon response was received and the bind operation was successful.
+ *          - kAJNSessionPortAny is returned if there was any error.
  */
 - (AJNSessionPort)bindSessionOnAnyPortWithOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
 
@@ -568,10 +551,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param   port    Existing session port to be un-bound.
  *
- * @return
- *      - #ER_OK iff daemon response was received and the bind operation was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and the bind operation was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)unbindSessionFromPort:(AJNSessionPort)port;
 
@@ -586,9 +568,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  delegate         Optional listener called when session related events occur. May be NULL.
  * @param  options          Session options.
  *
- * @return
- *      - The new session identifier.
- *      - A session id of -1 indicating a failure.
+ * @return  - The new session identifier.
+ *          - A session id of -1 indicating a failure.
  */
 - (AJNSessionId)joinSessionWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options;
 
@@ -606,10 +587,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  completionDelegate Delegate to be called when the join completes.
  * @param  context          User defined context which will be passed as-is to callback.
  *
- * @return
- *      - #ER_OK iff method call to local daemon response was was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff method call to local daemon response was was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options joinCompletedDelegate:(id<AJNSessionDelegate>)completionDelegate context:(AJNHandle)context;
 
@@ -628,10 +608,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  completionBlock  Block to be called when the join completes.
  * @param  context          User defined context which will be passed as-is to callback.
  *
- * @return
- *      - #ER_OK iff method call to local daemon response was was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff method call to local daemon response was was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options joinCompletedBlock:(AJNJoinSessionBlock)completionBlock context:(AJNHandle)context;
 
@@ -653,10 +632,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param  sessionId     Session id.
  *
- * @return
- *      - #ER_OK iff daemon response was received and the leave operation was successfully completed.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and the leave operation was successfully completed.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)leaveSession:(AJNSessionId)sessionId;
 
@@ -676,13 +654,12 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *                      value that acceptable to the underlying transport.
  * @param sessionId     Id of session whose link timeout will be modified.
  *
- * @return
- *      - #ER_OK if successful
- *      - #ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NOT_SUPPORTED if local daemon does not support SetLinkTimeout
- *      - #ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NO_DEST_SUPPORT if SetLinkTimeout not supported by destination
- *      - #ER_BUS_NO_SESSION if the Session id is not valid
- *      - #ER_ALLJOYN_SETLINKTIMEOUT_REPLY_FAILED if SetLinkTimeout failed
- *      - #ER_BUS_NOT_CONNECTED if the BusAttachment is not connected to the daemon
+ * @return  - ER_OK if successful
+ *          - ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NOT_SUPPORTED if local daemon does not support SetLinkTimeout
+ *          - ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NO_DEST_SUPPORT if SetLinkTimeout not supported by destination
+ *          - ER_BUS_NO_SESSION if the Session id is not valid
+ *          - ER_ALLJOYN_SETLINKTIMEOUT_REPLY_FAILED if SetLinkTimeout failed
+ *          - ER_BUS_NOT_CONNECTED if the BusAttachment is not connected to the daemon
  */
 - (QStatus)setLinkTimeout:(uint32_t*)timeout forSession:(AJNSessionId)sessionId;
 
@@ -704,10 +681,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  name         The well-known name to advertise. (Must be owned by the caller via RequestName).
  * @param  mask         Set of transports to use for sending advertisement.
  *
- * @return
- *      - #ER_OK iff daemon response was received and advertise was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and advertise was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)advertiseName:(NSString*)name withTransportMask:(AJNTransportMask)mask;
 
@@ -720,10 +696,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  name          A well-known name that was previously advertised via AdvertiseName.
  * @param  mask          Set of transports whose name advertisement will be canceled.
  *
- * @return
- *      - #ER_OK iff daemon response was received and advertisements were successfully stopped.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and advertisements were successfully stopped.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)cancelAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask)mask;
 
@@ -735,10 +710,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  name    Well-known name prefix that application is interested in receiving
  *                           BusListener::FoundAdvertisedName notifications about.
  *
- * @return
- *      - #ER_OK iff daemon response was received and discovery was successfully started.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and discovery was successfully started.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)findAdvertisedName:(NSString*)name;
 
@@ -751,10 +725,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param  name    Well-known name prefix that application is no longer interested in receiving
  *                           BusListener::FoundAdvertisedName notifications about.
  *
- * @return
- *      - #ER_OK iff daemon response was received and cancel was successfully completed.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK iff daemon response was received and cancel was successfully completed.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)cancelFindAdvertisedName:(NSString*)name;
 
@@ -764,10 +737,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param  matchRule  Match rule to be added (see DBus specification for format of this string).
  *
- * @return
- *      - #ER_OK if the AddMatch request was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK if the AddMatch request was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)addMatchRule:(NSString*)matchRule;
 
@@ -777,10 +749,9 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param  matchRule  Match rule to be removed (see DBus specification for format of this string).
  *
- * @return
- *      - #ER_OK if the RemoveMatch request was successful.
- *      - #ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
- *      - Other error status codes indicating a failure.
+ * @return  - ER_OK if the RemoveMatch request was successful.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
  */
 - (QStatus)removeMatchRule:(NSString*)matchRule;
 
@@ -795,13 +766,12 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param password      The password to use for generating the logon entry. If the password is
  *                      NULL the logon entry is deleted from the key store.
  *
- * @return
- *      - #ER_OK if the logon entry was generated.
- *      - #ER_BUS_INVALID_AUTH_MECHANISM if the authentication mechanism does not support
+ * @return  - ER_OK if the logon entry was generated.
+ *          - ER_BUS_INVALID_AUTH_MECHANISM if the authentication mechanism does not support
  *                                       logon functionality.
- *      - #ER_BAD_ARG_2 indicates a null string was used as the user name.
- *      - #ER_BAD_ARG_3 indicates a null string was used as the password.
- *      - Other error status codes indicating a failure
+ *          - ER_BAD_ARG_2 indicates a null string was used as the user name.
+ *          - ER_BAD_ARG_3 indicates a null string was used as the password.
+ *          - Other error status codes indicating a failure
  */
 - (QStatus)addLogonEntryToKeyStoreWithAuthenticationMechanism:(NSString*)authenticationMechanism userName:(NSString*)userName password:(NSString*)password;
 
@@ -817,9 +787,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param listener         Passes password and other authentication related requests to the application.
  *
- * @return
- *      - #ER_OK if peer security was enabled.
- *      - #ER_BUS_BUS_NOT_STARTED BusAttachment::Start has not be called
+ * @return  - ER_OK if peer security was enabled.
+ *          - ER_BUS_BUS_NOT_STARTED BusAttachment::Start has not be called
  */
 - (QStatus)enablePeerSecurity:(NSString*)authenticationMechanisms authenticationListener:(id<AJNAuthenticationListener>)listener;
 
@@ -845,9 +814,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *                         key store is not shared but it adds some unnecessary calls to the key store
  *                         listener to load and store the key store in this case.
  *
- * @return
- *      - #ER_OK if peer security was enabled.
- *      - #ER_BUS_BUS_NOT_STARTED BusAttachment::Start has not be called
+ * @return  - ER_OK if peer security was enabled.
+ *          - ER_BUS_BUS_NOT_STARTED BusAttachment::Start has not be called
  */
 - (QStatus)enablePeerSecurity:(NSString*)authenticationMechanisms authenticationListener:(id<AJNAuthenticationListener>)listener keystoreFileName:(NSString*)fileName sharing:(BOOL)isShared;
 
@@ -857,10 +825,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param listener  The key store listener to set.
  *
- * @return
- *      - #ER_OK if the key store listener was set
- *      - #ER_BUS_LISTENER_ALREADY_SET if a listener has been set by this function or because
- *         EnablePeerSecurity has been called.
+ * @return  - ER_OK if the key store listener was set
+ *          - ER_BUS_LISTENER_ALREADY_SET if a listener has been set by this function or because EnablePeerSecurity has been called.
  */
 - (QStatus)registerKeyStoreListener:(id<AJNKeyStoreListener>)listener;
 
@@ -932,9 +898,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * @param peerName  Name of a remote peer or NULL to get the local (this application's) peer GUID.
  *
- * @return
- *      - On success, returns the guid for the local or remote peer depending on the value of name.
- *      - Returns nil otherwise.
+ * @return  - On success, returns the guid for the local or remote peer depending on the value of name.
+ *          - Returns nil otherwise.
  */
 - (NSString*)guidForPeerNamed:(NSString*)peerName;
 
@@ -971,10 +936,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param level     debug level to set for the module 
  * @param module    name of the module to generate debug output
  *
- * @return
- *     - #ER_OK if debug request was successfully sent to the AllJoyn
- *       daemon.
- *     - #ER_BUS_NO_SUCH_OBJECT if daemon was not built in debug mode.
+ * @return  - ER_OK if debug request was successfully sent to the AllJoyn daemon.
+ *          - ER_BUS_NO_SUCH_OBJECT if daemon was not built in debug mode.
  */
 - (QStatus)setDaemonDebugLevel:(uint32_t)level forModule:(NSString*)module;
 
