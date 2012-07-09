@@ -255,6 +255,23 @@ public:
     return [[AJNProxyBusObject alloc] initWithHandle:(AJNHandle)(&self.busAttachment->GetAllJoynDebugObj())];
 }
 
+- (NSArray *)interfaces
+{
+    NSArray * returnValue = nil;
+    size_t interfaceCount = self.busAttachment->GetInterfaces();
+    if (interfaceCount) {
+        NSMutableArray *interfacesActivated = [[NSMutableArray alloc] init];
+        InterfaceDescription **pInterfaces = new InterfaceDescription*[interfaceCount];
+        self.busAttachment->GetInterfaces(const_cast<const InterfaceDescription**>(pInterfaces), interfaceCount);
+        for (int i = 0; i < interfaceCount; i++) {
+            [interfacesActivated addObject:[[AJNInterfaceDescription alloc] initWithHandle:pInterfaces[i]shouldDeleteHandleOnDealloc:NO]];
+        }
+        delete [] pInterfaces;
+        returnValue = interfacesActivated;
+    }
+    return returnValue;
+}
+
 - (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL)allowRemoteMessages
 {
     self = [super init];

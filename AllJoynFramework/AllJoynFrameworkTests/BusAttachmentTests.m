@@ -148,6 +148,16 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
     
     iface = [self.bus interfaceWithName:kBusAttachmentTestsInterfaceName];
     STAssertNotNil(iface, @"Bus failed to retrieve interface that had already been created.");
+    
+    NSArray *interfaces = self.bus.interfaces;
+    BOOL didFindInterface = NO;
+    for (AJNInterfaceDescription *interfaceDescription in interfaces) {
+        if ([interfaceDescription.name compare:kBusAttachmentTestsInterfaceName] == NSOrderedSame) {
+            didFindInterface = YES;
+            break;
+        }
+    }
+    STAssertTrue(didFindInterface,@"Bus did not return interface that was activated.");
 }
 
 - (void)testShouldCreateInterfaceFromXml

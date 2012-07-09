@@ -41,7 +41,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  */
 @protocol AJNSessionDelegate <NSObject>
 
-/** Called when JoinSessionAsync() completes.
+/** Called when joinSessionAsync completes.
  * @param sessionId         The identifier of the session that was joined.
  * @param status            A status code indicating success or failure of the join operation.
  * @param sessionOptions    Session options for the newly joined session.
@@ -133,6 +133,11 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 @property (nonatomic, readonly) AJNProxyBusObject *allJoynDebugProxyObject;
 
 /**
+ * Returns the existing activated InterfaceDescriptions.
+ */
+@property (nonatomic, readonly) NSArray *interfaces;
+
+/**
  * Construct a BusAttachment.
  *
  * @param applicationName       Name of the application.
@@ -149,7 +154,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  */
 - (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL)allowRemoteMessages maximumConcurrentOperations:(NSUInteger)maximumConcurrentOperations;
 
-/** Explicitly destroys the underlying AllJoyn C++ API BusAttachment object
+/** 
+ * Explicitly destroys the underlying AllJoyn C++ API BusAttachment object
  */
 - (void)destroy;
 
@@ -158,17 +164,17 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  *
  * Typically, interfaces that are implemented by BusObjects are created here.
  * Interfaces that are implemented by remote objects are added automatically by
- * the bus if they are not already present via ProxyBusObject::IntrospectRemoteObject().
+ * the bus if they are not already present via AJNProxyBusObject::introspectRemoteObject.
  *
  * Because interfaces are added both explicitly (via this method) and implicitly
- * (via @c ProxyBusObject::IntrospectRemoteObject), there is the possibility that creating
+ * (via AJNProxyBusObject::introspectRemoteObject), there is the possibility that creating
  * an interface here will fail because the interface already exists. If this happens, the
  * ER_BUS_IFACE_ALREADY_EXISTS will be returned and NULL will be returned in the iface [OUT]
  * parameter.
  *
- * Interfaces created with this method need to be activated using InterfaceDescription::Activate()
+ * Interfaces created with this method need to be activated using AJNInterfaceDescription::activate
  * once all of the methods, signals, etc have been added to the interface. The interface will
- * be unaccessible (via BusAttachment::GetInterfaces() or BusAttachment::GetInterface()) until
+ * be unaccessible (via AJNBusAttachment::interfaceWithName) until
  * it is activated.
  *
  * @param interfaceName             The requested interface name.
