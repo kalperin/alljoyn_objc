@@ -18,9 +18,9 @@
 #import <Status.h>
 #import "AJNHandle.h"
 
-// AJNSignalHandler - the base protocol for all signal handlers. A place holder only.
-//
-
+/**
+ * The base protocol for all signal handlers. A place holder only.
+ */
 @protocol AJNSignalHandler <AJNHandle>
 
 @end

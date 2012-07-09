@@ -16,10 +16,24 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Version and build information for AllJoyn
+ */
 @interface AJNVersion : NSObject
 
+/**
+ * Version information for the AllJoyn library
+ */
 + (NSString*)versionInformation;
+
+/**
+ * Build information for the AllJoyn library.
+ */
 + (NSString*)buildInformation;
+
+/**
+ * Version number of the AllJoyn library.
+ */
 + (NSInteger)versionNumber;
 
 @end

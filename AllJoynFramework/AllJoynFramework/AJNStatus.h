@@ -17,6 +17,9 @@
 #import <Foundation/Foundation.h>
 #import <Status.h>
 
+/**
+ * Access to status and error codes for AllJoyn
+ */
 @interface AJNStatus : NSObject
 
 + (NSString*)descriptionForStatusCode:(QStatus)status;

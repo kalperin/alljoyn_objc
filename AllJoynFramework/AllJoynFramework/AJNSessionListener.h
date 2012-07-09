@@ -17,12 +17,35 @@
 #import <Foundation/Foundation.h>
 #import "AJNSessionOptions.h"
 
+/**
+ * Protocol implemented by AllJoyn apps and called by AllJoyn to inform
+ * the app of session related events.
+ */
 @protocol AJNSessionListener <NSObject>
 
 @optional
 
+/**
+ * Called by the bus when an existing session becomes disconnected.
+ *
+ * @param sessionId     Id of session that was lost.
+ */
 - (void)sessionWasLost:(AJNSessionId)sessionId;
+
+/**
+ * Called by the bus when a member of a multipoint session is added.
+ *
+ * @param memberName    Unique name of member who was added. 
+ * @param sessionId     Id of session whose member(s) changed.
+ */
 - (void)didAddMemberNamed:(NSString*)memberName toSession:(AJNSessionId)sessionId;
+
+/**
+ * Called by the bus when a member of a multipoint session is removed.
+ *
+ * @param memberName    Unique name of member who was added. 
+ * @param sessionId     Id of session whose member(s) changed.
+ */
 - (void)didRemoveMemberNamed:(NSString*)memberName fromSession:(AJNSessionId)sessionId;
 
 @end

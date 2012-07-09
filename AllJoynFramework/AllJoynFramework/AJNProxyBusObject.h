@@ -197,13 +197,112 @@
  *      - #ER_BUS_OBJ_ALREADY_EXISTS the the object already exists on the ProxyBusObject
  */
 - (QStatus)addChild:(AJNProxyBusObject*)child;
+
+/**
+ * Remove a child object and any descendants it may have.
+ *
+ * @param path   Absolute or relative (to this ProxyBusObject) object path.
+ * @return  - ER_OK if successful.
+ *          - ER_BUS_BAD_CHILD_PATH if the path given was not a valid path
+ *          - ER_BUS_OBJ_NOT_FOUND if the Child object was not found
+ *          - ER_FAIL any other unexpected error.
+ */
 - (QStatus)removeChildAtPath:(NSString*)path;
 
+/**
+ * Make a synchronous method call from this object
+ *
+ * @param method        Method being invoked.
+ * @param arguments     The arguments for the method call (can be NULL)
+ * @param reply         The reply message received for the method call
+ *
+ * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
+ *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
+ */
 - (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply;
+
+/**
+ * Make a synchronous method call from this object
+ *
+ * @param method       Method being invoked.
+ * @param arguments    The arguments for the method call (can be NULL)
+ * @param reply        The reply message received for the method call
+ * @param timeout      Timeout specified in milliseconds to wait for a reply
+ * @param flags        Logical OR of the message flags for this method call. The following flags apply to method calls:
+ *                     - If ALLJOYN_FLAG_ENCRYPTED is set the message is authenticated and the payload if any is encrypted.
+ *                     - If ALLJOYN_FLAG_COMPRESSED is set the header is compressed for destinations that can handle header compression.
+ *                     - If ALLJOYN_FLAG_AUTO_START is set the bus will attempt to start a service if it is not running.
+ *
+ *
+ * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
+ *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
+ */
 - (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags;
+
+/**
+ * Make an asynchronous method call from this object
+ *
+ * @param method        Method being invoked.
+ * @param arguments     The arguments for the method call (can be NULL)
+ * @param replyDelegate The object to be called when the asych method call completes.
+ * @param context       User-defined context that will be returned to the reply delegate.
+ * @param timeout       Timeout specified in milliseconds to wait for a reply
+ * @param flags         Logical OR of the message flags for this method call. The following flags apply to method calls:
+ *                     - If ALLJOYN_FLAG_ENCRYPTED is set the message is authenticated and the payload if any is encrypted.
+ *                     - If ALLJOYN_FLAG_COMPRESSED is set the header is compressed for destinations that can handle header compression.
+ *                     - If ALLJOYN_FLAG_AUTO_START is set the bus will attempt to start a service if it is not running.
+ * @return  - ER_OK if successful
+ *          - An error status otherwise
+ */
 - (QStatus)callMethodAsync:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags;
+
+/**
+ * Make a synchronous method call from this object
+ *
+ * @param methodName    Name of method.
+ * @param interfaceName Name of interface.
+ * @param arguments     The arguments for the method call (can be NULL)
+ * @param reply         The reply message received for the method call
+ *
+ * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
+ *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
+ */
 - (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply;
+
+/**
+ * Make a synchronous method call from this object
+ *
+ * @param methodName    Name of method.
+ * @param interfaceName Name of interface.
+ * @param arguments     The arguments for the method call (can be NULL)
+ * @param reply         The reply message received for the method call
+ * @param timeout       Timeout specified in milliseconds to wait for a reply
+ * @param flags         Logical OR of the message flags for this method call. The following flags apply to method calls:
+ *                     - If ALLJOYN_FLAG_ENCRYPTED is set the message is authenticated and the payload if any is encrypted.
+ *                     - If ALLJOYN_FLAG_COMPRESSED is set the header is compressed for destinations that can handle header compression.
+ *                     - If ALLJOYN_FLAG_AUTO_START is set the bus will attempt to start a service if it is not running.
+ *
+ * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
+ *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
+ */
 - (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags;
+
+/**
+ * Make an asynchronous method call from this object
+ *
+ * @param methodName    Name of method.
+ * @param interfaceName Name of interface.
+ * @param arguments     The arguments for the method call (can be NULL)
+ * @param replyDelegate The object to be called when the asych method call completes.
+ * @param context       User-defined context that will be returned to the reply delegate.
+ * @param timeout       Timeout specified in milliseconds to wait for a reply
+ * @param flags         Logical OR of the message flags for this method call. The following flags apply to method calls:
+ *                     - If ALLJOYN_FLAG_ENCRYPTED is set the message is authenticated and the payload if any is encrypted.
+ *                     - If ALLJOYN_FLAG_COMPRESSED is set the header is compressed for destinations that can handle header compression.
+ *                     - If ALLJOYN_FLAG_AUTO_START is set the bus will attempt to start a service if it is not running.
+ * @return  - ER_OK if successful
+ *          - An error status otherwise
+ */
 - (QStatus)callMethodWithNameAsync:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags;
 
 /**

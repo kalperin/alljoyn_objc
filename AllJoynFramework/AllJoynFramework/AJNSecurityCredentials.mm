@@ -55,6 +55,9 @@ const uint16_t AJNSecurityCredentialRequestOneTimePassword = 0x2001; /**< Indica
     }
 }
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (ajn::AuthListener::Credentials*)credentials
 {
     return static_cast<ajn::AuthListener::Credentials*>(self.handle);

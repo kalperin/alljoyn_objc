@@ -27,6 +27,9 @@ const AJNProximity kAJNProximityNetwork  = 0x02;
 
 @implementation AJNSessionOptions
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (ajn::SessionOpts*)sessionOpts
 {
     return (ajn::SessionOpts*)self.handle;

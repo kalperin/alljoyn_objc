@@ -168,6 +168,9 @@ using namespace ajn;
     return self.proxyBusObject->IsValid() ? YES : NO;
 }
 
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
 - (ProxyBusObject*)proxyBusObject
 {
     return static_cast<ProxyBusObject*>(self.handle);

@@ -57,16 +57,59 @@ extern const uint16_t AJNSecurityCredentialRequestNewPassword;
 extern const uint16_t AJNSecurityCredentialRequestOneTimePassword; 
 // @}
 
+/**
+ * Generic class for describing different authentication credentials.
+ */
 @interface AJNSecurityCredentials : AJNObject
 
+/**
+ * A requested password, pincode, or passphrase.
+ */
 @property (nonatomic) NSString *password;
+
+/**
+ * A requested user name.
+ */
 @property (nonatomic) NSString *userName;
+
+/**
+ * A requested public key certificate chain. The certificates must be PEM encoded.
+ */
 @property (nonatomic) NSString *certificateChain;
+
+/**
+ * A requested private key. The private key must be PEM encoded and may be encrypted. If
+ * the private key is encrypted the passphrase required to decrypt it must also be supplied.
+ */
 @property (nonatomic) NSString *privateKey;
+
+/**
+ * A logon entry. For example for the Secure Remote Password protocol in RFC 5054, a
+ * logon entry encodes the N,g, s and v parameters. An SRP logon entry string has the form
+ * N:g:s:v where N,g,s, and v are ASCII encoded hexadecimal strings and are separated by
+ * colons.
+ */
 @property (nonatomic) NSString *logonEntry;
+
+/**
+ * An expiration time in seconds relative to the current time for the credentials. This value is optional and
+ * can be set on any response to a credentials request. After the specified expiration time has elapsed any secret
+ * keys based on the provided credentials are invalidated and a new authentication exchange will be required. If an
+ * expiration is not set the default expiration time for the requested authentication mechanism is used.
+ */
 @property (nonatomic) NSInteger expirationTime;
 
+/**
+ * Tests if one or more credentials are set.
+ *
+ * @param creds  A logical or of the credential bit values.
+ * @return true if the credentials are set.
+ */
 - (BOOL)isCredentialTypeSet:(AJNSecurityCredentialType)type;
+
+/**
+ * Clear the credentials.
+ */
 - (void)clear;
 
 @end
