@@ -19,7 +19,9 @@
 #import "AJNSecurityCredentials.h"
 #import "AJNMessage.h"
 
-/** Class to allow authentication mechanisms to interact with the application */
+/**
+ * Protocol to allow authentication mechanisms to interact with the application 
+ */
 @protocol AJNAuthenticationListener <NSObject>
 
 @required

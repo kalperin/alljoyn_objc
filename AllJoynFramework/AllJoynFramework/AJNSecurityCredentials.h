@@ -42,6 +42,8 @@ extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeLogonEntry;
 extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime; 
 // @}
 
+////////////////////////////////////////////////////////////////////////////////
+
 /**
  * @name Credential request values
  * These values are only used in a credential request
@@ -56,6 +58,8 @@ extern const uint16_t AJNSecurityCredentialRequestNewPassword;
 /**< Indicates the credential request is for a one time use password */
 extern const uint16_t AJNSecurityCredentialRequestOneTimePassword; 
 // @}
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Generic class for describing different authentication credentials.

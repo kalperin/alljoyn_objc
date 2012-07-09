@@ -17,7 +17,9 @@
 #import <Foundation/Foundation.h>
 #import "AJNHandle.h"
 
-/** The base class for all ALLJoyn API objects */
+/**
+ *  The base class for all ALLJoyn API objects 
+ */
 @interface AJNObject : NSObject<AJNHandle>
 
 /** A handle to the C++ API object associated with this objective-c class */

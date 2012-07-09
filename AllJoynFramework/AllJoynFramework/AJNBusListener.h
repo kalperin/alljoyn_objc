@@ -22,7 +22,7 @@
 
 
 /**
- * Base protocol implemented by AllJoyn apps and called by AllJoyn to inform
+ * Protocol implemented by AllJoyn apps and called by AllJoyn to inform
  * apps of bus related events.
  */
 @protocol AJNBusListener <NSObject>

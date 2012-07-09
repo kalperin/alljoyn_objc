@@ -31,6 +31,9 @@ extern const AJNBusNameFlag kAJNBusNameFlagReplaceExisting;
 extern const AJNBusNameFlag kAJNBusNameFlagDoNotQueue;     
 
 // @}
+
+////////////////////////////////////////////////////////////////////////////////
+
 /**
  * @name DBus RequestName return values
  * org.freedesktop.DBUs.RequestName return values (see DBus spec)
@@ -48,6 +51,8 @@ typedef enum {
 } AJNBusRequestNameReply;
 // @}
 
+////////////////////////////////////////////////////////////////////////////////
+
 /**
  * @name DBus ReleaaseName return values
  * org.freedesktop.DBus.ReleaseName return values (see DBus spec)
@@ -62,6 +67,8 @@ typedef enum {
     kAJNBusReleaseNameReplyNotOwner     = 3      
 } AJNBusReleaseNameReply;
 // @}
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * @name DBus StartServiceByName return values

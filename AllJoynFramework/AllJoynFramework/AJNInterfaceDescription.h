@@ -30,8 +30,8 @@
  * BusObject. After an interface has been added method handlers for the methods described in the
  * interface can be added by calling BusObject::AddMethodHandler or BusObject::AddMethodHandlers.
  *
- * An InterfaceDescription can be constructed piecemeal by calling InterfaceDescription::AddMethod,
- * InterfaceDescription::AddMember(), and InterfaceDescription::AddProperty(). Alternatively,
+ * An InterfaceDescription can be constructed piecemeal by calling InterfaceDescription::addMethod,
+ * InterfaceDescription::addSignal, and InterfaceDescription::addProperty. Alternatively,
  * calling ProxyBusObject::ParseXml will create the %InterfaceDescription instances for that proxy
  * object directly from an XML string. Calling ProxyBusObject::IntrospectRemoteObject or
  * ProxyBusObject::IntrospectRemoteObjectAsync also creates the %InterfaceDescription

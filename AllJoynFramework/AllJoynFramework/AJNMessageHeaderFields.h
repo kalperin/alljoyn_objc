@@ -16,7 +16,9 @@
 
 #import "AJNObject.h"
 
-/** AllJoyn Header field types  */
+/**
+ * AllJoyn Header field types  
+ */
 typedef enum {
     
     /* Wire-protocol defined header field types */
@@ -37,6 +39,8 @@ typedef enum {
     kAJNMessageHeaderFieldTypeSessionId,               ///< Session id field type
     kAJNMessageHeaderFieldTypeFieldUnknown                   ///< unknown header field type also used as maximum number of header field types.
 } AJNMessageHeaderFieldType;
+
+////////////////////////////////////////////////////////////////////////////////
 
 /** AllJoyn header fields */
 @interface AJNMessageHeaderFields : AJNObject

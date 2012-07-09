@@ -19,7 +19,8 @@
 #import "AJNHandle.h"
 
 /**
- * The base protocol for all signal handlers. A place holder only.
+ * The base protocol for all signal handlers. The code generator will create a
+ * protocol that derives from this one.
  */
 @protocol AJNSignalHandler <AJNHandle>
 

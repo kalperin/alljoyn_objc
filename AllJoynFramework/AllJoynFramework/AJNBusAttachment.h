@@ -37,7 +37,10 @@
 /** Block definition for joining a session asynchronously */
 typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSessionOptions *opts, void *context);
 
-/** Delegate used to receive notifications when joining a session asynchronously
+////////////////////////////////////////////////////////////////////////////////
+
+/** 
+ * Delegate used to receive notifications when joining a session asynchronously
  */
 @protocol AJNSessionDelegate <NSObject>
 
@@ -50,6 +53,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 - (void)didJoinSession:(AJNSessionId)sessionId status:(QStatus)status sessionOptions:(AJNSessionOptions*)sessionOptions context:(AJNHandle)context;
 
 @end
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * The top-level object responsible for connecting to and optionally managing a message bus.
@@ -133,7 +138,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 @property (nonatomic, readonly) AJNProxyBusObject *allJoynDebugProxyObject;
 
 /**
- * Returns the existing activated InterfaceDescriptions.
+ * Returns the existing activated interface descriptions.
  */
 @property (nonatomic, readonly) NSArray *interfaces;
 
@@ -292,7 +297,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * the bus attachment, preparing it for action.
  *
  * This method only begins the process of starting the bus. Sending and
- * receiving messages cannot begin until the bus is Connect()ed.
+ * receiving messages cannot begin until the bus is Connected.
  *
  * In most cases, it is not required to understand the threading model of
  * the bus attachment, with one important exception: The bus attachment may
@@ -784,8 +789,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 /**
  * Enable peer-to-peer security. This function must be called by applications that want to use
  * authentication and encryption . The bus must have been started by calling
- * BusAttachment::Start() before this function is called. If the application is providing its
- * own key store implementation it must have already called RegisterKeyStoreListener() before
+ * BusAttachment::start before this function is called. If the application is providing its
+ * own key store implementation it must have already called registerKeyStoreListener before
  * calling this function.
  *
  * @param authenticationMechanisms   The authentication mechanism(s) to use for peer-to-peer authentication.
@@ -802,7 +807,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * Enable peer-to-peer security. This function must be called by applications that want to use
  * authentication and encryption . The bus must have been started by calling
  * BusAttachment::Start() before this function is called. If the application is providing its
- * own key store implementation it must have already called RegisterKeyStoreListener() before
+ * own key store implementation it must have already called registerKeyStoreListener before
  * calling this function.
  *
  * @param authenticationMechanisms   The authentication mechanism(s) to use for peer-to-peer authentication.
@@ -811,7 +816,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param listener         Passes password and other authentication related requests to the application.
  *
  * @param fileName         Optional parameter to specify the filename of the default key store. The
- *                         default value is the applicationName parameter of BusAttachment().
+ *                         default value is the applicationName parameter of BusAttachment::initWithApplicationName.
  *                         Note that this parameter is only meaningful when using the default
  *                         key store implementation.
  *
@@ -856,7 +861,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 
 /**
  * Clear the keys associated with a specific remote peer as identified by its peer GUID. The
- * peer GUID associated with a bus name can be obtained by calling GetPeerGUID().
+ * peer GUID associated with a bus name can be obtained by calling guidForPeerNamed:.
  *
  * @param peerId  The guid of a remote authenticated peer.
  *
@@ -869,7 +874,7 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 /**
  * Get the expiration time on keys associated with a specific authenticated remote peer as
  * identified by its peer GUID. The peer GUID associated with a bus name can be obtained by
- * calling GetPeerGUID().
+ * calling guidForPeerNamed:.
  *
  * @param timeout  The time in seconds relative to the current time when the keys will expire.
  * @param peerId   The GUID of a remote authenticated peer.
@@ -882,8 +887,8 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 
 /**
  * Set the expiration time on keys associated with a specific remote peer as identified by its
- * peer GUID. The peer GUID associated with a bus name can be obtained by calling GetPeerGUID().
- * If the timeout is 0 this is equivalent to calling ClearKeys().
+ * peer GUID. The peer GUID associated with a bus name can be obtained by calling guidForPeerNamed:.
+ * If the timeout is 0 this is equivalent to calling clearKeysForRemotePeerWithId:.
  *
  * @param timeout    The time in seconds relative to the current time to expire the keys.
  * @param peerId     The GUID of a remote authenticated peer.

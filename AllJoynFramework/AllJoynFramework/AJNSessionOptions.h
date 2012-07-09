@@ -27,11 +27,17 @@
  */
 typedef uint16_t AJNSessionPort;
 
+////////////////////////////////////////////////////////////////////////////////
+
 /** Invalid SessionPort value used to indicate that BindSessionPort should choose any available port */
 extern const AJNSessionPort kAJNSessionPortAny;
 
+////////////////////////////////////////////////////////////////////////////////
+
 /** SessionId uniquely identifies an AllJoyn session instance */
 typedef uint32_t AJNSessionId;
+
+////////////////////////////////////////////////////////////////////////////////
 
 /** Traffic type */
 typedef enum {
@@ -40,11 +46,15 @@ typedef enum {
     kAJNTrafficRawReliable   = 0x04    /**< Session carries a reliable byte stream */
 } AJNTrafficType;
 
+////////////////////////////////////////////////////////////////////////////////
+
 /** Proximity types */
 typedef uint8_t AJNProximity;
 extern const AJNProximity kAJNProximityAny;
 extern const AJNProximity kAJNProximityPhysical;
 extern const AJNProximity kAJNProximityNetwork;
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * A class that contains a set of parameters defining a Session's characteristics.

@@ -27,6 +27,11 @@ static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationNoReplyFlag     
 static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  = 2; 
 // @}
 
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ *  Message type enumeration
+ */
 typedef enum {
     
     ///< an invalid message type
@@ -46,6 +51,7 @@ typedef enum {
     
 } AJNMessageType;
 
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Class representing a member of an interface.

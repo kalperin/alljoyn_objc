@@ -16,14 +16,30 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Transports mask
+ */
 typedef uint16_t AJNTransportMask;
 
-extern const AJNTransportMask kAJNTransportMaskNone;        /**< no transports */
-extern const AJNTransportMask kAJNTransportMaskAny;         /**< ANY transport */
-extern const AJNTransportMask kAJNTransportMaskLocal;       /**< Local (same device) transport */
-extern const AJNTransportMask kAJNTransportMaskBluetooth;   /**< Bluetooth transport */
-extern const AJNTransportMask kAJNTransportMaskWLAN;        /**< Wireless local-area network transport */
-extern const AJNTransportMask kAJNTransportMaskWWAN;        /**< Wireless wide-area network transport */
-extern const AJNTransportMask kAJNTransportMaskLAN;         /**< Wired local-area network transport */
+/**< no transports */
+extern const AJNTransportMask kAJNTransportMaskNone;        
+
+/**< ANY transport */
+extern const AJNTransportMask kAJNTransportMaskAny;         
+
+/**< Local (same device) transport */
+extern const AJNTransportMask kAJNTransportMaskLocal;       
+
+/**< Bluetooth transport */
+extern const AJNTransportMask kAJNTransportMaskBluetooth;   
+
+/**< Wireless local-area network transport */
+extern const AJNTransportMask kAJNTransportMaskWLAN;        
+
+/**< Wireless wide-area network transport */
+extern const AJNTransportMask kAJNTransportMaskWWAN;        
+
+/**< Wired local-area network transport */
+extern const AJNTransportMask kAJNTransportMaskLAN;         
     
 

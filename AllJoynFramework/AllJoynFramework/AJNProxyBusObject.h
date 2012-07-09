@@ -52,6 +52,8 @@
 
 @end
 
+////////////////////////////////////////////////////////////////////////////////
+
 /**
  * Each ProxyBusObject instance represents a single DBus/AllJoyn object registered
  * somewhere on the bus. ProxyBusObjects are used to make method calls on these
