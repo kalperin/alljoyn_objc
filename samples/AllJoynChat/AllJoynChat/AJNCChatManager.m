@@ -85,11 +85,11 @@ static AJNCChatManager *s_chatManager;
         
         // allocate our bus attachment
         //
-        self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
+        self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowRemoteMessages:YES];
         
         // create and register our interface
         //
-        AJNInterfaceDescription* chatInterface = [self.busAttachment createInterfaceWithName:kInterfaceName];
+        AJNInterfaceDescription* chatInterface = [self.busAttachment createInterfaceWithName:kInterfaceName enableSecurity:NO];
         
         [chatInterface addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"str"]];
         
@@ -297,10 +297,12 @@ static AJNCChatManager *s_chatManager;
 - (void)playNewMessageSound
 {
     NSString *audioFilePath = [[NSBundle mainBundle] pathForResource:@"Submarine" ofType:@"aiff"];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:audioFilePath] error:nil];
-    player.volume = 1.0;
-    [player play];
-    [self.audioPlayers addObject:player];
+    if (audioFilePath) {
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:audioFilePath] error:nil];
+        player.volume = 1.0;
+        [player play];
+        [self.audioPlayers addObject:player];
+    }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag

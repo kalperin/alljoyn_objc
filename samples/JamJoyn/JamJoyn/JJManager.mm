@@ -317,7 +317,7 @@ static JJManager *s_manager;
     
     self.mediaSessionListener = [[MediaSessionPortListener alloc] init];
     
-    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
+    self.bus = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowRemoteMessages:YES];
     
     [self.bus registerBusListener:self];
     

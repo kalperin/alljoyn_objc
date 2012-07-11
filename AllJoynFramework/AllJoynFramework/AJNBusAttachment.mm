@@ -99,28 +99,11 @@ public:
 
 @interface AJNBusAttachment()
 
-/** Array of all registered bus listeners
- */
 @property (nonatomic, strong) NSMutableArray *busListeners;
-
-/** Array of all registered session listeners
- */
 @property (nonatomic, strong) NSMutableArray *sessionListeners;
-
-/** Array of all registered session port listeners
- */
 @property (nonatomic, strong) NSMutableArray *sessionPortListeners;
-
-/** Array of all registered signal handlers
- */
 @property (nonatomic, strong) NSMutableArray *signalHandlers;
-
-/** Array of all registered key store listeners
- */
 @property (nonatomic, strong) NSMutableArray *keyStoreListeners;
-
-/** Array of all authentication listeners
- */
 @property (nonatomic, strong) NSMutableArray *authenticationListeners;
 
 /** C++ AllJoyn API object
@@ -145,8 +128,6 @@ public:
     return static_cast<ajn::BusAttachment*>(self.handle);
 }
 
-/** Array of all registered bus listeners
- */
 - (NSMutableArray*)busListeners
 {
     if (_busListeners == nil) {
@@ -155,8 +136,6 @@ public:
     return _busListeners;
 }
 
-/** Array of all registered session listeners
- */
 - (NSMutableArray*)sessionListeners
 {
     if (_sessionListeners == nil) {
@@ -165,8 +144,6 @@ public:
     return _sessionListeners;
 }
 
-/** Array of all registered session port listeners
- */
 - (NSMutableArray*)sessionPortListeners
 {
     if (_sessionPortListeners == nil) {
@@ -175,8 +152,6 @@ public:
     return _sessionPortListeners;
 }
 
-/** Array of all registered signal handlers
- */
 - (NSMutableArray*)signalHandlers
 {
     if (_signalHandlers == nil) {
@@ -185,8 +160,6 @@ public:
     return _signalHandlers;
 }
 
-/** Array of all registered key store listeners
- */
 - (NSMutableArray*)keyStoreListeners
 {
     if (_keyStoreListeners == nil) {
@@ -195,8 +168,6 @@ public:
     return _keyStoreListeners;
 }
 
-/** Array of all authentication listeners
- */
 - (NSMutableArray*)authenticationListeners
 {
     if (_authenticationListeners == nil) {

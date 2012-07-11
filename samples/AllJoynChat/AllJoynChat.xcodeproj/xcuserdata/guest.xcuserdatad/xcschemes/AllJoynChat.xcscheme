@@ -73,7 +73,17 @@
             isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
+            key = "ER_DEBUG_IFCONFIG"
+            value = "15"
+            isEnabled = "NO">
+         </EnvironmentVariable>
+         <EnvironmentVariable
             key = "ER_DEBUG_ALL"
+            value = "15"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ER_DEBUG_NS"
             value = "15"
             isEnabled = "NO">
          </EnvironmentVariable>

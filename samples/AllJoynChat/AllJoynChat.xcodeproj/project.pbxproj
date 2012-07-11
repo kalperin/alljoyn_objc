@@ -44,17 +44,18 @@
 		AC67D688152CAFC4009DBFA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC67D686152CAFC4009DBFA9 /* InfoPlist.strings */; };
 		AC67D68B152CAFC4009DBFA9 /* AllJoynChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC67D68A152CAFC4009DBFA9 /* AllJoynChatTests.m */; };
 		AC67D6D9152CB9B7009DBFA9 /* AJNCBusObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC67D6D8152CB9B7009DBFA9 /* AJNCBusObject.mm */; };
-		AC8A944415755D2A00372B66 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A943F15755D2A00372B66 /* BundledDaemon.o */; };
-		AC8A944515755D2A00372B66 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A944015755D2A00372B66 /* libajdaemon.a */; };
-		AC8A944615755D2A00372B66 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A944115755D2A00372B66 /* liballjoyn.a */; };
-		AC8A944715755D2A00372B66 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A944215755D2A00372B66 /* libcrypto.a */; };
-		AC8A944815755D2A00372B66 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8A944315755D2A00372B66 /* libssl.a */; };
 		AC8F5A1F1538CDDD00A9B0AA /* AJNCConversationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5A1E1538CDDC00A9B0AA /* AJNCConversationViewCell.m */; };
 		AC8F5A221538DC1B00A9B0AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A211538DC1B00A9B0AA /* QuartzCore.framework */; };
 		AC8F5A281538F91400A9B0AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A271538F91400A9B0AA /* AVFoundation.framework */; };
 		AC8F5A2B1538F94100A9B0AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A291538F94100A9B0AA /* AudioToolbox.framework */; };
 		AC8F5A2C1538F94100A9B0AA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A2A1538F94100A9B0AA /* CoreAudio.framework */; };
 		AC9F63251534BEB400075143 /* AJNCChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F63241534BEB400075143 /* AJNCChatManager.m */; };
+		ACC1B8B815ACABCC00A9CC41 /* AJNMessageHeaderFields.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1B8B715ACABCC00A9CC41 /* AJNMessageHeaderFields.mm */; };
+		ACC1B8BC15ACAC7300A9CC41 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8B915ACAC7300A9CC41 /* BundledDaemon.o */; };
+		ACC1B8BD15ACAC7300A9CC41 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8BA15ACAC7300A9CC41 /* libajdaemon.a */; };
+		ACC1B8BE15ACAC7300A9CC41 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8BB15ACAC7300A9CC41 /* liballjoyn.a */; };
+		ACC1B8C115ACAC9900A9CC41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */; };
+		ACC1B8C215ACAC9900A9CC41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8C015ACAC9900A9CC41 /* libssl.a */; };
 		ACEE34D9157E7087004CD47C /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34D6157E7087004CD47C /* AJNAuthenticationListenerImpl.mm */; };
 		ACEE34DA157E7087004CD47C /* AJNSecurityCredentials.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34D8157E7087004CD47C /* AJNSecurityCredentials.mm */; };
 		ACEE34DE157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34DD157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm */; };
@@ -167,6 +168,13 @@
 		AC9F63241534BEB400075143 /* AJNCChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCChatManager.m; sourceTree = "<group>"; };
 		AC9F63261534C45800075143 /* AJNCChatManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCChatManagerDelegate.h; sourceTree = "<group>"; };
 		AC9F63271534D8AB00075143 /* AJNCChatReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJNCChatReceiver.h; sourceTree = "<group>"; };
+		ACC1B8B615ACABCC00A9CC41 /* AJNMessageHeaderFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNMessageHeaderFields.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.h; sourceTree = "<group>"; };
+		ACC1B8B715ACABCC00A9CC41 /* AJNMessageHeaderFields.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNMessageHeaderFields.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.mm; sourceTree = "<group>"; };
+		ACC1B8B915ACAC7300A9CC41 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
+		ACC1B8BA15ACAC7300A9CC41 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
+		ACC1B8BB15ACAC7300A9CC41 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
+		ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
+		ACC1B8C015ACAC9900A9CC41 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		ACEE34D4157E7087004CD47C /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
 		ACEE34D5157E7087004CD47C /* AJNAuthenticationListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListenerImpl.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.h; sourceTree = "<group>"; };
 		ACEE34D6157E7087004CD47C /* AJNAuthenticationListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNAuthenticationListenerImpl.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.mm; sourceTree = "<group>"; };
@@ -194,11 +202,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8A944415755D2A00372B66 /* BundledDaemon.o in Frameworks */,
-				AC8A944515755D2A00372B66 /* libajdaemon.a in Frameworks */,
-				AC8A944615755D2A00372B66 /* liballjoyn.a in Frameworks */,
-				AC8A944715755D2A00372B66 /* libcrypto.a in Frameworks */,
-				AC8A944815755D2A00372B66 /* libssl.a in Frameworks */,
+				ACC1B8C115ACAC9900A9CC41 /* libcrypto.a in Frameworks */,
+				ACC1B8C215ACAC9900A9CC41 /* libssl.a in Frameworks */,
+				ACC1B8BC15ACAC7300A9CC41 /* BundledDaemon.o in Frameworks */,
+				ACC1B8BD15ACAC7300A9CC41 /* libajdaemon.a in Frameworks */,
+				ACC1B8BE15ACAC7300A9CC41 /* liballjoyn.a in Frameworks */,
 				AC8F5A2B1538F94100A9B0AA /* AudioToolbox.framework in Frameworks */,
 				AC8F5A281538F91400A9B0AA /* AVFoundation.framework in Frameworks */,
 				AC8F5A2C1538F94100A9B0AA /* CoreAudio.framework in Frameworks */,
@@ -225,6 +233,11 @@
 		AC67D64D152CAFC4009DBFA9 = {
 			isa = PBXGroup;
 			children = (
+				ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */,
+				ACC1B8C015ACAC9900A9CC41 /* libssl.a */,
+				ACC1B8B915ACAC7300A9CC41 /* BundledDaemon.o */,
+				ACC1B8BA15ACAC7300A9CC41 /* libajdaemon.a */,
+				ACC1B8BB15ACAC7300A9CC41 /* liballjoyn.a */,
 				AC67D662152CAFC4009DBFA9 /* AllJoynChat */,
 				AC67D683152CAFC4009DBFA9 /* AllJoynChatTests */,
 				AC67D65B152CAFC4009DBFA9 /* Frameworks */,
@@ -336,14 +349,9 @@
 		AC799E13155855C300BBDDBC /* AllJoynFramework */ = {
 			isa = PBXGroup;
 			children = (
-				ACEE34DB157E70A3004CD47C /* AJNKeyStoreListener.h */,
-				ACEE34DC157E70A3004CD47C /* AJNKeyStoreListenerImpl.h */,
-				ACEE34DD157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm */,
 				ACEE34D4157E7087004CD47C /* AJNAuthenticationListener.h */,
 				ACEE34D5157E7087004CD47C /* AJNAuthenticationListenerImpl.h */,
 				ACEE34D6157E7087004CD47C /* AJNAuthenticationListenerImpl.mm */,
-				ACEE34D7157E7087004CD47C /* AJNSecurityCredentials.h */,
-				ACEE34D8157E7087004CD47C /* AJNSecurityCredentials.mm */,
 				AC3E27E21559BB29002449CF /* AJNBus.h */,
 				AC3E27E31559BB29002449CF /* AJNBus.m */,
 				AC3E27E41559BB29002449CF /* AJNBusAttachment.h */,
@@ -363,14 +371,21 @@
 				AC3E27F21559BB29002449CF /* AJNInterfaceMember.mm */,
 				AC3E27F31559BB29002449CF /* AJNInterfaceProperty.h */,
 				AC3E27F41559BB29002449CF /* AJNInterfaceProperty.mm */,
+				ACEE34DB157E70A3004CD47C /* AJNKeyStoreListener.h */,
+				ACEE34DC157E70A3004CD47C /* AJNKeyStoreListenerImpl.h */,
+				ACEE34DD157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm */,
 				AC3E27F51559BB29002449CF /* AJNMessage.h */,
 				AC3E27F61559BB29002449CF /* AJNMessage.mm */,
 				AC3E27F71559BB29002449CF /* AJNMessageArgument.h */,
 				AC3E27F81559BB29002449CF /* AJNMessageArgument.mm */,
+				ACC1B8B615ACABCC00A9CC41 /* AJNMessageHeaderFields.h */,
+				ACC1B8B715ACABCC00A9CC41 /* AJNMessageHeaderFields.mm */,
 				AC3E27F91559BB29002449CF /* AJNObject.h */,
 				AC3E27FA1559BB29002449CF /* AJNObject.m */,
 				AC3E27FB1559BB29002449CF /* AJNProxyBusObject.h */,
 				AC3E27FC1559BB29002449CF /* AJNProxyBusObject.mm */,
+				ACEE34D7157E7087004CD47C /* AJNSecurityCredentials.h */,
+				ACEE34D8157E7087004CD47C /* AJNSecurityCredentials.mm */,
 				AC3E27FD1559BB29002449CF /* AJNSessionListener.h */,
 				AC3E27FE1559BB29002449CF /* AJNSessionListenerImpl.h */,
 				AC3E27FF1559BB29002449CF /* AJNSessionListenerImpl.mm */,
@@ -540,6 +555,7 @@
 				ACEE34D9157E7087004CD47C /* AJNAuthenticationListenerImpl.mm in Sources */,
 				ACEE34DA157E7087004CD47C /* AJNSecurityCredentials.mm in Sources */,
 				ACEE34DE157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm in Sources */,
+				ACC1B8B815ACABCC00A9CC41 /* AJNMessageHeaderFields.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,14 +668,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynChat/AllJoynChat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "AllJoynChat/AllJoynChat-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/lib\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
 				);
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
@@ -679,14 +699,18 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynChat/AllJoynChat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "AllJoynChat/AllJoynChat-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/lib\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
 				);
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",

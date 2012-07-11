@@ -43,12 +43,12 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view, typically from a nib.
-    self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowingRemoteMessages:YES];
+    self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowRemoteMessages:YES];
     
     // register our interface
     //
     /* Create org.alljoyn.bus.samples.chat interface */
-    AJNInterfaceDescription* chatInterface = [self.busAttachment createInterfaceWithName:kInterfaceName];
+    AJNInterfaceDescription* chatInterface = [self.busAttachment interfaceWithName:kInterfaceName];
     
     [chatInterface addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"str"]];
     [chatInterface activate];

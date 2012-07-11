@@ -292,7 +292,7 @@ QStatus JamJoynServiceObjectImpl::SendSetPlaylistSongs(JJSong *songs, const char
         //
         // create an interface description
         //
-        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.commandpasser"];
+        interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.commandpasser" enableSecurity:NO];
 
     
         // add the methods to the interface description

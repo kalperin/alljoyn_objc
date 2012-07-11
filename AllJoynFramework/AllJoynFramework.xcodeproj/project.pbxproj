@@ -534,7 +534,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
 		};
 		ACB44E6415485F3E00FF7DBC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

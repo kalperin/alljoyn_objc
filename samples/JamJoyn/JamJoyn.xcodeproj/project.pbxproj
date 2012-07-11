@@ -70,6 +70,7 @@
 		ACEE2F2315894BEB003511B1 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F1F15894BEB003511B1 /* liballjoyn.a */; };
 		ACEE2F2615894C1D003511B1 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F2415894C1D003511B1 /* libcrypto.a */; };
 		ACEE2F2715894C1D003511B1 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEE2F2515894C1D003511B1 /* libssl.a */; };
+		ACF1C0BA15A797EB00C870E9 /* AJNMessageHeaderFields.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACF1C0B915A797EB00C870E9 /* AJNMessageHeaderFields.mm */; };
 		ACF4F7B51591391000B02724 /* Classical Selection I.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7971591391000B02724 /* Classical Selection I.jpg */; };
 		ACF4F7B61591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F7981591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */; };
 		ACF4F7B71591391000B02724 /* Epic Classical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACF4F79A1591391000B02724 /* Epic Classical.jpg */; };
@@ -214,6 +215,8 @@
 		ACEE2F1F15894BEB003511B1 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_streaming/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACEE2F2415894C1D003511B1 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		ACEE2F2515894C1D003511B1 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		ACF1C0B815A797EB00C870E9 /* AJNMessageHeaderFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNMessageHeaderFields.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.h; sourceTree = "<group>"; };
+		ACF1C0B915A797EB00C870E9 /* AJNMessageHeaderFields.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNMessageHeaderFields.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.mm; sourceTree = "<group>"; };
 		ACF4F7971591391000B02724 /* Classical Selection I.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Classical Selection I.jpg"; sourceTree = "<group>"; };
 		ACF4F7981591391000B02724 /* Classical Selection I\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Classical Selection I\\Toccata_And_Fugue_In_D_Minor_CLAS_0001_02101.mp3"; sourceTree = "<group>"; };
 		ACF4F79A1591391000B02724 /* Epic Classical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Epic Classical.jpg"; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 		AC3E278C15597C50002449CF /* AllJoyn */ = {
 			isa = PBXGroup;
 			children = (
+				ACF1C0B815A797EB00C870E9 /* AJNMessageHeaderFields.h */,
+				ACF1C0B915A797EB00C870E9 /* AJNMessageHeaderFields.mm */,
 				ACA776F21586714C00DF22E1 /* AJNAuthenticationListener.h */,
 				ACA776F31586714C00DF22E1 /* AJNAuthenticationListenerImpl.h */,
 				ACA776F41586714C00DF22E1 /* AJNAuthenticationListenerImpl.mm */,
@@ -740,6 +745,7 @@
 				ACA776FB1586714C00DF22E1 /* AJNKeyStoreListenerImpl.mm in Sources */,
 				ACA776FC1586714C00DF22E1 /* AJNSecurityCredentials.mm in Sources */,
 				ACFB22451590FB1600E80DC9 /* JJAddSongViewController.m in Sources */,
+				ACF1C0BA15A797EB00C870E9 /* AJNMessageHeaderFields.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

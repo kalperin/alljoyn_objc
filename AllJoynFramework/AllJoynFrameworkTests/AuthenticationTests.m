@@ -12,6 +12,7 @@
 #import "AJNInterfaceDescription.h"
 #import "AJNBasicObject.h"
 #import "BasicObject.h"
+#import "TestAuthenticationListener.h"
 
 static NSString * const kAuthenticationTestsAdvertisedName = @"org.alljoyn.bus.sample.strings";
 static NSString * const kAuthenticationTestsInterfaceName = @"org.alljoyn.bus.sample.strings";

@@ -42,8 +42,10 @@ void AJNCChatObjectSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &
         const ajn::InterfaceDescription* chatIntf = bus.GetInterface([kInterfaceName UTF8String]);
         
         /* Store the Chat signal member away so it can be quickly looked up */
-        chatSignalMember = chatIntf->GetMember("Chat");
-        assert(chatSignalMember);
+        if (chatIntf) {
+            chatSignalMember = chatIntf->GetMember("Chat");
+            assert(chatSignalMember);
+        }
     }
     /* Register signal handler */
     QStatus status =  bus.RegisterSignalHandler(this,
