@@ -35,7 +35,7 @@
  * @param peerName                  The name of the remote peer being authenticated.  On the initiating side this will be a well-known-name for the remote peer. On the accepting side this will be the unique bus name for the remote peer.
  * @param authenticationCount       Count (starting at 1) of the number of authentication request attempts made.
  * @param userName                  The user name for the credentials being requested.
- * @param credentialTypeMask        A bit mask identifying the credentials being requested. The application may return none, some or all of the requested credentials.
+ * @param mask                      A bit mask identifying the credentials being requested. The application may return none, some or all of the requested credentials.
  *
  * @return  The credentials returned. The caller should return nil if the request is being rejected. If the request is rejected the authentication is complete.
  */

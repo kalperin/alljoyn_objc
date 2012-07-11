@@ -22,6 +22,15 @@
  */
 @interface AJNStatus : NSObject
 
+/**
+ * Convert a status code to a string.
+ *
+ * QCC_StatusText(ER_OK) returns the string "ER_OK"
+ *
+ * @param status    Status code to be converted.
+ *
+ * @return  string representation of the status code.
+ */
 + (NSString*)descriptionForStatusCode:(QStatus)status;
 
 @end

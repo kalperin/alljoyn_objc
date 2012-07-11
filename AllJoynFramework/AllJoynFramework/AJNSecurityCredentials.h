@@ -106,7 +106,7 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
 /**
  * Tests if one or more credentials are set.
  *
- * @param creds  A logical or of the credential bit values.
+ * @param type  A logical or of the credential bit values.
  * @return true if the credentials are set.
  */
 - (BOOL)isCredentialTypeSet:(AJNSecurityCredentialType)type;

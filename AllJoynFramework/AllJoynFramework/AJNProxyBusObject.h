@@ -334,9 +334,8 @@
  * to be done inside AllJoyn method/signal/reply handlers and ObjectRegistered
  * callbacks.
  *
- * @param listener  Pointer to the object that will receive the callback.
- * @param callback  Method on listener that will be called.
- * @param context   User defined context which will be passed as-is to callback.
+ * @param completionHandler Pointer to the delegate object that will receive the callback.
+ * @param context           User defined context which will be passed as-is to callback.
  * @return  - ER_OK if successful.
  *          - An error status otherwise
  */
