@@ -818,7 +818,16 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:if test="@access='readwrite' or @access='read'">
         if (strcmp(propName, "<xsl:value-of select="@name"/>") == 0)
         {
+        <xsl:choose>
+            <xsl:when test="@type='y' or @type='b' or @type='n' or @type='q' or @type='i' or @type='u' or @type='x' or @type='t' or @type='d' or @type='s' or @type='o' or @type='g'">        
             status = val.Set( "<xsl:value-of select="@type"/>", <xsl:if test="@type!='b'">[</xsl:if>((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/><xsl:text> </xsl:text><xsl:if test="@type!='b'"><xsl:call-template name="objcArgTypeConversionToCpp"/>]</xsl:if> );
+            </xsl:when>
+            <xsl:otherwise>
+            MsgArg *pPropertyValue = (MsgArg*)[((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/><xsl:text> </xsl:text><xsl:call-template name="objcArgTypeConversionToCpp"/>];
+            val = *pPropertyValue;
+            status = ER_OK;
+            </xsl:otherwise>
+        </xsl:choose>
         }
     </xsl:if>
 </xsl:template>
