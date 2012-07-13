@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -65,6 +63,13 @@
 }
 
 - (NSString*)methodWithReturnAndNoInArgs
+{
+    // TODO: complete the implementation of this method
+    //
+     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
+}
+
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct
 {
     // TODO: complete the implementation of this method
     //

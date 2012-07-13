@@ -51,8 +51,17 @@
                     <annotation name="org.alljoyn.lang.objc" value="outString2:"/>
                 </arg>                
             </method>
-            <method name="methodWithNoReturnAndNoArgs"/>
-            <method name="methodWithReturnAndNoInArgs">
+            <method name="MethodWithNoReturnAndNoArgs"/>
+            <method name="MethodWithReturnAndNoInArgs">
+                <arg name="outStr" type="s" direction="out"/>
+            </method>
+            <method name="MethodWithComplexTypesForArgs">
+                <arg name="stringArray" type="as" direction="in">
+                    <annotation name="org.alljoyn.lang.objc" value="methodWithStringArray:"/>
+                </arg>
+                <arg name="aStruct" type="(si)" direction="in">
+                    <annotation name="org.alljoyn.lang.objc" value="structWithStringAndInt:"/>
+                </arg>
                 <arg name="outStr" type="s" direction="out"/>
             </method>
             <property name="testStringProperty" type="s" access="readwrite"/>

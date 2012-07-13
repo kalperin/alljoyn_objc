@@ -469,6 +469,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 
     // make the function call using the C++ proxy object
     //
+    
     QStatus status = self.proxyBusObject->MethodCall([@"<xsl:value-of select="../@name"/>" UTF8String], "<xsl:value-of select="@name"/>", inArgs, <xsl:value-of select="count(./arg[@direction='in'])"/>, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on <xsl:value-of select="../@name"/> failed. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -485,6 +486,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:if test="count(./arg[@direction='out']) > 0">
     // pass the output arguments back to the caller
     //
+    
         <xsl:choose>
             <xsl:when test="count(./arg[@direction='out'])=1">
                 <xsl:apply-templates select="./arg[@direction='out']" mode="objc-proxy-method-single-return"/>
@@ -671,7 +673,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:text>)</xsl:text>
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
-            <xsl:value-of select="@name"/>
+            <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -986,6 +988,9 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
         <xsl:when test="@type='a'">
     qcc::AllJoynArray inArg<xsl:value-of select="position()-1"/> = msg->GetArg(<xsl:value-of select="position()-1"/>)->v_array;
         </xsl:when>
+        <xsl:otherwise>
+    AJNMessageArgument* inArg<xsl:value-of select="position()-1"/> = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(<xsl:value-of select="position()-1"/>)];        
+        </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
 
@@ -1031,7 +1036,8 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
                 <xsl:when test="@type='i'">[NSNumber numberWithInt:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                
                 <xsl:when test="@type='u'">[NSNumber numberWithUnsignedInt:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                
                 <xsl:when test="@type='x'">[NSNumber numberWithLongLong:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                                
-                <xsl:when test="@type='t'">[NSNumber numberWithUnsignedLongLong:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                                
+                <xsl:when test="@type='t'">[NSNumber numberWithUnsignedLongLong:inArg<xsl:value-of select="position()-1"/>]</xsl:when>     
+                <xsl:otherwise>inArg<xsl:value-of select="position()-1"/></xsl:otherwise>                                                                           
             </xsl:choose>
         </xsl:when>
         <xsl:when test="@direction='out'">
@@ -1049,6 +1055,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
                 <xsl:when test="@type='u'">[NSNumber numberWithUnsignedInt:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                
                 <xsl:when test="@type='x'">[NSNumber numberWithLongLong:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                                
                 <xsl:when test="@type='t'">[NSNumber numberWithUnsignedLongLong:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                                                
+                <xsl:otherwise>inArg<xsl:value-of select="position()-1"/></xsl:otherwise>                
             </xsl:choose>
         </xsl:otherwise>
     </xsl:choose>
@@ -1093,7 +1100,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
             <xsl:text>qcc::AllJoynArray&#38;</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>MsgArg*</xsl:text>
         </xsl:otherwise>
     </xsl:choose>    
 </xsl:template>
@@ -1137,7 +1144,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
             <xsl:text>qcc::AllJoynArray&#38;</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>MsgArg*</xsl:text>
         </xsl:otherwise>
     </xsl:choose>    
 </xsl:template>
@@ -1181,7 +1188,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
             <xsl:text>NSArray*</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>AJNMessageArgument*</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
@@ -1222,7 +1229,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
             <xsl:text>UTF8String</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>handle</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>

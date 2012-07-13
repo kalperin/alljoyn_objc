@@ -175,7 +175,7 @@
     <xsl:text>)</xsl:text>
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
-            <xsl:value-of select="@name"/>
+            <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -297,7 +297,7 @@
             <xsl:text>NSArray*</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>AJNMessageArgument*</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>

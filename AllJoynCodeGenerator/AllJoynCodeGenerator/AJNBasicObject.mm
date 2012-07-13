@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -68,8 +66,9 @@ public:
     void Concatentate(const InterfaceDescription::Member* member, Message& msg);
 	void MethodWithMultipleOutArgs(const InterfaceDescription::Member* member, Message& msg);
 	void MethodWithOnlyOutArgs(const InterfaceDescription::Member* member, Message& msg);
-	void methodWithNoReturnAndNoArgs(const InterfaceDescription::Member* member, Message& msg);
-	void methodWithReturnAndNoInArgs(const InterfaceDescription::Member* member, Message& msg);
+	void MethodWithNoReturnAndNoArgs(const InterfaceDescription::Member* member, Message& msg);
+	void MethodWithReturnAndNoInArgs(const InterfaceDescription::Member* member, Message& msg);
+	void MethodWithComplexTypesForArgs(const InterfaceDescription::Member* member, Message& msg);
 
     
     // signals
@@ -119,11 +118,15 @@ BasicObjectImpl::BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicS
 		},
 
 		{
-			interfaceDescription->GetMember("methodWithNoReturnAndNoArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::methodWithNoReturnAndNoArgs)
+			interfaceDescription->GetMember("MethodWithNoReturnAndNoArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::MethodWithNoReturnAndNoArgs)
 		},
 
 		{
-			interfaceDescription->GetMember("methodWithReturnAndNoInArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::methodWithReturnAndNoInArgs)
+			interfaceDescription->GetMember("MethodWithReturnAndNoInArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::MethodWithReturnAndNoInArgs)
+		},
+
+		{
+			interfaceDescription->GetMember("MethodWithComplexTypesForArgs"), static_cast<MessageReceiver::MethodHandler>(&BasicObjectImpl::MethodWithComplexTypesForArgs)
 		}
     
     };
@@ -335,7 +338,7 @@ void BasicObjectImpl::MethodWithOnlyOutArgs(const InterfaceDescription::Member *
 }
 
 
-void BasicObjectImpl::methodWithNoReturnAndNoArgs(const InterfaceDescription::Member *member, Message& msg)
+void BasicObjectImpl::MethodWithNoReturnAndNoArgs(const InterfaceDescription::Member *member, Message& msg)
 {
     @autoreleasepool {
     
@@ -345,14 +348,14 @@ void BasicObjectImpl::methodWithNoReturnAndNoArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	[(id<BasicStringsDelegate>)delegate methodWithNoReturnAndNoArgs];            
+	[(id<BasicStringsDelegate>)delegate MethodWithNoReturnAndNoArgs];            
         
     
     }
 }
 
 
-void BasicObjectImpl::methodWithReturnAndNoInArgs(const InterfaceDescription::Member *member, Message& msg)
+void BasicObjectImpl::MethodWithReturnAndNoInArgs(const InterfaceDescription::Member *member, Message& msg)
 {
     @autoreleasepool {
     
@@ -367,7 +370,7 @@ void BasicObjectImpl::methodWithReturnAndNoInArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithReturnAndNoInArgs];
+	outArg0 = [(id<BasicStringsDelegate>)delegate MethodWithReturnAndNoInArgs];
             
         
     // formulate the reply
@@ -378,7 +381,49 @@ void BasicObjectImpl::methodWithReturnAndNoInArgs(const InterfaceDescription::Me
 
     QStatus status = MethodReply(msg, outArgs, 1);
     if (ER_OK != status) {
-        NSLog(@"ERROR: An error occurred when attempting to send a method reply for methodWithReturnAndNoInArgs. %@", [AJNStatus descriptionForStatusCode:status]);
+        NSLog(@"ERROR: An error occurred when attempting to send a method reply for MethodWithReturnAndNoInArgs. %@", [AJNStatus descriptionForStatusCode:status]);
+    }        
+    
+    
+    }
+}
+
+
+void BasicObjectImpl::MethodWithComplexTypesForArgs(const InterfaceDescription::Member *member, Message& msg)
+{
+    @autoreleasepool {
+    
+    
+    
+    
+    // get all input arguments
+    //
+    
+    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(0)];        
+        
+    AJNMessageArgument* inArg1 = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(1)];        
+        
+    // declare the output arguments
+    //
+    
+	NSString* outArg0;
+
+    
+    // call the Objective-C delegate method
+    //
+    
+	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithStringArray:inArg0 structWithStringAndInt:inArg1];
+            
+        
+    // formulate the reply
+    //
+    MsgArg outArgs[1];
+    
+    outArgs[0].Set("s", [outArg0 UTF8String]);
+
+    QStatus status = MethodReply(msg, outArgs, 1);
+    if (ER_OK != status) {
+        NSLog(@"ERROR: An error occurred when attempting to send a method reply for MethodWithComplexTypesForArgs. %@", [AJNStatus descriptionForStatusCode:status]);
     }        
     
     
@@ -588,16 +633,22 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: MethodWithOnlyOutArgs" userInfo:nil];
         }
 
-        status = [interfaceDescription addMethodWithName:@"methodWithNoReturnAndNoArgs" inputSignature:@"" outputSignature:@"" argumentNames:[NSArray arrayWithObjects: nil]];
+        status = [interfaceDescription addMethodWithName:@"MethodWithNoReturnAndNoArgs" inputSignature:@"" outputSignature:@"" argumentNames:[NSArray arrayWithObjects: nil]];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
-            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: methodWithNoReturnAndNoArgs" userInfo:nil];
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: MethodWithNoReturnAndNoArgs" userInfo:nil];
         }
 
-        status = [interfaceDescription addMethodWithName:@"methodWithReturnAndNoInArgs" inputSignature:@"" outputSignature:@"s" argumentNames:[NSArray arrayWithObjects:@"outStr", nil]];
+        status = [interfaceDescription addMethodWithName:@"MethodWithReturnAndNoInArgs" inputSignature:@"" outputSignature:@"s" argumentNames:[NSArray arrayWithObjects:@"outStr", nil]];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
-            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: methodWithReturnAndNoInArgs" userInfo:nil];
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: MethodWithReturnAndNoInArgs" userInfo:nil];
+        }
+
+        status = [interfaceDescription addMethodWithName:@"MethodWithComplexTypesForArgs" inputSignature:@"as(si)" outputSignature:@"s" argumentNames:[NSArray arrayWithObjects:@"stringArray",@"aStruct",@"outStr", nil]];
+        
+        if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add method to interface: MethodWithComplexTypesForArgs" userInfo:nil];
         }
 
         // add the signals to the interface description
@@ -702,6 +753,15 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
 - (NSString*)methodWithReturnAndNoInArgs
+{
+    //
+    // GENERATED CODE - DO NOT EDIT
+    //
+    // Create a category or subclass in separate .h/.m files
+    @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
+}
+
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -816,6 +876,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
+    
     QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "Concatentate", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -827,6 +888,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     
     // pass the output arguments back to the caller
     //
+    
         
     return [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
         
@@ -850,6 +912,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
+    
     QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithMultipleOutArgs", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -861,6 +924,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     
     // pass the output arguments back to the caller
     //
+    
         
     *outStr1 = [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
         
@@ -882,6 +946,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
+    
     QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithOnlyOutArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -893,6 +958,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     
     // pass the output arguments back to the caller
     //
+    
         
     *outStr1 = [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
         
@@ -914,7 +980,8 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "methodWithNoReturnAndNoArgs", inArgs, 0, reply, 5000);
+    
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithNoReturnAndNoArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -939,7 +1006,8 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "methodWithReturnAndNoInArgs", inArgs, 0, reply, 5000);
+    
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithReturnAndNoInArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -950,6 +1018,43 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     
     // pass the output arguments back to the caller
     //
+    
+        
+    return [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
+        
+
+}
+
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct
+{
+    [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
+    
+    // prepare the input arguments
+    //
+    
+    Message reply(*((BusAttachment*)self.bus.handle));    
+    MsgArg inArgs[2];
+    
+    inArgs[0].Set("as", [stringArray handle]);
+
+    inArgs[1].Set("(si)", [aStruct handle]);
+
+
+    // make the function call using the C++ proxy object
+    //
+    
+    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithComplexTypesForArgs", inArgs, 2, reply, 5000);
+    if (ER_OK != status) {
+        NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
+        
+        return nil;
+            
+    }
+
+    
+    // pass the output arguments back to the caller
+    //
+    
         
     return [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
         
@@ -1071,6 +1176,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
     // make the function call using the C++ proxy object
     //
+    
     QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.samples.ping" UTF8String], "Ping", inArgs, 1, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.samples.ping failed. %@", [AJNStatus descriptionForStatusCode:status]);

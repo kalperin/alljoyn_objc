@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -56,6 +54,7 @@
 - (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 - (NSString*)methodWithReturnAndNoInArgs;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct;
 
 // signals
 //
@@ -181,6 +180,7 @@
 - (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 - (NSString*)methodWithReturnAndNoInArgs;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct;
 
 
 // signals
@@ -216,6 +216,7 @@
 - (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 - (NSString*)methodWithReturnAndNoInArgs;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct;
 
 
 @end

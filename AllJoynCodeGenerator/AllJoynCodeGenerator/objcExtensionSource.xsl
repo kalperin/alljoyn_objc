@@ -20,6 +20,9 @@
 
 <xsl:output method="text" version="1.0" encoding="UTF-8" indent="no" omit-xml-declaration="yes"/>
 
+<xsl:variable name="vLower" select="'abcdefghijklmnopqrstuvwxyz'"/>
+<xsl:variable name="vUpper" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
+
 <xsl:param name="fileName"/>
 <xsl:param name="baseFileName"/>
 
@@ -93,7 +96,7 @@
     <xsl:text>)</xsl:text>
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
-            <xsl:value-of select="@name"/>
+            <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -165,9 +168,25 @@
             <xsl:text>NSArray*</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>==== ERROR: UNKNOWN DBUS TYPE SPECIFIED ("</xsl:text><xsl:value-of select="@type"/><xsl:text>")====</xsl:text>
+            <xsl:text>AJNMessageArgument*</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
+</xsl:template>
+
+<xsl:template name="capitalizeFirstLetterOfNameAttr">  
+   <xsl:variable name="value">  
+        <xsl:value-of select="@name"/>  
+   </xsl:variable>  
+    <xsl:variable name= "ufirstChar" select="translate(substring($value,1,1),$vLower,$vUpper)"/>  
+    <xsl:value-of select="concat($ufirstChar,substring($value,2))"/>
+</xsl:template>
+
+<xsl:template name="uncapitalizeFirstLetterOfNameAttr">  
+   <xsl:variable name="value">  
+        <xsl:value-of select="@name"/>  
+   </xsl:variable>  
+    <xsl:variable name= "lfirstChar" select="translate(substring($value,1,1),$vUpper,$vLower)"/>  
+    <xsl:value-of select="concat($lfirstChar,substring($value,2))"/>
 </xsl:template>
 
 </xsl:stylesheet>
