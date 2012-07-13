@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		AC0974B515AE0A15001F2D50 /* API Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AC0974B615AE0A15001F2D50 /* Build configuration list for PBXAggregateTarget "API Documentation" */;
+			buildPhases = (
+				AC0974B915AE0A19001F2D50 /* Build Documentation */,
+			);
+			dependencies = (
+			);
+			name = "API Documentation";
+			productName = "API Documentation";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		AC1030AC156EC82300D2853A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1030AB156EC82300D2853A /* Foundation.framework */; };
 		AC1030BA156EC82300D2853A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1030B9156EC82300D2853A /* SenTestingKit.framework */; };
@@ -461,6 +475,7 @@
 			targets = (
 				AC1030A7156EC82300D2853A /* AllJoynFramework_iOS */,
 				AC1030B7156EC82300D2853A /* AllJoynFramework_iOSTests */,
+				AC0974B515AE0A15001F2D50 /* API Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -477,6 +492,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AC0974B915AE0A19001F2D50 /* Build Documentation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Documentation";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
+		};
 		AC1030B6156EC82300D2853A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,6 +586,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AC0974B715AE0A15001F2D50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC0974B815AE0A15001F2D50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		AC1030CA156EC82300D2853A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -724,6 +767,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC0974B615AE0A15001F2D50 /* Build configuration list for PBXAggregateTarget "API Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0974B715AE0A15001F2D50 /* Debug */,
+				AC0974B815AE0A15001F2D50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		AC1030A2156EC82300D2853A /* Build configuration list for PBXProject "AllJoynFramework_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

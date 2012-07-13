@@ -42,7 +42,9 @@ typedef enum {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-/** AllJoyn header fields */
+/**
+ * AllJoyn header fields 
+ */
 @interface AJNMessageHeaderFields : AJNObject
 
 /**

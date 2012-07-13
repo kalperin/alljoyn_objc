@@ -45,6 +45,7 @@ struct JJSong
 @end
 
 @implementation JJPlaylistViewController
+
 @synthesize songLabel = _songLabel;
 @synthesize stopButton = _stopButton;
 @synthesize playButton = _playButton;

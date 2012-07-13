@@ -57,6 +57,10 @@ SampleClient.h/.m
 - A sample implementation of the client-side AllJoyn code needed to consume a
   service.
   
+SampleService.h/.m
+- A sample implementation of the service-side AllJoyn code needed to expose a
+service on an AllJoyn bus.
+  
 The unit test project included has a single simple test that verifies the client can call 
 the service and receive a response from the service. If you want to set some breakpoints
 and go spelunking through the AllJoyn language binding for Objective-C, start there.

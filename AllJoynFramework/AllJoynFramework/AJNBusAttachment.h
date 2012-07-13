@@ -34,7 +34,9 @@
 @class AJNInterfaceDescription;
 @class AJNInterfaceMember;
 
-/** Block definition for joining a session asynchronously */
+/** 
+ * Block definition for joining a session asynchronously
+ */
 typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSessionOptions *opts, void *context);
 
 ////////////////////////////////////////////////////////////////////////////////

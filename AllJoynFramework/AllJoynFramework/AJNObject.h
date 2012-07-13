@@ -18,7 +18,7 @@
 #import "AJNHandle.h"
 
 /**
- *  The base class for all ALLJoyn API objects 
+ *  The base class for all AllJoyn API objects 
  */
 @interface AJNObject : NSObject<AJNHandle>
 
