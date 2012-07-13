@@ -64,6 +64,7 @@
                 </arg>
                 <arg name="outStr" type="s" direction="out"/>
             </method>
+            <property name="testArrayProperty" type="a(ssssssis)" access="readwrite"/>
             <property name="testStringProperty" type="s" access="readwrite"/>
             <signal name="TestStringPropertyChanged">
                 <arg name="oldString" type="s">
