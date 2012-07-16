@@ -172,7 +172,7 @@ QStatus BasicObjectImpl::Get(const char* ifcName, const char* propName, MsgArg& 
         }
     
     }
-    	else if (strcmp(ifcName, "org.alljoyn.bus.samples.chat") == 0) 
+    else if (strcmp(ifcName, "org.alljoyn.bus.samples.chat") == 0) 
     {
     
         if (strcmp(propName, "name") == 0)

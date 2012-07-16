@@ -808,7 +808,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 
 <xsl:template match="interface" mode="cpp-property-get">
     <xsl:if test="count(./property[@access='readwrite'])>0 or count(./property[@access='read'])>0">
-    <xsl:if test="position()>1">&#09;else </xsl:if>if (strcmp(ifcName, "<xsl:value-of select="@name"/>") == 0) 
+    <xsl:if test="position()>1">else </xsl:if>if (strcmp(ifcName, "<xsl:value-of select="@name"/>") == 0) 
     {
     <xsl:apply-templates select="property" mode="cpp-property-getter"/>
     }
