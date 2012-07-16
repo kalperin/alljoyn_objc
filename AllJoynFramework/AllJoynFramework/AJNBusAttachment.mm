@@ -326,6 +326,11 @@ public:
     self.handle = NULL;
 }
 
+- (AJNInterfaceDescription*)createInterfaceWithName:(NSString *)interfaceName
+{
+    return [self createInterfaceWithName:interfaceName enableSecurity:NO];
+}
+
 - (AJNInterfaceDescription*)createInterfaceWithName:(NSString *)interfaceName enableSecurity:(BOOL)shouldEnableSecurity
 {
     AJNInterfaceDescription *interfaceDescription;

@@ -185,6 +185,31 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * it is activated.
  *
  * @param interfaceName             The requested interface name.
+ *
+ * @return  - Interface description
+ *          - nil if cannot be created.
+ */
+- (AJNInterfaceDescription*)createInterfaceWithName:(NSString*)interfaceName;
+
+/**
+ * Create an interface description with a given name.
+ *
+ * Typically, interfaces that are implemented by BusObjects are created here.
+ * Interfaces that are implemented by remote objects are added automatically by
+ * the bus if they are not already present via AJNProxyBusObject::introspectRemoteObject.
+ *
+ * Because interfaces are added both explicitly (via this method) and implicitly
+ * (via AJNProxyBusObject::introspectRemoteObject), there is the possibility that creating
+ * an interface here will fail because the interface already exists. If this happens, the
+ * ER_BUS_IFACE_ALREADY_EXISTS will be returned and NULL will be returned in the iface [OUT]
+ * parameter.
+ *
+ * Interfaces created with this method need to be activated using AJNInterfaceDescription::activate
+ * once all of the methods, signals, etc have been added to the interface. The interface will
+ * be unaccessible (via AJNBusAttachment::interfaceWithName) until
+ * it is activated.
+ *
+ * @param interfaceName             The requested interface name.
  * @param shouldEnableSecurity      If true the interface is secure and method calls and signals will be encrypted.
  *
  * @return  - Interface description

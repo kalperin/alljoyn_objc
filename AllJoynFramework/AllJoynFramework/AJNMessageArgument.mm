@@ -19,6 +19,13 @@
 
 using namespace ajn;
 
+@interface AJNObject(Private)
+
+@property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
+
+@end
+
+
 @interface AJNMessageArgument()
 
 /**
@@ -102,6 +109,15 @@ using namespace ajn;
     QStatus status = self.msgArg->Get([signature UTF8String], args);
     va_end(args);
     return status;
+}
+
+- (void)dealloc
+{
+    if (self.shouldDeleteHandleOnDealloc) {
+        MsgArg *pArg = static_cast<MsgArg*>(self.handle);
+        delete pArg;
+        self.handle = nil;
+    }
 }
 
 @end
