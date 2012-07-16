@@ -1,18 +1,4 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -32,6 +18,7 @@
 #import <alljoyn/BusObject.h>
 #import "AJNBusObjectImpl.h"
 #import "AJNInterfaceDescription.h"
+#import "AJNMessageArgument.h"
 #import "AJNSignalHandlerImpl.h"
 
 #import "BasicObject.h"
@@ -168,9 +155,20 @@ QStatus BasicObjectImpl::Get(const char* ifcName, const char* propName, MsgArg& 
     if (strcmp(ifcName, "org.alljoyn.bus.sample.strings") == 0) 
     {
     
+        if (strcmp(propName, "testArrayProperty") == 0)
+        {
+        
+            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty handle];
+            val = *pPropertyValue;
+            status = ER_OK;
+            
+        }
+    
         if (strcmp(propName, "testStringProperty") == 0)
         {
+                
             status = val.Set( "s", [((id<BasicStringsDelegate>)delegate).testStringProperty UTF8String] );
+            
         }
     
     }
@@ -179,7 +177,9 @@ QStatus BasicObjectImpl::Get(const char* ifcName, const char* propName, MsgArg& 
     
         if (strcmp(propName, "name") == 0)
         {
+                
             status = val.Set( "s", [((id<BasicChatDelegate>)delegate).name UTF8String] );
+            
         }
     
     }
@@ -199,11 +199,21 @@ QStatus BasicObjectImpl::Set(const char* ifcName, const char* propName, MsgArg& 
     if (strcmp(ifcName, "org.alljoyn.bus.sample.strings") == 0) 
     {
     
+        if (strcmp(propName, "testArrayProperty") == 0)
+        {
+        
+            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty handle];
+            *pPropertyValue = val;
+            status = ER_OK;
+            
+        }    
+    
         if (strcmp(propName, "testStringProperty") == 0)
         {
-            char * propValue;
+        char * propValue;
             status = val.Get("s", &propValue);
             ((id<BasicStringsDelegate>)delegate).testStringProperty = [NSString stringWithCString:propValue encoding:NSUTF8StringEncoding];
+            
         }    
     
     }
@@ -348,7 +358,7 @@ void BasicObjectImpl::MethodWithNoReturnAndNoArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	[(id<BasicStringsDelegate>)delegate MethodWithNoReturnAndNoArgs];            
+	[(id<BasicStringsDelegate>)delegate methodWithNoReturnAndNoArgs];            
         
     
     }
@@ -370,7 +380,7 @@ void BasicObjectImpl::MethodWithReturnAndNoInArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	outArg0 = [(id<BasicStringsDelegate>)delegate MethodWithReturnAndNoInArgs];
+	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithReturnAndNoInArgs];
             
         
     // formulate the reply
@@ -399,9 +409,9 @@ void BasicObjectImpl::MethodWithComplexTypesForArgs(const InterfaceDescription::
     // get all input arguments
     //
     
-    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(0)];        
+    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(0)];        
         
-    AJNMessageArgument* inArg1 = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(1)];        
+    AJNMessageArgument* inArg1 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(1)];        
         
     // declare the output arguments
     //
@@ -575,6 +585,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
 @dynamic handle;
 
+@synthesize testArrayProperty = _testArrayProperty;
 @synthesize testStringProperty = _testStringProperty;
 @synthesize name = _name;
 
@@ -606,6 +617,12 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         // add the properties to the interface description
         //
     
+        status = [interfaceDescription addPropertyWithName:@"testArrayProperty" signature:@"a(ssssssis)"];
+        
+        if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add property to interface:  testArrayProperty" userInfo:nil];
+        }
+
         status = [interfaceDescription addPropertyWithName:@"testStringProperty" signature:@"s"];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
@@ -812,17 +829,46 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 
 @implementation BasicObjectProxy
     
+- (AJNMessageArgument*)testArrayProperty
+{
+    [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
+    
+    
+    MsgArg *propValue = new MsgArg();
+    
+    QStatus status = self.proxyBusObject->GetProperty("org.alljoyn.bus.sample.strings", "testArrayProperty", *propValue);
+
+    if (status != ER_OK) {
+        NSLog(@"ERROR: Failed to get property testArrayProperty on interface org.alljoyn.bus.sample.strings. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    
+    return [[AJNMessageArgument alloc] initWithHandle:propValue shouldDeleteHandleOnDealloc:YES];
+        
+}
+    
+- (void)setTestArrayProperty:(AJNMessageArgument*)propertyValue
+{
+    [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
+    
+    
+    self.proxyBusObject->SetProperty("org.alljoyn.bus.sample.strings", "testArrayProperty", *(MsgArg*)(propertyValue.handle)); 
+        
+    
+}
+    
 - (NSString*)testStringProperty
 {
     [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
     
+    
     MsgArg propValue;
     
-    QStatus status = self.proxyBusObject->GetProperty([@"org.alljoyn.bus.sample.strings" UTF8String], [@"testStringProperty" UTF8String], propValue);
+    QStatus status = self.proxyBusObject->GetProperty("org.alljoyn.bus.sample.strings", "testStringProperty", propValue);
+
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property testStringProperty on interface org.alljoyn.bus.sample.strings. %@", [AJNStatus descriptionForStatusCode:status]);
-        return nil;
     }
+
     
     return [NSString stringWithCString:propValue.v_variant.val->v_string.str encoding:NSUTF8StringEncoding];
         
@@ -832,14 +878,16 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 {
     [self addInterfaceNamed:@"org.alljoyn.bus.sample.strings"];
     
+    
     MsgArg arg;
 
-    arg.Set("s", [propertyValue UTF8String]);    
-    
-    QStatus status = self.proxyBusObject->SetProperty([@"org.alljoyn.bus.sample.strings" UTF8String], [@"testStringProperty" UTF8String], arg); 
+    QStatus status = arg.Set("s", [propertyValue UTF8String]);    
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to set property testStringProperty on interface org.alljoyn.bus.sample.strings. %@", [AJNStatus descriptionForStatusCode:status]);
     }
+    
+    self.proxyBusObject->SetProperty("org.alljoyn.bus.sample.strings", "testStringProperty", arg); 
+        
     
 }
     
@@ -847,13 +895,15 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 {
     [self addInterfaceNamed:@"org.alljoyn.bus.samples.chat"];
     
+    
     MsgArg propValue;
     
-    QStatus status = self.proxyBusObject->GetProperty([@"org.alljoyn.bus.samples.chat" UTF8String], [@"name" UTF8String], propValue);
+    QStatus status = self.proxyBusObject->GetProperty("org.alljoyn.bus.samples.chat", "name", propValue);
+
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property name on interface org.alljoyn.bus.samples.chat. %@", [AJNStatus descriptionForStatusCode:status]);
-        return nil;
     }
+
     
     return [NSString stringWithCString:propValue.v_variant.val->v_string.str encoding:NSUTF8StringEncoding];
         

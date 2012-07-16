@@ -47,6 +47,7 @@
 #import &lt;alljoyn/BusObject.h&gt;
 #import "AJNBusObjectImpl.h"
 #import "AJNInterfaceDescription.h"
+#import "AJNMessageArgument.h"
 #import "AJNSignalHandlerImpl.h"
 
 #import "</xsl:text><xsl:value-of select="$baseFileName"/><xsl:text>.h"
@@ -395,7 +396,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         <xsl:when test="@type='y' or @type='b' or @type='n' or @type='q' or @type='i' or @type='u' or @type='x' or @type='t' or @type='d' or @type='s' or @type='o' or @type='g'">
     MsgArg propValue;
     
-    QStatus status = self.busObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", propValue);
+    QStatus status = self.proxyBusObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", propValue);
 
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -406,13 +407,13 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         <xsl:otherwise>
     MsgArg *propValue = new MsgArg();
     
-    QStatus status = self.busObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", *propValue);
+    QStatus status = self.proxyBusObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", *propValue);
 
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     
-    return [[AJNMessageArgument alloc] initWithHandle:propValue shouldDeleteOnDealloc:YES];
+    return [[AJNMessageArgument alloc] initWithHandle:propValue shouldDeleteHandleOnDealloc:YES];
         </xsl:otherwise>
     </xsl:choose>
 }
@@ -431,10 +432,10 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         NSLog(@"ERROR: Failed to set property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     
-    self.busObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", arg); 
+    self.proxyBusObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", arg); 
         </xsl:when>
         <xsl:otherwise>
-    self.busObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", (MsgArg*)(propertyValue.handle)); 
+    self.proxyBusObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", (MsgArg*)(propertyValue.handle)); 
         </xsl:otherwise>
     </xsl:choose>
 
@@ -453,7 +454,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         <xsl:when test="@type='y' or @type='b' or @type='n' or @type='q' or @type='i' or @type='u' or @type='x' or @type='t' or @type='d' or @type='s' or @type='o' or @type='g'">
     MsgArg propValue;
     
-    QStatus status = self.busObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", propValue);
+    QStatus status = self.proxyBusObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", propValue);
 
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
@@ -464,13 +465,13 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         <xsl:otherwise>
     MsgArg *propValue = new MsgArg();
     
-    QStatus status = self.busObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", *propValue);
+    QStatus status = self.proxyBusObject->GetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", *propValue);
 
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to get property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     
-    return [[AJNMessageArgument alloc] initWithHandle:propValue shouldDeleteOnDealloc:YES];
+    return [[AJNMessageArgument alloc] initWithHandle:propValue shouldDeleteHandleOnDealloc:YES];
         </xsl:otherwise>
     </xsl:choose>
 }
@@ -489,10 +490,10 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
         NSLog(@"ERROR: Failed to set property <xsl:value-of select="@name"/> on interface <xsl:value-of select="../@name"/>. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     
-    self.busObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", arg); 
+    self.proxyBusObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", arg); 
         </xsl:when>
         <xsl:otherwise>
-    self.busObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", (MsgArg*)(propertyValue.handle)); 
+    self.proxyBusObject->SetProperty("<xsl:value-of select="../@name"/>", "<xsl:value-of select="@name"/>", *(MsgArg*)(propertyValue.handle)); 
         </xsl:otherwise>
     </xsl:choose>
     
@@ -845,9 +846,18 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:if test="@access='readwrite' or @access='write'">
         if (strcmp(propName, "<xsl:value-of select="@name"/>") == 0)
         {
+        <xsl:choose>
+            <xsl:when test="@type='y' or @type='b' or @type='n' or @type='q' or @type='i' or @type='u' or @type='x' or @type='t' or @type='d' or @type='s' or @type='o' or @type='g'">        
             <xsl:call-template name="cppPropType"/> propValue;
             status = val.Get("<xsl:value-of select="@type"/>", &#38;propValue);
             ((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/> = <xsl:call-template name="cppPropTypeConversionToObjc"/>;
+            </xsl:when>
+            <xsl:otherwise>
+            MsgArg *pPropertyValue = (MsgArg*)[((id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate).<xsl:value-of select="@name"/><xsl:text> </xsl:text><xsl:call-template name="objcArgTypeConversionToCpp"/>];
+            *pPropertyValue = val;
+            status = ER_OK;
+            </xsl:otherwise>
+        </xsl:choose>
         }    
     </xsl:if>        
 </xsl:template>
@@ -961,7 +971,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     //
     <xsl:choose>
         <xsl:when test="count(arg[@direction='out'])=1">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg)=1"><xsl:value-of select="@name"/></xsl:when><xsl:otherwise><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:otherwise></xsl:choose>];
+            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg)=1"><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/></xsl:when><xsl:otherwise><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:otherwise></xsl:choose>];
             
         </xsl:when>
         <xsl:when test="count(arg[@direction='out'])>1">
@@ -969,7 +979,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
             
         </xsl:when>
         <xsl:when test="count(arg[@direction='out'])=0">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg[@direction='in']) > 0"><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:when><xsl:otherwise><xsl:value-of select="@name"/></xsl:otherwise></xsl:choose>];            
+            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg[@direction='in']) > 0"><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:when><xsl:otherwise><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/></xsl:otherwise></xsl:choose>];            
         </xsl:when>
     </xsl:choose>
 
@@ -1044,7 +1054,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     qcc::AllJoynArray inArg<xsl:value-of select="position()-1"/> = msg->GetArg(<xsl:value-of select="position()-1"/>)->v_array;
         </xsl:when>
         <xsl:otherwise>
-    AJNMessageArgument* inArg<xsl:value-of select="position()-1"/> = [[AJNMessageArgument alloc] initWithHandle:msg->GetArg(<xsl:value-of select="position()-1"/>)];        
+    AJNMessageArgument* inArg<xsl:value-of select="position()-1"/> = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(<xsl:value-of select="position()-1"/>)];        
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
