@@ -460,6 +460,13 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
 - (QStatus)waitUntilStopCompleted;
 
 /**
+ * Allow the currently executing method/signal handler to enable concurrent callbacks
+ * during the scope of the handler's execution.
+ *
+ */
+- (void)enableConcurrentCallbacks;
+
+/**
  * Connect to a remote bus address.
  *
  * @param connectionArguments  A transport connection spec string of the form:

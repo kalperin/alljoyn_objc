@@ -479,6 +479,11 @@ public:
     return status;    
 }
 
+- (void)enableConcurrentCallbacks
+{
+    self.busAttachment->EnableConcurrentCallbacks();
+}
+
 - (QStatus)connectWithArguments:(NSString*)connectionArguments
 {
     QStatus status = self.busAttachment->Connect([connectionArguments UTF8String]);
