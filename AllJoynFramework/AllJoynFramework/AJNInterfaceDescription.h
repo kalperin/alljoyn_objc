@@ -89,6 +89,21 @@
  * @param inputSignature    Signature of input parameters or NULL for none.
  * @param outputSignature   Signature of output parameters or NULL for none.
  * @param arguments         Comma separated list of input and then output arg names used in annotation XML.
+ * @param annotationMap     Annotation map - a dictionary of name value pairs for each annotation
+ * @param accessPermissions Access permission requirements on this call
+ *
+ * @return  - ER_OK if successful
+ *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
+ */
+- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotations:(NSDictionary*)annotationMap accessPermissions:(NSString*)accessPermissions;
+
+/**
+ * Add a method call member to the interface.
+ *
+ * @param methodName        Name of method call member.
+ * @param inputSignature    Signature of input parameters or NULL for none.
+ * @param outputSignature   Signature of output parameters or NULL for none.
+ * @param arguments         Comma separated list of input and then output arg names used in annotation XML.
  * @param annotation        Annotation flags.
  *
  * @return  - ER_OK if successful
@@ -203,6 +218,72 @@
  *          - NULL if does not exist.
  */
 - (AJNInterfaceMember*)memberWithName:(NSString*)name;
+
+/**
+ * Get the value of an annotation on the interface
+ *
+ * @param annotationName       Name of annotation.
+ * @return  - string value of the annotation if annotation found.
+ *          - nil if annotation not found
+ */
+- (NSString *)annotationWithName:(NSString *)annotationName;
+
+/**
+ * Add an annotation to the interface.
+ *
+ * @param annotationName       Name of annotation.
+ * @param annotationValue      Value of the annotation
+ * @return  - ER_OK if successful.
+ *          - ER_BUS_PROPERTY_ALREADY_EXISTS if the annotation can not be added
+ *                                        because it already exists.
+ */
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue;
+
+/**
+ * Get the annotation value for a member (signal or method).
+ *
+ * @param annotationName    Name of annotation 
+ * @param memberName        Name of member
+ *
+ * @return  - string value of annotation if found
+ *          - nil if annotation not found
+ */
+- (NSString *)annotationWithName:(NSString *)annotationName forMemberWithName:(NSString *)memberName;
+
+/**
+ * Add an annotation to a member (signal or method).
+ *
+ * @param annotationName    Name of annotation 
+ * @param value             Value of annotation  
+ * @param memberName        Name of member
+ *
+ * @return  - ER_OK if successful
+ *          - ER_BUS_MEMBER_ALREADY_EXISTS if annotation already exists
+ */
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue forMemberWithName:(NSString *)memberName;
+
+/**
+ * Get the annotation value for a property.
+ *
+ * @param annotationName    Name of annotation 
+ * @param propertyName      Name of property
+ *
+ * @return  - string value of annotation if found
+ *          - nil if annotation not found
+ */
+- (NSString *)annotationWithName:(NSString *)annotationName forPropertyWithName:(NSString *)propertyName;
+
+/**
+ * Add an annotation to a property.
+ *
+ * @param annotationName    Name of annotation 
+ * @param value             Value of annotation  
+ * @param propertyName      Name of property
+ *
+ * @return  - ER_OK if successful
+ *          - ER_BUS_MEMBER_ALREADY_EXISTS if annotation already exists
+ */
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue forPropertyWithName:(NSString *)propertyName;
 
 /**
  * Check for existence of a member. Optionally check the signature also.

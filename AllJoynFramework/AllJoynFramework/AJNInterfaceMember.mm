@@ -54,11 +54,6 @@
     return [[NSString stringWithCString:self.member->argNames.c_str() encoding:NSUTF8StringEncoding] componentsSeparatedByString:@","];
 }
 
-- (AJNInterfaceAnnotationFlags)annotation
-{
-    return self.member->annotation;
-}
-
 - (NSString *)accessPermissions
 {
     return [NSString stringWithCString:self.member->accessPerms.c_str() encoding:NSUTF8StringEncoding];
@@ -78,6 +73,16 @@
     if (self) {
     }
     return self;
+}
+
+- (NSString *)annotationWithName:(NSString *)annotationName
+{
+    return [NSString stringWithCString:self.member->annotations[[annotationName UTF8String]].c_str() encoding:NSUTF8StringEncoding];
+}
+
+- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value
+{
+    self.member->annotations.insert(std::make_pair([annotationName UTF8String], [value UTF8String]));
 }
 
 @end

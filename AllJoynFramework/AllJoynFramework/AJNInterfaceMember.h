@@ -84,13 +84,27 @@ typedef enum {
 @property (nonatomic, readonly) NSArray *argumentNames;
 
 /**
- * Exclusive OR of flags kAJNInterfaceAnnotationNoReplyFlag and kAJNInterfaceAnnotationDeprecatedFlag.
- */
-@property (nonatomic, readonly) AJNInterfaceAnnotationFlags annotation;
-
-/**
  * Required permissions to invoke this call.
  */
 @property (nonatomic, readonly) NSString *accessPermissions;
+
+/**
+ * Get the annotation value for the member
+ *
+ * @param annotationName    Name of annotation 
+ *
+ * @return  - string value of annotation if found
+ *          - nil if not found
+ */
+- (NSString *)annotationWithName:(NSString *)annotationName;
+
+/**
+ * Set the annotation value for the member
+ *
+ * @param annotationName    Name of annotation 
+ * @param value             Value of annotation
+ *
+ */
+- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value;
 
 @end

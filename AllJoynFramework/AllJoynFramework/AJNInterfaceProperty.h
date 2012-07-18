@@ -42,4 +42,23 @@ static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAcc
 /** Access permissions flags for the property */
 @property (nonatomic, readonly) AJNInterfacePropertyAccessPermissionsFlags accessPermissions;
 
+/**
+ * Get an annotation value for the property
+ *
+ * @param annotationName    Name of annotation 
+ *
+ * @return  - string value of annotation if found
+ *          - nil if not found
+ */
+- (NSString *)annotationWithName:(NSString *)annotationName;
+
+/**
+ * Set an annotation value for the property
+ *
+ * @param annotationName    Name of annotation 
+ * @param value             Value of annotation
+ *
+ */
+- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value;
+
 @end
