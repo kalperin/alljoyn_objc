@@ -48,7 +48,7 @@
  * passed to AJNBusAttachment::bindSessionOnPort.
  *
  * @param joiner         Unique name of the joiner.
- * @param id             Id of session.
+ * @param sessionId      Id of session.
  * @param sessionPort    Session port that was joined. 
  */
 - (void)didJoin:(NSString*)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort;

@@ -254,7 +254,7 @@
  * Add an annotation to a member (signal or method).
  *
  * @param annotationName    Name of annotation 
- * @param value             Value of annotation  
+ * @param annotationValue   Value of annotation  
  * @param memberName        Name of member
  *
  * @return  - ER_OK if successful
@@ -277,7 +277,7 @@
  * Add an annotation to a property.
  *
  * @param annotationName    Name of annotation 
- * @param value             Value of annotation  
+ * @param annotationValue   Value of annotation  
  * @param propertyName      Name of property
  *
  * @return  - ER_OK if successful
