@@ -95,7 +95,7 @@
 
 /**
  * Accessor function to get serial number for the message. Usually only important for
- * #MESSAGE_METHOD_CALL for matching up the reply to the call.
+ * method calls and it is used for matching up the reply to the call.
  *
  * @return the serial number of the %Message
  */
@@ -111,7 +111,7 @@
 /**
  * Get a reference to all of the header fields for this message.
  *
- * @return A const reference to the header fields for this message.
+ * @return A reference to the header fields for this message.
  */
 @property (nonatomic, readonly) AJNMessageHeaderFields *headerFields;
 

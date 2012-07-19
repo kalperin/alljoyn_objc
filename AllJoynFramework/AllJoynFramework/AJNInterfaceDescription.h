@@ -177,7 +177,7 @@
  *
  * @param signalName  Name of the signal to lookup
  * @return  - Pointer to member.
- *          - NULL if does not exist.
+ *          - nil if does not exist.
  */
 - (AJNInterfaceMember*)signalWithName:(NSString*)signalName;
 
@@ -206,7 +206,7 @@
  * Check for existence of a property.
  *
  * @param propertyName       Name of the property to lookup
- * @return true if the property exists.
+ * @return An object representing the property if the property exists, otherwise nil.
  */
 - (AJNInterfaceProperty*)propertyWithName:(NSString*)propertyName;
 
@@ -215,7 +215,7 @@
  *
  * @param name  Name of the member to lookup
  * @return  - Pointer to member.
- *          - NULL if does not exist.
+ *          - nil if does not exist.
  */
 - (AJNInterfaceMember*)memberWithName:(NSString*)name;
 
@@ -292,10 +292,10 @@
  * a member with the given @c name exists.  If a signature is provided a
  * member with the given @c name and @c signature must exist for this to return true.
  *
- * @param name       Name of the member to lookup
- * @param inputs      Input parameter signature of the member to lookup
- * @param outputs     Output parameter signature of the member to lookup (leave NULL for signals)
- * @return true if the member name exists.
+ * @param name          Name of the member to lookup
+ * @param inputs        Input parameter signature of the member to lookup
+ * @param outputs       Output parameter signature of the member to lookup (leave NULL for signals)
+ * @return TRUE if the member name exists, otherwise returns FALSE.
  */
 - (BOOL)hasMemberWithName:(NSString*)name inputSignature:(NSString*)inputs outputSignature:(NSString*)outputs;
 

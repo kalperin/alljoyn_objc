@@ -48,7 +48,7 @@ typedef enum {
 @interface AJNMessageHeaderFields : AJNObject
 
 /**
- * The values of each header field. Each member of values is an AJNMessageArgument.
+ * The values of each header field. Each element in the values array is an AJNMessageArgument.
  */
 @property (nonatomic, readonly) NSArray *values;
 

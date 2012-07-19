@@ -17,9 +17,11 @@
 #import <Foundation/Foundation.h>
 #import "AJNObject.h"
 #import "AJNStatus.h"
+#import "AJNSessionOptions.h"
 
 @class AJNBusAttachment;
 @class AJNInterfaceDescription;
+@class AJNMessageArgument;
 
 /**
  * Message Bus Object base protocol. All application bus object protocols should inherit this.
@@ -54,6 +56,18 @@
  * perform any initialization such as adding match rules at this time.
  */
 - (void)objectWasRegistered;
+
+/**
+ * Emit PropertiesChanged to signal the bus that this property has been updated
+ *
+ *
+ * @param propertyName  The name of the property being changed
+ * @param interfaceName The name of the interface
+ * @param value         The new value of the property
+ * @param sessionId     ID of the session we broadcast the signal to (0 for all)
+ */
+- (void)emitPropertyWithName:(NSString*)propertyName onInterfaceWithName:(NSString*)interfaceName changedToValue:(AJNMessageArgument*)value inSession:(AJNSessionId)sessionId;
+
 
 @end
 

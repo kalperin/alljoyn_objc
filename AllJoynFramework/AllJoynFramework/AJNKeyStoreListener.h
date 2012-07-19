@@ -23,6 +23,8 @@
  */
 @protocol AJNKeyStoreListener <NSObject>
 
+@required
+
 /**
  * This method is called when a key store needs to be loaded.
  * @remark The application must call <tt>#PutKeys</tt> to put the new key store data into the

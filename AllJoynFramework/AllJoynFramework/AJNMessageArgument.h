@@ -222,4 +222,33 @@
  */
 - (QStatus)value:(NSString *)signature, ...;
 
+/**
+ * Clear the MsgArg setting the type to ALLJOYN_INVALID and freeing any memory allocated for the
+ * AJNMessageArgument value.
+ */
+- (void)clear;
+
+/**
+ * Makes an AJNMessageArgument stable by completely copying the contents into locally
+ * managed memory. After a MsgArg has been stabilized any values used to
+ * initialize or set the message arg can be freed.
+ */
+ - (void)stabilize;
+
+/**
+ * This method sets the ownership flags on this MsgArg, and optionally all
+ * MsgArgs subordinate to this MsgArg. By setting the ownership flags the
+ * caller can transfer responsibility for freeing nested data referenced
+ * by this MsgArg to the MsgArg's destructor. The #OwnsArgs flag is
+ * particularly useful for managing complex data structures such as arrays
+ * of structs, nested structs, and variants where the inner MsgArgs are
+ * dynamically allocated. The #OwnsData flag is useful for freeing
+ * dynamically allocated strings, byte arrays, etc,.
+ *
+ * @param flags  A logical or of the applicable ownership flags (OwnsArgs and OwnsData).
+ * @param deep   If true recursively sets the ownership flags on all MsgArgs owned by this MsgArg.
+ */
+- (void)setOwnershipFlags:(uint8_t)flags shouldApplyRecursively:(BOOL)deep;
+
+
 @end

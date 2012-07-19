@@ -16,10 +16,20 @@
 
 #import <alljoyn/BusObject.h>
 #import <alljoyn/InterfaceDescription.h>
+#import <alljoyn/MsgArg.h>
 #import "AJNBusAttachment.h"
 #import "AJNBusObject.h"
 #import "AJNBusObjectImpl.h"
 #import "AJNInterfaceDescription.h"
+#import "AJNMessageArgument.h"
+
+using namespace ajn;
+
+@interface AJNMessageArgument(Private)
+
+@property (nonatomic, readonly) MsgArg *msgArg;
+
+@end
 
 @interface AJNBusObject()
 
@@ -64,6 +74,11 @@
 - (void)objectWasRegistered
 {
     NSLog(@"AJNBusObject::ObjectRegistered called.");
+}
+
+- (void)emitPropertyWithName:(NSString*)propertyName onInterfaceWithName:(NSString*)interfaceName changedToValue:(AJNMessageArgument*)value inSession:(AJNSessionId)sessionId
+{
+    self.busObject->EmitPropChanged([interfaceName UTF8String], [propertyName UTF8String], *value.msgArg, sessionId);
 }
 
 @end

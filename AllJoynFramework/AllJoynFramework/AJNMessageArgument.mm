@@ -111,6 +111,21 @@ using namespace ajn;
     return status;
 }
 
+- (void)clear
+{
+    self.msgArg->Clear();
+}
+
+- (void)stabilize
+{
+    self.msgArg->Stabilize();
+}
+
+- (void)setOwnershipFlags:(uint8_t)flags shouldApplyRecursively:(BOOL)deep
+{
+    self.msgArg->SetOwnershipFlags(flags, deep == YES);
+}
+
 - (void)dealloc
 {
     if (self.shouldDeleteHandleOnDealloc) {

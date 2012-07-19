@@ -47,7 +47,7 @@
     return [NSString stringWithCString:self.property->annotations[[annotationName UTF8String]].c_str() encoding:NSUTF8StringEncoding];
 }
 
-- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value
+- (void)addAnnotationWithName:(NSString *)annotationName value:(NSString *)value
 {
     self.property->annotations.insert(std::make_pair([annotationName UTF8String], [value UTF8String]));
 }

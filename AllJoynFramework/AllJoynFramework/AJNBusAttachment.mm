@@ -45,6 +45,64 @@ using namespace ajn;
 
 /** Internal class to manage asynchronous join session callbacks
  */
+class AJNSetLinkTimeoutAsyncCallbackImpl : public ajn::BusAttachment::SetLinkTimeoutAsyncCB
+{
+private:
+    /** The objective-c delegate to communicate with whenever JoinSessionCB is called.
+     */
+    id<AJNLinkTimeoutDelegate> m_delegate;
+    
+    /** The objective-c block to call when JoinSessionCB is called.
+     */
+    AJNLinkTimeoutBlock m_block;
+public:
+    /** Constructors */
+    AJNSetLinkTimeoutAsyncCallbackImpl(id<AJNLinkTimeoutDelegate> delegate) : m_delegate(delegate) { }
+    
+    AJNSetLinkTimeoutAsyncCallbackImpl(AJNLinkTimeoutBlock block) : m_block(block) { }
+    
+    /** Destructor */
+    virtual ~AJNSetLinkTimeoutAsyncCallbackImpl() 
+    { 
+        m_delegate = nil;
+        m_block = nil;
+    }
+    
+    /**
+     * Called when SetLinkTimeoutAsync() completes.
+     *
+     * @param status       ER_OK if successful
+     * @param timeout      Timeout value (possibly adjusted from original request).
+     * @param context      User defined context which will be passed as-is to callback.
+     */
+    virtual void SetLinkTimeoutCB(QStatus status, uint32_t timeout, void* context)
+    {
+        if (m_delegate != nil) {
+            __block id<AJNLinkTimeoutDelegate> theDelegate = m_delegate;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [theDelegate didSetLinkTimeoutTo:timeout status:status context:context];
+                delete this;                
+            });
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                m_block(status, timeout, context);
+                delete this;
+            });
+        }
+    }
+    
+};
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Asynchronous session join callback implementation
+//
+
+/** Internal class to manage asynchronous join session callbacks
+ */
 class AJNJoinSessionAsyncCallbackImpl : public ajn::BusAttachment::JoinSessionAsyncCB
 {
 private:
@@ -428,7 +486,7 @@ public:
     static_cast<AJNSignalHandlerImpl*>(delegate.handle)->RegisterSignalHandler(*self.busAttachment);    
 }
 
-- (void)unregisterSignalHandler:(id<AJNSignalHandler,AJNBusObject>)delegate
+- (void)unregisterSignalHandler:(id<AJNSignalHandler>)delegate
 {
     @synchronized(self.signalHandlers) {
         if ([self.signalHandlers containsObject:delegate]) {
@@ -436,6 +494,17 @@ public:
             [self.signalHandlers removeObject:delegate];            
         }
     }        
+}
+
+- (void)unregisterAllHandlersForReceiver:(id<AJNHandle>)receiver
+{
+    if ([receiver conformsToProtocol:@protocol(AJNSignalHandler)]) {
+        [self unregisterSignalHandler:(id<AJNSignalHandler>)receiver];
+    }
+    
+    if ([receiver conformsToProtocol:@protocol(AJNBusListener)]) {
+        [self unregisterBusListener:(id<AJNBusListener>)receiver];
+    }
 }
 
 - (QStatus)registerBusObject:(AJNBusObject*)busObject
@@ -638,6 +707,26 @@ public:
         NSLog(@"ERROR: AJNBusAttachment::setLinkTimeout:forSession: failed. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     return status;
+}
+
+- (QStatus)setLinkTimeoutAsync:(uint32_t)timeout forSession:(AJNSessionId)sessionId completionBlock:(AJNLinkTimeoutBlock)block context:(void *)context
+{
+    AJNSetLinkTimeoutAsyncCallbackImpl *callbackImpl = new AJNSetLinkTimeoutAsyncCallbackImpl(block);
+    QStatus status = self.busAttachment->SetLinkTimeoutAsync(sessionId, timeout, callbackImpl, context);
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttachment::setLinkTimeoutAsync:forSession:completionBlock:context: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;    
+}
+
+- (QStatus)setLinkTimeoutAsync:(uint32_t)timeout forSession:(AJNSessionId)sessionId completionDelegate:(id<AJNLinkTimeoutDelegate>)delegate context:(void *)context
+{
+    AJNSetLinkTimeoutAsyncCallbackImpl *callbackImpl = new AJNSetLinkTimeoutAsyncCallbackImpl(delegate);
+    QStatus status = self.busAttachment->SetLinkTimeoutAsync(sessionId, timeout, callbackImpl, context);
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttachment::setLinkTimeoutAsync:forSession:completionDelegate:context: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;    
 }
 
 - (AJNHandle)socketFileDescriptorForSession:(AJNSessionId)sessionId
