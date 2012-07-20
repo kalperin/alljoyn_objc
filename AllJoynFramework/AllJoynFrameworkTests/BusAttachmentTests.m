@@ -491,6 +491,72 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
     [client tearDown];
 }
 
+- (void)testShouldNotifyClientWhenLinkIsBroken
+{
+    BusAttachmentTests *client = [[BusAttachmentTests alloc] init];
+    [client setUp];
+    
+    client.isTestClient = YES;
+    
+    [self.bus registerBusListener:self];
+    [client.bus registerBusListener:client];
+    
+    QStatus status = [self.bus start];
+    STAssertTrue(status == ER_OK, @"Bus failed to start.");    
+    status = [client.bus start];
+    STAssertTrue(status == ER_OK, @"Bus for client failed to start.");        
+    
+    status = [self.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Connection to bus via null transport failed.");
+    status = [client.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client connection to bus via null transport failed.");
+    
+    status = [self.bus requestWellKnownName:kBusAttachmentTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
+    STAssertTrue(status == ER_OK, @"Request for well known name failed.");
+    
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    status = [self.bus bindSessionOnPort:kBusAttachmentTestsServicePort withOptions:sessionOptions withDelegate:self];
+    STAssertTrue(status == ER_OK, @"Bind session on port %u failed.", kBusAttachmentTestsServicePort);
+    
+    status = [self.bus advertiseName:kBusAttachmentTestsAdvertisedName withTransportMask:kAJNTransportMaskAny];
+    STAssertTrue(status == ER_OK, @"Advertise name failed.");
+    
+    status = [client.bus findAdvertisedName:kBusAttachmentTestsAdvertisedName];
+    STAssertTrue(status == ER_OK, @"Client attempt to find advertised name %@ failed.", kBusAttachmentTestsAdvertisedName);
+    
+    STAssertTrue([self waitForCompletion:kBusAttachmentTestsWaitTimeBeforeFailure onFlag:&_shouldAcceptSessionJoinerNamed], @"The service did not report that it was queried for acceptance of the client joiner.");
+    STAssertTrue([self waitForCompletion:kBusAttachmentTestsWaitTimeBeforeFailure onFlag:&_didJoinInSession], @"The service did not receive a notification that the client joined the session.");
+    STAssertTrue(client.clientConnectionCompleted, @"The client did not report that it connected.");
+    STAssertTrue(client.testSessionId == self.testSessionId, @"The client session id does not match the service session id.");
+    
+    uint32_t timeout = 40;
+    status = [client.bus setLinkTimeout:&timeout forSession:client.testSessionId];
+    STAssertTrue(status == ER_OK, @"Failed to set the link timeout on the client's bus attachment. Error was %@", [AJNStatus descriptionForStatusCode:status]);
+    timeout = 40;
+    status = [self.bus setLinkTimeout:&timeout forSession:self.testSessionId];
+    STAssertTrue(status == ER_OK, @"Failed to set the link timeout on the service's bus attachment. Error was %@", [AJNStatus descriptionForStatusCode:status]);
+    
+    status = [client.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
+    status = [self.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Disconnect from bus via null transport failed.");
+    
+    status = [client.bus stop];
+    STAssertTrue(status == ER_OK, @"Client bus failed to stop.");
+    status = [self.bus stop];
+    STAssertTrue(status == ER_OK, @"Bus failed to stop.");
+    
+    STAssertTrue([self waitForBusToStop:kBusAttachmentTestsWaitTimeBeforeFailure], @"The bus listener should have been notified that the bus is stopping.");    
+    STAssertTrue([client waitForBusToStop:kBusAttachmentTestsWaitTimeBeforeFailure], @"The client bus listener should have been notified that the bus is stopping.");    
+    STAssertTrue([self waitForCompletion:kBusAttachmentTestsWaitTimeBeforeFailure onFlag:&_busDidDisconnectCompleted], @"The bus listener should have been notified that the bus was disconnected.");    
+    
+    [client.bus unregisterBusListener:self];    
+    [self.bus unregisterBusListener:self];
+    STAssertTrue([self waitForCompletion:kBusAttachmentTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
+    
+    [client tearDown];
+}
 
 - (void)testShouldAllowSessionToBeAsynchronouslyJoinedByAClientUsingBlock
 {
