@@ -760,9 +760,9 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *                      declared lost. 0 indicates that AllJoyn link monitoring will be disabled. On
  *                      return, this value will be the resulting (possibly upward) adjusted linkTimeout
  *                      value that acceptable to the underlying transport.
- * @param sessionid     Id of session whose link timeout will be modified.
- * @param  delegate     Called when SetLinkTimeout response is received.
- * @param  context      User defined context which will be passed as-is to callback.
+ * @param sessionId     Id of session whose link timeout will be modified.
+ * @param delegate      Called when SetLinkTimeout response is received.
+ * @param context       User defined context which will be passed as-is to callback.
  *
  * @return  - ER_OK iff method call to local daemon response was was successful.
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
@@ -786,9 +786,9 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *                      declared lost. 0 indicates that AllJoyn link monitoring will be disabled. On
  *                      return, this value will be the resulting (possibly upward) adjusted linkTimeout
  *                      value that acceptable to the underlying transport.
- * @param sessionid     Id of session whose link timeout will be modified.
- * @param  block        Called when SetLinkTimeout response is received.
- * @param  context      User defined context which will be passed as-is to callback.
+ * @param sessionId     Id of session whose link timeout will be modified.
+ * @param block         Called when SetLinkTimeout response is received.
+ * @param context       User defined context which will be passed as-is to callback.
  *
  * @return  - ER_OK iff method call to local daemon response was was successful.
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
