@@ -43,7 +43,7 @@
 		};
 		ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin BD=on WS=fix --$(ACTION)";
 			buildConfigurationList = ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */;
 			buildPhases = (
 			);
@@ -57,7 +57,7 @@
 		};
 		ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=fix --$(ACTION)";
 			buildConfigurationList = ACA3BC3A1587FDBC0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_ios" */;
 			buildPhases = (
 			);
@@ -68,20 +68,6 @@
 			name = alljoyn_streaming_ios;
 			passBuildSettingsInEnvironment = 1;
 			productName = alljoyn_streaming_ios;
-		};
-		ACAD17DB156D532D0065497D /* bbclient */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
-			buildConfigurationList = ACAD17DE156D532D0065497D /* Build configuration list for PBXLegacyTarget "bbclient" */;
-			buildPhases = (
-			);
-			buildToolPath = /usr/local/bin/scons;
-			buildWorkingDirectory = ../alljoyn_core;
-			dependencies = (
-			);
-			name = bbclient;
-			passBuildSettingsInEnvironment = 1;
-			productName = bbclient;
 		};
 		ACB4AFB6150E631F0054D964 /* alljoyn_core_osx */ = {
 			isa = PBXLegacyTarget;
@@ -96,20 +82,6 @@
 			name = alljoyn_core_osx;
 			passBuildSettingsInEnvironment = 1;
 			productName = alljoyn_darwin;
-		};
-		ACBFEDE5156DAA7D008082DE /* bbservice */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
-			buildConfigurationList = ACBFEDE6156DAA7D008082DE /* Build configuration list for PBXLegacyTarget "bbservice" */;
-			buildPhases = (
-			);
-			buildToolPath = /usr/local/bin/scons;
-			buildWorkingDirectory = ../alljoyn_core;
-			dependencies = (
-			);
-			name = bbservice;
-			passBuildSettingsInEnvironment = 1;
-			productName = bbclient;
 		};
 /* End PBXLegacyTarget section */
 
@@ -134,8 +106,6 @@
 				AC0DC84C151A46F0000E302F /* alljoyn_core_ios */,
 				ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */,
 				ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */,
-				ACAD17DB156D532D0065497D /* bbclient */,
-				ACBFEDE5156DAA7D008082DE /* bbservice */,
 			);
 		};
 /* End PBXProject section */
@@ -212,27 +182,6 @@
 			};
 			name = Release;
 		};
-		ACAD17DC156D532D0065497D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUGGING_SYMBOLS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		ACAD17DD156D532D0065497D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		ACB4AFB7150E631F0054D964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -301,27 +250,6 @@
 			};
 			name = Release;
 		};
-		ACBFEDE7156DAA7D008082DE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUGGING_SYMBOLS = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "bbclient copy";
-			};
-			name = Debug;
-		};
-		ACBFEDE8156DAA7D008082DE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "bbclient copy";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -352,15 +280,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ACAD17DE156D532D0065497D /* Build configuration list for PBXLegacyTarget "bbclient" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ACAD17DC156D532D0065497D /* Debug */,
-				ACAD17DD156D532D0065497D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		ACB4AFB4150E631F0054D964 /* Build configuration list for PBXProject "alljoyn_darwin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -375,15 +294,6 @@
 			buildConfigurations = (
 				ACB4AFBA150E631F0054D964 /* Debug */,
 				ACB4AFBB150E631F0054D964 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ACBFEDE6156DAA7D008082DE /* Build configuration list for PBXLegacyTarget "bbservice" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ACBFEDE7156DAA7D008082DE /* Debug */,
-				ACBFEDE8156DAA7D008082DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

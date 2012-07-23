@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ACAD17DB156D532D0065497D"
-               BuildableName = "bbclient"
-               BlueprintName = "bbclient"
+               BlueprintIdentifier = "ACB4AFB6150E631F0054D964"
+               BuildableName = "alljoyn_core_osx"
+               BlueprintName = "alljoyn_core_osx"
                ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +32,7 @@
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"

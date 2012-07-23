@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ACBFEDE5156DAA7D008082DE"
-               BuildableName = "bbservice"
-               BlueprintName = "bbservice"
+               BlueprintIdentifier = "ACB4AFB6150E631F0054D964"
+               BuildableName = "alljoyn_core_osx"
+               BlueprintName = "alljoyn_core_osx"
                ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -38,6 +38,16 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <PathRunnable
+         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bbservice">
+      </PathRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "ER_DEBUG_ALL"
+            value = "15"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
