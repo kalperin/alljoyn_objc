@@ -217,7 +217,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
     
     [self.bus registerBusListener:self];
     [client.bus registerBusListener:client];
-    
+
     QStatus status = [self.bus start];
     STAssertTrue(status == ER_OK, @"Bus failed to start.");    
     status = [client.bus start];
@@ -410,6 +410,8 @@ const NSInteger kBusObjectTestsServicePort = 999;
     if ([name compare:kBusObjectTestsAdvertisedName] == NSOrderedSame) {
         self.didFindAdvertisedNameCompleted = YES;
         if (self.isTestClient) {
+            
+            [self.bus enableConcurrentCallbacks];
             
             AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
             

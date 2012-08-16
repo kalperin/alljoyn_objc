@@ -720,6 +720,8 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
         self.didFindAdvertisedNameCompleted = YES;
         if (self.isTestClient) {
             
+            [self.bus enableConcurrentCallbacks];
+            
             AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
             
             self.testSessionId = [self.bus joinSessionWithName:name onPort:kBusAttachmentTestsServicePort withDelegate:self options:sessionOptions];
@@ -728,6 +730,9 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
             self.clientConnectionCompleted = YES;
         }
         else if (self.isAsyncTestClientBlock) {
+            
+            [self.bus enableConcurrentCallbacks];
+            
             AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
             
             [self.bus joinSessionAsyncWithName:name onPort:kBusAttachmentTestsServicePort withDelegate:self options:sessionOptions joinCompletedBlock:^(QStatus status, AJNSessionId sessionId, AJNSessionOptions *opts, void *context) {
@@ -739,6 +744,9 @@ const NSInteger kBusAttachmentTestsServicePort = 999;
             } context:nil];
         }
         else if (self.isAsyncTestClientDelegate) {
+            
+            [self.bus enableConcurrentCallbacks];
+            
             AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
             
             [self.bus joinSessionAsyncWithName:name onPort:kBusAttachmentTestsServicePort withDelegate:self options:sessionOptions joinCompletedDelegate:self context:nil];            

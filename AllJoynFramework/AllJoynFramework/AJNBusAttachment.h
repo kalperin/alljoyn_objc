@@ -650,7 +650,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * @param  options          Session options.
  *
  * @return  - The new session identifier.
- *          - A session id of -1 indicating a failure.
+ *          - A session id of 0 or -1 indicating a failure.
  */
 - (AJNSessionId)joinSessionWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options;
 
