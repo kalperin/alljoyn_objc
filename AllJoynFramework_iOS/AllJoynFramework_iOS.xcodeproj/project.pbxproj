@@ -95,6 +95,8 @@
 		AC3A98611578079200CFF856 /* AJNSecurityCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3A98591578079200CFF856 /* AJNSecurityCredentials.h */; };
 		AC3A98621578079200CFF856 /* AJNSecurityCredentials.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3A985A1578079200CFF856 /* AJNSecurityCredentials.mm */; };
 		AC60949D15A24A1C0006B735 /* TestAuthenticationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60949C15A24A1C0006B735 /* TestAuthenticationListener.m */; };
+		ACEB7DDB15CB00AF00B1D72E /* AJNMessageHeaderFields.h in Headers */ = {isa = PBXBuildFile; fileRef = ACEB7DD915CB00AF00B1D72E /* AJNMessageHeaderFields.h */; };
+		ACEB7DDC15CB00AF00B1D72E /* AJNMessageHeaderFields.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEB7DDA15CB00AF00B1D72E /* AJNMessageHeaderFields.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +198,8 @@
 		AC8A94281575571900372B66 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		AC8A94291575571900372B66 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/libcrypto.a; sourceTree = "<group>"; };
 		AC8A942A1575571900372B66 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/libssl.a; sourceTree = "<group>"; };
+		ACEB7DD915CB00AF00B1D72E /* AJNMessageHeaderFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNMessageHeaderFields.h; path = ../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.h; sourceTree = "<group>"; };
+		ACEB7DDA15CB00AF00B1D72E /* AJNMessageHeaderFields.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNMessageHeaderFields.mm; path = ../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +307,8 @@
 				AC1030E7156EC85100D2853A /* AJNMessage.mm */,
 				AC1030E8156EC85100D2853A /* AJNMessageArgument.h */,
 				AC1030E9156EC85100D2853A /* AJNMessageArgument.mm */,
+				ACEB7DD915CB00AF00B1D72E /* AJNMessageHeaderFields.h */,
+				ACEB7DDA15CB00AF00B1D72E /* AJNMessageHeaderFields.mm */,
 				AC1030EA156EC85100D2853A /* AJNObject.h */,
 				AC1030EB156EC85100D2853A /* AJNObject.m */,
 				AC1030EC156EC85100D2853A /* AJNProxyBusObject.h */,
@@ -410,6 +416,7 @@
 				AC3A985E1578079200CFF856 /* AJNKeyStoreListener.h in Headers */,
 				AC3A985F1578079200CFF856 /* AJNKeyStoreListenerImpl.h in Headers */,
 				AC3A98611578079200CFF856 /* AJNSecurityCredentials.h in Headers */,
+				ACEB7DDB15CB00AF00B1D72E /* AJNMessageHeaderFields.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +555,7 @@
 				AC3A985D1578079200CFF856 /* AJNAuthenticationListenerImpl.mm in Sources */,
 				AC3A98601578079200CFF856 /* AJNKeyStoreListenerImpl.mm in Sources */,
 				AC3A98621578079200CFF856 /* AJNSecurityCredentials.mm in Sources */,
+				ACEB7DDC15CB00AF00B1D72E /* AJNMessageHeaderFields.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +782,7 @@
 				AC0974B815AE0A15001F2D50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC1030A2156EC82300D2853A /* Build configuration list for PBXProject "AllJoynFramework_iOS" */ = {
 			isa = XCConfigurationList;
