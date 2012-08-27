@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ACA9DB8415E692B200C8582C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA9DB8315E692B200C8582C /* Cocoa.framework */; };
+		ACA9DB8E15E692B200C8582C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACA9DB8C15E692B200C8582C /* InfoPlist.strings */; };
+		ACA9DB9015E692B200C8582C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9DB8F15E692B200C8582C /* main.m */; };
+		ACA9DB9415E692B200C8582C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = ACA9DB9215E692B200C8582C /* Credits.rtf */; };
+		ACA9DB9715E692B200C8582C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA9DB9615E692B200C8582C /* AppDelegate.m */; };
+		ACA9DB9A15E692B200C8582C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA9DB9815E692B200C8582C /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ACA9DB7F15E692B200C8582C /* AllJoynCodeGeneratorTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllJoynCodeGeneratorTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACA9DB8315E692B200C8582C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ACA9DB8615E692B200C8582C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ACA9DB8715E692B200C8582C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ACA9DB8815E692B200C8582C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ACA9DB8B15E692B200C8582C /* AllJoynCodeGeneratorTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AllJoynCodeGeneratorTool-Info.plist"; sourceTree = "<group>"; };
+		ACA9DB8D15E692B200C8582C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACA9DB8F15E692B200C8582C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ACA9DB9115E692B200C8582C /* AllJoynCodeGeneratorTool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllJoynCodeGeneratorTool-Prefix.pch"; sourceTree = "<group>"; };
+		ACA9DB9315E692B200C8582C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		ACA9DB9515E692B200C8582C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ACA9DB9615E692B200C8582C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ACA9DB9915E692B200C8582C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACA9DB7C15E692B200C8582C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA9DB8415E692B200C8582C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ACA9DB7415E692B200C8582C = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB8915E692B200C8582C /* AllJoynCodeGeneratorTool */,
+				ACA9DB8215E692B200C8582C /* Frameworks */,
+				ACA9DB8015E692B200C8582C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACA9DB8015E692B200C8582C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB7F15E692B200C8582C /* AllJoynCodeGeneratorTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACA9DB8215E692B200C8582C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB8315E692B200C8582C /* Cocoa.framework */,
+				ACA9DB8515E692B200C8582C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACA9DB8515E692B200C8582C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB8615E692B200C8582C /* AppKit.framework */,
+				ACA9DB8715E692B200C8582C /* CoreData.framework */,
+				ACA9DB8815E692B200C8582C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ACA9DB8915E692B200C8582C /* AllJoynCodeGeneratorTool */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB9515E692B200C8582C /* AppDelegate.h */,
+				ACA9DB9615E692B200C8582C /* AppDelegate.m */,
+				ACA9DB9815E692B200C8582C /* MainMenu.xib */,
+				ACA9DB8A15E692B200C8582C /* Supporting Files */,
+			);
+			path = AllJoynCodeGeneratorTool;
+			sourceTree = "<group>";
+		};
+		ACA9DB8A15E692B200C8582C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACA9DB8B15E692B200C8582C /* AllJoynCodeGeneratorTool-Info.plist */,
+				ACA9DB8C15E692B200C8582C /* InfoPlist.strings */,
+				ACA9DB8F15E692B200C8582C /* main.m */,
+				ACA9DB9115E692B200C8582C /* AllJoynCodeGeneratorTool-Prefix.pch */,
+				ACA9DB9215E692B200C8582C /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACA9DB7E15E692B200C8582C /* AllJoynCodeGeneratorTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACA9DB9D15E692B200C8582C /* Build configuration list for PBXNativeTarget "AllJoynCodeGeneratorTool" */;
+			buildPhases = (
+				ACA9DB7B15E692B200C8582C /* Sources */,
+				ACA9DB7C15E692B200C8582C /* Frameworks */,
+				ACA9DB7D15E692B200C8582C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AllJoynCodeGeneratorTool;
+			productName = AllJoynCodeGeneratorTool;
+			productReference = ACA9DB7F15E692B200C8582C /* AllJoynCodeGeneratorTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACA9DB7615E692B200C8582C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Qualcomm Innovation Center, Inc.";
+			};
+			buildConfigurationList = ACA9DB7915E692B200C8582C /* Build configuration list for PBXProject "AllJoynCodeGeneratorTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ACA9DB7415E692B200C8582C;
+			productRefGroup = ACA9DB8015E692B200C8582C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACA9DB7E15E692B200C8582C /* AllJoynCodeGeneratorTool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACA9DB7D15E692B200C8582C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA9DB8E15E692B200C8582C /* InfoPlist.strings in Resources */,
+				ACA9DB9415E692B200C8582C /* Credits.rtf in Resources */,
+				ACA9DB9A15E692B200C8582C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACA9DB7B15E692B200C8582C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACA9DB9015E692B200C8582C /* main.m in Sources */,
+				ACA9DB9715E692B200C8582C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ACA9DB8C15E692B200C8582C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA9DB8D15E692B200C8582C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ACA9DB9215E692B200C8582C /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA9DB9315E692B200C8582C /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		ACA9DB9815E692B200C8582C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACA9DB9915E692B200C8582C /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACA9DB9B15E692B200C8582C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ACA9DB9C15E692B200C8582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ACA9DB9E15E692B200C8582C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynCodeGeneratorTool/AllJoynCodeGeneratorTool-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynCodeGeneratorTool/AllJoynCodeGeneratorTool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ACA9DB9F15E692B200C8582C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AllJoynCodeGeneratorTool/AllJoynCodeGeneratorTool-Prefix.pch";
+				INFOPLIST_FILE = "AllJoynCodeGeneratorTool/AllJoynCodeGeneratorTool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACA9DB7915E692B200C8582C /* Build configuration list for PBXProject "AllJoynCodeGeneratorTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA9DB9B15E692B200C8582C /* Debug */,
+				ACA9DB9C15E692B200C8582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACA9DB9D15E692B200C8582C /* Build configuration list for PBXNativeTarget "AllJoynCodeGeneratorTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACA9DB9E15E692B200C8582C /* Debug */,
+				ACA9DB9F15E692B200C8582C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACA9DB7615E692B200C8582C /* Project object */;
+}
