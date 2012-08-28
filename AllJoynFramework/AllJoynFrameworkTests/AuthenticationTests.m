@@ -40,6 +40,7 @@ const NSInteger kAuthenticationTestsServicePort = 999;
 @property (nonatomic) BOOL isTestClient;
 @property (nonatomic) BOOL clientConnectionCompleted;
 @property (nonatomic) BOOL didReceiveSignal;
+@property (nonatomic) TestAuthenticationListener *authenticationListener;
 
 @end
 
@@ -63,6 +64,7 @@ const NSInteger kAuthenticationTestsServicePort = 999;
 @synthesize isTestClient = _isTestClient;
 @synthesize clientConnectionCompleted = _clientConnectionCompleted;
 @synthesize didReceiveSignal = _didReceiveSignal;
+@synthesize authenticationListener = _authenticationListener;
 @synthesize handle = _handle;
 
 - (void)setUp
@@ -72,6 +74,7 @@ const NSInteger kAuthenticationTestsServicePort = 999;
     // Set-up code here. Executed before each test case is run.
     //
     self.bus = [[AJNBusAttachment alloc] initWithApplicationName:@"testApp" allowRemoteMessages:YES];
+    self.authenticationListener = [[TestAuthenticationListener alloc] initOnBus:self.bus withUserName:@"Code Monkey" maximumAuthenticationsAllowed:5];
     self.listenerDidRegisterWithBusCompleted = NO;
     self.listenerDidUnregisterWithBusCompleted = NO;
     self.didFindAdvertisedNameCompleted = NO;
@@ -98,7 +101,8 @@ const NSInteger kAuthenticationTestsServicePort = 999;
     //
     [self.bus destroy];
     [self.bus destroyBusListener:self];
-    self.bus = nil;    
+    self.bus = nil;
+    self.authenticationListener = nil;
     self.listenerDidRegisterWithBusCompleted = NO;
     self.listenerDidUnregisterWithBusCompleted = NO;
     self.didFindAdvertisedNameCompleted = NO;
@@ -119,6 +123,94 @@ const NSInteger kAuthenticationTestsServicePort = 999;
     self.testSessionJoiner = nil;
     
     [super tearDown];
+}
+
+- (void)testAuthenticatedMethodCallShouldSucceed
+{
+    AuthenticationTests *client = [[AuthenticationTests alloc] init];
+    BasicObject *basicObject = nil;
+    
+    [client setUp];
+    
+    client.isTestClient = YES;
+    
+    [self.bus registerBusListener:self];
+    [client.bus registerBusListener:client];
+    
+    QStatus status = [self.bus start];
+    STAssertTrue(status == ER_OK, @"Bus failed to start.");
+    status = [client.bus start];
+    STAssertTrue(status == ER_OK, @"Bus for client failed to start.");
+    
+    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kAuthenticationTestsObjectPath];
+    
+    [self.bus registerBusObject:basicObject];    
+    
+    status = [self.bus enablePeerSecurity:@"ALLJOYN_SRP_LOGON" authenticationListener:self.authenticationListener];
+    STAssertTrue(status == ER_OK, @"Unable to enable peer security on service side. %@", [AJNStatus descriptionForStatusCode:status]);
+    
+    status = [self.bus addLogonEntryToKeyStoreWithAuthenticationMechanism:@"ALLJOYN_SRP_LOGON" userName:@"Code Monkey" password:@"123banana321"];
+    STAssertTrue(status == ER_OK, @"Unable to add logon entry to keystore. %@", [AJNStatus descriptionForStatusCode:status]);
+    
+    status = [client.bus enablePeerSecurity:@"ALLJOYN_SRP_LOGON" authenticationListener:client.authenticationListener];
+    STAssertTrue(status == ER_OK, @"Unable to enable peer security on client side. %@", [AJNStatus descriptionForStatusCode:status]);
+
+    status = [client.bus addLogonEntryToKeyStoreWithAuthenticationMechanism:@"ALLJOYN_SRP_LOGON" userName:@"Code Monkey" password:@"123banana321"];
+    STAssertTrue(status == ER_OK, @"Unable to add logon entry to keystore. %@", [AJNStatus descriptionForStatusCode:status]);
+
+    status = [self.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Connection to bus via null transport failed.");
+    status = [client.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client connection to bus via null transport failed.");
+    
+    status = [self.bus requestWellKnownName:kAuthenticationTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
+    STAssertTrue(status == ER_OK, @"Request for well known name failed.");
+        
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    status = [self.bus bindSessionOnPort:kAuthenticationTestsServicePort withOptions:sessionOptions withDelegate:self];
+    STAssertTrue(status == ER_OK, @"Bind session on port %u failed.", kAuthenticationTestsServicePort);
+    
+    status = [self.bus advertiseName:kAuthenticationTestsAdvertisedName withTransportMask:kAJNTransportMaskAny];
+    STAssertTrue(status == ER_OK, @"Advertise name failed.");
+    
+    status = [client.bus findAdvertisedName:kAuthenticationTestsAdvertisedName];
+    STAssertTrue(status == ER_OK, @"Client attempt to find advertised name %@ failed.", kAuthenticationTestsAdvertisedName);
+    
+    STAssertTrue([self waitForCompletion:kAuthenticationTestsWaitTimeBeforeFailure onFlag:&_shouldAcceptSessionJoinerNamed], @"The service did not report that it was queried for acceptance of the client joiner.");
+    STAssertTrue([self waitForCompletion:kAuthenticationTestsWaitTimeBeforeFailure onFlag:&_didJoinInSession], @"The service did not receive a notification that the client joined the session.");
+    STAssertTrue(client.clientConnectionCompleted, @"The client did not report that it connected.");
+    STAssertTrue(client.testSessionId == self.testSessionId, @"The client session id does not match the service session id.");
+    
+    BasicObjectProxy *proxy = [[BasicObjectProxy alloc] initWithBusAttachment:client.bus serviceName:kAuthenticationTestsAdvertisedName objectPath:kAuthenticationTestsObjectPath sessionId:self.testSessionId];
+    
+    [proxy introspectRemoteObject];
+    
+    NSString *resultantString = [proxy concatenateString:@"Hello " withString:@"World!"];
+    STAssertTrue([resultantString compare:@"Hello World!"] == NSOrderedSame, @"Test client call to method via proxy object failed.");
+    
+    status = [client.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
+    status = [self.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Disconnect from bus via null transport failed.");
+    
+    status = [client.bus stop];
+    STAssertTrue(status == ER_OK, @"Client bus failed to stop.");
+    status = [self.bus stop];
+    STAssertTrue(status == ER_OK, @"Bus failed to stop.");
+    
+    STAssertTrue([self waitForBusToStop:kAuthenticationTestsWaitTimeBeforeFailure], @"The bus listener should have been notified that the bus is stopping.");
+    STAssertTrue([client waitForBusToStop:kAuthenticationTestsWaitTimeBeforeFailure], @"The client bus listener should have been notified that the bus is stopping.");
+    STAssertTrue([self waitForCompletion:kAuthenticationTestsWaitTimeBeforeFailure onFlag:&_busDidDisconnectCompleted], @"The bus listener should have been notified that the bus was disconnected.");
+    
+    proxy = nil;
+    
+    [client.bus unregisterBusListener:self];
+    [self.bus unregisterBusListener:self];
+    STAssertTrue([self waitForCompletion:kAuthenticationTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
+    
+    [client tearDown];
+    
 }
 
 #pragma mark - Asynchronous test case support

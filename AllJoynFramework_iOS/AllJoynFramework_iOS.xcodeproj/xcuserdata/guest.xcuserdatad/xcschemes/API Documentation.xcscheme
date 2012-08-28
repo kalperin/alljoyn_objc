@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC1030A7156EC82300D2853A"
-               BuildableName = "libAllJoynFramework_iOS.a"
-               BlueprintName = "AllJoynFramework_iOS"
+               BlueprintIdentifier = "AC0974B515AE0A15001F2D50"
+               BuildableName = "API Documentation"
+               BlueprintName = "API Documentation"
                ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -24,27 +24,10 @@
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC1030B7156EC82300D2853A"
-               BuildableName = "AllJoynFramework_iOSTests.octest"
-               BlueprintName = "AllJoynFramework_iOSTests"
-               ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "ER_DEBUG_ALL"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"

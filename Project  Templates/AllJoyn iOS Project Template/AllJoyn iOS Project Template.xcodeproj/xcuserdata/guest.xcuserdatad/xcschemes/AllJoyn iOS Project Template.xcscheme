@@ -13,10 +13,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC1030A7156EC82300D2853A"
-               BuildableName = "libAllJoynFramework_iOS.a"
-               BlueprintName = "AllJoynFramework_iOS"
-               ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
+               BlueprintIdentifier = "AC3A98011576B59100CFF856"
+               BuildableName = "AllJoyn iOS Project Template.app"
+               BlueprintName = "AllJoyn iOS Project Template"
+               ReferencedContainer = "container:AllJoyn iOS Project Template.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -24,27 +24,29 @@
    <TestAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC1030B7156EC82300D2853A"
-               BuildableName = "AllJoynFramework_iOSTests.octest"
-               BlueprintName = "AllJoynFramework_iOSTests"
-               ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
+               BlueprintIdentifier = "AC3A981C1576B59100CFF856"
+               BuildableName = "AllJoyn iOS Project TemplateTests.octest"
+               BlueprintName = "AllJoyn iOS Project TemplateTests"
+               ReferencedContainer = "container:AllJoyn iOS Project Template.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "ER_DEBUG_ALL"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC3A98011576B59100CFF856"
+            BuildableName = "AllJoyn iOS Project Template.app"
+            BlueprintName = "AllJoyn iOS Project Template"
+            ReferencedContainer = "container:AllJoyn iOS Project Template.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -55,6 +57,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC3A98011576B59100CFF856"
+            BuildableName = "AllJoyn iOS Project Template.app"
+            BlueprintName = "AllJoyn iOS Project Template"
+            ReferencedContainer = "container:AllJoyn iOS Project Template.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -64,6 +75,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC3A98011576B59100CFF856"
+            BuildableName = "AllJoyn iOS Project Template.app"
+            BlueprintName = "AllJoyn iOS Project Template"
+            ReferencedContainer = "container:AllJoyn iOS Project Template.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

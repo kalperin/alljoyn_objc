@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AllJoynModeler.xcscheme</key>
+		<key>AllJoyn iOS Project Template.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>ACD9B29B1523A39400F9B0F1</key>
+		<key>AC3A98011576B59100CFF856</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACD9B2BC1523A39500F9B0F1</key>
+		<key>AC3A981C1576B59100CFF856</key>
 		<dict>
 			<key>primary</key>
 			<true/>

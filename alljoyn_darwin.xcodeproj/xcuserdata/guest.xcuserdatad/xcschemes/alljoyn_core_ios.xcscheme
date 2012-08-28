@@ -38,6 +38,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC0DC84C151A46F0000E302F"
+            BuildableName = "alljoyn_core_ios"
+            BlueprintName = "alljoyn_core_ios"
+            ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

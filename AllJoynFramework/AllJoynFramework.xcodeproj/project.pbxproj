@@ -35,7 +35,6 @@
 		AC5C55E11548B65800C13A0B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55E01548B65800C13A0B /* libstdc++.dylib */; };
 		AC5C55E41548B6BF00C13A0B /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55D81548B53D00C13A0B /* liballjoyn.a */; };
 		AC5C55E81548B75B00C13A0B /* libpthread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55E71548B75B00C13A0B /* libpthread.dylib */; };
-		AC5C55EA1548B86100C13A0B /* libcrypto.0.9.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55E91548B86100C13A0B /* libcrypto.0.9.8.dylib */; };
 		AC5C55EC1548BED400C13A0B /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5C55EB1548BED400C13A0B /* libobjc.dylib */; };
 		AC5C5609154A157900C13A0B /* AJNMessageArgument.h in Headers */ = {isa = PBXBuildFile; fileRef = AC5C5607154A157800C13A0B /* AJNMessageArgument.h */; };
 		AC5C560A154A157900C13A0B /* AJNMessageArgument.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC5C5608154A157800C13A0B /* AJNMessageArgument.mm */; };
@@ -44,6 +43,8 @@
 		AC77324715A3452B00C7A9A4 /* TestAuthenticationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = AC77324615A3452B00C7A9A4 /* TestAuthenticationListener.m */; };
 		AC77FEA2154B0D9600D39DFE /* InterfaceDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC77FEA1154B0D9600D39DFE /* InterfaceDescriptionTests.m */; };
 		AC77FEBD154B285400D39DFE /* AJNType.h in Headers */ = {isa = PBXBuildFile; fileRef = AC77FEBB154B285200D39DFE /* AJNType.h */; };
+		AC9FD2C915E44939003BAE7C /* libcrypto.0.9.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9FD2C815E44939003BAE7C /* libcrypto.0.9.8.dylib */; };
+		AC9FD2CB15E4494B003BAE7C /* libssl.0.9.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9FD2CA15E4494B003BAE7C /* libssl.0.9.8.dylib */; };
 		ACB44E5615485F3E00FF7DBC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB44E5515485F3E00FF7DBC /* Cocoa.framework */; };
 		ACB44E6815485F3E00FF7DBC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB44E6715485F3E00FF7DBC /* SenTestingKit.framework */; };
 		ACB44E6915485F3E00FF7DBC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB44E5515485F3E00FF7DBC /* Cocoa.framework */; };
@@ -126,9 +127,7 @@
 		AC5C55D71548B53D00C13A0B /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../alljoyn_core/build/darwin/x86/debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
 		AC5C55D81548B53D00C13A0B /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/x86/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		AC5C55E01548B65800C13A0B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
-		AC5C55E51548B70700C13A0B /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		AC5C55E71548B75B00C13A0B /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
-		AC5C55E91548B86100C13A0B /* libcrypto.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.8.dylib; path = usr/lib/libcrypto.0.9.8.dylib; sourceTree = SDKROOT; };
 		AC5C55EB1548BED400C13A0B /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		AC5C5607154A157800C13A0B /* AJNMessageArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNMessageArgument.h; sourceTree = "<group>"; };
 		AC5C5608154A157800C13A0B /* AJNMessageArgument.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNMessageArgument.mm; sourceTree = "<group>"; };
@@ -141,12 +140,12 @@
 		AC77FEBB154B285200D39DFE /* AJNType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNType.h; sourceTree = "<group>"; };
 		AC799DEE1558554900BBDDBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC799DFD1558554900BBDDBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		AC9FD2C815E44939003BAE7C /* libcrypto.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.8.dylib; path = usr/lib/libcrypto.0.9.8.dylib; sourceTree = SDKROOT; };
+		AC9FD2CA15E4494B003BAE7C /* libssl.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.0.9.8.dylib; path = usr/lib/libssl.0.9.8.dylib; sourceTree = SDKROOT; };
 		ACAD1755156C3F280065497D /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
 		ACAD1756156C3F280065497D /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
 		ACAD1757156C3F280065497D /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACAD175B156C3F820065497D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libstdc++.dylib"; sourceTree = DEVELOPER_DIR; };
-		ACAD175D156C3FA30065497D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
-		ACAD175E156C3FA30065497D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		ACAD1761156C3FDB0065497D /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libpthread.dylib; sourceTree = DEVELOPER_DIR; };
 		ACAD1763156C406A0065497D /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libobjc.dylib; sourceTree = DEVELOPER_DIR; };
 		ACB44E5215485F3E00FF7DBC /* libAllJoynFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAllJoynFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,8 +222,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9FD2CB15E4494B003BAE7C /* libssl.0.9.8.dylib in Frameworks */,
+				AC9FD2C915E44939003BAE7C /* libcrypto.0.9.8.dylib in Frameworks */,
 				AC5C55EC1548BED400C13A0B /* libobjc.dylib in Frameworks */,
-				AC5C55EA1548B86100C13A0B /* libcrypto.0.9.8.dylib in Frameworks */,
 				AC5C55D91548B53D00C13A0B /* BundledDaemon.o in Frameworks */,
 				AC5C55DA1548B53D00C13A0B /* libajdaemon.a in Frameworks */,
 				AC5C55E41548B6BF00C13A0B /* liballjoyn.a in Frameworks */,
@@ -265,18 +265,16 @@
 		ACB44E5415485F3E00FF7DBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC9FD2CA15E4494B003BAE7C /* libssl.0.9.8.dylib */,
+				AC9FD2C815E44939003BAE7C /* libcrypto.0.9.8.dylib */,
 				ACAD1763156C406A0065497D /* libobjc.dylib */,
 				ACAD1761156C3FDB0065497D /* libpthread.dylib */,
-				ACAD175D156C3FA30065497D /* libcrypto.a */,
-				ACAD175E156C3FA30065497D /* libssl.a */,
 				ACAD175B156C3F820065497D /* libstdc++.dylib */,
 				ACAD1755156C3F280065497D /* BundledDaemon.o */,
 				ACAD1756156C3F280065497D /* libajdaemon.a */,
 				ACAD1757156C3F280065497D /* liballjoyn.a */,
 				AC5C55EB1548BED400C13A0B /* libobjc.dylib */,
-				AC5C55E91548B86100C13A0B /* libcrypto.0.9.8.dylib */,
 				AC5C55E71548B75B00C13A0B /* libpthread.dylib */,
-				AC5C55E51548B70700C13A0B /* libcrypto.dylib */,
 				AC5C55E01548B65800C13A0B /* libstdc++.dylib */,
 				AC5C55D61548B53D00C13A0B /* BundledDaemon.o */,
 				AC5C55D71548B53D00C13A0B /* libajdaemon.a */,
@@ -534,7 +532,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center, Inc.\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
 		};
 		ACB44E6415485F3E00FF7DBC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -737,9 +735,8 @@
 				INFOPLIST_FILE = "AllJoynFrameworkTests/AllJoynFrameworkTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
 					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/x86/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01\"",
+					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
@@ -763,9 +760,8 @@
 				INFOPLIST_FILE = "AllJoynFrameworkTests/AllJoynFrameworkTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SDKROOT)/usr/lib/i686-apple-darwin11/4.2.1\"",
 					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/x86/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01\"",
+					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",

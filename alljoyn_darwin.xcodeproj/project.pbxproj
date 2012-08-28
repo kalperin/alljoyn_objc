@@ -11,12 +11,14 @@
 		AC135D27159A698500970833 /* alljoyn_streaming */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_streaming; path = ../alljoyn_streaming; sourceTree = "<group>"; };
 		AC135D28159A698500970833 /* build_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = build_core; path = ../build_core; sourceTree = "<group>"; };
 		AC135D29159A698500970833 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
+		ACF2C57115EC3CA50060F82B /* alljoyn_objc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_objc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		ACB4AFAF150E631F0054D964 = {
 			isa = PBXGroup;
 			children = (
+				ACF2C57115EC3CA50060F82B /* alljoyn_objc */,
 				AC135D25159A698500970833 /* alljoyn_core */,
 				AC135D27159A698500970833 /* alljoyn_streaming */,
 				AC135D28159A698500970833 /* build_core */,
@@ -29,7 +31,7 @@
 /* Begin PBXLegacyTarget section */
 		AC0DC84C151A46F0000E302F /* alljoyn_core_ios */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
 			buildConfigurationList = AC0DC84D151A46F0000E302F /* Build configuration list for PBXLegacyTarget "alljoyn_core_ios" */;
 			buildPhases = (
 			);
@@ -43,7 +45,7 @@
 		};
 		ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=fix --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
 			buildConfigurationList = ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */;
 			buildPhases = (
 			);
@@ -71,7 +73,7 @@
 		};
 		ACB4AFB6150E631F0054D964 /* alljoyn_core_osx */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
 			buildConfigurationList = ACB4AFB9150E631F0054D964 /* Build configuration list for PBXLegacyTarget "alljoyn_core_osx" */;
 			buildPhases = (
 			);
@@ -122,6 +124,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				VARIANT = "'debug'";
 			};
 			name = Debug;
 		};
@@ -133,6 +136,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				VARIANT = "'release'";
 			};
 			name = Release;
 		};
@@ -238,6 +242,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VARIANT = debug;
 			};
 			name = Debug;
 		};
@@ -247,6 +252,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VARIANT = release;
 			};
 			name = Release;
 		};

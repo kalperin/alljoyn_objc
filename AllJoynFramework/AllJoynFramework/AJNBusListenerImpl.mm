@@ -45,10 +45,11 @@ AJNBusListenerImpl::~AJNBusListenerImpl()
 void AJNBusListenerImpl::ListenerRegistered(ajn::BusAttachment* bus)
 {
     if ([m_delegate respondsToSelector:@selector(listenerDidRegisterWithBus:)]) {
-        __block id<AJNBusListener> theDelegate = m_delegate;        
+        __block id<AJNBusListener> theDelegate = m_delegate;
+        __block AJNBusAttachment *theBusAttachment = busAttachment;
         dispatch_queue_t queue = dispatch_get_main_queue();
         dispatch_async(queue, ^{
-                [theDelegate listenerDidRegisterWithBus:busAttachment];
+                [theDelegate listenerDidRegisterWithBus:theBusAttachment];
         });
     }        
 }
@@ -60,9 +61,10 @@ void AJNBusListenerImpl::ListenerUnregistered()
 {
     if ([m_delegate respondsToSelector:@selector(listenerDidUnregisterWithBus:)]) {
         __block id<AJNBusListener> theDelegate = m_delegate;
+        __block AJNBusAttachment *theBusAttachment = busAttachment;        
         dispatch_queue_t queue = dispatch_get_main_queue();
         dispatch_async(queue, ^{
-                [theDelegate listenerDidUnregisterWithBus:busAttachment];
+                [theDelegate listenerDidUnregisterWithBus:theBusAttachment];
         });   
     }            
 }
@@ -102,10 +104,11 @@ void AJNBusListenerImpl::LostAdvertisedName(const char* name, ajn::TransportMask
     @autoreleasepool {
         if ([m_delegate respondsToSelector:@selector(didLoseAdvertisedName:withTransportMask:namePrefix:)]) {
             __block id<AJNBusListener> theDelegate = m_delegate;            
-            dispatch_queue_t queue = dispatch_get_main_queue();            
+            dispatch_queue_t queue = dispatch_get_main_queue();
+            NSString *advertisedName = [NSString stringWithCString:name encoding:NSUTF8StringEncoding];
+            NSString *advertisedNamePrefix = [NSString stringWithCString:namePrefix encoding:NSUTF8StringEncoding];
             dispatch_async(queue, ^{
-
-                    [theDelegate didLoseAdvertisedName:[NSString stringWithCString:name encoding:NSUTF8StringEncoding] withTransportMask:(AJNTransportMask)transport namePrefix:[NSString stringWithCString:namePrefix encoding:NSUTF8StringEncoding]];
+                    [theDelegate didLoseAdvertisedName:advertisedName withTransportMask:(AJNTransportMask)transport namePrefix:advertisedNamePrefix];
             });
         }
     }

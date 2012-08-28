@@ -30,7 +30,7 @@
 @optional
 
 /**
- * Called by the bus when the listener is registered. This give the listener implementation the
+ * Called by the bus when the listener is registered. This gives the listener implementation the
  * opportunity to save a reference to the bus.
  *
  * @param busAttachment  The bus the listener is registered with.
