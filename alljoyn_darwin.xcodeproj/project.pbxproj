@@ -11,14 +11,12 @@
 		AC135D27159A698500970833 /* alljoyn_streaming */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_streaming; path = ../alljoyn_streaming; sourceTree = "<group>"; };
 		AC135D28159A698500970833 /* build_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = build_core; path = ../build_core; sourceTree = "<group>"; };
 		AC135D29159A698500970833 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
-		ACF2C57115EC3CA50060F82B /* alljoyn_objc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_objc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		ACB4AFAF150E631F0054D964 = {
 			isa = PBXGroup;
 			children = (
-				ACF2C57115EC3CA50060F82B /* alljoyn_objc */,
 				AC135D25159A698500970833 /* alljoyn_core */,
 				AC135D27159A698500970833 /* alljoyn_streaming */,
 				AC135D28159A698500970833 /* build_core */,
@@ -91,7 +89,7 @@
 		ACB4AFB1150E631F0054D964 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = ACB4AFB4150E631F0054D964 /* Build configuration list for PBXProject "alljoyn_darwin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -143,6 +141,7 @@
 		ACA3BC351587FC5E0010F1C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -155,6 +154,7 @@
 		ACA3BC361587FC5E0010F1C5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -236,6 +236,7 @@
 		ACB4AFBA150E631F0054D964 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -249,6 +250,7 @@
 		ACB4AFBB150E631F0054D964 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
