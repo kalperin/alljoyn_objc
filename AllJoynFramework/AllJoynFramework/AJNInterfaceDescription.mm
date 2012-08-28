@@ -96,23 +96,6 @@
     return result;
 }
 
-- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotations:(NSDictionary*)annotationMap accessPermissions:(NSString*)accessPermissions
-{
-    QStatus result = ER_OK;
-    if (self.interfaceDescription) {
-        ajn::InterfaceDescription::AnnotationsMap map;
-        for (NSString *name in annotationMap.allKeys) {
-            NSString *value = [annotationMap objectForKey:name];
-            map.insert(std::make_pair([name UTF8String], [value UTF8String]));
-        }
-        result = self.interfaceDescription->AddMethod([methodName UTF8String], [inputSignature UTF8String], [outputSignature UTF8String], [[arguments componentsJoinedByString:@","] UTF8String], map, [accessPermissions UTF8String]);
-        if (result != ER_OK && result != ER_BUS_MEMBER_ALREADY_EXISTS) {
-            NSLog(@"ERROR: Failed to create method named %@. %s", methodName, QCC_StatusText(result) );
-        }
-    }
-    return result;    
-}
-
 - (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotation:(AJNInterfaceAnnotationFlags)annotation
 {
     return [self addMethodWithName:methodName inputSignature:inputSignature outputSignature:outputSignature argumentNames:arguments annotation:annotation accessPermissions:nil];

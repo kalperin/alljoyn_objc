@@ -277,7 +277,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags;
+- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make an asynchronous method call from this object
@@ -294,7 +294,7 @@
  * @return  - ER_OK if successful
  *          - An error status otherwise
  */
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags;
+- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make a synchronous method call from this object
@@ -325,7 +325,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags;
+- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make an asynchronous method call from this object
@@ -343,7 +343,7 @@
  * @return  - ER_OK if successful
  *          - An error status otherwise
  */
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags;
+- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Query the remote object on the bus to determine the interfaces and

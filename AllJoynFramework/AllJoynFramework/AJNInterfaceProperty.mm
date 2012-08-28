@@ -44,12 +44,13 @@
 
 - (NSString *)annotationWithName:(NSString *)annotationName
 {
-    return [NSString stringWithCString:self.property->annotations[[annotationName UTF8String]].c_str() encoding:NSUTF8StringEncoding];
-}
-
-- (void)addAnnotationWithName:(NSString *)annotationName value:(NSString *)value
-{
-    self.property->annotations.insert(std::make_pair([annotationName UTF8String], [value UTF8String]));
+    qcc::String value;
+    bool wasPropertyFound = self.property->GetAnnotation([annotationName UTF8String], value);
+    NSString *annotationValue;
+    if (wasPropertyFound) {
+        annotationValue = [NSString stringWithCString:value.c_str() encoding:NSUTF8StringEncoding];
+    }
+    return annotationValue;
 }
 
 

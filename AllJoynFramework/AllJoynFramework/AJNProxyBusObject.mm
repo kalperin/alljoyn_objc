@@ -304,7 +304,7 @@ using namespace ajn;
     return [self callMethod:method withArguments:arguments methodReply:reply timeout:ajn::ProxyBusObject::DefaultCallTimeout flags:0];
 }
 
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags
+- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t)timeout flags:(uint8_t)flags
 {
     QStatus status;
     MsgArg * pArgs = new MsgArg[arguments.count];
@@ -318,7 +318,7 @@ using namespace ajn;
     return status;
 }
 
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags
+- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags
 {
     QStatus status;
     AJNProxyBusObjectAsyncCallbackImpl *callbackImpl = new AJNProxyBusObjectAsyncCallbackImpl(replyDelegate);
@@ -337,7 +337,7 @@ using namespace ajn;
     return [self callMethodWithName:methodName onInterfaceWithName:interfaceName withArguments:arguments methodReply:reply timeout:ajn::ProxyBusObject::DefaultCallTimeout flags:0];
 }
 
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(NSInteger)timeout flags:(uint8_t)flags
+- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t)timeout flags:(uint8_t)flags
 {
     QStatus status;
     MsgArg * pArgs = new MsgArg[arguments.count];
@@ -351,7 +351,7 @@ using namespace ajn;
     return status;    
 }
 
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(NSInteger)timeout flags:(uint8_t)flags
+- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags
 {
     QStatus status;
     AJNProxyBusObjectAsyncCallbackImpl *callbackImpl = new AJNProxyBusObjectAsyncCallbackImpl(replyDelegate);

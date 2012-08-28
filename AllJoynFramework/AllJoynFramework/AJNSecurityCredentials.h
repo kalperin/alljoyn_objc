@@ -101,7 +101,7 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
  * keys based on the provided credentials are invalidated and a new authentication exchange will be required. If an
  * expiration is not set the default expiration time for the requested authentication mechanism is used.
  */
-@property (nonatomic) NSInteger expirationTime;
+@property (nonatomic) uint32_t expirationTime;
 
 /**
  * Tests if one or more credentials are set.

@@ -89,21 +89,6 @@
  * @param inputSignature    Signature of input parameters or NULL for none.
  * @param outputSignature   Signature of output parameters or NULL for none.
  * @param arguments         Comma separated list of input and then output arg names used in annotation XML.
- * @param annotationMap     Annotation map - a dictionary of name value pairs for each annotation
- * @param accessPermissions Access permission requirements on this call
- *
- * @return  - ER_OK if successful
- *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
- */
-- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotations:(NSDictionary*)annotationMap accessPermissions:(NSString*)accessPermissions;
-
-/**
- * Add a method call member to the interface.
- *
- * @param methodName        Name of method call member.
- * @param inputSignature    Signature of input parameters or NULL for none.
- * @param outputSignature   Signature of output parameters or NULL for none.
- * @param arguments         Comma separated list of input and then output arg names used in annotation XML.
  * @param annotation        Annotation flags.
  *
  * @return  - ER_OK if successful

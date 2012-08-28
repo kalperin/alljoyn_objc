@@ -52,13 +52,4 @@ static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAcc
  */
 - (NSString *)annotationWithName:(NSString *)annotationName;
 
-/**
- * Add an annotation value for the property
- *
- * @param annotationName    Name of annotation 
- * @param value             Value of annotation
- *
- */
-- (void)addAnnotationWithName:(NSString *)annotationName value:(NSString *)value;
-
 @end

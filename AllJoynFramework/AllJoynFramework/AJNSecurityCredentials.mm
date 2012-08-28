@@ -113,12 +113,12 @@ const uint16_t AJNSecurityCredentialRequestOneTimePassword = 0x2001; /**< Indica
     self.credentials->SetCertChain([certificateChain UTF8String]);
 }
 
-- (NSInteger)expirationTime
+- (uint32_t)expirationTime
 {
     return self.credentials->GetExpiration();
 }
 
-- (void)setExpirationTime:(NSInteger)expirationTime
+- (void)setExpirationTime:(uint32_t)expirationTime
 {
     self.credentials->SetExpiration(expirationTime);
 }

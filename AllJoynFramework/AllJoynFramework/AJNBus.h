@@ -21,7 +21,7 @@
  * org.freedesktop.DBus.RequestName input params (see DBus spec)
  */
 // @{
-typedef NSInteger AJNBusNameFlag;
+typedef uint32_t AJNBusNameFlag;
 
 /**< RequestName input flag: Allow others to take ownership of this name */
 extern const AJNBusNameFlag kAJNBusNameFlagAllowReplacement;    

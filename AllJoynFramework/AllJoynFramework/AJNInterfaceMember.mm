@@ -77,12 +77,13 @@
 
 - (NSString *)annotationWithName:(NSString *)annotationName
 {
-    return [NSString stringWithCString:self.member->annotations[[annotationName UTF8String]].c_str() encoding:NSUTF8StringEncoding];
-}
-
-- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value
-{
-    self.member->annotations.insert(std::make_pair([annotationName UTF8String], [value UTF8String]));
+    qcc::String value;
+    bool wasMemberFound = self.member->GetAnnotation([annotationName UTF8String], value);
+    NSString *annotationValue;
+    if (wasMemberFound) {
+        annotationValue = [NSString stringWithCString:value.c_str() encoding:NSUTF8StringEncoding];
+    }
+    return annotationValue;
 }
 
 @end

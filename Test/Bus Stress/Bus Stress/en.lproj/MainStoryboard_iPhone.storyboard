@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Settings" id="H80-ha-gMy">
+                            <tableViewSection headerTitle="Bus Attachment Stress Settings" id="H80-ha-gMy">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="oGd-y1-d8a">
                                         <rect key="frame" x="0.0" y="46" width="320" height="101"/>

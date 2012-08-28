@@ -98,13 +98,4 @@ typedef enum {
  */
 - (NSString *)annotationWithName:(NSString *)annotationName;
 
-/**
- * Set the annotation value for the member
- *
- * @param annotationName    Name of annotation 
- * @param value             Value of annotation
- *
- */
-- (void)setAnnotationWithName:(NSString *)annotationName toValue:(NSString *)value;
-
 @end

@@ -23,7 +23,7 @@
 @property (nonatomic, strong) AJNBusAttachment *bus;
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic) NSUInteger maximumAuthentications;
-@property (nonatomic) NSUInteger keyExpiration;
+@property (nonatomic) uint32_t keyExpiration;
 
 - (id)initOnBus:(AJNBusAttachment*)bus withUserName:(NSString*)userName maximumAuthenticationsAllowed:(NSUInteger)maximumAuthentications;
 
