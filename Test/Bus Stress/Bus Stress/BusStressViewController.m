@@ -25,6 +25,7 @@
 @synthesize iterationsCompletedProgressView = _iterationsCompletedProgressView;
 @synthesize numberOfIterationsSlider = _numberOfIterationsSlider;
 @synthesize numberOfThreadsSlider = _numberOfThreadsSlider;
+@synthesize operationModeSegmentedControl = _operationModeSegmentedControl;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -57,6 +58,7 @@
     [self setIterationsCompletedProgressView:nil];
     [self setNumberOfIterationsSlider:nil];
     [self setNumberOfThreadsSlider:nil];
+    [self setOperationModeSegmentedControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -147,7 +149,7 @@
 
 - (IBAction)didTouchStartButton:(id)sender
 {
-    [BusStressManager runStress:(NSInteger)self.numberOfIterationsSlider.value threadCount:(NSInteger)self.numberOfThreadsSlider.value deleteBusFlag:self.deleteBusAttachmentsSwitch.isOn stopThreadsFlag:self.stopThreadsBeforeJoinSwitch.isOn delegate:self];
+    [BusStressManager runStress:(NSInteger)self.numberOfIterationsSlider.value threadCount:(NSInteger)self.numberOfThreadsSlider.value deleteBusFlag:self.deleteBusAttachmentsSwitch.isOn stopThreadsFlag:self.stopThreadsBeforeJoinSwitch.isOn operationMode:self.operationModeSegmentedControl.selectedSegmentIndex delegate:self];
 }
 
 - (IBAction)numberOfIterationsValueChanged:(id)sender

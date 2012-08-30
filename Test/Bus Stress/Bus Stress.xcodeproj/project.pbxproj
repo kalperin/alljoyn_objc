@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723215EEC42300525051 /* AJNBasicObject.mm */; };
+		ACC1723615EEC42300525051 /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723415EEC42300525051 /* BasicObject.m */; };
 		ACC4FBCB15EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9615EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm */; };
 		ACC4FBCC15EBDF8C00B4473E /* AJNBus.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9815EBDF8C00B4473E /* AJNBus.m */; };
 		ACC4FBCD15EBDF8C00B4473E /* AJNBusAttachment.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9A15EBDF8C00B4473E /* AJNBusAttachment.mm */; };
@@ -49,6 +51,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
+		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
+		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
+		ACC1723315EEC42300525051 /* BasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicObject.h; sourceTree = "<group>"; };
+		ACC1723415EEC42300525051 /* BasicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicObject.m; sourceTree = "<group>"; };
 		ACC4FB9415EBDF7E00B4473E /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
 		ACC4FB9515EBDF8C00B4473E /* AJNAuthenticationListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListenerImpl.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.h; sourceTree = "<group>"; };
 		ACC4FB9615EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNAuthenticationListenerImpl.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.mm; sourceTree = "<group>"; };
@@ -213,6 +220,7 @@
 		ACEC12C815EBD640001F105B = {
 			isa = PBXGroup;
 			children = (
+				AC32FC5D15ED6CA200E6F431 /* alljoyn_core */,
 				ACEC12DD15EBD640001F105B /* Bus Stress */,
 				ACEC12D615EBD640001F105B /* Frameworks */,
 				ACEC12D415EBD640001F105B /* Products */,
@@ -247,6 +255,10 @@
 			isa = PBXGroup;
 			children = (
 				ACC4FB9215EBDF6E00B4473E /* AllJoyn Framework */,
+				ACC1723115EEC42300525051 /* AJNBasicObject.h */,
+				ACC1723215EEC42300525051 /* AJNBasicObject.mm */,
+				ACC1723315EEC42300525051 /* BasicObject.h */,
+				ACC1723415EEC42300525051 /* BasicObject.m */,
 				ACEC12E615EBD640001F105B /* AppDelegate.h */,
 				ACEC12E715EBD640001F105B /* AppDelegate.m */,
 				ACF9690D15EBE5810015674C /* BusStressManager.h */,
@@ -362,6 +374,8 @@
 				ACC4FBE015EBDF8C00B4473E /* AJNTransportMask.m in Sources */,
 				ACC4FBE115EBDF8C00B4473E /* AJNVersion.mm in Sources */,
 				ACF9690F15EBE5810015674C /* BusStressManager.mm in Sources */,
+				ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */,
+				ACC1723615EEC42300525051 /* BasicObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

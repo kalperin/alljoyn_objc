@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *iterationsCompletedProgressView;
 @property (weak, nonatomic) IBOutlet UISlider *numberOfIterationsSlider;
 @property (weak, nonatomic) IBOutlet UISlider *numberOfThreadsSlider;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *operationModeSegmentedControl;
 
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)numberOfIterationsValueChanged:(id)sender;
