@@ -638,7 +638,7 @@ public:
 
 - (AJNSessionId)joinSessionWithName:(NSString *)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions *)options
 {
-    AJNSessionId sessionId = -1;
+    AJNSessionId sessionId = 0;
     AJNSessionListenerImpl *listenerImpl = new AJNSessionListenerImpl(self, delegate);
     QStatus status = self.busAttachment->JoinSession([sessionName UTF8String], sessionPort, listenerImpl, sessionId, *((ajn::SessionOpts*)options.handle));
     @synchronized(self.sessionListeners) {
@@ -646,6 +646,7 @@ public:
     }
     if (status != ER_OK) {
         NSLog(@"ERROR: AJNBusAttachment::joinSessionWithName:onPort:withDelegate:options: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+        sessionId = 0;
     }
     return sessionId;    
 }
