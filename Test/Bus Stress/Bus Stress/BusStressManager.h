@@ -25,4 +25,6 @@ typedef enum _BusStressManagerOperationMode
 
 + (void)runStress:(NSInteger)iterations threadCount:(NSInteger)threadCount deleteBusFlag:(BOOL)shouldDeleteBusAttachment stopThreadsFlag:(BOOL)stopThreads operationMode:(BusStressManagerOperationMode)mode delegate:(id<BusStressManagerDelegate>)delegate;
 
++ (void)stopStress;
+
 @end

@@ -13,6 +13,8 @@
 #import "AJNBasicObject.h"
 #import "BasicObject.h"
 
+static BOOL s_stopStressFlag;
+
 @interface AJNBusAttachment(Private)
 
 - (ajn::BusAttachment*)busAttachment;
@@ -41,7 +43,7 @@
 
 @interface ServiceStressOperation : StressOperation<AJNBusListener, AJNSessionListener, AJNSessionPortListener>
 
-@property (nonatomic, strong) NSCondition *joinedSessionCondition;
+@property (nonatomic, strong) NSCondition *lostSessionCondition;
 
 @end
 
@@ -61,20 +63,29 @@
     
     [self.bus registerBusListener:self];
     
-    [self.bus findAdvertisedName:@"org.alljoyn.test.bastress.service."];
+    [self.bus findAdvertisedName:@"org.alljoyn.bus.sample.strings"];
     
-    if ([self.joinedSessionCondition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]]) {
-    
-        [self.joinedSessionCondition unlock];
+    if ([self.joinedSessionCondition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:rand()%5 + 5]]) {
         
-        self.basicObjectProxy = [[BasicObjectProxy alloc] initWithBusAttachment:self.bus serviceName:self.foundServiceName objectPath:@"/org/cool" sessionId:self.sessionId];
+        self.basicObjectProxy = [[BasicObjectProxy alloc] initWithBusAttachment:self.bus serviceName:self.foundServiceName objectPath:@"/basic_object" sessionId:self.sessionId];
+        
+        [self.basicObjectProxy introspectRemoteObject];
         
         NSString *result = [self.basicObjectProxy concatenateString:@"Code " withString:@"Monkies!!!!!!!"];
         
-        NSLog(@"%@ concatenated string. %@", [result compare:@"Code Monkies!!!!!!!"] == NSOrderedSame ? @"Successfully":@"Unsuccessfully", result);
+        if (result) {
+            NSLog(@"[%@] %@ concatenated string.", result, [result compare:@"Code Monkies!!!!!!!"] == NSOrderedSame ? @"Successfully":@"Unsuccessfully");
+        }
         
         self.basicObjectProxy = nil;
+        
     }
+    if (self.sessionId) {
+        [self.bus leaveSession:self.sessionId];
+    }
+
+    
+    [self.joinedSessionCondition unlock];
     
     [self tearDown];
 }
@@ -92,8 +103,9 @@
     
     NSLog(@"Client joined session %d", self.sessionId);
     
+    [self.joinedSessionCondition lock];
     [self.joinedSessionCondition signal];
-
+    [self.joinedSessionCondition unlock];    
 }
 
 
@@ -101,40 +113,42 @@
 
 @implementation ServiceStressOperation
 
-@synthesize joinedSessionCondition = _joinedSessionCondition;
+@synthesize lostSessionCondition = _lostSessionCondition;
 
 - (void)main
 {
     [self setup];
     
-    self.joinedSessionCondition = [[NSCondition alloc] init];
-    [self.joinedSessionCondition lock];
+    self.lostSessionCondition = [[NSCondition alloc] init];
+    [self.lostSessionCondition lock];
     
     [self.bus registerBusListener:self];
     
-    NSString *name = [NSString stringWithFormat:@"org.alljoyn.test.bastress.service.i%d", rand()];
+    NSString *path = @"/basic_object";
+    self.busObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:path];
+    
+    [self.bus registerBusObject:self.busObject];
+
+    NSString *name = [NSString stringWithFormat:@"org.alljoyn.bus.sample.strings.i%d", rand()];
     QStatus status = [self.bus requestWellKnownName:name withFlags:kAJNBusNameFlagReplaceExisting | kAJNBusNameFlagDoNotQueue];
     if (ER_OK != status) {
         NSLog(@"Request for name failed (%@)", name);
     }
     
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    status = [self.bus bindSessionOnPort:999 withOptions:sessionOptions withDelegate:self];
+    
     status = [self.bus advertiseName:name withTransportMask:kAJNTransportMaskAny];
     if (ER_OK != status) {
         NSLog(@"Could not advertise (%@)", name);
     }
-    
-    NSString *path = @"/org/cool";
-    self.busObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:path];
-    
-    [self.bus registerBusObject:self.busObject];
 
-    [self.joinedSessionCondition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:rand()%5]];
-    
-    [self.bus cancelAdvertisedName:name withTransportMask:kAJNTransportMaskAny];
+    [self.lostSessionCondition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:rand()%5 + 10]];
     
     [self.bus unregisterBusObject:self.busObject];
     
-    [self.joinedSessionCondition unlock];
+    [self.lostSessionCondition unlock];    
     
     [self tearDown];
 }
@@ -181,6 +195,10 @@
 - (void)sessionWasLost:(AJNSessionId)sessionId
 {
     NSLog(@"AJNBusListener::sessionWasLost %u", sessionId);
+
+    [self.lostSessionCondition lock];
+    [self.lostSessionCondition signal];
+    [self.lostSessionCondition unlock];
 }
 
 - (void)didAddMemberNamed:(NSString*)memberName toSession:(AJNSessionId)sessionId
@@ -207,6 +225,7 @@
 - (void)didJoin:(NSString*)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
     NSLog(@"AJNSessionPortListener::didJoin:%@ inSessionWithId:%u onSessionPort:%u withSessionOptions:", joiner, sessionId, sessionPort);
+    
 }
 
 @end
@@ -219,6 +238,9 @@
 
 - (void)setup
 {
+    NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    NSLog(@"+ Creating bus attachment                                                                 +");
+    NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSString *name = [NSString stringWithFormat:@"bastress%d", rand()];
     self.bus = [[AJNBusAttachment alloc] initWithApplicationName:name allowRemoteMessages:YES];
     QStatus status =  [self.bus start];
@@ -230,6 +252,10 @@
 
 - (void)tearDown
 {
+    NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    NSLog(@"+ Destroying bus attachment                                                               +");
+    NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
     self.busObject = nil;
     
     if (self.shouldDeleteBusAttachment) {
@@ -287,7 +313,15 @@
 {
     dispatch_queue_t queue = dispatch_queue_create("bastress", NULL);
     dispatch_async(queue, ^{
+        [delegate didCompleteIteration:0 totalIterations:iterations];
         for (NSInteger i = 0; i < iterations; i++) {
+            
+            @synchronized(self) {
+                if (s_stopStressFlag) {
+                    s_stopStressFlag = NO;
+                    break;
+                }
+            }
             NSOperationQueue *queue = [[NSOperationQueue alloc] init];
             
             [queue setMaxConcurrentOperationCount:threadCount];
@@ -324,6 +358,13 @@
 
     });
     dispatch_release(queue);
+}
+
++ (void)stopStress
+{
+    @synchronized(self) {
+        s_stopStressFlag = YES;
+    }
 }
 
 @end

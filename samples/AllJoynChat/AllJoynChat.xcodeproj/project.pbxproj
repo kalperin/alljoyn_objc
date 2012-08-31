@@ -36,7 +36,6 @@
 		AC67D669152CAFC4009DBFA9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC67D668152CAFC4009DBFA9 /* main.m */; };
 		AC67D66D152CAFC4009DBFA9 /* AJNCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC67D66C152CAFC4009DBFA9 /* AJNCAppDelegate.m */; };
 		AC67D670152CAFC4009DBFA9 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC67D66E152CAFC4009DBFA9 /* MainStoryboard_iPhone.storyboard */; };
-		AC67D673152CAFC4009DBFA9 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC67D671152CAFC4009DBFA9 /* MainStoryboard_iPad.storyboard */; };
 		AC67D676152CAFC4009DBFA9 /* AJNCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC67D675152CAFC4009DBFA9 /* AJNCViewController.m */; };
 		AC67D67E152CAFC4009DBFA9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC67D67D152CAFC4009DBFA9 /* SenTestingKit.framework */; };
 		AC67D67F152CAFC4009DBFA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC67D65C152CAFC4009DBFA9 /* UIKit.framework */; };
@@ -56,6 +55,7 @@
 		ACC1B8BE15ACAC7300A9CC41 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8BB15ACAC7300A9CC41 /* liballjoyn.a */; };
 		ACC1B8C115ACAC9900A9CC41 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */; };
 		ACC1B8C215ACAC9900A9CC41 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1B8C015ACAC9900A9CC41 /* libssl.a */; };
+		ACDA3D3F15F143EF00D7D3A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACDA3D3E15F143EF00D7D3A0 /* SystemConfiguration.framework */; };
 		ACEE34D9157E7087004CD47C /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34D6157E7087004CD47C /* AJNAuthenticationListenerImpl.mm */; };
 		ACEE34DA157E7087004CD47C /* AJNSecurityCredentials.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34D8157E7087004CD47C /* AJNSecurityCredentials.mm */; };
 		ACEE34DE157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEE34DD157E70A3004CD47C /* AJNKeyStoreListenerImpl.mm */; };
@@ -141,7 +141,6 @@
 		AC67D66B152CAFC4009DBFA9 /* AJNCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AJNCAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		AC67D66C152CAFC4009DBFA9 /* AJNCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJNCAppDelegate.m; sourceTree = "<group>"; };
 		AC67D66F152CAFC4009DBFA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		AC67D672152CAFC4009DBFA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		AC67D674152CAFC4009DBFA9 /* AJNCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJNCViewController.h; sourceTree = "<group>"; };
 		AC67D675152CAFC4009DBFA9 /* AJNCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJNCViewController.m; sourceTree = "<group>"; };
 		AC67D67C152CAFC4009DBFA9 /* AllJoynChatTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllJoynChatTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +174,7 @@
 		ACC1B8BB15ACAC7300A9CC41 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		ACC1B8C015ACAC9900A9CC41 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		ACDA3D3E15F143EF00D7D3A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACEE34D4157E7087004CD47C /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
 		ACEE34D5157E7087004CD47C /* AJNAuthenticationListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListenerImpl.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.h; sourceTree = "<group>"; };
 		ACEE34D6157E7087004CD47C /* AJNAuthenticationListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNAuthenticationListenerImpl.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.mm; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDA3D3F15F143EF00D7D3A0 /* SystemConfiguration.framework in Frameworks */,
 				ACC1B8C115ACAC9900A9CC41 /* libcrypto.a in Frameworks */,
 				ACC1B8C215ACAC9900A9CC41 /* libssl.a in Frameworks */,
 				ACC1B8BC15ACAC7300A9CC41 /* BundledDaemon.o in Frameworks */,
@@ -233,6 +234,7 @@
 		AC67D64D152CAFC4009DBFA9 = {
 			isa = PBXGroup;
 			children = (
+				ACDA3D3E15F143EF00D7D3A0 /* SystemConfiguration.framework */,
 				ACC1B8BF15ACAC9900A9CC41 /* libcrypto.a */,
 				ACC1B8C015ACAC9900A9CC41 /* libssl.a */,
 				ACC1B8B915ACAC7300A9CC41 /* BundledDaemon.o */,
@@ -310,7 +312,6 @@
 				AC67D674152CAFC4009DBFA9 /* AJNCViewController.h */,
 				AC67D675152CAFC4009DBFA9 /* AJNCViewController.m */,
 				AC67D66E152CAFC4009DBFA9 /* MainStoryboard_iPhone.storyboard */,
-				AC67D671152CAFC4009DBFA9 /* MainStoryboard_iPad.storyboard */,
 				AC67D663152CAFC4009DBFA9 /* Supporting Files */,
 			);
 			path = AllJoynChat;
@@ -482,7 +483,6 @@
 			files = (
 				AC67D667152CAFC4009DBFA9 /* InfoPlist.strings in Resources */,
 				AC67D670152CAFC4009DBFA9 /* MainStoryboard_iPhone.storyboard in Resources */,
-				AC67D673152CAFC4009DBFA9 /* MainStoryboard_iPad.storyboard in Resources */,
 				ACFCF7831566A4F800BC922D /* SConscript in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,14 +592,6 @@
 				AC67D66F152CAFC4009DBFA9 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		AC67D671152CAFC4009DBFA9 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC67D672152CAFC4009DBFA9 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		AC67D686152CAFC4009DBFA9 /* InfoPlist.strings */ = {

@@ -20,8 +20,10 @@
 @property (weak, nonatomic) IBOutlet UISlider *numberOfIterationsSlider;
 @property (weak, nonatomic) IBOutlet UISlider *numberOfThreadsSlider;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *operationModeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
 
 - (IBAction)didTouchStartButton:(id)sender;
+- (IBAction)didTouchStopButton:(id)sender;
 - (IBAction)numberOfIterationsValueChanged:(id)sender;
 - (IBAction)numberOfThreadsValueChanged:(id)sender;
 

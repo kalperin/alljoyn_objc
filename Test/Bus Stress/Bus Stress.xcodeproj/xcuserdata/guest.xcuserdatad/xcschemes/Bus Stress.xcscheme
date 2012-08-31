@@ -67,7 +67,7 @@
          <EnvironmentVariable
             key = "ER_ PROXIMITY_SCANNER"
             value = "1"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>

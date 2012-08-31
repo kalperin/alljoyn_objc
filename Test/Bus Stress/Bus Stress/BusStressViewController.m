@@ -26,6 +26,7 @@
 @synthesize numberOfIterationsSlider = _numberOfIterationsSlider;
 @synthesize numberOfThreadsSlider = _numberOfThreadsSlider;
 @synthesize operationModeSegmentedControl = _operationModeSegmentedControl;
+@synthesize stopButton = _stopButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -59,6 +60,7 @@
     [self setNumberOfIterationsSlider:nil];
     [self setNumberOfThreadsSlider:nil];
     [self setOperationModeSegmentedControl:nil];
+    [self setStopButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -150,6 +152,15 @@
 - (IBAction)didTouchStartButton:(id)sender
 {
     [BusStressManager runStress:(NSInteger)self.numberOfIterationsSlider.value threadCount:(NSInteger)self.numberOfThreadsSlider.value deleteBusFlag:self.deleteBusAttachmentsSwitch.isOn stopThreadsFlag:self.stopThreadsBeforeJoinSwitch.isOn operationMode:self.operationModeSegmentedControl.selectedSegmentIndex delegate:self];
+    self.startButton.hidden = YES;
+    self.stopButton.hidden = NO;
+}
+
+- (IBAction)didTouchStopButton:(id)sender
+{
+    [BusStressManager stopStress];
+    self.startButton.hidden = NO;
+    self.stopButton.hidden = YES;
 }
 
 - (IBAction)numberOfIterationsValueChanged:(id)sender
