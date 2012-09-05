@@ -81,6 +81,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     self.conversation.chatObject.delegate = self.conversation;
+    [AJNCChatManager.sharedInstance stop];
     [super viewWillDisappear:animated];
 }
 
@@ -174,6 +175,13 @@
 
 - (IBAction)didTouchSendButton:(id)sender 
 {
+    if (self.conversation == nil && AJNCChatManager.sharedInstance.conversationsCount) {
+        self.conversation = [AJNCChatManager.sharedInstance conversationAtIndex:0];
+        [self.tableView reloadData];
+    }
+    
+    NSLog(@"%@",self.conversation);
+    
     [self.conversation.chatObject sendChatMessage:self.messageTextField.text onSession:self.conversation.identifier];
     [AJNCChatManager.sharedInstance chatMessageReceived:self.messageTextField.text from:@"Me" onObjectPath:@"local" forSession:self.conversation.identifier];
     self.messageTextField.text = @"";    
@@ -181,16 +189,26 @@
 
 - (void)chatMessageReceived:(NSString *)message from:(NSString *)sender onObjectPath:(NSString *)path forSession:(AJNSessionId)sessionId
 {
-    [self.tableView reloadData];
+    if (self.conversation == nil && AJNCChatManager.sharedInstance.conversationsCount) {
+        self.conversation = [AJNCChatManager.sharedInstance conversationAtIndex:0];
+        [self.tableView reloadData];
+    }
     
+    [self.tableView reloadData];
+    NSLog(@"%@",self.conversation);    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.conversation.messages.count - 1 inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 - (void)didReceiveNewMessage:(AJNCMessage*)message
 {
-    [self.tableView reloadData];
+    if (self.conversation == nil && AJNCChatManager.sharedInstance.conversationsCount) {
+        self.conversation = [AJNCChatManager.sharedInstance conversationAtIndex:0];
+        [self.tableView reloadData];
+    }
     
+    [self.tableView reloadData];
+    NSLog(@"%@",self.conversation);
     if (self.conversation.messages.count) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.conversation.messages.count - 1 inSection:0];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];

@@ -6,135 +6,119 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--New Chat Session View Controller - New Conversation-->
-        <scene sceneID="XYz-Bf-miL">
+        <!--Start Page View Controller - AllChatz-->
+        <scene sceneID="fHT-wr-lEX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="44L-vA-JJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="395-yt-VCd" customClass="AJNCNewChatSessionViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EJI-1J-HWC">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5L-c9-Ylq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Iu8-Xi-xEI" customClass="AJNCStartPageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o4a-Ga-6Zz">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Conversation Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eEA-3z-Nmg">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type the name and press Done" minimumFontSize="17" id="SRB-Z4-thy">
-                                <rect key="frame" x="20" y="49" width="280" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" id="9da-5h-fGt">
+                                <rect key="frame" x="-6" y="0.0" width="326" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vqI-gg-jow">
+                                <rect key="frame" x="528" y="450" width="72" height="29.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="delegate" destination="395-yt-VCd" id="pGP-PW-DJW"/>
+                                    <action selector="didTouchSendButton:" destination="Iu8-Xi-xEI" eventType="touchUpInside" id="1JN-ae-XaO"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="QKP-ig-qC1">
+                                <rect key="frame" x="320" y="379" width="280" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="didBeginEditingChatConversationTextField:" destination="Iu8-Xi-xEI" eventType="editingDidBegin" id="3H1-MK-Q3x"/>
+                                    <action selector="didEndEditingChatConversationTextField:" destination="Iu8-Xi-xEI" eventType="editingDidEnd" id="mbW-O6-Ha3"/>
+                                    <outlet property="delegate" destination="Iu8-Xi-xEI" id="UDD-8u-dJU"/>
                                 </connections>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="YRs-Eu-mUj">
+                                <rect key="frame" x="20" y="185" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Join"/>
+                                    <segment title="Host"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B8Z-Ky-VSx">
+                                <rect key="frame" x="228" y="185" width="72" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchStartButton:" destination="Iu8-Xi-xEI" eventType="touchUpInside" id="WXi-Mz-itR"/>
+                                </connections>
+                            </button>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.70000000000000007" contentMode="scaleToFill" editable="NO" id="F3G-lY-doW">
+                                <rect key="frame" x="320" y="20" width="280" height="351"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aH6-QD-jTf">
+                                <rect key="frame" x="586" y="9" width="24" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchStopButton:" destination="Iu8-Xi-xEI" eventType="touchUpInside" id="oh3-Do-XhI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Conversation" id="ApD-bW-O8y"/>
+                    <navigationItem key="navigationItem" title="AllChatz" id="fbh-0g-mLx"/>
                     <connections>
-                        <outlet property="sessionNameTextField" destination="SRB-Z4-thy" id="g84-dn-MHG"/>
+                        <outlet property="chatConversationTextView" destination="F3G-lY-doW" id="wYr-h8-Svo"/>
+                        <outlet property="chatMessageTextField" destination="QKP-ig-qC1" id="vhv-AT-UCY"/>
+                        <outlet property="chatSessionTypeSegmentedControl" destination="YRs-Eu-mUj" id="4Qh-dI-7IC"/>
+                        <outlet property="sendButton" destination="vqI-gg-jow" id="LOM-V2-rgh"/>
+                        <outlet property="startButton" destination="B8Z-Ky-VSx" id="Mje-Ao-6Yn"/>
+                        <outlet property="stopButton" destination="aH6-QD-jTf" id="6l0-7H-T1x"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="809" y="584"/>
+            <point key="canvasLocation" x="294" y="-6"/>
         </scene>
-        <!--Conversations View Controller - Chats-->
-        <scene sceneID="8op-ej-PhQ">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lu6-Xu-uGc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="KEu-Ty-4fT" customClass="AJNCConversationsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="RfN-MY-Rcj">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sessionCell" editingAccessoryType="detailDisclosureButton" rowHeight="64" id="v4h-vi-OX0" customClass="AJNCConversationViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="63"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="VKf-wB-hN4" kind="push" identifier="displayConversationView" id="XVz-pW-Fwv"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="KEu-Ty-4fT" id="zho-H1-jnR"/>
-                            <outlet property="delegate" destination="KEu-Ty-4fT" id="l5W-0Z-hLN"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Chats" id="TgN-6f-8ZO">
-                        <barButtonItem key="rightBarButtonItem" width="35" id="0rD-e6-2d6">
-                            <view key="customView" contentMode="scaleToFill" id="6kv-AM-Lex">
-                                <rect key="frame" x="280" y="5" width="35" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="mUW-Q7-rUR">
-                                        <rect key="frame" x="3" y="3" width="29" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="395-yt-VCd" kind="push" identifier="displayNewChatSessionView" id="AJQ-kY-UmG"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="messageToastView" destination="5mS-mt-iNB" id="qhG-Wa-ufM"/>
-                    </connections>
-                </tableViewController>
-                <view contentMode="scaleToFill" id="5mS-mt-iNB">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="New message from ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="NDo-Xq-Xbn">
-                            <rect key="frame" x="20" y="11" width="280" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="message text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Lgj-rE-qmt">
-                            <rect key="frame" x="20" y="40" width="280" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-            </objects>
-            <point key="canvasLocation" x="271" y="-6"/>
-        </scene>
-        <!--Conversation View Controller - SessionName-->
+        <!--Conversation View Controller - Conversation-->
         <scene sceneID="f9E-XE-zUc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf6-5s-ED8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VKf-wB-hN4" customClass="AJNCConversationViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D9l-Ni-m6n">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" id="OHO-G6-f09">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -202,14 +186,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SessionName" id="MNE-ch-8sQ"/>
+                    <navigationItem key="navigationItem" title="Conversation" id="MNE-ch-8sQ"/>
                     <connections>
                         <outlet property="messageTextField" destination="IVa-ob-5J9" id="acC-nY-vxT"/>
                         <outlet property="tableView" destination="OHO-G6-f09" id="4Ih-1a-boh"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="809" y="-6"/>
+            <point key="canvasLocation" x="795" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FQe-SV-c2V">
@@ -220,17 +204,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="KEu-Ty-4fT" kind="relationship" relationship="rootViewController" id="NRP-3p-LWZ"/>
+                        <segue destination="Iu8-Xi-xEI" kind="relationship" relationship="rootViewController" id="6XA-ck-s7q"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="-252" y="-6"/>
+            <point key="canvasLocation" x="-167" y="-6"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
     <classes>
-        <class className="AJNCConversationViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AJNCConversationViewCell.h"/>
-        </class>
         <class className="AJNCConversationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AJNCConversationViewController.h"/>
             <relationships>
@@ -239,16 +223,20 @@
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="AJNCConversationsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AJNCConversationsViewController.h"/>
+        <class className="AJNCStartPageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AJNCStartPageViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="messageToastView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="AJNCNewChatSessionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AJNCNewChatSessionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="sessionNameTextField" candidateClass="UITextField"/>
+                <relationship kind="action" name="didBeginEditingChatConversationTextField:"/>
+                <relationship kind="action" name="didEndEditingChatConversationTextField:"/>
+                <relationship kind="action" name="didTouchSendButton:"/>
+                <relationship kind="action" name="didTouchStartButton:"/>
+                <relationship kind="action" name="didTouchStopButton:"/>
+                <relationship kind="outlet" name="chatConversationTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="chatMessageTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="chatSessionTypeSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

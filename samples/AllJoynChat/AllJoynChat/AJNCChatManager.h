@@ -23,8 +23,12 @@
 
 @property (nonatomic, strong) id<AJNCChatManagerDelegate> delegate;
 
+- (void)start;
+- (void)stop;
+
 - (BOOL)addConversationNamed:(NSString*)conversationName;
 - (void)joinConversation:(AJNCConversation*)conversation;
+- (void)leaveConversation:(AJNCConversation *)conversation;
 - (BOOL)sendMessage:(NSString*)message inConversation:(NSString*)conversationName;
 
 - (NSInteger)conversationsCount;

@@ -38,6 +38,7 @@ static AJNCChatManager *s_chatManager;
 @property (nonatomic, strong) NSMutableDictionary *nameToConversationTable;
 @property (nonatomic, strong) AJNCChatObjectSignalHandler *chatObjectSignalHandler;
 @property (nonatomic, strong) NSMutableArray *audioPlayers;
+@property BOOL isStarted;
 
 - (void)playNewMessageSound;
 
@@ -51,6 +52,7 @@ static AJNCChatManager *s_chatManager;
 @synthesize nameToConversationTable = _nameToConversationTable;
 @synthesize chatObjectSignalHandler = _chatObjectSignalHandler;
 @synthesize audioPlayers = _audioPlayers;
+@synthesize isStarted = _isStarted;
 
 - (NSMutableArray*)conversationNames
 {
@@ -76,50 +78,69 @@ static AJNCChatManager *s_chatManager;
     return _audioPlayers;
 }
 
-- (id)init
+- (void)start
 {
-    self = [super self];
-    if (self) {
-        // AllJoyn initialization code
-        //
-        
-        // allocate our bus attachment
-        //
-        self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowRemoteMessages:YES];
-        
-        // create and register our interface
-        //
-        AJNInterfaceDescription* chatInterface = [self.busAttachment createInterfaceWithName:kInterfaceName enableSecurity:NO];
-        
-        [chatInterface addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"str"]];
-        
-        [chatInterface activate];
-
-        // register signal handler
-        //
-        self.chatObjectSignalHandler = [[AJNCChatObjectSignalHandler alloc] init];
-        self.chatObjectSignalHandler.delegate = self;
-        [self.busAttachment registerSignalHandler:self.chatObjectSignalHandler];
-
-        // start the bus and begin listening for bus traffic
-        //
-        [self.busAttachment start];
-        
-        [self.busAttachment registerBusListener:self];
-        
-        [self.busAttachment connectWithArguments:@"null:"];   
-        
-        [self.busAttachment findAdvertisedName:kInterfaceName];    
-        
-        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
-                
-        QStatus status = [self.busAttachment bindSessionOnPort:kServicePort withOptions:sessionOptions withDelegate:self];
-        if (status != ER_OK) {
-            NSLog(@"ERROR: addConversationNamed: failed. %@", [AJNStatus descriptionForStatusCode:status]);
-        }
-
+    if (self.isStarted) {
+        NSLog(@"Already started");
+        return;
     }
-    return self;
+    // allocate our bus attachment
+    //
+    self.busAttachment = [[AJNBusAttachment alloc] initWithApplicationName:kAppName allowRemoteMessages:YES];
+    
+    // create and register our interface
+    //
+    AJNInterfaceDescription* chatInterface = [self.busAttachment createInterfaceWithName:kInterfaceName enableSecurity:NO];
+    
+    [chatInterface addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"str"]];
+    
+    [chatInterface activate];
+    
+    // register signal handler
+    //
+    self.chatObjectSignalHandler = [[AJNCChatObjectSignalHandler alloc] init];
+    self.chatObjectSignalHandler.delegate = self;
+    [self.busAttachment registerSignalHandler:self.chatObjectSignalHandler];
+    
+    // start the bus and begin listening for bus traffic
+    //
+    [self.busAttachment start];
+    
+    [self.busAttachment registerBusListener:self];
+    
+    [self.busAttachment connectWithArguments:@"null:"];   
+    
+    [self.busAttachment findAdvertisedName:kInterfaceName];    
+    
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    QStatus status = [self.busAttachment bindSessionOnPort:kServicePort withOptions:sessionOptions withDelegate:self];
+    if (status != ER_OK) {
+        NSLog(@"ERROR: addConversationNamed: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    
+    self.isStarted = YES;
+}
+
+- (void)stop
+{
+    if (!self.isStarted) {
+        return;
+    }
+    
+    [self.busAttachment unbindSessionFromPort:kServicePort];
+    
+    [self.busAttachment cancelFindAdvertisedName:kInterfaceName];
+    
+    [self.busAttachment disconnectWithArguments:@"null:"];
+    
+    [self.busAttachment unregisterBusListener:self];
+    
+    [self.busAttachment stop];
+    
+    self.busAttachment = nil;
+    
+    self.isStarted = NO;
 }
 
 - (BOOL)addConversationNamed:(NSString*)conversationName
@@ -150,6 +171,28 @@ static AJNCChatManager *s_chatManager;
     }
 }
 
+- (void)leaveConversation:(AJNCConversation *)conversation
+{
+    NSLog(@"Leaving conversation %@ with session named: %@", conversation.displayName, conversation.name);
+    
+    [self.busAttachment leaveSession:conversation.identifier];
+    
+    @synchronized(self.conversationNames) {
+        if ([self.conversationNames containsObject:conversation.name]) {
+            NSLog(@"Chat session for conversation %@ found. Removing from array...", conversation.name);
+            
+            [self.conversationNames removeObject:conversation.name];
+        }
+        
+        if ([self.nameToConversationTable objectForKey:conversation.name]) {
+            NSLog(@"Chat session for conversation %@ found. Removing from dictionary...", conversation.name);            
+            [self.nameToConversationTable removeObjectForKey:conversation.name];
+            [self.busAttachment unregisterBusObject:conversation.chatObject];
+        }
+    }
+    
+}
+
 - (BOOL)sendMessage:(NSString*)message inConversation:(NSString*)conversationName
 {
     return NO;
@@ -171,21 +214,28 @@ static AJNCChatManager *s_chatManager;
 
 - (void)chatMessageReceived:(NSString *)message from:(NSString *)sender onObjectPath:(NSString *)path forSession:(AJNSessionId)sessionId
 {
-    // figure out which conversation this message belongs in
-    //
-    for (AJNCConversation *conversation in self.nameToConversationTable.allValues) {
-        if (conversation.identifier == sessionId) {
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setTimeStyle:NSDateFormatterMediumStyle];
-            [formatter setDateStyle:NSDateFormatterShortStyle];            
-            
-            AJNCMessage *conversationMessage = [[AJNCMessage alloc] initWithText:message fromSender:sender atDateTime:[formatter stringFromDate:[NSDate date]]];
-            [conversation.messages addObject:conversationMessage];
-            if ([self.delegate respondsToSelector:@selector(didReceiveNewMessage:)]) {
-                [self.delegate didReceiveNewMessage:conversationMessage];
-            }
-            [self playNewMessageSound];
+    NSLog(@"Chat message [%@] from [%@] received in ChatManager session %d. Conversations count=%d", message, sender, sessionId, self.conversationsCount);
+    
+    if (self.conversationsCount) {
+        AJNCConversation *conversation = [self conversationAtIndex:0];
+        NSString *senderUIName;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterShortStyle];            
+        
+        if ([sender compare:@"Me"] != NSOrderedSame) {
+            senderUIName = [NSString stringWithFormat:@"User[%@]", sender];
         }
+        else {
+            senderUIName = sender;
+        }
+        
+        AJNCMessage *conversationMessage = [[AJNCMessage alloc] initWithText:message fromSender:senderUIName atDateTime:[formatter stringFromDate:[NSDate date]]];
+        [conversation.messages addObject:conversationMessage];
+        if ([self.delegate respondsToSelector:@selector(didReceiveNewMessage:)]) {
+            [self.delegate didReceiveNewMessage:conversationMessage];
+        }
+        [self playNewMessageSound];
     }
 }
 
@@ -198,6 +248,8 @@ static AJNCChatManager *s_chatManager;
     NSString *conversationName = [NSString stringWithFormat:@"%@", [[name componentsSeparatedByString:@"."] lastObject]];
     
     NSLog(@"Discovered chat conversation: \"%@\"\n", conversationName);
+    
+    [self.busAttachment enableConcurrentCallbacks];
     
     @synchronized(self.conversationNames) {
         if (![self.conversationNames containsObject:conversationName]) {
@@ -212,6 +264,8 @@ static AJNCChatManager *s_chatManager;
             AJNCConversation *conversation = [[AJNCConversation alloc] initWithName:name identifier:0 busObject:chatObject];
             
             [self.nameToConversationTable setObject:conversation forKey:conversationName];
+            
+            [self joinConversation:conversation];
         }
     }
     
@@ -230,7 +284,7 @@ static AJNCChatManager *s_chatManager;
     
     @synchronized(self.conversationNames) {
         if ([self.conversationNames containsObject:conversationName]) {
-            NSLog(@"Chat session for conversation %@ not found. Adding to dictionary...", conversationName);
+            NSLog(@"Chat session for conversation %@ found. Removing from dictionary...", conversationName);
             
             [self.conversationNames removeObject:conversationName];
         }
@@ -257,11 +311,19 @@ static AJNCChatManager *s_chatManager;
 - (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
     NSLog(@"AJNCChatManager::didJoin:%@ inSessionWithId:%u onSessionPort:%u", joiner, sessionId, sessionPort);    
+    
+    if (self.conversationsCount) {
+        AJNCConversation *conversation = [self conversationAtIndex:0];
+        if (conversation.identifier <= 0) {
+            conversation.identifier = sessionId;
+        }
+    }
+
 }
 
 - (BOOL)shouldAcceptSessionJoinerNamed:(NSString *)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions *)options
 {
-    NSLog(@"AJNCChatManager::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u", joiner, sessionPort);        
+    NSLog(@"AJNCChatManager::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u", joiner, sessionPort);
     return sessionPort == kServicePort;
 }
 
@@ -276,6 +338,9 @@ static AJNCChatManager *s_chatManager;
 {
     NSLog(@"AJNCChatManager::didAddMemberNamed:%@ toSession:%u", memberName, sessionId);  
     for (AJNCConversation *conversation in self.nameToConversationTable.allValues) {
+        if (conversation.identifier == 0) {
+            conversation.identifier = sessionId;
+        }
         if (conversation.identifier == sessionId) {
             conversation.totalParticipants += 1;
         }

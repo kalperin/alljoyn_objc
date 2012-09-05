@@ -32,13 +32,12 @@
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "NO"
-      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <PathRunnable
          FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/samples/chat">

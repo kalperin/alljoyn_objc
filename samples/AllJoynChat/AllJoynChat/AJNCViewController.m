@@ -51,13 +51,14 @@
     AJNInterfaceDescription* chatInterface = [self.busAttachment interfaceWithName:kInterfaceName];
     
     [chatInterface addSignalWithName:@"Chat" inputSignature:@"s" argumentNames:[NSArray arrayWithObject:@"str"]];
+    
     [chatInterface activate];
         
     [self.busAttachment start];
     
     [self.busAttachment registerBusListener:self];
     
-    [self.busAttachment connectWithArguments:@"launchd:"];   
+    [self.busAttachment connectWithArguments:@"null:"];   
 }
 
 - (void)viewDidUnload
@@ -90,7 +91,7 @@
         
     // get the type of session to create
     //
-    NSString *serviceName = [NSString stringWithFormat:@"%@%@", kServiceName, self.sessionNameTextField.text];
+    NSString *serviceName = [NSString stringWithFormat:@"%@%@", kServiceName, @"MooGooGaiPan"];
     self.chatObject = [[AJNCBusObject alloc] initWithBusAttachment:self.busAttachment onServicePath:kServicePath];
     
     self.chatObject.delegate = self;

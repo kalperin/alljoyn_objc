@@ -15,10 +15,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "AJNCAppDelegate.h"
+#import "AJNCChatReceiver.h"
+#import "AJNCChatManager.h"
+//#import "Reachability.h"
+
+@interface AJNCAppDelegate()
+
+//@property (nonatomic, strong) Reachability *localWifiReachable;
+
+@end
 
 @implementation AJNCAppDelegate
 
 @synthesize window = _window;
+//@synthesize localWifiReachable = _localWifiReachable;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,11 +46,31 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    [self.localWifiReachable stopNotifier];
+//    
+//    self.localWifiReachable = nil;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+
+    // allocate a reachability object
+//    self.localWifiReachable = [Reachability reachabilityForLocalWiFi];
+//    
+//    // set the blocks 
+//    self.localWifiReachable.unreachableBlock = ^(Reachability*reach)
+//    {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"WiFi Network Not Detected" message:@"The AllChatz app requires a connection to a WiFi network to operate. Please check your network settings." delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+//            
+//            [alertView show];
+//        });
+//    };
+//    
+//    // start the notifier which will cause the reachability object to retain itself!
+//    [self.localWifiReachable startNotifier];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

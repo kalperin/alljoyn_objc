@@ -242,6 +242,28 @@
             <point key="canvasLocation" x="182" y="63"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="BusStressViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusStressViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTouchStartButton:"/>
+                <relationship kind="action" name="didTouchStopButton:"/>
+                <relationship kind="action" name="numberOfIterationsValueChanged:"/>
+                <relationship kind="action" name="numberOfThreadsValueChanged:"/>
+                <relationship kind="outlet" name="deleteBusAttachmentsSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="iterationsCompletedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iterationsCompletedProgressView" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="numberOfIterationsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfIterationsSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="numberOfThreadsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfThreadsSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="operationModeSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="stopThreadsBeforeJoinSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

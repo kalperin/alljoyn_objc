@@ -103,9 +103,9 @@ static BOOL s_stopStressFlag;
     
     NSLog(@"Client joined session %d", self.sessionId);
     
-    [self.joinedSessionCondition lock];
+//    [self.joinedSessionCondition lock];
     [self.joinedSessionCondition signal];
-    [self.joinedSessionCondition unlock];    
+//    [self.joinedSessionCondition unlock];    
 }
 
 

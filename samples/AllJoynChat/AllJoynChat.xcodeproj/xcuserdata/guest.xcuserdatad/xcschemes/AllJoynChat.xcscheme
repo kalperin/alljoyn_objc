@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC67D657152CAFC4009DBFA9"
-               BuildableName = "AllJoynChat.app"
+               BuildableName = "AllChatz.app"
                BlueprintName = "AllJoynChat"
                ReferencedContainer = "container:AllJoynChat.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC67D657152CAFC4009DBFA9"
-            BuildableName = "AllJoynChat.app"
+            BuildableName = "AllChatz.app"
             BlueprintName = "AllJoynChat"
             ReferencedContainer = "container:AllJoynChat.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC67D657152CAFC4009DBFA9"
-            BuildableName = "AllJoynChat.app"
+            BuildableName = "AllChatz.app"
             BlueprintName = "AllJoynChat"
             ReferencedContainer = "container:AllJoynChat.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <EnvironmentVariable
             key = "ER_DEBUG_ALL"
             value = "15"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "ER_DEBUG_NS"
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC67D657152CAFC4009DBFA9"
-            BuildableName = "AllJoynChat.app"
+            BuildableName = "AllChatz.app"
             BlueprintName = "AllJoynChat"
             ReferencedContainer = "container:AllJoynChat.xcodeproj">
          </BuildableReference>
