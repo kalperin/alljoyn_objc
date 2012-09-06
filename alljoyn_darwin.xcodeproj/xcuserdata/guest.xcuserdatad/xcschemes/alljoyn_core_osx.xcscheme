@@ -31,8 +31,8 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
@@ -40,11 +40,23 @@
       debugDocumentVersioning = "NO"
       allowLocationSimulation = "YES">
       <PathRunnable
-         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/samples/chat">
+         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/Debug/dist/bin/bastress2">
       </PathRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-s &quot;Moogoogaipan&quot;"
+            argument = "-os"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-oc"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-s"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 5"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
@@ -57,7 +69,7 @@
          <EnvironmentVariable
             key = "ER_DEBUG_ALL"
             value = "15"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>

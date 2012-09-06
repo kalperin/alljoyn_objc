@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC091EF715F9264700D1140F /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF415F9264700D1140F /* BundledDaemon.o */; };
+		AC091EF815F9264700D1140F /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF515F9264700D1140F /* libajdaemon.a */; };
+		AC091EF915F9264700D1140F /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF615F9264700D1140F /* liballjoyn.a */; };
 		ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723215EEC42300525051 /* AJNBasicObject.mm */; };
 		ACC1723615EEC42300525051 /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723415EEC42300525051 /* BasicObject.m */; };
 		ACC4FBCB15EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9615EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm */; };
@@ -33,9 +36,6 @@
 		ACC4FBE015EBDF8C00B4473E /* AJNTransportMask.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FBC715EBDF8C00B4473E /* AJNTransportMask.m */; };
 		ACC4FBE115EBDF8C00B4473E /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FBCA15EBDF8C00B4473E /* AJNVersion.mm */; };
 		ACC4FBE715EBE00C00B4473E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */; };
-		ACC4FBEB15EBE02800B4473E /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBE815EBE02800B4473E /* BundledDaemon.o */; };
-		ACC4FBEC15EBE02800B4473E /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBE915EBE02800B4473E /* libajdaemon.a */; };
-		ACC4FBED15EBE02800B4473E /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBEA15EBE02800B4473E /* liballjoyn.a */; };
 		ACC4FBF015EBE04100B4473E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBEE15EBE04100B4473E /* libcrypto.a */; };
 		ACC4FBF115EBE04100B4473E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBEF15EBE04100B4473E /* libssl.a */; };
 		ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEC12D715EBD640001F105B /* UIKit.framework */; };
@@ -51,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC091EF415F9264700D1140F /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
+		AC091EF515F9264700D1140F /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
+		AC091EF615F9264700D1140F /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
 		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
 		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
@@ -112,9 +115,6 @@
 		ACC4FBC915EBDF8C00B4473E /* AJNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNVersion.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.h; sourceTree = "<group>"; };
 		ACC4FBCA15EBDF8C00B4473E /* AJNVersion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNVersion.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.mm; sourceTree = "<group>"; };
 		ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		ACC4FBE815EBE02800B4473E /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		ACC4FBE915EBE02800B4473E /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		ACC4FBEA15EBE02800B4473E /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACC4FBEE15EBE04100B4473E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
 		ACC4FBEF15EBE04100B4473E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		ACEC12D315EBD640001F105B /* Bus Stress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bus Stress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,13 +142,13 @@
 			files = (
 				ACC4FBF015EBE04100B4473E /* libcrypto.a in Frameworks */,
 				ACC4FBF115EBE04100B4473E /* libssl.a in Frameworks */,
-				ACC4FBEB15EBE02800B4473E /* BundledDaemon.o in Frameworks */,
-				ACC4FBEC15EBE02800B4473E /* libajdaemon.a in Frameworks */,
-				ACC4FBED15EBE02800B4473E /* liballjoyn.a in Frameworks */,
 				ACC4FBE715EBE00C00B4473E /* SystemConfiguration.framework in Frameworks */,
 				ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */,
 				ACEC12DA15EBD640001F105B /* Foundation.framework in Frameworks */,
 				ACEC12DC15EBD640001F105B /* CoreGraphics.framework in Frameworks */,
+				AC091EF715F9264700D1140F /* BundledDaemon.o in Frameworks */,
+				AC091EF815F9264700D1140F /* libajdaemon.a in Frameworks */,
+				AC091EF915F9264700D1140F /* liballjoyn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,11 +238,11 @@
 		ACEC12D615EBD640001F105B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC091EF415F9264700D1140F /* BundledDaemon.o */,
+				AC091EF515F9264700D1140F /* libajdaemon.a */,
+				AC091EF615F9264700D1140F /* liballjoyn.a */,
 				ACC4FBEE15EBE04100B4473E /* libcrypto.a */,
 				ACC4FBEF15EBE04100B4473E /* libssl.a */,
-				ACC4FBE815EBE02800B4473E /* BundledDaemon.o */,
-				ACC4FBE915EBE02800B4473E /* libajdaemon.a */,
-				ACC4FBEA15EBE02800B4473E /* liballjoyn.a */,
 				ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */,
 				ACEC12D715EBD640001F105B /* UIKit.framework */,
 				ACEC12D915EBD640001F105B /* Foundation.framework */,
@@ -469,14 +469,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bus Stress/Bus Stress-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "Bus Stress/Bus Stress-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
 				);
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
@@ -496,14 +497,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bus Stress/Bus Stress-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "Bus Stress/Bus Stress-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
 				);
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
