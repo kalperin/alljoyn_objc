@@ -41,6 +41,20 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = alljoyn_core_ios;
 		};
+		AC9C2C6E15FA9B4C00C60607 /* alljoyn_c */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-u OS=darwin BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
+			buildConfigurationList = AC9C2C7115FA9B4C00C60607 /* Build configuration list for PBXLegacyTarget "alljoyn_c" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/scons;
+			buildWorkingDirectory = ../alljoyn_c;
+			dependencies = (
+			);
+			name = alljoyn_c;
+			passBuildSettingsInEnvironment = 1;
+			productName = alljoyn_c;
+		};
 		ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
@@ -106,6 +120,7 @@
 				AC0DC84C151A46F0000E302F /* alljoyn_core_ios */,
 				ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */,
 				ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */,
+				AC9C2C6E15FA9B4C00C60607 /* alljoyn_c */,
 			);
 		};
 /* End PBXProject section */
@@ -135,6 +150,31 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VARIANT = "'release'";
+			};
+			name = Release;
+		};
+		AC9C2C6F15FA9B4C00C60607 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AC9C2C7015FA9B4C00C60607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -269,6 +309,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		AC9C2C7115FA9B4C00C60607 /* Build configuration list for PBXLegacyTarget "alljoyn_c" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9C2C6F15FA9B4C00C60607 /* Debug */,
+				AC9C2C7015FA9B4C00C60607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */ = {
 			isa = XCConfigurationList;

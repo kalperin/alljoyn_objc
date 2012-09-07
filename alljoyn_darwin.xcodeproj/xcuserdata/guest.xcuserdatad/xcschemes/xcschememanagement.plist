@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>alljoyn_c.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>alljoyn_core_ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>1</integer>
 		</dict>
 		<key>alljoyn_core_osx.xcscheme</key>
 		<dict>
@@ -17,27 +22,27 @@
 		<key>alljoyn_streaming_ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>3</integer>
 		</dict>
 		<key>alljoyn_streaming_osx.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>2</integer>
 		</dict>
 		<key>bastress.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>7</integer>
 		</dict>
 		<key>bbclient.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>5</integer>
 		</dict>
 		<key>bbservice.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -68,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>AC9C2154150E7824005B83A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC9C2C6E15FA9B4C00C60607</key>
 		<dict>
 			<key>primary</key>
 			<true/>
