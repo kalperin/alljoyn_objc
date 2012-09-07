@@ -38,6 +38,7 @@ static BOOL s_stopStressFlag;
 @property (nonatomic) AJNSessionId sessionId;
 @property (nonatomic, strong) NSString *foundServiceName;
 @property (nonatomic, strong) BasicObjectProxy *basicObjectProxy;
+@property BOOL wasNameAlreadyFound;
 
 @end
 
@@ -53,6 +54,7 @@ static BOOL s_stopStressFlag;
 @synthesize sessionId = _sessionId;
 @synthesize foundServiceName = _foundServiceName;
 @synthesize basicObjectProxy = _basicObjectProxy;
+@synthesize wasNameAlreadyFound = _wasNameAlreadyFound;
 
 - (void)main
 {
@@ -96,16 +98,28 @@ static BOOL s_stopStressFlag;
 {
     NSLog(@"AJNBusListener::didFindAdvertisedName:%@ withTransportMask:%u namePrefix:%@", name, transport, namePrefix);
     
-    [self.bus enableConcurrentCallbacks];
-    
-    self.sessionId = [self.bus joinSessionWithName:name onPort:999 withDelegate:self options:[[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny]];
-    self.foundServiceName = name;
-    
-    NSLog(@"Client joined session %d", self.sessionId);
-    
-//    [self.joinedSessionCondition lock];
-    [self.joinedSessionCondition signal];
-//    [self.joinedSessionCondition unlock];    
+    if ([namePrefix compare:@"org.alljoyn.bus.sample.strings"] == NSOrderedSame) {
+        
+        BOOL shouldReturn;
+        @synchronized(self) {
+            shouldReturn = self.wasNameAlreadyFound;
+            self.wasNameAlreadyFound = true;
+        }
+        
+        if (shouldReturn) {
+            NSLog(@"Already found an advertised name, ignoring this name %@...", name);
+            return;
+        }
+        
+        [self.bus enableConcurrentCallbacks];
+        
+        self.sessionId = [self.bus joinSessionWithName:name onPort:999 withDelegate:self options:[[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny]];
+        self.foundServiceName = name;
+        
+        NSLog(@"Client joined session %d", self.sessionId);
+        
+        [self.joinedSessionCondition signal];
+    }
 }
 
 
