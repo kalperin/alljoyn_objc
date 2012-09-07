@@ -40,7 +40,7 @@
                                                     </connections>
                                                 </button>
                                                 <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" id="ucJ-Il-Dhj">
-                                                    <rect key="frame" x="100" y="62" width="558" height="11"/>
+                                                    <rect key="frame" x="128" y="62" width="530" height="11"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="EOI-Sx-soj">
@@ -72,6 +72,10 @@
                                                         <action selector="didTouchStopButton:" destination="tS2-xt-F2k" eventType="touchUpInside" id="P4L-fy-wds"/>
                                                     </connections>
                                                 </button>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="GR7-K8-0rG">
+                                                    <rect key="frame" x="100" y="57" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -236,6 +240,7 @@
                         <outlet property="startButton" destination="b26-59-ewF" id="VpW-Ke-xVA"/>
                         <outlet property="stopButton" destination="9TJ-1S-Za5" id="oS5-3U-aii"/>
                         <outlet property="stopThreadsBeforeJoinSwitch" destination="c8v-7l-b1X" id="yCi-yX-Djo"/>
+                        <outlet property="stressTestActivityIndicatorView" destination="GR7-K8-0rG" id="cEe-ZS-osS"/>
                     </connections>
                 </tableViewController>
             </objects>

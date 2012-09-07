@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *numberOfThreadsSlider;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *operationModeSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *stressTestActivityIndicatorView;
 
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)didTouchStopButton:(id)sender;
