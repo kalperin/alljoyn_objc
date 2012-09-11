@@ -29,7 +29,7 @@ protected:
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
-    id<AJNAuthenticationListener> m_delegate;
+    __weak id<AJNAuthenticationListener> m_delegate;
     
 public:
     

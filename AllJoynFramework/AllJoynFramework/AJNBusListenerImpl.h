@@ -25,13 +25,13 @@
 class AJNBusListenerImpl : public ajn::BusListener
 {
 protected:
-    AJNBusAttachment *busAttachment;
+    __weak AJNBusAttachment *busAttachment;
 
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
-    id<AJNBusListener> m_delegate;
+    __weak id<AJNBusListener> m_delegate;
 
 public:
 

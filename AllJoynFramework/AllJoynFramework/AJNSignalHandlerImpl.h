@@ -30,7 +30,7 @@ protected:
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
-    id<AJNSignalHandler> m_delegate;
+    __weak id<AJNSignalHandler> m_delegate;
 
 public:
     

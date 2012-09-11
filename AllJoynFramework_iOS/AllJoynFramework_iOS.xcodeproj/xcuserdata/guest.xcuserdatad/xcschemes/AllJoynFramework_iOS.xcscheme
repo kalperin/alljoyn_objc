@@ -19,6 +19,20 @@
                ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AC1030B7156EC82300D2853A"
+               BuildableName = "AllJoynFramework_iOSTests.octest"
+               BlueprintName = "AllJoynFramework_iOSTests"
+               ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

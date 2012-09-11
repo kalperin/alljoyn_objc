@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC091EF715F9264700D1140F /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF415F9264700D1140F /* BundledDaemon.o */; };
-		AC091EF815F9264700D1140F /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF515F9264700D1140F /* libajdaemon.a */; };
-		AC091EF915F9264700D1140F /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC091EF615F9264700D1140F /* liballjoyn.a */; };
+		AC72F1D115FEAC1000E7A7C5 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */; };
+		AC72F1D215FEAC1000E7A7C5 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */; };
+		AC72F1D315FEAC1000E7A7C5 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */; };
 		ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723215EEC42300525051 /* AJNBasicObject.mm */; };
 		ACC1723615EEC42300525051 /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723415EEC42300525051 /* BasicObject.m */; };
 		ACC4FBCB15EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9615EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm */; };
@@ -51,10 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC091EF415F9264700D1140F /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		AC091EF515F9264700D1140F /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		AC091EF615F9264700D1140F /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
+		AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
+		AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
+		AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
 		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
 		ACC1723315EEC42300525051 /* BasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicObject.h; sourceTree = "<group>"; };
@@ -146,9 +146,9 @@
 				ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */,
 				ACEC12DA15EBD640001F105B /* Foundation.framework in Frameworks */,
 				ACEC12DC15EBD640001F105B /* CoreGraphics.framework in Frameworks */,
-				AC091EF715F9264700D1140F /* BundledDaemon.o in Frameworks */,
-				AC091EF815F9264700D1140F /* libajdaemon.a in Frameworks */,
-				AC091EF915F9264700D1140F /* liballjoyn.a in Frameworks */,
+				AC72F1D115FEAC1000E7A7C5 /* BundledDaemon.o in Frameworks */,
+				AC72F1D215FEAC1000E7A7C5 /* libajdaemon.a in Frameworks */,
+				AC72F1D315FEAC1000E7A7C5 /* liballjoyn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,9 +238,9 @@
 		ACEC12D615EBD640001F105B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC091EF415F9264700D1140F /* BundledDaemon.o */,
-				AC091EF515F9264700D1140F /* libajdaemon.a */,
-				AC091EF615F9264700D1140F /* liballjoyn.a */,
+				AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */,
+				AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */,
+				AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */,
 				ACC4FBEE15EBE04100B4473E /* libcrypto.a */,
 				ACC4FBEF15EBE04100B4473E /* libssl.a */,
 				ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */,

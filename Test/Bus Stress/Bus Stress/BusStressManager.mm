@@ -94,6 +94,7 @@ static BOOL s_stopStressFlag;
         [self.bus leaveSession:self.sessionId];
     }
 
+//    [self.bus destroyBusListener:self];
     
     [self.joinedSessionCondition unlock];
     
@@ -170,7 +171,9 @@ static BOOL s_stopStressFlag;
     
     [self.bus unregisterBusObject:self.busObject];
     
-    [self.lostSessionCondition unlock];    
+    [self.lostSessionCondition unlock];
+    
+//    [self.bus destroyBusListener:self];
     
     [self tearDown];
 }

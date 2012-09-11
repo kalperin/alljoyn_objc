@@ -454,7 +454,7 @@ public:
         for (NSValue *ptrValue in self.busListeners) {
             AJNBusListenerImpl * busListenerImpl = (AJNBusListenerImpl*)[ptrValue pointerValue];
             if (busListenerImpl->getDelegate() == delegate) {
-                self.busAttachment->UnregisterBusListener(*busListenerImpl);                
+                self.busAttachment->UnregisterBusListener(*busListenerImpl);
                 break;
             }
         }

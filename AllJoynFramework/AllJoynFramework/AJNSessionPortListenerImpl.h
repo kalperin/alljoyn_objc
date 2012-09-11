@@ -24,13 +24,13 @@ class AJNSessionPortListenerImpl : public ajn::SessionPortListener
 {
 protected:
     static const char *AJN_SESSION_PORT_LISTENER_DISPATCH_QUEUE_NAME;
-    AJNBusAttachment *busAttachment;
+    __weak AJNBusAttachment *busAttachment;
     
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
-    id<AJNSessionPortListener> m_delegate;
+    __weak id<AJNSessionPortListener> m_delegate;
     
 public:
 
