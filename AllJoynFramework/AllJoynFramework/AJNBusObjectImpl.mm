@@ -40,5 +40,7 @@ QStatus AJNBusObjectImpl::UnregisterSignalHandlers(ajn::BusAttachment &bus)
 
 void AJNBusObjectImpl::ObjectRegistered()
 {
-    [delegate objectWasRegistered];
+    @autoreleasepool {
+        [delegate objectWasRegistered];
+    }
 }

@@ -35,7 +35,7 @@ using namespace ajn;
 class AJNProxyBusObjectAsyncCallbackImpl : public ProxyBusObject::Listener, public MessageReceiver
 {
 private:
-    id<AJNProxyBusObjectDelegate> m_delegate;
+    __weak id<AJNProxyBusObjectDelegate> m_delegate;
 public:
     /** Constructors */
     AJNProxyBusObjectAsyncCallbackImpl(id<AJNProxyBusObjectDelegate> delegate) : m_delegate(delegate) { }

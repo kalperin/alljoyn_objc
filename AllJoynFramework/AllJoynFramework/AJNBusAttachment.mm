@@ -50,7 +50,7 @@ class AJNSetLinkTimeoutAsyncCallbackImpl : public ajn::BusAttachment::SetLinkTim
 private:
     /** The objective-c delegate to communicate with whenever JoinSessionCB is called.
      */
-    id<AJNLinkTimeoutDelegate> m_delegate;
+    __weak id<AJNLinkTimeoutDelegate> m_delegate;
     
     /** The objective-c block to call when JoinSessionCB is called.
      */
@@ -108,7 +108,7 @@ class AJNJoinSessionAsyncCallbackImpl : public ajn::BusAttachment::JoinSessionAs
 private:
     /** The objective-c delegate to communicate with whenever JoinSessionCB is called.
      */
-    id<AJNSessionDelegate> m_delegate;
+    __weak id<AJNSessionDelegate> m_delegate;
     
     /** The objective-c block to call when JoinSessionCB is called.
      */

@@ -36,7 +36,7 @@ using namespace ajn;
 /**
  * The bus attachment this object is associated with.
  */
-@property (nonatomic, strong) AJNBusAttachment *bus;
+@property (nonatomic, weak) AJNBusAttachment *bus;
 
 @end
 

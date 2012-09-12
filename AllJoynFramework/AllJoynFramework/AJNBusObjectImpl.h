@@ -23,7 +23,7 @@
 class AJNBusObjectImpl : public ajn::BusObject
 {
 protected:
-    id<AJNBusObject> delegate;
+    __weak id<AJNBusObject> delegate;
     
 public:
     AJNBusObjectImpl(ajn::BusAttachment &bus, const char *path, id<AJNBusObject> aDelegate);
