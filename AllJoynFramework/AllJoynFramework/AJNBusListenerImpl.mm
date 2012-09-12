@@ -123,8 +123,9 @@ void AJNBusListenerImpl::LostAdvertisedName(const char* name, ajn::TransportMask
  */
 void AJNBusListenerImpl::NameOwnerChanged(const char* busName, const char* previousOwner, const char* newOwner)
 {
-    if ([m_delegate respondsToSelector:@selector(nameOwnerChanged:to:from:)]) {    
-        @autoreleasepool {
+    @autoreleasepool {    
+        if ([m_delegate respondsToSelector:@selector(nameOwnerChanged:to:from:)]) {
+
             NSString *aBusName;
             NSString *aPreviousOwner;
             NSString *aNewOwner;    

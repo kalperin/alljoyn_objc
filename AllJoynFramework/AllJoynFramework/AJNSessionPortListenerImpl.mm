@@ -56,8 +56,8 @@ bool AJNSessionPortListenerImpl::AcceptSessionJoiner(SessionPort sessionPort, co
 {
     NSLog(@"AJNSessionPortListenerImpl::AcceptSessionJoiner(port:%u, joiner:%s)", sessionPort, joiner);
     bool result = false;
-    NSString *aJoiner = [NSString stringWithCString:joiner encoding:NSUTF8StringEncoding];
     @autoreleasepool {
+        NSString *aJoiner = [NSString stringWithCString:joiner encoding:NSUTF8StringEncoding];
         AJNSessionOptions *options = [[AJNSessionOptions alloc] initWithHandle:(AJNHandle)&opts];
         result = [m_delegate shouldAcceptSessionJoinerNamed:aJoiner onSessionPort:sessionPort withSessionOptions:options] == YES;
     }
@@ -77,8 +77,8 @@ bool AJNSessionPortListenerImpl::AcceptSessionJoiner(SessionPort sessionPort, co
 void AJNSessionPortListenerImpl::SessionJoined(SessionPort sessionPort, SessionId sessionId, const char* joiner)
 {
     NSLog(@"AJNSessionPortListenerImpl::SessionJoined(port:%u, sessionId:%u, joiner:%s)", sessionPort, sessionId, joiner);
-    if ([m_delegate respondsToSelector:@selector(didJoin:inSessionWithId:onSessionPort:)]) {    
-        @autoreleasepool {
+    @autoreleasepool {    
+        if ([m_delegate respondsToSelector:@selector(didJoin:inSessionWithId:onSessionPort:)]) {
             NSString *aJoiner = [NSString stringWithCString:joiner encoding:NSUTF8StringEncoding];
             __block id<AJNSessionPortListener> theDelegate = m_delegate;                                
             dispatch_queue_t queue = dispatch_get_main_queue();

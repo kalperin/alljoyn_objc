@@ -46,8 +46,8 @@ AJNSessionListenerImpl::~AJNSessionListenerImpl()
  */
 void AJNSessionListenerImpl::SessionLost(SessionId sessionId)
 {
-    if ([m_delegate respondsToSelector:@selector(sessionWasLost:)]) {        
-        @autoreleasepool {
+    @autoreleasepool {
+        if ([m_delegate respondsToSelector:@selector(sessionWasLost:)]) {
             __block id<AJNSessionListener> theDelegate = m_delegate;            
             dispatch_queue_t queue = dispatch_get_main_queue();
             dispatch_async(queue, ^{
@@ -65,8 +65,8 @@ void AJNSessionListenerImpl::SessionLost(SessionId sessionId)
  */
 void AJNSessionListenerImpl::SessionMemberAdded(SessionId sessionId, const char* uniqueName)
 {
-    if ([m_delegate respondsToSelector:@selector(didAddMemberNamed:toSession:)]) {    
-        @autoreleasepool {
+    @autoreleasepool {
+        if ([m_delegate respondsToSelector:@selector(didAddMemberNamed:toSession:)]) {
             NSString *aUniqueName = [NSString stringWithCString:uniqueName encoding:NSUTF8StringEncoding];
             __block id<AJNSessionListener> theDelegate = m_delegate;                        
             dispatch_queue_t queue = dispatch_get_main_queue();
@@ -85,8 +85,8 @@ void AJNSessionListenerImpl::SessionMemberAdded(SessionId sessionId, const char*
  */
 void AJNSessionListenerImpl::SessionMemberRemoved(SessionId sessionId, const char* uniqueName)
 {
-    if ([m_delegate respondsToSelector:@selector(didRemoveMemberNamed:fromSession:)]) {    
-        @autoreleasepool {
+    @autoreleasepool {    
+        if ([m_delegate respondsToSelector:@selector(didRemoveMemberNamed:fromSession:)]) {
             NSString *aUniqueName = [NSString stringWithCString:uniqueName encoding:NSUTF8StringEncoding];            
             __block id<AJNSessionListener> theDelegate = m_delegate;                        
             dispatch_queue_t queue = dispatch_get_main_queue();

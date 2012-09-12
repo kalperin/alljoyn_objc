@@ -332,6 +332,7 @@ public:
  */
 - (void)dealloc
 {
+    NSLog(@"Deallocating bus attachment...");
     @synchronized(self.busListeners) {
         for (NSValue *ptrValue in self.busListeners) {
             AJNBusListenerImpl * busListenerImpl = (AJNBusListenerImpl*)[ptrValue pointerValue];
