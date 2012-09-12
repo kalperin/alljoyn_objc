@@ -94,8 +94,6 @@ static BOOL s_stopStressFlag;
         [self.bus leaveSession:self.sessionId];
     }
 
-//    [self.bus destroyBusListener:self];
-    
     [self.joinedSessionCondition unlock];
     
     [self tearDown];
@@ -172,8 +170,6 @@ static BOOL s_stopStressFlag;
     [self.bus unregisterBusObject:self.busObject];
     
     [self.lostSessionCondition unlock];
-    
-//    [self.bus destroyBusListener:self];
     
     [self tearDown];
 }
@@ -284,7 +280,6 @@ static BOOL s_stopStressFlag;
     self.busObject = nil;
     
     if (self.shouldDeleteBusAttachment) {
-        [self.bus destroy];
         self.bus = nil;
     }    
 }
@@ -338,6 +333,7 @@ static BOOL s_stopStressFlag;
 {
     dispatch_queue_t queue = dispatch_queue_create("bastress", NULL);
     dispatch_async(queue, ^{
+
         [delegate didCompleteIteration:0 totalIterations:iterations];
         for (NSInteger i = 0; i < iterations; i++) {
             
@@ -375,6 +371,8 @@ static BOOL s_stopStressFlag;
             }
             
             [queue waitUntilAllOperationsAreFinished];
+            
+            queue = nil;
             
             NSLog(@"Threads completed for iteration %d", i);
             
