@@ -25,6 +25,16 @@ const AJNProximity kAJNProximityAny      = 0xFF;
 const AJNProximity kAJNProximityPhysical = 0x01;
 const AJNProximity kAJNProximityNetwork  = 0x02;
 
+@interface AJNObject(Private)
+
+/**
+ * Flag indicating whether or not the object pointed to by handle should be deleted when an instance of this class is deallocated.
+ */
+@property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
+
+@end
+
+
 @implementation AJNSessionOptions
 
 /**
@@ -81,6 +91,7 @@ const AJNProximity kAJNProximityNetwork  = 0x02;
     if (self) {
         ajn::SessionOpts *options = new ajn::SessionOpts((ajn::SessionOpts::TrafficType)traffic, isMultipoint == YES, proximity, transports);
         self.handle = options;
+        self.shouldDeleteHandleOnDealloc = YES;
     }
     return self;
 }
@@ -91,8 +102,17 @@ const AJNProximity kAJNProximityNetwork  = 0x02;
     if (self) {
         ajn::SessionOpts *options = new ajn::SessionOpts();
         self.handle = options;
+        self.shouldDeleteHandleOnDealloc = YES;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    if (self.shouldDeleteHandleOnDealloc) {
+        delete self.sessionOpts;
+        self.handle = nil;
+    }
 }
 
 - (BOOL)isCompatibleWithSessionOptions:(AJNSessionOptions*)sessionOptions
