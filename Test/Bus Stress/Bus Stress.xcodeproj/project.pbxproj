@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC72F1D115FEAC1000E7A7C5 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */; };
-		AC72F1D215FEAC1000E7A7C5 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */; };
-		AC72F1D315FEAC1000E7A7C5 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */; };
+		AC5E0AEA1602A17A0052216E /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */; };
+		AC5E0AEB1602A17A0052216E /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */; };
+		AC5E0AEC1602A17A0052216E /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */; };
+		AC5E0AF71602AE7B0052216E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5E0AF51602AE7B0052216E /* libcrypto.a */; };
+		AC5E0AF81602AE7B0052216E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5E0AF61602AE7B0052216E /* libssl.a */; };
+		AC898AB41602497F001F19EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC898AB31602497F001F19EA /* Default-568h@2x.png */; };
 		ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723215EEC42300525051 /* AJNBasicObject.mm */; };
 		ACC1723615EEC42300525051 /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723415EEC42300525051 /* BasicObject.m */; };
 		ACC4FBCB15EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FB9615EBDF8C00B4473E /* AJNAuthenticationListenerImpl.mm */; };
@@ -36,8 +39,6 @@
 		ACC4FBE015EBDF8C00B4473E /* AJNTransportMask.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FBC715EBDF8C00B4473E /* AJNTransportMask.m */; };
 		ACC4FBE115EBDF8C00B4473E /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC4FBCA15EBDF8C00B4473E /* AJNVersion.mm */; };
 		ACC4FBE715EBE00C00B4473E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */; };
-		ACC4FBF015EBE04100B4473E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBEE15EBE04100B4473E /* libcrypto.a */; };
-		ACC4FBF115EBE04100B4473E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC4FBEF15EBE04100B4473E /* libssl.a */; };
 		ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEC12D715EBD640001F105B /* UIKit.framework */; };
 		ACEC12DA15EBD640001F105B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEC12D915EBD640001F105B /* Foundation.framework */; };
 		ACEC12DC15EBD640001F105B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEC12DB15EBD640001F105B /* CoreGraphics.framework */; };
@@ -52,9 +53,12 @@
 
 /* Begin PBXFileReference section */
 		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
+		AC5E0AF51602AE7B0052216E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
+		AC5E0AF61602AE7B0052216E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
 		AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
 		AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
+		AC898AB31602497F001F19EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
 		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
 		ACC1723315EEC42300525051 /* BasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicObject.h; sourceTree = "<group>"; };
@@ -115,8 +119,6 @@
 		ACC4FBC915EBDF8C00B4473E /* AJNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNVersion.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.h; sourceTree = "<group>"; };
 		ACC4FBCA15EBDF8C00B4473E /* AJNVersion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNVersion.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.mm; sourceTree = "<group>"; };
 		ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		ACC4FBEE15EBE04100B4473E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
-		ACC4FBEF15EBE04100B4473E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		ACEC12D315EBD640001F105B /* Bus Stress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bus Stress.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEC12D715EBD640001F105B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACEC12D915EBD640001F105B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,15 +142,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC4FBF015EBE04100B4473E /* libcrypto.a in Frameworks */,
-				ACC4FBF115EBE04100B4473E /* libssl.a in Frameworks */,
+				AC5E0AF71602AE7B0052216E /* libcrypto.a in Frameworks */,
+				AC5E0AF81602AE7B0052216E /* libssl.a in Frameworks */,
+				AC5E0AEA1602A17A0052216E /* BundledDaemon.o in Frameworks */,
+				AC5E0AEB1602A17A0052216E /* libajdaemon.a in Frameworks */,
+				AC5E0AEC1602A17A0052216E /* liballjoyn.a in Frameworks */,
 				ACC4FBE715EBE00C00B4473E /* SystemConfiguration.framework in Frameworks */,
 				ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */,
 				ACEC12DA15EBD640001F105B /* Foundation.framework in Frameworks */,
 				ACEC12DC15EBD640001F105B /* CoreGraphics.framework in Frameworks */,
-				AC72F1D115FEAC1000E7A7C5 /* BundledDaemon.o in Frameworks */,
-				AC72F1D215FEAC1000E7A7C5 /* libajdaemon.a in Frameworks */,
-				AC72F1D315FEAC1000E7A7C5 /* liballjoyn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +222,9 @@
 		ACEC12C815EBD640001F105B = {
 			isa = PBXGroup;
 			children = (
+				AC5E0AF51602AE7B0052216E /* libcrypto.a */,
+				AC5E0AF61602AE7B0052216E /* libssl.a */,
+				AC898AB31602497F001F19EA /* Default-568h@2x.png */,
 				AC32FC5D15ED6CA200E6F431 /* alljoyn_core */,
 				ACEC12DD15EBD640001F105B /* Bus Stress */,
 				ACEC12D615EBD640001F105B /* Frameworks */,
@@ -241,8 +246,6 @@
 				AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */,
 				AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */,
 				AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */,
-				ACC4FBEE15EBE04100B4473E /* libcrypto.a */,
-				ACC4FBEF15EBE04100B4473E /* libssl.a */,
 				ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */,
 				ACEC12D715EBD640001F105B /* UIKit.framework */,
 				ACEC12D915EBD640001F105B /* Foundation.framework */,
@@ -337,6 +340,7 @@
 				ACEC12E215EBD640001F105B /* InfoPlist.strings in Resources */,
 				ACEC12EB15EBD640001F105B /* MainStoryboard_iPhone.storyboard in Resources */,
 				ACEC12EE15EBD640001F105B /* MainStoryboard_iPad.storyboard in Resources */,
+				AC898AB41602497F001F19EA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -431,7 +438,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,7 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -452,7 +462,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,7 +488,9 @@
 					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
 					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
@@ -506,7 +518,9 @@
 					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
 					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DQCC_OS_GROUP_POSIX",

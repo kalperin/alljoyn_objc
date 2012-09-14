@@ -380,7 +380,6 @@ static BOOL s_stopStressFlag;
         }
 
     });
-    dispatch_release(queue);
 }
 
 + (void)stopStress
