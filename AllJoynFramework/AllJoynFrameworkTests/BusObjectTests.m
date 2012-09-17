@@ -199,7 +199,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
     
     proxy = nil;
     
-    [client.bus unregisterBusListener:self];    
+    [client.bus unregisterBusListener:client];
     [self.bus unregisterBusListener:self];
     STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
     
@@ -285,7 +285,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
     
     proxy = nil;
     
-    [client.bus unregisterBusListener:self];    
+    [client.bus unregisterBusListener:client];
     [self.bus unregisterBusListener:self];
     STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
     
@@ -357,7 +357,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
     STAssertTrue([client waitForBusToStop:kBusObjectTestsWaitTimeBeforeFailure], @"The client bus listener should have been notified that the bus is stopping.");    
     STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_busDidDisconnectCompleted], @"The bus listener should have been notified that the bus was disconnected.");
     
-    [client.bus unregisterBusListener:self];    
+    [client.bus unregisterBusListener:client];
     [self.bus unregisterBusListener:self];
     STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
     

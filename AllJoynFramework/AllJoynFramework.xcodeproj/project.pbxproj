@@ -108,9 +108,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC103096156EC5AB00D2853A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		AC103098156EC5C700D2853A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		AC10309B156EC63000D2853A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AC3A983D1576DE4100CFF856 /* AJNKeyStoreListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJNKeyStoreListener.h; sourceTree = "<group>"; };
 		AC3A98421577CF9600CFF856 /* AJNKeyStoreListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNKeyStoreListenerImpl.h; sourceTree = "<group>"; };
 		AC3A98431577CF9600CFF856 /* AJNKeyStoreListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNKeyStoreListenerImpl.mm; sourceTree = "<group>"; };
@@ -139,15 +136,8 @@
 		AC77FEA1154B0D9600D39DFE /* InterfaceDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceDescriptionTests.m; sourceTree = "<group>"; };
 		AC77FEBB154B285200D39DFE /* AJNType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNType.h; sourceTree = "<group>"; };
 		AC799DEE1558554900BBDDBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AC799DFD1558554900BBDDBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AC9FD2C815E44939003BAE7C /* libcrypto.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.8.dylib; path = usr/lib/libcrypto.0.9.8.dylib; sourceTree = SDKROOT; };
 		AC9FD2CA15E4494B003BAE7C /* libssl.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.0.9.8.dylib; path = usr/lib/libssl.0.9.8.dylib; sourceTree = SDKROOT; };
-		ACAD1755156C3F280065497D /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		ACAD1756156C3F280065497D /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		ACAD1757156C3F280065497D /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/arm/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
-		ACAD175B156C3F820065497D /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libstdc++.dylib"; sourceTree = DEVELOPER_DIR; };
-		ACAD1761156C3FDB0065497D /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libpthread.dylib; sourceTree = DEVELOPER_DIR; };
-		ACAD1763156C406A0065497D /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libobjc.dylib; sourceTree = DEVELOPER_DIR; };
 		ACB44E5215485F3E00FF7DBC /* libAllJoynFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAllJoynFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB44E5515485F3E00FF7DBC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ACB44E5815485F3E00FF7DBC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -242,9 +232,6 @@
 		ACB44E4715485F3E00FF7DBC = {
 			isa = PBXGroup;
 			children = (
-				AC10309B156EC63000D2853A /* Foundation.framework */,
-				AC103098156EC5C700D2853A /* CoreFoundation.framework */,
-				AC103096156EC5AB00D2853A /* UIKit.framework */,
 				ACFCF7771566A41900BC922D /* SConscript */,
 				ACB44E5B15485F3E00FF7DBC /* AllJoynFramework */,
 				ACB44E6D15485F3E00FF7DBC /* AllJoynFrameworkTests */,
@@ -267,12 +254,6 @@
 			children = (
 				AC9FD2CA15E4494B003BAE7C /* libssl.0.9.8.dylib */,
 				AC9FD2C815E44939003BAE7C /* libcrypto.0.9.8.dylib */,
-				ACAD1763156C406A0065497D /* libobjc.dylib */,
-				ACAD1761156C3FDB0065497D /* libpthread.dylib */,
-				ACAD175B156C3F820065497D /* libstdc++.dylib */,
-				ACAD1755156C3F280065497D /* BundledDaemon.o */,
-				ACAD1756156C3F280065497D /* libajdaemon.a */,
-				ACAD1757156C3F280065497D /* liballjoyn.a */,
 				AC5C55EB1548BED400C13A0B /* libobjc.dylib */,
 				AC5C55E71548B75B00C13A0B /* libpthread.dylib */,
 				AC5C55E01548B65800C13A0B /* libstdc++.dylib */,
@@ -282,7 +263,6 @@
 				ACB44E5515485F3E00FF7DBC /* Cocoa.framework */,
 				ACB44E6715485F3E00FF7DBC /* SenTestingKit.framework */,
 				AC799DEE1558554900BBDDBC /* Foundation.framework */,
-				AC799DFD1558554900BBDDBC /* UIKit.framework */,
 				ACB44E5715485F3E00FF7DBC /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -700,6 +680,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -725,6 +706,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;
+				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

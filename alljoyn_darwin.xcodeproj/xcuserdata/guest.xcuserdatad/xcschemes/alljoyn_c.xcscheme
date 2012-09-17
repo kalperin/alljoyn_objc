@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ACB4AFB6150E631F0054D964"
-               BuildableName = "alljoyn_core_osx"
-               BlueprintName = "alljoyn_core_osx"
+               BlueprintIdentifier = "AC9C2C6E15FA9B4C00C60607"
+               BuildableName = "alljoyn_c"
+               BlueprintName = "alljoyn_c"
                ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -37,49 +37,9 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
-      debugDocumentVersioning = "NO"
+      debugDocumentVersioning = "YES"
+      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bbservice">
-      </PathRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-os"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-oc"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-s"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-n com.boobaroo"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-l"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-t 2"
-            isEnabled = "NO">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "ER_DEBUG_NS"
-            value = "15"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "ER_DEBUG_ALL"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

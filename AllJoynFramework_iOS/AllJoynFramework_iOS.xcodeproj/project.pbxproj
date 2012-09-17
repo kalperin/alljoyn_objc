@@ -78,8 +78,6 @@
 		AC103162156ED19100D2853A /* BusAttachmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC10315F156ED19100D2853A /* BusAttachmentTests.m */; };
 		AC103163156ED19100D2853A /* InterfaceDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC103161156ED19100D2853A /* InterfaceDescriptionTests.m */; };
 		AC135D32159B851700970833 /* libAllJoynFramework_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1030A8156EC82300D2853A /* libAllJoynFramework_iOS.a */; };
-		AC135D3B159B854900970833 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC135D39159B854900970833 /* libcrypto.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		AC135D3C159B854900970833 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC135D3A159B854900970833 /* libssl.a */; };
 		AC339C9F157FBF8700AF660C /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC339C9A157FBF8700AF660C /* AJNBasicObject.mm */; };
 		AC339CA0157FBF8700AF660C /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339C9C157FBF8700AF660C /* BasicObject.m */; };
 		AC339CA1157FBF8700AF660C /* BusObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339C9E157FBF8700AF660C /* BusObjectTests.m */; };
@@ -92,9 +90,6 @@
 		AC3A98611578079200CFF856 /* AJNSecurityCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = AC3A98591578079200CFF856 /* AJNSecurityCredentials.h */; };
 		AC3A98621578079200CFF856 /* AJNSecurityCredentials.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC3A985A1578079200CFF856 /* AJNSecurityCredentials.mm */; };
 		AC60949D15A24A1C0006B735 /* TestAuthenticationListener.m in Sources */ = {isa = PBXBuildFile; fileRef = AC60949C15A24A1C0006B735 /* TestAuthenticationListener.m */; };
-		AC93521715FEB12B007325E0 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC93521415FEB12B007325E0 /* BundledDaemon.o */; };
-		AC93521815FEB12B007325E0 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC93521515FEB12B007325E0 /* libajdaemon.a */; };
-		AC93521915FEB12B007325E0 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC93521615FEB12B007325E0 /* liballjoyn.a */; };
 		ACD7FEBD15E406270021F8A1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD7FEBC15E406270021F8A1 /* SystemConfiguration.framework */; };
 		ACEB7DDB15CB00AF00B1D72E /* AJNMessageHeaderFields.h in Headers */ = {isa = PBXBuildFile; fileRef = ACEB7DD915CB00AF00B1D72E /* AJNMessageHeaderFields.h */; };
 		ACEB7DDC15CB00AF00B1D72E /* AJNMessageHeaderFields.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEB7DDA15CB00AF00B1D72E /* AJNMessageHeaderFields.mm */; };
@@ -173,8 +168,6 @@
 		AC10315F156ED19100D2853A /* BusAttachmentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusAttachmentTests.m; path = ../../AllJoynFramework/AllJoynFrameworkTests/BusAttachmentTests.m; sourceTree = "<group>"; };
 		AC103160156ED19100D2853A /* InterfaceDescriptionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InterfaceDescriptionTests.h; path = ../../AllJoynFramework/AllJoynFrameworkTests/InterfaceDescriptionTests.h; sourceTree = "<group>"; };
 		AC103161156ED19100D2853A /* InterfaceDescriptionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InterfaceDescriptionTests.m; path = ../../AllJoynFramework/AllJoynFrameworkTests/InterfaceDescriptionTests.m; sourceTree = "<group>"; };
-		AC135D39159B854900970833 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libcrypto.a"; sourceTree = "<group>"; };
-		AC135D3A159B854900970833 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../common/crypto/openssl/openssl-1.01/build/Debug-iphonesimulator/libssl.a"; sourceTree = "<group>"; };
 		AC339C99157FBF8700AF660C /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNBasicObject.h; path = ../../AllJoynFramework/AllJoynFrameworkTests/AJNBasicObject.h; sourceTree = "<group>"; };
 		AC339C9A157FBF8700AF660C /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNBasicObject.mm; path = ../../AllJoynFramework/AllJoynFrameworkTests/AJNBasicObject.mm; sourceTree = "<group>"; };
 		AC339C9B157FBF8700AF660C /* BasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BasicObject.h; path = ../../AllJoynFramework/AllJoynFrameworkTests/BasicObject.h; sourceTree = "<group>"; };
@@ -191,14 +184,6 @@
 		AC3A985A1578079200CFF856 /* AJNSecurityCredentials.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNSecurityCredentials.mm; path = ../../AllJoynFramework/AllJoynFramework/AJNSecurityCredentials.mm; sourceTree = "<group>"; };
 		AC60949B15A24A1C0006B735 /* TestAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestAuthenticationListener.h; path = ../../AllJoynFramework/AllJoynFrameworkTests/TestAuthenticationListener.h; sourceTree = "<group>"; };
 		AC60949C15A24A1C0006B735 /* TestAuthenticationListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestAuthenticationListener.m; path = ../../AllJoynFramework/AllJoynFrameworkTests/TestAuthenticationListener.m; sourceTree = "<group>"; };
-		AC8A94261575571900372B66 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		AC8A94271575571900372B66 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		AC8A94281575571900372B66 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
-		AC8A94291575571900372B66 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/libcrypto.a; sourceTree = "<group>"; };
-		AC8A942A1575571900372B66 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../alljoyn_core/build/darwin/arm/debug/iphonesimulator/dist/lib/libssl.a; sourceTree = "<group>"; };
-		AC93521415FEB12B007325E0 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../alljoyn_core/build/darwin/arm/iphonesimulator/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		AC93521515FEB12B007325E0 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../alljoyn_core/build/darwin/arm/iphonesimulator/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		AC93521615FEB12B007325E0 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../alljoyn_core/build/darwin/arm/iphonesimulator/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		ACD7FEBC15E406270021F8A1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACEB7DD915CB00AF00B1D72E /* AJNMessageHeaderFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNMessageHeaderFields.h; path = ../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.h; sourceTree = "<group>"; };
 		ACEB7DDA15CB00AF00B1D72E /* AJNMessageHeaderFields.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNMessageHeaderFields.mm; path = ../../AllJoynFramework/AllJoynFramework/AJNMessageHeaderFields.mm; sourceTree = "<group>"; };
@@ -218,8 +203,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD7FEBD15E406270021F8A1 /* SystemConfiguration.framework in Frameworks */,
-				AC135D3B159B854900970833 /* libcrypto.a in Frameworks */,
-				AC135D3C159B854900970833 /* libssl.a in Frameworks */,
 				AC135D32159B851700970833 /* libAllJoynFramework_iOS.a in Frameworks */,
 				AC103158156ECE1E00D2853A /* libc.dylib in Frameworks */,
 				AC103154156ECD1900D2853A /* UIKit.framework in Frameworks */,
@@ -227,9 +210,6 @@
 				AC103144156ECB0B00D2853A /* libc++.dylib in Frameworks */,
 				AC1030BA156EC82300D2853A /* SenTestingKit.framework in Frameworks */,
 				AC1030BD156EC82300D2853A /* Foundation.framework in Frameworks */,
-				AC93521715FEB12B007325E0 /* BundledDaemon.o in Frameworks */,
-				AC93521815FEB12B007325E0 /* libajdaemon.a in Frameworks */,
-				AC93521915FEB12B007325E0 /* liballjoyn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,12 +219,6 @@
 		AC10309D156EC82300D2853A = {
 			isa = PBXGroup;
 			children = (
-				ACD7FEBC15E406270021F8A1 /* SystemConfiguration.framework */,
-				AC135D39159B854900970833 /* libcrypto.a */,
-				AC135D3A159B854900970833 /* libssl.a */,
-				AC93521415FEB12B007325E0 /* BundledDaemon.o */,
-				AC93521515FEB12B007325E0 /* libajdaemon.a */,
-				AC93521615FEB12B007325E0 /* liballjoyn.a */,
 				AC1030AD156EC82300D2853A /* AllJoynFramework_iOS */,
 				AC1030C1156EC82300D2853A /* AllJoynFramework_iOSTests */,
 				AC1030AA156EC82300D2853A /* Frameworks */,
@@ -264,14 +238,10 @@
 		AC1030AA156EC82300D2853A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC8A94261575571900372B66 /* BundledDaemon.o */,
-				AC8A94271575571900372B66 /* libajdaemon.a */,
-				AC8A94281575571900372B66 /* liballjoyn.a */,
-				AC8A94291575571900372B66 /* libcrypto.a */,
-				AC8A942A1575571900372B66 /* libssl.a */,
 				AC103157156ECE1E00D2853A /* libc.dylib */,
 				AC103145156ECB1E00D2853A /* libstdc++.dylib */,
 				AC103143156ECB0B00D2853A /* libc++.dylib */,
+				ACD7FEBC15E406270021F8A1 /* SystemConfiguration.framework */,
 				AC10314E156ECD1900D2853A /* UIKit.framework */,
 				AC1030AB156EC82300D2853A /* Foundation.framework */,
 				AC1030B9156EC82300D2853A /* SenTestingKit.framework */,
@@ -515,7 +485,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
+			shellScript = "/usr/local/bin/appledoc \\\n--project-name \"AllJoynFramework\" \\\n--project-company \"Qualcomm Innovation Center, Inc.\" \\\n--company-id com.quicinc \\\n--output ~/help \\\n--logformat xcode \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--no-repeat-first-par \\\n--exit-threshold 2 \\\n--ignore .m \\\n--ignore AllJoynFrameworkTests \\\n--templates \"~/Library/Application Support/appledoc/Templates\" \\\n\"${SRCROOT}\"";
 		};
 		AC1030B6156EC82300D2853A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -616,7 +586,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -631,7 +604,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -640,7 +618,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -648,7 +629,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -657,19 +643,24 @@
 		AC1030CD156EC82300D2853A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				DSTROOT = /tmp/AllJoynFramework_iOS.dst;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
@@ -683,19 +674,24 @@
 		AC1030CE156EC82300D2853A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				DSTROOT = /tmp/AllJoynFramework_iOS.dst;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
@@ -709,6 +705,7 @@
 		AC1030D0156EC82300D2853A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -718,18 +715,26 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				INFOPLIST_FILE = "AllJoynFramework_iOSTests/AllJoynFramework_iOSTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;
@@ -741,6 +746,7 @@
 		AC1030D1156EC82300D2853A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -750,18 +756,26 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				INFOPLIST_FILE = "AllJoynFramework_iOSTests/AllJoynFramework_iOSTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;

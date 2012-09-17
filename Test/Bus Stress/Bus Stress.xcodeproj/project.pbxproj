@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC5E0AEA1602A17A0052216E /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */; };
-		AC5E0AEB1602A17A0052216E /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */; };
-		AC5E0AEC1602A17A0052216E /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */; };
-		AC5E0AF71602AE7B0052216E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5E0AF51602AE7B0052216E /* libcrypto.a */; };
-		AC5E0AF81602AE7B0052216E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5E0AF61602AE7B0052216E /* libssl.a */; };
 		AC898AB41602497F001F19EA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC898AB31602497F001F19EA /* Default-568h@2x.png */; };
 		ACC1723515EEC42300525051 /* AJNBasicObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723215EEC42300525051 /* AJNBasicObject.mm */; };
 		ACC1723615EEC42300525051 /* BasicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1723415EEC42300525051 /* BasicObject.m */; };
@@ -53,11 +48,6 @@
 
 /* Begin PBXFileReference section */
 		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
-		AC5E0AF51602AE7B0052216E /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
-		AC5E0AF61602AE7B0052216E /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
-		AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
 		AC898AB31602497F001F19EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
 		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
@@ -142,11 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5E0AF71602AE7B0052216E /* libcrypto.a in Frameworks */,
-				AC5E0AF81602AE7B0052216E /* libssl.a in Frameworks */,
-				AC5E0AEA1602A17A0052216E /* BundledDaemon.o in Frameworks */,
-				AC5E0AEB1602A17A0052216E /* libajdaemon.a in Frameworks */,
-				AC5E0AEC1602A17A0052216E /* liballjoyn.a in Frameworks */,
 				ACC4FBE715EBE00C00B4473E /* SystemConfiguration.framework in Frameworks */,
 				ACEC12D815EBD640001F105B /* UIKit.framework in Frameworks */,
 				ACEC12DA15EBD640001F105B /* Foundation.framework in Frameworks */,
@@ -222,8 +207,6 @@
 		ACEC12C815EBD640001F105B = {
 			isa = PBXGroup;
 			children = (
-				AC5E0AF51602AE7B0052216E /* libcrypto.a */,
-				AC5E0AF61602AE7B0052216E /* libssl.a */,
 				AC898AB31602497F001F19EA /* Default-568h@2x.png */,
 				AC32FC5D15ED6CA200E6F431 /* alljoyn_core */,
 				ACEC12DD15EBD640001F105B /* Bus Stress */,
@@ -243,9 +226,6 @@
 		ACEC12D615EBD640001F105B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC72F1CE15FEAC1000E7A7C5 /* BundledDaemon.o */,
-				AC72F1CF15FEAC1000E7A7C5 /* libajdaemon.a */,
-				AC72F1D015FEAC1000E7A7C5 /* liballjoyn.a */,
 				ACC4FBE615EBE00C00B4473E /* SystemConfiguration.framework */,
 				ACEC12D715EBD640001F105B /* UIKit.framework */,
 				ACEC12D915EBD640001F105B /* Foundation.framework */,
@@ -312,7 +292,7 @@
 		ACEC12CA15EBD640001F105B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Qualcomm Innovation Center, Inc.";
 			};
 			buildConfigurationList = ACEC12CD15EBD640001F105B /* Build configuration list for PBXProject "Bus Stress" */;
@@ -479,21 +459,27 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bus Stress/Bus Stress-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "Bus Stress/Bus Stress-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
-					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -509,22 +495,28 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bus Stress/Bus Stress-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "Bus Stress/Bus Stress-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/iphoneos/Debug/dist/lib\"",
-					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
