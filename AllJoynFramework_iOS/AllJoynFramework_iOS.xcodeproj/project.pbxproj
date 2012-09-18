@@ -706,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -715,15 +716,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				INFOPLIST_FILE = "AllJoynFramework_iOSTests/AllJoynFramework_iOSTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
@@ -748,6 +750,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -757,15 +760,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynFramework_iOS/AllJoynFramework_iOS-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
 				);
 				INFOPLIST_FILE = "AllJoynFramework_iOSTests/AllJoynFramework_iOSTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
-					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/armv7/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
