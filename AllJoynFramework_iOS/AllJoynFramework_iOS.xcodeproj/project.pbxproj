@@ -738,6 +738,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;
+				TEST_AFTER_BUILD = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc\" \"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc/alljoyn\"";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -779,6 +780,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				QCC_ALLJOYN_CORE_DIR = ../../alljoyn_core;
+				TEST_AFTER_BUILD = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc\" \"$(SRCROOT)/../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/$(PLATFORM_NAME)/dist/inc/alljoyn\"";
 				WRAPPER_EXTENSION = octest;
 			};
