@@ -12,14 +12,12 @@
 		AC135D28159A698500970833 /* build_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = build_core; path = ../build_core; sourceTree = "<group>"; };
 		AC135D29159A698500970833 /* common */ = {isa = PBXFileReference; lastKnownFileType = folder; name = common; path = ../common; sourceTree = "<group>"; };
 		AC8D8D03161377F900361742 /* alljoyn_c */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_c; path = ../alljoyn_c; sourceTree = "<group>"; };
-		AC8D8D081613A5B100361742 /* alljoyn_objc */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_objc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		ACB4AFAF150E631F0054D964 = {
 			isa = PBXGroup;
 			children = (
-				AC8D8D081613A5B100361742 /* alljoyn_objc */,
 				AC8D8D03161377F900361742 /* alljoyn_c */,
 				AC135D25159A698500970833 /* alljoyn_core */,
 				AC135D27159A698500970833 /* alljoyn_streaming */,
