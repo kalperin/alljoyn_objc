@@ -16,8 +16,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AJNCConversationsViewController : UITableViewController
+#import "AppDelegate.h"
 
-@property (strong, nonatomic) IBOutlet UIView *messageToastView;
-
-@end
+int main(int argc, char *argv[])
+{
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}

@@ -14,14 +14,24 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface AJNCConversationViewCell : UITableViewCell
+@interface ViewController ()
 
-@property (nonatomic, strong) NSString *summary;
-@property (nonatomic, strong) NSString *detail;
-@property (nonatomic, strong) NSString *badgeText;
-@property (nonatomic, strong) UIColor *badgeColor;
-@property (nonatomic, strong) UIColor *badgeHighlightColor;
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

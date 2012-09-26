@@ -42,11 +42,17 @@
       <PathRunnable
          FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bbservice">
       </PathRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-n com.ajtest -i 1"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "ER_DEBUG_ALL"
             value = "15"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
       </EnvironmentVariables>
       <AdditionalOptions>

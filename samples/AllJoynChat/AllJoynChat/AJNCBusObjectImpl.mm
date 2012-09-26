@@ -17,7 +17,6 @@
 #import <alljoyn/BusAttachment.h>
 #import "AJNCBusObjectImpl.h"
 #import "AJNCBusObject.h"
-#import "AJNCConversation.h"
 #import "AJNCConstants.h"
 
 AJNCBusObjectImpl::AJNCBusObjectImpl(ajn::BusAttachment &bus, const char *path, id<AJNBusObject> aDelegate) : AJNBusObjectImpl(bus,path,aDelegate)

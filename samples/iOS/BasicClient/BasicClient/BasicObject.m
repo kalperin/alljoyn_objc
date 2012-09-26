@@ -14,26 +14,27 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-#import "AJNCChatManagerDelegate.h"
+////////////////////////////////////////////////////////////////////////////////
+//
+//  BasicObject.m
+//
+////////////////////////////////////////////////////////////////////////////////
 
-@class AJNCConversation;
+#import "BasicObject.h"
 
-@interface AJNCChatManager : NSObject<AJNChatReceiver>
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Objective-C Bus Object implementation for BasicObject
+//
+////////////////////////////////////////////////////////////////////////////////
 
-@property (nonatomic, strong) id<AJNCChatManagerDelegate> delegate;
+@implementation BasicObject
 
-- (void)start;
-- (void)stop;
-
-- (BOOL)addConversationNamed:(NSString*)conversationName;
-- (void)joinConversation:(AJNCConversation*)conversation;
-- (void)leaveConversation:(AJNCConversation *)conversation;
-- (BOOL)sendMessage:(NSString*)message inConversation:(NSString*)conversationName;
-
-- (NSInteger)conversationsCount;
-- (AJNCConversation*)conversationAtIndex:(NSInteger)index;
-
-+ (AJNCChatManager*)sharedInstance;
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2
+{
+    return [str1 stringByAppendingString:str2];
+}
 
 @end
+
+////////////////////////////////////////////////////////////////////////////////

@@ -1,20 +1,4 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-// http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
 //
@@ -99,7 +83,7 @@ BasicObjectImpl::BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicS
     
     // Add the org.alljoyn.bus.sample.strings interface to this object
     //
-    interfaceDescription = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
+    interfaceDescription = bus.GetInterface("org.alljoyn.bus.sample.strings");
     assert(interfaceDescription);
     AddInterface(*interfaceDescription);
 
@@ -148,7 +132,7 @@ TestSignalWithNoArgsSignalMember = interfaceDescription->GetMember("TestSignalWi
 
     // Add the org.alljoyn.bus.samples.chat interface to this object
     //
-    interfaceDescription = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
+    interfaceDescription = bus.GetInterface("org.alljoyn.bus.samples.chat");
     assert(interfaceDescription);
     AddInterface(*interfaceDescription);
 
@@ -541,7 +525,7 @@ PingObjectImpl::PingObjectImpl(BusAttachment &bus, const char *path, id<PingObje
     
     // Add the org.alljoyn.bus.samples.ping interface to this object
     //
-    interfaceDescription = bus.GetInterface([@"org.alljoyn.bus.samples.ping" UTF8String]);
+    interfaceDescription = bus.GetInterface("org.alljoyn.bus.samples.ping");
     assert(interfaceDescription);
     AddInterface(*interfaceDescription);
 
@@ -625,10 +609,10 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // BasicStringsDelegate interface (org.alljoyn.bus.sample.strings)
         //
-        // create an interface description
+        // create an interface description, or if that fails, get the interface as it was already created
         //
         interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.sample.strings"];
-
+        
     
         // add the properties to the interface description
         //
@@ -705,10 +689,10 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // BasicChatDelegate interface (org.alljoyn.bus.samples.chat)
         //
-        // create an interface description
+        // create an interface description, or if that fails, get the interface as it was already created
         //
         interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.chat"];
-
+        
     
         // add the properties to the interface description
         //
@@ -943,7 +927,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "Concatentate", inArgs, 2, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "Concatentate", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -979,7 +963,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithMultipleOutArgs", inArgs, 2, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "MethodWithMultipleOutArgs", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1013,7 +997,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithOnlyOutArgs", inArgs, 0, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "MethodWithOnlyOutArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1047,7 +1031,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithNoReturnAndNoArgs", inArgs, 0, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "MethodWithNoReturnAndNoArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1073,7 +1057,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithReturnAndNoInArgs", inArgs, 0, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "MethodWithReturnAndNoInArgs", inArgs, 0, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1109,7 +1093,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample.strings" UTF8String], "MethodWithComplexTypesForArgs", inArgs, 2, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample.strings", "MethodWithComplexTypesForArgs", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample.strings failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1162,10 +1146,10 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
         //
         // PingObjectDelegate interface (org.alljoyn.bus.samples.ping)
         //
-        // create an interface description
+        // create an interface description, or if that fails, get the interface as it was already created
         //
         interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.samples.ping"];
-
+        
     
         // add the methods to the interface description
         //
@@ -1243,7 +1227,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.samples.ping" UTF8String], "Ping", inArgs, 1, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.samples.ping", "Ping", inArgs, 1, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.samples.ping failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -1302,6 +1286,9 @@ public:
  */    
 BasicStringsDelegateSignalHandlerImpl::BasicStringsDelegateSignalHandlerImpl(id<AJNSignalHandler> aDelegate) : AJNSignalHandlerImpl(aDelegate)
 {
+	TestStringPropertyChangedSignalMember = NULL;
+	TestSignalWithNoArgsSignalMember = NULL;
+
 }
 
 BasicStringsDelegateSignalHandlerImpl::~BasicStringsDelegateSignalHandlerImpl()
@@ -1318,42 +1305,52 @@ void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttach
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal TestStringPropertyChanged
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-    
-    // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
-    TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
-    assert(TestStringPropertyChangedSignalMember);
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
 
-    
-    // Register signal handler for TestStringPropertyChanged
-    status =  bus.RegisterSignalHandler(this,
-        static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandler),
-        TestStringPropertyChangedSignalMember,
-        NULL);
+    if (interface) {
+        // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
+        TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
+        assert(TestStringPropertyChangedSignalMember);
+
         
-    if (status != ER_OK) {
-        NSLog(@"ERROR:BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        // Register signal handler for TestStringPropertyChanged
+        status =  bus.RegisterSignalHandler(this,
+            static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandler),
+            TestStringPropertyChangedSignalMember,
+            NULL);
+            
+        if (status != ER_OK) {
+            NSLog(@"ERROR: Interface BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        }
+    }
+    else {
+        NSLog(@"ERROR: org.alljoyn.bus.sample.strings not found.");
     }
     ////////////////////////////////////////////////////////////////////////////    
 
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal TestSignalWithNoArgs
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
-    
-    // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
-    TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
-    assert(TestSignalWithNoArgsSignalMember);
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
 
-    
-    // Register signal handler for TestSignalWithNoArgs
-    status =  bus.RegisterSignalHandler(this,
-        static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestSignalWithNoArgsSignalHandler),
-        TestSignalWithNoArgsSignalMember,
-        NULL);
+    if (interface) {
+        // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
+        TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
+        assert(TestSignalWithNoArgsSignalMember);
+
         
-    if (status != ER_OK) {
-        NSLog(@"ERROR:BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        // Register signal handler for TestSignalWithNoArgs
+        status =  bus.RegisterSignalHandler(this,
+            static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestSignalWithNoArgsSignalHandler),
+            TestSignalWithNoArgsSignalMember,
+            NULL);
+            
+        if (status != ER_OK) {
+            NSLog(@"ERROR: Interface BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        }
+    }
+    else {
+        NSLog(@"ERROR: org.alljoyn.bus.sample.strings not found.");
     }
     ////////////////////////////////////////////////////////////////////////////    
 
@@ -1368,7 +1365,7 @@ void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAtta
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal TestStringPropertyChanged
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
     
     // Store the TestStringPropertyChanged signal member away so it can be quickly looked up
     TestStringPropertyChangedSignalMember = interface->GetMember("TestStringPropertyChanged");
@@ -1388,7 +1385,7 @@ void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAtta
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal TestSignalWithNoArgs
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.sample.strings" UTF8String]);
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
     
     // Store the TestSignalWithNoArgs signal member away so it can be quickly looked up
     TestSignalWithNoArgsSignalMember = interface->GetMember("TestSignalWithNoArgs");
@@ -1502,6 +1499,8 @@ public:
  */    
 BasicChatDelegateSignalHandlerImpl::BasicChatDelegateSignalHandlerImpl(id<AJNSignalHandler> aDelegate) : AJNSignalHandlerImpl(aDelegate)
 {
+	ChatSignalMember = NULL;
+
 }
 
 BasicChatDelegateSignalHandlerImpl::~BasicChatDelegateSignalHandlerImpl()
@@ -1518,21 +1517,26 @@ void BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachmen
     ////////////////////////////////////////////////////////////////////////////
     // Register signal handler for signal Chat
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
-    
-    // Store the Chat signal member away so it can be quickly looked up
-    ChatSignalMember = interface->GetMember("Chat");
-    assert(ChatSignalMember);
+    interface = bus.GetInterface("org.alljoyn.bus.samples.chat");
 
-    
-    // Register signal handler for Chat
-    status =  bus.RegisterSignalHandler(this,
-        static_cast<MessageReceiver::SignalHandler>(&BasicChatDelegateSignalHandlerImpl::ChatSignalHandler),
-        ChatSignalMember,
-        NULL);
+    if (interface) {
+        // Store the Chat signal member away so it can be quickly looked up
+        ChatSignalMember = interface->GetMember("Chat");
+        assert(ChatSignalMember);
+
         
-    if (status != ER_OK) {
-        NSLog(@"ERROR:BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        // Register signal handler for Chat
+        status =  bus.RegisterSignalHandler(this,
+            static_cast<MessageReceiver::SignalHandler>(&BasicChatDelegateSignalHandlerImpl::ChatSignalHandler),
+            ChatSignalMember,
+            NULL);
+            
+        if (status != ER_OK) {
+            NSLog(@"ERROR: Interface BasicChatDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        }
+    }
+    else {
+        NSLog(@"ERROR: org.alljoyn.bus.samples.chat not found.");
     }
     ////////////////////////////////////////////////////////////////////////////    
 
@@ -1547,7 +1551,7 @@ void BasicChatDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAttachm
     ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal Chat
     //
-    interface = bus.GetInterface([@"org.alljoyn.bus.samples.chat" UTF8String]);
+    interface = bus.GetInterface("org.alljoyn.bus.samples.chat");
     
     // Store the Chat signal member away so it can be quickly looked up
     ChatSignalMember = interface->GetMember("Chat");

@@ -14,15 +14,8 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-#import "AJNCMessage.h"
+#import <UIKit/UIKit.h>
 
-@protocol AJNCChatManagerDelegate <NSObject>
-
-@optional
-
-- (void)didUpdateConversations;
-
-- (void)didReceiveNewMessage:(AJNCMessage*)message;
+@interface ViewController : UIViewController
 
 @end

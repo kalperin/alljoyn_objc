@@ -4,15 +4,30 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>alljoyn_c.xcscheme</key>
+		<key>alljoyn_c_ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>7</integer>
+		</dict>
+		<key>alljoyn_c_osx.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>alljoyn_core_ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>alljoyn_core_ios_armv7.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>alljoyn_core_ios_armv7s.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>alljoyn_core_osx.xcscheme</key>
 		<dict>
@@ -22,27 +37,32 @@
 		<key>alljoyn_streaming_ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 		<key>alljoyn_streaming_osx.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>4</integer>
 		</dict>
 		<key>bastress.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>11</integer>
+		</dict>
+		<key>bastress2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
 		</dict>
 		<key>bbclient.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>9</integer>
 		</dict>
 		<key>bbservice.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -63,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>AC28F56315190B34009C0254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC8D8CFE161376FE00361742</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +118,16 @@
 			<true/>
 		</dict>
 		<key>ACAD17DB156D532D0065497D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACB2C746160B8D9900D7E3A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACB2C74B160B8EFF00D7E3A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

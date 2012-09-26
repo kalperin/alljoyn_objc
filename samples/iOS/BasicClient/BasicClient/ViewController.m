@@ -14,15 +14,24 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
-#import "AJNCConversation.h"
+#import "ViewController.h"
 
-@interface AJNCConversationViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) AJNCConversation *conversation;
+@end
 
-- (IBAction)didTouchSendButton:(id)sender;
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

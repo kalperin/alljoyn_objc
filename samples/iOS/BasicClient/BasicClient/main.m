@@ -16,16 +16,11 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol NewChatSessionDelegate <NSObject>
+#import "AppDelegate.h"
 
--(void)didAddNewSessionNamed:(NSString*)newSessionName;
-
-@end
-
-@interface AJNCNewChatSessionViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UITextField *sessionNameTextField;
-
-@property (nonatomic, strong) id<NewChatSessionDelegate> delegate;
-
-@end
+int main(int argc, char *argv[])
+{
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}

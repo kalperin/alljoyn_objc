@@ -15,8 +15,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "AJNCAppDelegate.h"
-#import "AJNCChatReceiver.h"
-#import "AJNCChatManager.h"
 //#import "Reachability.h"
 
 @interface AJNCAppDelegate()

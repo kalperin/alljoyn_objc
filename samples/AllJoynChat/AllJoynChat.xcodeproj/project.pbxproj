@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0175761610C66600ADB2B0 /* AJNCConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0175751610C66600ADB2B0 /* AJNCConversation.m */; };
+		AC0175791610CABF00ADB2B0 /* AJNCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0175781610CABF00ADB2B0 /* AJNCMessage.m */; };
 		AC01C742152CCF3800DD620F /* AJNCBusObjectImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC01C741152CCF3800DD620F /* AJNCBusObjectImpl.mm */; };
 		AC1CEB041537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC1CEB031537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.mm */; };
 		AC1CEB08153746FC00210CB7 /* AJNCChatObjectSignalHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC1CEB07153746FC00210CB7 /* AJNCChatObjectSignalHandler.mm */; };
@@ -15,6 +17,7 @@
 		AC5BA8B415CC4427005EE789 /* icon-for-app-store.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5BA8B015CC4426005EE789 /* icon-for-app-store.png */; };
 		AC5BA8B515CC4427005EE789 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5BA8B115CC4426005EE789 /* icon.png */; };
 		AC5BA8B715CC44E6005EE789 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5BA8B615CC44E6005EE789 /* Default.png */; };
+		AC61C42C160CF46900A64D8F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC61C42B160CF46800A64D8F /* Default-568h@2x.png */; };
 		AC67D65D152CAFC4009DBFA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC67D65C152CAFC4009DBFA9 /* UIKit.framework */; };
 		AC67D65F152CAFC4009DBFA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC67D65E152CAFC4009DBFA9 /* Foundation.framework */; };
 		AC67D661152CAFC4009DBFA9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC67D660152CAFC4009DBFA9 /* CoreGraphics.framework */; };
@@ -32,12 +35,10 @@
 		AC7DDE5A15DC3B8700BAA0DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7DDE5915DC3B8700BAA0DE /* SystemConfiguration.framework */; };
 		AC7DDE5C15DC3CCC00BAA0DE /* icon-for-app-store-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7DDE5B15DC3CCC00BAA0DE /* icon-for-app-store-retina.png */; };
 		AC83DCD415D2D635006CDCC2 /* AJNCStartPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83DCD315D2D635006CDCC2 /* AJNCStartPageViewController.m */; };
-		AC8F5A1F1538CDDD00A9B0AA /* AJNCConversationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8F5A1E1538CDDC00A9B0AA /* AJNCConversationViewCell.m */; };
 		AC8F5A221538DC1B00A9B0AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A211538DC1B00A9B0AA /* QuartzCore.framework */; };
 		AC8F5A281538F91400A9B0AA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A271538F91400A9B0AA /* AVFoundation.framework */; };
 		AC8F5A2B1538F94100A9B0AA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A291538F94100A9B0AA /* AudioToolbox.framework */; };
 		AC8F5A2C1538F94100A9B0AA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8F5A2A1538F94100A9B0AA /* CoreAudio.framework */; };
-		AC9F63251534BEB400075143 /* AJNCChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9F63241534BEB400075143 /* AJNCChatManager.m */; };
 		ACEAE6A015F6A54C00C89E28 /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE66B15F6A54C00C89E28 /* AJNAuthenticationListenerImpl.mm */; };
 		ACEAE6A115F6A54C00C89E28 /* AJNBus.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE66D15F6A54C00C89E28 /* AJNBus.m */; };
 		ACEAE6A215F6A54C00C89E28 /* AJNBusAttachment.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE66F15F6A54C00C89E28 /* AJNBusAttachment.mm */; };
@@ -61,16 +62,6 @@
 		ACEAE6B415F6A54C00C89E28 /* AJNStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE69A15F6A54C00C89E28 /* AJNStatus.m */; };
 		ACEAE6B515F6A54C00C89E28 /* AJNTransportMask.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE69C15F6A54C00C89E28 /* AJNTransportMask.m */; };
 		ACEAE6B615F6A54C00C89E28 /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACEAE69F15F6A54C00C89E28 /* AJNVersion.mm */; };
-		ACEAE6C415F6A6F700C89E28 /* BundledDaemon.o in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEAE6C115F6A6F700C89E28 /* BundledDaemon.o */; };
-		ACEAE6C515F6A6F700C89E28 /* libajdaemon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEAE6C215F6A6F700C89E28 /* libajdaemon.a */; };
-		ACEAE6C615F6A6F700C89E28 /* liballjoyn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEAE6C315F6A6F700C89E28 /* liballjoyn.a */; };
-		ACEAE6C915F6A71700C89E28 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEAE6C715F6A71700C89E28 /* libcrypto.a */; };
-		ACEAE6CA15F6A71700C89E28 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACEAE6C815F6A71700C89E28 /* libssl.a */; };
-		ACF86E08152E3EAA004A80BC /* AJNCConversationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E07152E3EAA004A80BC /* AJNCConversationsViewController.m */; };
-		ACF86E0B152E3EF0004A80BC /* AJNCConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E0A152E3EEF004A80BC /* AJNCConversationViewController.m */; };
-		ACF86E0E152E4137004A80BC /* AJNCNewChatSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E0D152E4136004A80BC /* AJNCNewChatSessionViewController.m */; };
-		ACF86E14152E682D004A80BC /* AJNCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E13152E682D004A80BC /* AJNCMessage.m */; };
-		ACF86E17152F508F004A80BC /* AJNCConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E16152F508F004A80BC /* AJNCConversation.m */; };
 		ACF86E19152F86D4004A80BC /* AJNCConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF86E18152F86D3004A80BC /* AJNCConstants.m */; };
 		ACFCF7831566A4F800BC922D /* SConscript in Resources */ = {isa = PBXBuildFile; fileRef = ACFCF7821566A4F800BC922D /* SConscript */; };
 /* End PBXBuildFile section */
@@ -86,6 +77,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0175731610C5F700ADB2B0 /* AJNCChatReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCChatReceiver.h; sourceTree = "<group>"; };
+		AC0175741610C66600ADB2B0 /* AJNCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCConversation.h; sourceTree = "<group>"; };
+		AC0175751610C66600ADB2B0 /* AJNCConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConversation.m; sourceTree = "<group>"; };
+		AC0175771610CABF00ADB2B0 /* AJNCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCMessage.h; sourceTree = "<group>"; };
+		AC0175781610CABF00ADB2B0 /* AJNCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCMessage.m; sourceTree = "<group>"; };
 		AC01C740152CCF3800DD620F /* AJNCBusObjectImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCBusObjectImpl.h; sourceTree = "<group>"; };
 		AC01C741152CCF3800DD620F /* AJNCBusObjectImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNCBusObjectImpl.mm; sourceTree = "<group>"; };
 		AC1CEB021537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCChatObjectSignalHandlerImpl.h; sourceTree = "<group>"; };
@@ -97,6 +93,7 @@
 		AC5BA8B015CC4426005EE789 /* icon-for-app-store.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-for-app-store.png"; sourceTree = "<group>"; };
 		AC5BA8B115CC4426005EE789 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AC5BA8B615CC44E6005EE789 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AC61C42B160CF46800A64D8F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AC67D658152CAFC4009DBFA9 /* AllChatz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllChatz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC67D65C152CAFC4009DBFA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AC67D65E152CAFC4009DBFA9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,16 +120,10 @@
 		AC7DDE5B15DC3CCC00BAA0DE /* icon-for-app-store-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-for-app-store-retina.png"; sourceTree = "<group>"; };
 		AC83DCD215D2D635006CDCC2 /* AJNCStartPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCStartPageViewController.h; sourceTree = "<group>"; };
 		AC83DCD315D2D635006CDCC2 /* AJNCStartPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCStartPageViewController.m; sourceTree = "<group>"; };
-		AC8F5A1D1538CDDC00A9B0AA /* AJNCConversationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCConversationViewCell.h; sourceTree = "<group>"; };
-		AC8F5A1E1538CDDC00A9B0AA /* AJNCConversationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConversationViewCell.m; sourceTree = "<group>"; };
 		AC8F5A211538DC1B00A9B0AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AC8F5A271538F91400A9B0AA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AC8F5A291538F94100A9B0AA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AC8F5A2A1538F94100A9B0AA /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		AC9F63231534BEB400075143 /* AJNCChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCChatManager.h; sourceTree = "<group>"; };
-		AC9F63241534BEB400075143 /* AJNCChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCChatManager.m; sourceTree = "<group>"; };
-		AC9F63261534C45800075143 /* AJNCChatManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCChatManagerDelegate.h; sourceTree = "<group>"; };
-		AC9F63271534D8AB00075143 /* AJNCChatReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJNCChatReceiver.h; sourceTree = "<group>"; };
 		ACEAE66915F6A54C00C89E28 /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
 		ACEAE66A15F6A54C00C89E28 /* AJNAuthenticationListenerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListenerImpl.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.h; sourceTree = "<group>"; };
 		ACEAE66B15F6A54C00C89E28 /* AJNAuthenticationListenerImpl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNAuthenticationListenerImpl.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListenerImpl.mm; sourceTree = "<group>"; };
@@ -188,26 +179,6 @@
 		ACEAE69D15F6A54C00C89E28 /* AJNType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNType.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNType.h; sourceTree = "<group>"; };
 		ACEAE69E15F6A54C00C89E28 /* AJNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNVersion.h; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.h; sourceTree = "<group>"; };
 		ACEAE69F15F6A54C00C89E28 /* AJNVersion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNVersion.mm; path = ../../../AllJoynFramework/AllJoynFramework/AJNVersion.mm; sourceTree = "<group>"; };
-		ACEAE6B715F6A60D00C89E28 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		ACEAE6B815F6A60D00C89E28 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		ACEAE6B915F6A60D00C89E28 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/Debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
-		ACEAE6BD15F6A62E00C89E28 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
-		ACEAE6BE15F6A62E00C89E28 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Debug-iphoneos/libssl.a"; sourceTree = "<group>"; };
-		ACEAE6C115F6A6F700C89E28 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_core/build/darwin/arm/Release/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		ACEAE6C215F6A6F700C89E28 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_core/build/darwin/arm/Release/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		ACEAE6C315F6A6F700C89E28 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_core/build/darwin/arm/Release/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
-		ACEAE6C715F6A71700C89E28 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Release-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
-		ACEAE6C815F6A71700C89E28 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../common/crypto/openssl/openssl-1.01/build/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
-		ACF86E06152E3EA9004A80BC /* AJNCConversationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCConversationsViewController.h; sourceTree = "<group>"; };
-		ACF86E07152E3EAA004A80BC /* AJNCConversationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConversationsViewController.m; sourceTree = "<group>"; };
-		ACF86E09152E3EEF004A80BC /* AJNCConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCConversationViewController.h; sourceTree = "<group>"; };
-		ACF86E0A152E3EEF004A80BC /* AJNCConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConversationViewController.m; sourceTree = "<group>"; };
-		ACF86E0C152E4136004A80BC /* AJNCNewChatSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCNewChatSessionViewController.h; sourceTree = "<group>"; };
-		ACF86E0D152E4136004A80BC /* AJNCNewChatSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCNewChatSessionViewController.m; sourceTree = "<group>"; };
-		ACF86E12152E682D004A80BC /* AJNCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCMessage.h; sourceTree = "<group>"; };
-		ACF86E13152E682D004A80BC /* AJNCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCMessage.m; sourceTree = "<group>"; };
-		ACF86E15152F508E004A80BC /* AJNCConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNCConversation.h; sourceTree = "<group>"; };
-		ACF86E16152F508F004A80BC /* AJNCConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConversation.m; sourceTree = "<group>"; };
 		ACF86E18152F86D3004A80BC /* AJNCConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNCConstants.m; sourceTree = "<group>"; };
 		ACFCF7821566A4F800BC922D /* SConscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SConscript; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,11 +188,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACEAE6C915F6A71700C89E28 /* libcrypto.a in Frameworks */,
-				ACEAE6CA15F6A71700C89E28 /* libssl.a in Frameworks */,
-				ACEAE6C415F6A6F700C89E28 /* BundledDaemon.o in Frameworks */,
-				ACEAE6C515F6A6F700C89E28 /* libajdaemon.a in Frameworks */,
-				ACEAE6C615F6A6F700C89E28 /* liballjoyn.a in Frameworks */,
 				AC8F5A2B1538F94100A9B0AA /* AudioToolbox.framework in Frameworks */,
 				AC8F5A281538F91400A9B0AA /* AVFoundation.framework in Frameworks */,
 				AC8F5A2C1538F94100A9B0AA /* CoreAudio.framework in Frameworks */,
@@ -249,17 +215,7 @@
 		AC67D64D152CAFC4009DBFA9 = {
 			isa = PBXGroup;
 			children = (
-				ACEAE6C715F6A71700C89E28 /* libcrypto.a */,
-				ACEAE6C815F6A71700C89E28 /* libssl.a */,
-				ACEAE6C115F6A6F700C89E28 /* BundledDaemon.o */,
-				ACEAE6C215F6A6F700C89E28 /* libajdaemon.a */,
-				ACEAE6C315F6A6F700C89E28 /* liballjoyn.a */,
-				ACEAE6BD15F6A62E00C89E28 /* libcrypto.a */,
-				ACEAE6BE15F6A62E00C89E28 /* libssl.a */,
-				ACEAE6B715F6A60D00C89E28 /* BundledDaemon.o */,
-				ACEAE6B815F6A60D00C89E28 /* libajdaemon.a */,
-				ACEAE6B915F6A60D00C89E28 /* liballjoyn.a */,
-				AC7DDE5915DC3B8700BAA0DE /* SystemConfiguration.framework */,
+				AC61C42B160CF46800A64D8F /* Default-568h@2x.png */,
 				AC5BA8B615CC44E6005EE789 /* Default.png */,
 				AC67D662152CAFC4009DBFA9 /* AllJoynChat */,
 				AC67D683152CAFC4009DBFA9 /* AllJoynChatTests */,
@@ -280,6 +236,7 @@
 		AC67D65B152CAFC4009DBFA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC7DDE5915DC3B8700BAA0DE /* SystemConfiguration.framework */,
 				AC8F5A291538F94100A9B0AA /* AudioToolbox.framework */,
 				AC8F5A2A1538F94100A9B0AA /* CoreAudio.framework */,
 				AC8F5A271538F91400A9B0AA /* AVFoundation.framework */,
@@ -303,28 +260,17 @@
 				AC67D6D8152CB9B7009DBFA9 /* AJNCBusObject.mm */,
 				AC01C740152CCF3800DD620F /* AJNCBusObjectImpl.h */,
 				AC01C741152CCF3800DD620F /* AJNCBusObjectImpl.mm */,
+				AC0175731610C5F700ADB2B0 /* AJNCChatReceiver.h */,
 				AC67D6DD152CBADC009DBFA9 /* AJNCConstants.h */,
 				ACF86E18152F86D3004A80BC /* AJNCConstants.m */,
-				AC9F63231534BEB400075143 /* AJNCChatManager.h */,
-				AC9F63241534BEB400075143 /* AJNCChatManager.m */,
-				AC9F63261534C45800075143 /* AJNCChatManagerDelegate.h */,
-				AC9F63271534D8AB00075143 /* AJNCChatReceiver.h */,
+				AC0175741610C66600ADB2B0 /* AJNCConversation.h */,
+				AC0175751610C66600ADB2B0 /* AJNCConversation.m */,
 				AC1CEB06153746FC00210CB7 /* AJNCChatObjectSignalHandler.h */,
 				AC1CEB07153746FC00210CB7 /* AJNCChatObjectSignalHandler.mm */,
 				AC1CEB021537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.h */,
 				AC1CEB031537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.mm */,
-				ACF86E15152F508E004A80BC /* AJNCConversation.h */,
-				ACF86E16152F508F004A80BC /* AJNCConversation.m */,
-				AC8F5A1D1538CDDC00A9B0AA /* AJNCConversationViewCell.h */,
-				AC8F5A1E1538CDDC00A9B0AA /* AJNCConversationViewCell.m */,
-				ACF86E06152E3EA9004A80BC /* AJNCConversationsViewController.h */,
-				ACF86E07152E3EAA004A80BC /* AJNCConversationsViewController.m */,
-				ACF86E09152E3EEF004A80BC /* AJNCConversationViewController.h */,
-				ACF86E0A152E3EEF004A80BC /* AJNCConversationViewController.m */,
-				ACF86E12152E682D004A80BC /* AJNCMessage.h */,
-				ACF86E13152E682D004A80BC /* AJNCMessage.m */,
-				ACF86E0C152E4136004A80BC /* AJNCNewChatSessionViewController.h */,
-				ACF86E0D152E4136004A80BC /* AJNCNewChatSessionViewController.m */,
+				AC0175771610CABF00ADB2B0 /* AJNCMessage.h */,
+				AC0175781610CABF00ADB2B0 /* AJNCMessage.m */,
 				AC83DCD215D2D635006CDCC2 /* AJNCStartPageViewController.h */,
 				AC83DCD315D2D635006CDCC2 /* AJNCStartPageViewController.m */,
 				AC67D674152CAFC4009DBFA9 /* AJNCViewController.h */,
@@ -513,6 +459,7 @@
 				AC5BA8B515CC4427005EE789 /* icon.png in Resources */,
 				AC5BA8B715CC44E6005EE789 /* Default.png in Resources */,
 				AC7DDE5C15DC3CCC00BAA0DE /* icon-for-app-store-retina.png in Resources */,
+				AC61C42C160CF46900A64D8F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,16 +499,9 @@
 				AC67D676152CAFC4009DBFA9 /* AJNCViewController.m in Sources */,
 				AC67D6D9152CB9B7009DBFA9 /* AJNCBusObject.mm in Sources */,
 				AC01C742152CCF3800DD620F /* AJNCBusObjectImpl.mm in Sources */,
-				ACF86E08152E3EAA004A80BC /* AJNCConversationsViewController.m in Sources */,
-				ACF86E0B152E3EF0004A80BC /* AJNCConversationViewController.m in Sources */,
-				ACF86E0E152E4137004A80BC /* AJNCNewChatSessionViewController.m in Sources */,
-				ACF86E14152E682D004A80BC /* AJNCMessage.m in Sources */,
-				ACF86E17152F508F004A80BC /* AJNCConversation.m in Sources */,
 				ACF86E19152F86D4004A80BC /* AJNCConstants.m in Sources */,
-				AC9F63251534BEB400075143 /* AJNCChatManager.m in Sources */,
 				AC1CEB041537445E00210CB7 /* AJNCChatObjectSignalHandlerImpl.mm in Sources */,
 				AC1CEB08153746FC00210CB7 /* AJNCChatObjectSignalHandler.mm in Sources */,
-				AC8F5A1F1538CDDD00A9B0AA /* AJNCConversationViewCell.m in Sources */,
 				AC83DCD415D2D635006CDCC2 /* AJNCStartPageViewController.m in Sources */,
 				ACEAE6A015F6A54C00C89E28 /* AJNAuthenticationListenerImpl.mm in Sources */,
 				ACEAE6A115F6A54C00C89E28 /* AJNBus.m in Sources */,
@@ -586,6 +526,8 @@
 				ACEAE6B415F6A54C00C89E28 /* AJNStatus.m in Sources */,
 				ACEAE6B515F6A54C00C89E28 /* AJNTransportMask.m in Sources */,
 				ACEAE6B615F6A54C00C89E28 /* AJNVersion.mm in Sources */,
+				AC0175761610C66600ADB2B0 /* AJNCConversation.m in Sources */,
+				AC0175791610CABF00ADB2B0 /* AJNCMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,25 +627,38 @@
 		AC67D68F152CAFC4009DBFA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynChat/AllJoynChat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "AllJoynChat/AllJoynChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-iphoneos\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = AllChatz;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -716,25 +671,38 @@
 		AC67D690152CAFC4009DBFA9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv7,
+				);
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AllJoynChat/AllJoynChat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc/alljoyn\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/inc\"",
 				);
 				INFOPLIST_FILE = "AllJoynChat/AllJoynChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(CONFIGURATION)/dist/lib\"",
-					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-iphoneos\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/arm/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
+					"\"$(SRCROOT)/../../../common/crypto/openssl/openssl-1.01/build/$(CONFIGURATION)-$(PLATFORM_NAME)\"",
+					"\"$(SRCROOT)/../../../alljoyn_core/build/darwin/$(CURRENT_ARCH)/$(PLATFORM_NAME)/$(CONFIGURATION)/dist/lib\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DQCC_OS_GROUP_POSIX",
 					"-DQCC_OS_DARWIN",
+				);
+				OTHER_LDFLAGS = (
+					"-lalljoyn",
+					"-lajdaemon",
+					"-lBundledDaemon.o",
+					"-lssl",
+					"-lcrypto",
 				);
 				PRODUCT_NAME = AllChatz;
 				TARGETED_DEVICE_FAMILY = 1;

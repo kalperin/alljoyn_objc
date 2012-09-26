@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC9C2C6E15FA9B4C00C60607"
-               BuildableName = "alljoyn_c"
-               BlueprintName = "alljoyn_c"
+               BlueprintIdentifier = "AC8D8CFE161376FE00361742"
+               BuildableName = "alljoyn_c_ios"
+               BlueprintName = "alljoyn_c_ios"
                ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

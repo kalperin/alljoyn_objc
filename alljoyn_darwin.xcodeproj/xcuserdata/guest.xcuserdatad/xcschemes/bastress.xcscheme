@@ -42,6 +42,16 @@
       <PathRunnable
          FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bastress">
       </PathRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-s"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-t 6"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -16,6 +16,11 @@
 
 #import <Foundation/Foundation.h>
 
+NSString * const kImplementationHeaderXSL = @"objcHeader.xsl";
+NSString * const kImplementationSourceXSL = @"objcSource.xsl";
+NSString * const kObjectiveCHeaderXSL = @"objcExtensionHeader.xsl";
+NSString * const kObjectiveCSourceXSL = @"objcExtensionSource.xsl";
+
 int main(int argc, const char * argv[])
 {
 

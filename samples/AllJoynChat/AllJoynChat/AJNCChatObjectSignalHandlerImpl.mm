@@ -27,7 +27,7 @@ using namespace ajn;
  *
  * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
  */    
-AJNCChatObjectSignalHandlerImpl::AJNCChatObjectSignalHandlerImpl(id<AJNSignalHandler> aDelegate) : AJNSignalHandlerImpl(aDelegate)
+AJNCChatObjectSignalHandlerImpl::AJNCChatObjectSignalHandlerImpl(id<AJNSignalHandler> aDelegate) : AJNSignalHandlerImpl(aDelegate), chatSignalMember(NULL)
 {
 }
 
@@ -49,7 +49,7 @@ void AJNCChatObjectSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttachment &
     }
     /* Register signal handler */
     QStatus status =  bus.RegisterSignalHandler(this,
-                                                static_cast<MessageReceiver::SignalHandler>(&AJNCChatObjectSignalHandlerImpl::ChatSignalHandler),
+                                                (MessageReceiver::SignalHandler)(&AJNCChatObjectSignalHandlerImpl::ChatSignalHandler),
                                                 chatSignalMember,
                                                 NULL);
     if (status != ER_OK) {
