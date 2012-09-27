@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
@@ -38,10 +37,9 @@
 
 - (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2
 {
-    // this is where your implementation of the service method "Concatenate" 
-    // should go
+    // TODO: complete the implementation of this method
     //
-    return [str1 stringByAppendingString:str2];
+     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
 

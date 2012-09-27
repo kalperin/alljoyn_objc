@@ -13,7 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
-
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  ALLJOYN MODELING TOOL - GENERATED CODE
@@ -34,6 +33,7 @@
 #import <alljoyn/BusObject.h>
 #import "AJNBusObjectImpl.h"
 #import "AJNInterfaceDescription.h"
+#import "AJNMessageArgument.h"
 #import "AJNSignalHandlerImpl.h"
 
 #import "SampleObject.h"
@@ -76,12 +76,13 @@ SampleObjectImpl::SampleObjectImpl(BusAttachment &bus, const char *path, id<Samp
     AJNBusObjectImpl(bus,path,aDelegate)
 {
     const InterfaceDescription* interfaceDescription = NULL;
-    QStatus status = ER_OK;
+    QStatus status;
+    status = ER_OK;
     
     
     // Add the org.alljoyn.bus.sample interface to this object
     //
-    interfaceDescription = bus.GetInterface([@"org.alljoyn.bus.sample" UTF8String]);
+    interfaceDescription = bus.GetInterface("org.alljoyn.bus.sample");
     assert(interfaceDescription);
     AddInterface(*interfaceDescription);
 
@@ -171,7 +172,9 @@ void SampleObjectImpl::Concatentate(const InterfaceDescription::Member *member, 
 {
     self = [super initWithBusAttachment:busAttachment onPath:path];
     if (self) {
-        QStatus status = ER_OK;
+        QStatus status;
+
+        status = ER_OK;
         
         AJNInterfaceDescription *interfaceDescription;
         
@@ -179,10 +182,10 @@ void SampleObjectImpl::Concatentate(const InterfaceDescription::Member *member, 
         //
         // SampleObjectDelegate interface (org.alljoyn.bus.sample)
         //
-        // create an interface description
+        // create an interface description, or if that fails, get the interface as it was already created
         //
         interfaceDescription = [busAttachment createInterfaceWithName:@"org.alljoyn.bus.sample"];
-
+        
     
         // add the methods to the interface description
         //
@@ -261,7 +264,8 @@ void SampleObjectImpl::Concatentate(const InterfaceDescription::Member *member, 
 
     // make the function call using the C++ proxy object
     //
-    QStatus status = self.proxyBusObject->MethodCall([@"org.alljoyn.bus.sample" UTF8String], "Concatentate", inArgs, 2, reply, 5000);
+    
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.sample", "Concatentate", inArgs, 2, reply, 5000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.sample failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
@@ -272,6 +276,7 @@ void SampleObjectImpl::Concatentate(const InterfaceDescription::Member *member, 
     
     // pass the output arguments back to the caller
     //
+    
         
     return [NSString stringWithCString:reply->GetArg()->v_string.str encoding:NSUTF8StringEncoding];
         

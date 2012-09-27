@@ -418,16 +418,16 @@
 /* Begin PBXShellScriptBuildPhase section */
 		AC339CC0157FCC5E00AF660C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/../AllJoyn_SDK/alljoyn_objc/bin/AllJoynCodeGenerator\" \"$SRCROOT/$PROJECT_NAME/SampleAllJoynObjectModel.xml\" \"$SRCROOT/../AllJoyn_SDK/alljoyn_objc/AllJoynCodeGenerator/AllJoynCodeGenerator/objcHeader.xsl\" \"$SRCROOT/$PROJECT_NAME/AJNSampleObject.h\" \"$SRCROOT/../AllJoyn_SDK/alljoyn_objc/AllJoynCodeGenerator/AllJoynCodeGenerator/objcSource.xsl\" \"$SRCROOT/$PROJECT_NAME/AJNSampleObject.mm\" \"$SRCROOT/../AllJoyn_SDK/alljoyn_objc/AllJoynCodeGenerator/AllJoynCodeGenerator/objcExtensionHeader.xsl\" \"$SRCROOT/$PROJECT_NAME/SampleObject.h\" \"$SRCROOT/../AllJoyn_SDK/alljoyn_objc/AllJoynCodeGenerator/AllJoynCodeGenerator/objcExtensionSource.xsl\" \"$SRCROOT/$PROJECT_NAME/SampleObject.m\" SampleObject";
+			shellScript = "\"$SRCROOT/../../../bin/AllJoynCodeGenerator\" \"$SRCROOT/$PROJECT_NAME/SampleAllJoynObjectModel.xml\" SampleObject";
 		};
 		AC3A981B1576B59100CFF856 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
