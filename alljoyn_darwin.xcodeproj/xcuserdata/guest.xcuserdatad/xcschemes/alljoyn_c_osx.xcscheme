@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC9C2C6E15FA9B4C00C60607"
-               BuildableName = "alljoyn_c"
+               BuildableName = "alljoyn_c_osx"
                BlueprintName = "alljoyn_c_osx"
                ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
             </BuildableReference>
