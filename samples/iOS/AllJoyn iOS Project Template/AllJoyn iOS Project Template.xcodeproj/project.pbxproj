@@ -243,7 +243,6 @@
 		AC3A97F71576B59000CFF856 = {
 			isa = PBXGroup;
 			children = (
-				AC8D8DE81614C7CA00361742 /* SystemConfiguration.framework */,
 				AC8D8D981614C77300361742 /* Default-568h@2x.png */,
 				AC3A980C1576B59100CFF856 /* AllJoyn iOS Project Template */,
 				AC3A98241576B59100CFF856 /* AllJoyn iOS Project TemplateTests */,
@@ -265,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				AC339CB2157FC16C00AF660C /* libstdc++.dylib */,
+				AC8D8DE81614C7CA00361742 /* SystemConfiguration.framework */,
 				AC3A98061576B59100CFF856 /* UIKit.framework */,
 				AC3A98081576B59100CFF856 /* Foundation.framework */,
 				AC3A980A1576B59100CFF856 /* CoreGraphics.framework */,
