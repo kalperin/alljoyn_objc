@@ -229,8 +229,8 @@
 		AC1D980F150E84E60005211D /* basic_service */ = {
 			isa = PBXGroup;
 			children = (
-				ACFCF77F1566A4D000BC922D /* SConscript */,
 				ACD9B1B0152233C100F9B0F1 /* AllJoynFramework */,
+				ACFCF77F1566A4D000BC922D /* SConscript */,
 				AC1D981B150E84E60005211D /* AppDelegate.h */,
 				AC1D981C150E84E60005211D /* AppDelegate.m */,
 				ACB063A515115CA800026AF7 /* BasicSampleObject.h */,
