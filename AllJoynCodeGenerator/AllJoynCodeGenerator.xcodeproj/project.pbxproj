@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		AC1B069415262D2700C95551 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC1B069315262D2700C95551 /* Foundation.framework */; };
 		AC1B06A415262D4900C95551 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1B06A115262D4900C95551 /* main.m */; };
-		AC8D8D341614B27D00361742 /* objcHeader.xsl in Copy AllJoyn Code Generator XSL Files */ = {isa = PBXBuildFile; fileRef = AC1B06A515262D5700C95551 /* objcHeader.xsl */; };
-		AC8D8D351614B27D00361742 /* objcSource.xsl in Copy AllJoyn Code Generator XSL Files */ = {isa = PBXBuildFile; fileRef = AC1B06A615262D5700C95551 /* objcSource.xsl */; };
-		AC8D8D361614B27D00361742 /* objcExtensionHeader.xsl in Copy AllJoyn Code Generator XSL Files */ = {isa = PBXBuildFile; fileRef = AC1B06A215262D4900C95551 /* objcExtensionHeader.xsl */; };
-		AC8D8D371614B27D00361742 /* objcExtensionSource.xsl in Copy AllJoyn Code Generator XSL Files */ = {isa = PBXBuildFile; fileRef = AC1B06A315262D4900C95551 /* objcExtensionSource.xsl */; };
+		AC8D8D341614B27D00361742 /* objcHeader.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */ = {isa = PBXBuildFile; fileRef = AC1B06A515262D5700C95551 /* objcHeader.xsl */; };
+		AC8D8D351614B27D00361742 /* objcSource.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */ = {isa = PBXBuildFile; fileRef = AC1B06A615262D5700C95551 /* objcSource.xsl */; };
+		AC8D8D361614B27D00361742 /* objcExtensionHeader.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */ = {isa = PBXBuildFile; fileRef = AC1B06A215262D4900C95551 /* objcExtensionHeader.xsl */; };
+		AC8D8D371614B27D00361742 /* objcExtensionSource.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */ = {isa = PBXBuildFile; fileRef = AC1B06A315262D4900C95551 /* objcExtensionSource.xsl */; };
+		AC8D8E501614D1B300361742 /* AllJoynCodeGenerator in Copy AllJoyn Code Generator Executable to bin folder */ = {isa = PBXBuildFile; fileRef = AC1B068F15262D2700C95551 /* AllJoynCodeGenerator */; };
+		AC8D8E521614D27100361742 /* objcHeader.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC1B06A515262D5700C95551 /* objcHeader.xsl */; };
+		AC8D8E531614D27100361742 /* objcSource.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC1B06A615262D5700C95551 /* objcSource.xsl */; };
+		AC8D8E541614D27100361742 /* objcExtensionHeader.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC1B06A215262D4900C95551 /* objcExtensionHeader.xsl */; };
+		AC8D8E551614D27100361742 /* objcExtensionSource.xsl in CopyFiles */ = {isa = PBXBuildFile; fileRef = AC1B06A315262D4900C95551 /* objcExtensionSource.xsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,18 +30,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		AC8D8D331614B26000361742 /* Copy AllJoyn Code Generator XSL Files */ = {
+		AC8D8D331614B26000361742 /* Copy AllJoyn Code Generator XSL Files To Build Directory */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				AC8D8D341614B27D00361742 /* objcHeader.xsl in Copy AllJoyn Code Generator XSL Files */,
-				AC8D8D351614B27D00361742 /* objcSource.xsl in Copy AllJoyn Code Generator XSL Files */,
-				AC8D8D361614B27D00361742 /* objcExtensionHeader.xsl in Copy AllJoyn Code Generator XSL Files */,
-				AC8D8D371614B27D00361742 /* objcExtensionSource.xsl in Copy AllJoyn Code Generator XSL Files */,
+				AC8D8D341614B27D00361742 /* objcHeader.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */,
+				AC8D8D351614B27D00361742 /* objcSource.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */,
+				AC8D8D361614B27D00361742 /* objcExtensionHeader.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */,
+				AC8D8D371614B27D00361742 /* objcExtensionSource.xsl in Copy AllJoyn Code Generator XSL Files To Build Directory */,
 			);
-			name = "Copy AllJoyn Code Generator XSL Files";
+			name = "Copy AllJoyn Code Generator XSL Files To Build Directory";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8D8E4E1614D10400361742 /* Copy AllJoyn Code Generator Executable to bin folder */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/../bin";
+			dstSubfolderSpec = 0;
+			files = (
+				AC8D8E501614D1B300361742 /* AllJoynCodeGenerator in Copy AllJoyn Code Generator Executable to bin folder */,
+			);
+			name = "Copy AllJoyn Code Generator Executable to bin folder";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC8D8E511614D25F00361742 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(SRCROOT)/../bin";
+			dstSubfolderSpec = 0;
+			files = (
+				AC8D8E521614D27100361742 /* objcHeader.xsl in CopyFiles */,
+				AC8D8E531614D27100361742 /* objcSource.xsl in CopyFiles */,
+				AC8D8E541614D27100361742 /* objcExtensionHeader.xsl in CopyFiles */,
+				AC8D8E551614D27100361742 /* objcExtensionSource.xsl in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -132,7 +161,9 @@
 				AC1B068B15262D2700C95551 /* Sources */,
 				AC1B068C15262D2700C95551 /* Frameworks */,
 				AC1B068D15262D2700C95551 /* CopyFiles */,
-				AC8D8D331614B26000361742 /* Copy AllJoyn Code Generator XSL Files */,
+				AC8D8D331614B26000361742 /* Copy AllJoyn Code Generator XSL Files To Build Directory */,
+				AC8D8E4E1614D10400361742 /* Copy AllJoyn Code Generator Executable to bin folder */,
+				AC8D8E511614D25F00361742 /* CopyFiles */,
 			);
 			buildRules = (
 			);
