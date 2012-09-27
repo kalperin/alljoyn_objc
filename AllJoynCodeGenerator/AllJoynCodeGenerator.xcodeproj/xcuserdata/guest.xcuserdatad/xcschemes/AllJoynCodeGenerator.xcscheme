@@ -62,38 +62,6 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/objcHeader.xsl"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/AJNBasicObject.h"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/objcSource.xsl"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/AJNBasicObject.mm"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/objcExtensionHeader.xsl"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/BasicObject.h"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/objcExtensionSource.xsl"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "$(SRCROOT)/AllJoynCodeGenerator/BasicObject.m"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
             argument = "BasicObject"
             isEnabled = "YES">
          </CommandLineArgument>

@@ -16,24 +16,77 @@
 
 #import <Foundation/Foundation.h>
 
+// constants
+//
 NSString * const kImplementationHeaderXSL = @"objcHeader.xsl";
 NSString * const kImplementationSourceXSL = @"objcSource.xsl";
 NSString * const kObjectiveCHeaderXSL = @"objcExtensionHeader.xsl";
 NSString * const kObjectiveCSourceXSL = @"objcExtensionSource.xsl";
 
+const NSInteger kExpectedArgumentCount = 2;
+
+// print the expected arguments
+//
+void usage(void)
+{
+    NSLog(@"Usage: AllJoynCodeGenerator [input file] [base file name]");
+    NSLog(@"Arguments:");
+    NSLog(@"   input file            = The path to the input XML file containing the DBus-formatted object model");
+    NSLog(@"   base file name        = The base file name used for the generated Objective-C files");
+    NSLog(@"");
+    NSLog(@"The files containing the generated Objective-C source code will reside in the same directory as the input file specified.");
+    NSLog(@"The xsl files used to generate the Objective-C source code should reside in the same directory as the AllJoynCodeGenerator executable.");
+}
+
+
 int main(int argc, const char * argv[])
 {
-
     @autoreleasepool {
-        NSError *error = nil;
-        NSString *xmlFileUrl = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
-        NSString *xslFileUrl = [NSString stringWithCString:argv[2] encoding:NSUTF8StringEncoding];
-        NSString *outputFileUrl = [NSString stringWithCString:argv[3] encoding:NSUTF8StringEncoding];
-        NSURL *fileUrl = [NSURL fileURLWithPath:xmlFileUrl];
-        NSString *outputFileName = [[NSURL fileURLWithPath:outputFileUrl] lastPathComponent];
-        NSString *baseFileName = [NSString stringWithCString:argv[10] encoding:NSUTF8StringEncoding];
         
-        // prepare to generate the header file
+        //  Validate the there are the correct number of command line arguments.
+        //  Remember that argv/argc includes the executable's path plus the
+        //  arguments passed to it.
+        //
+        if (argc <= kExpectedArgumentCount) {
+            
+            // Print usage if not enough command line arguments.
+            //
+            usage();
+            
+            return 0;
+        }
+        
+        //  Validate that the input file exists.
+        //
+        NSString *xmlFilePath = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:xmlFilePath]) {
+            NSLog(@"The input file specified does not exist %@", xmlFilePath);
+            return 0;
+        }
+        
+        // Validate that the base file name uses valid characters
+        //
+        NSString *baseFileName = [NSString stringWithCString:argv[2] encoding:NSUTF8StringEncoding];
+        if (![[baseFileName stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]] isEqualToString:baseFileName]
+            && ![[baseFileName stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]] isEqualToString:baseFileName]) {
+            NSLog(@"The base file name should contain only letters or numbers.");
+            return 0;
+        }
+        
+        // Parse out the directory of the input file for use as the location of the output files
+        //
+        NSURL *fileUrl = [NSURL fileURLWithPath:xmlFilePath];
+        NSURL *executableFileUrl = [NSURL fileURLWithPath:[NSString stringWithCString:argv[0] encoding:NSUTF8StringEncoding]];
+        NSString *executableDirectory =  [[executableFileUrl URLByDeletingLastPathComponent] path];
+        NSString *outputDirectory = [[fileUrl URLByDeletingLastPathComponent] path];
+        NSError *error = nil;
+        NSString *xslFileUrl = [NSString stringWithFormat:@"%@/%@", executableDirectory, kImplementationHeaderXSL];
+        NSString *outputFilePath = [NSString stringWithFormat:@"%@/AJN%@.h", outputDirectory, baseFileName];
+        NSString *outputFileName = [[NSURL fileURLWithPath:outputFilePath] lastPathComponent];
+
+        // STEP ONE
+        //
+        // prepare to generate the Objective-C scaffold implementation header file
         //
         NSXMLDocument *xmlDocument = [[NSXMLDocument alloc] initWithContentsOfURL:fileUrl options:NSDataReadingMappedIfSafe error:&error];
         if (error) {
@@ -47,16 +100,17 @@ int main(int argc, const char * argv[])
             return 1;
         }
         
-        // write the header file to disk
+        // write the Objective-C scaffold header file to disk
         //
-        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFileUrl] atomically:YES];
+        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFilePath] atomically:YES];
         
-        
-        // prepare to generate the source file
+        // STEP TWO
         //
-        xslFileUrl = [NSString stringWithCString:argv[4] encoding:NSUTF8StringEncoding];
-        outputFileUrl = [NSString stringWithCString:argv[5] encoding:NSUTF8StringEncoding];
-        outputFileName = [[NSURL fileURLWithPath:outputFileUrl] lastPathComponent];
+        // prepare to generate the Objective-C++ scaffold implementation source file
+        //
+        xslFileUrl = [NSString stringWithFormat:@"%@/%@", executableDirectory, kImplementationSourceXSL];
+        outputFilePath = [NSString stringWithFormat:@"%@/AJN%@.mm", outputDirectory, baseFileName];
+        outputFileName = [[NSURL fileURLWithPath:outputFilePath] lastPathComponent];
         
         xmlDocument = [[NSXMLDocument alloc] initWithContentsOfURL:fileUrl options:NSDataReadingMappedIfSafe error:&error];
         if (error) {
@@ -72,13 +126,15 @@ int main(int argc, const char * argv[])
         
         // write the source file to disk
         //
-        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFileUrl] atomically:YES];
+        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFilePath] atomically:YES];
         
-        // prepare to generate the category header file
+        // STEP THREE
         //
-        xslFileUrl = [NSString stringWithCString:argv[6] encoding:NSUTF8StringEncoding];
-        outputFileUrl = [NSString stringWithCString:argv[7] encoding:NSUTF8StringEncoding];
-        outputFileName = [[NSURL fileURLWithPath:outputFileUrl] lastPathComponent];
+        // prepare to generate the Objective-C header file
+        //
+        xslFileUrl = [NSString stringWithFormat:@"%@/%@", executableDirectory, kObjectiveCHeaderXSL];
+        outputFilePath = [NSString stringWithFormat:@"%@/%@.h", outputDirectory, baseFileName];
+        outputFileName = [[NSURL fileURLWithPath:outputFilePath] lastPathComponent];
 
         xmlDocument = [[NSXMLDocument alloc] initWithContentsOfURL:fileUrl options:NSDataReadingMappedIfSafe error:&error];
         if (error) {
@@ -94,14 +150,15 @@ int main(int argc, const char * argv[])
         
         // write the category header file to disk
         //
-        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFileUrl] atomically:YES];
+        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFilePath] atomically:YES];
         
-        
-        // prepare to generate the category source file
+        // STEP FOUR
         //
-        xslFileUrl = [NSString stringWithCString:argv[8] encoding:NSUTF8StringEncoding];
-        outputFileUrl = [NSString stringWithCString:argv[9] encoding:NSUTF8StringEncoding];
-        outputFileName = [[NSURL fileURLWithPath:outputFileUrl] lastPathComponent];
+        // prepare to generate the Objective-C source file
+        //
+        xslFileUrl = [NSString stringWithFormat:@"%@/%@", executableDirectory, kObjectiveCSourceXSL];
+        outputFilePath = [NSString stringWithFormat:@"%@/%@.m", outputDirectory, baseFileName];
+        outputFileName = [[NSURL fileURLWithPath:outputFilePath] lastPathComponent];
         
         xmlDocument = [[NSXMLDocument alloc] initWithContentsOfURL:fileUrl options:NSDataReadingMappedIfSafe error:&error];
         if (error) {
@@ -117,7 +174,7 @@ int main(int argc, const char * argv[])
         
         // write the category source file to disk
         //
-        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFileUrl] atomically:YES];
+        [generatedCodeData writeToURL:[NSURL fileURLWithPath:outputFilePath] atomically:YES];
     }
     return 0;
 }
