@@ -73,7 +73,7 @@
 		};
 		ACA3BC341587FC5E0010F1C5 /* alljoyn_streaming_osx */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin BD=on WS=off --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
 			buildConfigurationList = ACA3BC371587FC5E0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_osx" */;
 			buildPhases = (
 			);
@@ -87,7 +87,7 @@
 		};
 		ACA3BC391587FDBC0010F1C5 /* alljoyn_streaming_ios */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=fix --$(ACTION)";
+			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
 			buildConfigurationList = ACA3BC3A1587FDBC0010F1C5 /* Build configuration list for PBXLegacyTarget "alljoyn_streaming_ios" */;
 			buildPhases = (
 			);
