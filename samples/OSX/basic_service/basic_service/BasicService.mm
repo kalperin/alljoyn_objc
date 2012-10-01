@@ -119,7 +119,7 @@ static BasicService *s_basicService;
         status = [self.bus connectWithArguments:@"null:"];
         
         if (status != ER_OK) {
-            [self.delegate didReceiveStatusUpdateMessage:@"Failed to connect to launchd:"];
+            [self.delegate didReceiveStatusUpdateMessage:@"Failed to connect to null:"];
             
             @throw [NSException exceptionWithName:@"StartServiceFailed" reason:@"Unable to connect to bus" userInfo:nil];
         }

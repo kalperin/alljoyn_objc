@@ -18,4 +18,8 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
+
+- (IBAction)didTouchCallServiceButton:(id)sender;
+
 @end

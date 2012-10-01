@@ -160,7 +160,7 @@ static const AJNSessionPort kBasicClientServicePort = 25;
         [self.delegate didReceiveStatusUpdateMessage:@"BusAttachment::Connect(\"null:\") failed\n"];
     }
     else {
-        [self.delegate didReceiveStatusUpdateMessage:@"BusAttchement connected to null:\n"];
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachement connected to null:\n"];
     }
 
 
@@ -175,6 +175,8 @@ static const AJNSessionPort kBasicClientServicePort = 25;
     // begin discovery of the well known name of the service to be called
     //
     [self.bus findAdvertisedName:kBasicClientServiceName];
+
+    [self.delegate didReceiveStatusUpdateMessage:@"Waiting to discover service...\n"];
     
     // wait for the join session to complete
     //
@@ -245,7 +247,7 @@ static const AJNSessionPort kBasicClientServicePort = 25;
             return;
         }
         
-        // Since we are in a callback we must enable concurrent callbacks before calling a synchronous method.
+        // Since we are in an AllJoyn callback we must enable concurrent callbacks before calling a synchronous method.
         //
         [self.bus enableConcurrentCallbacks];
         
@@ -256,10 +258,11 @@ static const AJNSessionPort kBasicClientServicePort = 25;
             
             NSLog(@"Client joined session %d", self.sessionId);
 
-            [self.delegate didReceiveStatusUpdateMessage:@"JoinSession failed\n"];
+            [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"JoinSession SUCCESS (Session id=%d)\n", self.sessionId]];
+
         }
         else {
-            [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"JoinSession SUCCESS (Session id=%d)\n", self.sessionId]];
+            [self.delegate didReceiveStatusUpdateMessage:@"JoinSession failed\n"];            
         }
         
         [self.joinedSessionCondition signal];
