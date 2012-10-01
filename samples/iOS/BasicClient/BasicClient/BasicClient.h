@@ -16,8 +16,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BasicClientDelegate <NSObject>
+
+- (void)didReceiveStatusUpdateMessage:(NSString*)message;
+
+@end
+
 @interface BasicClient : NSObject
 
-- (void)run;
+@property (nonatomic, weak) NSObject<BasicClientDelegate> *delegate;
+
+- (void)sendHelloMessage;
 
 @end

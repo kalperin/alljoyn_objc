@@ -16,8 +16,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol BasicServiceDelegate <NSObject>
+
+- (void)didReceiveStatusUpdateMessage:(NSString*)message;
+
+@end
+
 @interface BasicService : NSObject
 
-- (void)run;
+@property (strong, nonatomic) id<BasicServiceDelegate> delegate;
+
+- (void)startService;
 
 @end

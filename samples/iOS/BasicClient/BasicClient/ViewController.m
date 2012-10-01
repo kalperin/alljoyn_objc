@@ -15,8 +15,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "ViewController.h"
+#import "BasicClient.h"
 
-@interface ViewController ()
+@interface ViewController () <BasicClientDelegate>
+
+@property (nonatomic, strong) BasicClient *basicClient;
 
 @end
 
@@ -32,6 +35,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)didTouchCallServiceButton:(id)sender
+{
+    self.basicClient = [[BasicClient alloc] init];
+    self.basicClient.delegate = self;
+    [self.basicClient sendHelloMessage];
+}
+
+- (void)didReceiveStatusUpdateMessage:(NSString *)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableString *string = self.eventsTextView.text.length ? [self.eventsTextView.text mutableCopy] : [[NSMutableString alloc] init];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [string appendFormat:@"[%@] ",[formatter stringFromDate:[NSDate date]]];
+        [string appendString:message];
+        [self.eventsTextView setText:string];
+        NSLog(@"%@",string);
+    });
 }
 
 @end

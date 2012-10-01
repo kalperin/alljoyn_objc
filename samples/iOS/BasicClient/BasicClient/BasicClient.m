@@ -47,6 +47,8 @@ static const AJNSessionPort kBasicClientServicePort = 25;
 @property (nonatomic, strong) BasicObjectProxy *basicObjectProxy;
 @property BOOL wasNameAlreadyFound;
 
+- (void)run;
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -64,12 +66,23 @@ static const AJNSessionPort kBasicClientServicePort = 25;
 @synthesize foundServiceName = _foundServiceName;
 @synthesize basicObjectProxy = _basicObjectProxy;
 @synthesize wasNameAlreadyFound = _wasNameAlreadyFound;
+@synthesize delegate = _delegate;
+
+- (void)sendHelloMessage
+{
+    dispatch_queue_t clientQueue = dispatch_queue_create("org.alljoyn.basic-service.clientQueue",NULL);
+    dispatch_async( clientQueue, ^{
+        [self run];
+    });
+}
 
 - (void)run
 {
     NSLog(@"AllJoyn Library version: %@", AJNVersion.versionInformation);
     NSLog(@"AllJoyn Library build info: %@\n", AJNVersion.buildInformation);
-    
+    [self.delegate didReceiveStatusUpdateMessage:AJNVersion.versionInformation];
+    [self.delegate didReceiveStatusUpdateMessage:AJNVersion.buildInformation];
+
     NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"+ Creating bus attachment                                                                 +");
     NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -100,7 +113,12 @@ static const AJNSessionPort kBasicClientServicePort = 25;
 
     if (ER_OK != status) {
         NSLog(@"Bus start failed.");
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachment::Start failed\n"];
     }
+    else {
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachment started.\n"];
+    }
+
     
     // connect to the message bus
     //
@@ -108,7 +126,12 @@ static const AJNSessionPort kBasicClientServicePort = 25;
     
     if (ER_OK != status) {
         NSLog(@"Bus connect failed.");
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachment::Connect(\"null:\") failed\n"];
     }
+    else {
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachement connected to null:\n"];
+    }
+
     
     self.joinedSessionCondition = [[NSCondition alloc] init];
     [self.joinedSessionCondition lock];
@@ -120,6 +143,8 @@ static const AJNSessionPort kBasicClientServicePort = 25;
     // begin discovery of the well known name of the service to be called
     //
     [self.bus findAdvertisedName:kBasicClientServiceName];
+    
+    [self.delegate didReceiveStatusUpdateMessage:@"Waiting to discover service...\n"];
     
     // wait for the join session to complete
     //
@@ -139,6 +164,7 @@ static const AJNSessionPort kBasicClientServicePort = 25;
         
         if (result) {
             NSLog(@"[%@] %@ concatenated string.", result, [result compare:@"Code Monkies!!!!!!!"] == NSOrderedSame ? @"Successfully":@"Unsuccessfully");
+            [self.delegate didReceiveStatusUpdateMessage:@"Successfully called method on remote object!!!\n"];
         }
         
         self.basicObjectProxy = nil;
@@ -146,6 +172,7 @@ static const AJNSessionPort kBasicClientServicePort = 25;
     }
     else {
         NSLog(@"Timed out while attempting to join a session with BasicService...");
+        [self.delegate didReceiveStatusUpdateMessage:@"Timed out while attempting to join a session with BasicService..."];        
     }
     
     [self.joinedSessionCondition unlock];
@@ -157,6 +184,8 @@ static const AJNSessionPort kBasicClientServicePort = 25;
     // deallocate the bus
     //
     self.bus = nil;
+    
+    [self.delegate didReceiveStatusUpdateMessage:@"Bus deallocated\n"];
 }
 
 #pragma mark - AJNBusListener delegate methods
@@ -198,6 +227,10 @@ static const AJNSessionPort kBasicClientServicePort = 25;
             self.foundServiceName = name;
             
             NSLog(@"Client joined session %d", self.sessionId);
+            [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"JoinSession SUCCESS (Session id=%d)\n", self.sessionId]];
+        }
+        else {
+            [self.delegate didReceiveStatusUpdateMessage:@"JoinSession failed\n"];            
         }
         
         [self.joinedSessionCondition signal];
@@ -212,6 +245,7 @@ static const AJNSessionPort kBasicClientServicePort = 25;
 - (void)nameOwnerChanged:(NSString*)name to:(NSString*)newOwner from:(NSString*)previousOwner
 {
     NSLog(@"AJNBusListener::nameOwnerChanged:%@ to:%@ from:%@", name, newOwner, previousOwner);
+    [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"NameOwnerChanged: name=%@, oldOwner=%@, newOwner=%@\n", name, previousOwner, newOwner]];    
 }
 
 - (void)busWillStop

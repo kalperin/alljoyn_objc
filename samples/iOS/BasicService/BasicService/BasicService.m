@@ -44,6 +44,8 @@ static const AJNSessionPort kBasicServicePort = 25;
 @property (nonatomic, strong) BasicObject *basicObject;
 @property (nonatomic, strong) NSCondition *lostSessionCondition;
 
+- (void)run;
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -58,13 +60,25 @@ static const AJNSessionPort kBasicServicePort = 25;
 @synthesize bus = _bus;
 @synthesize basicObject = _basicObject;
 @synthesize lostSessionCondition = _lostSessionCondition;
+@synthesize delegate = _delegate;
+
+- (void)startService
+{
+    dispatch_queue_t serviceQueue = dispatch_queue_create("org.alljoyn.basic-service.serviceQueue", NULL);
+    dispatch_async( serviceQueue, ^{
+        [self run];
+    });
+    
+}
 
 - (void)run
 {
     
     NSLog(@"AllJoyn Library version: %@", AJNVersion.versionInformation);
     NSLog(@"AllJoyn Library build info: %@\n", AJNVersion.buildInformation);
-    
+    [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"AllJoyn Library version: %@\n", [AJNVersion versionInformation]]];
+    [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"AllJoyn Library build info: %@\n", [AJNVersion buildInformation]]];
+
     NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     NSLog(@"+ Creating bus attachment                                                                 +");
     NSLog(@"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -91,6 +105,8 @@ static const AJNSessionPort kBasicServicePort = 25;
     status =  [self.bus start];
     
     if (ER_OK != status) {
+        [self.delegate didReceiveStatusUpdateMessage:@"BusAttachment::Start failed\n"];
+        
         NSLog(@"Bus start failed.");
     }
     
@@ -101,14 +117,19 @@ static const AJNSessionPort kBasicServicePort = 25;
         NSLog(@"ERROR: Could not register bus object");
     }
     
+    [self.delegate didReceiveStatusUpdateMessage:@"Object registered successfully.\n"];
+    
     // connect to the message bus
     //
     status = [self.bus connectWithArguments:@"null:"];
     
     if (ER_OK != status) {
         NSLog(@"Bus connect failed.");
+        [self.delegate didReceiveStatusUpdateMessage:@"Failed to connect to null: transport"];        
     }
-        
+    
+    [self.delegate didReceiveStatusUpdateMessage:@"Bus now connected to null: transport\n"];            
+    
     // Advertise this service on the bus
     // There are three steps to advertising this service on the bus
     //   1) Request a well-known name that will be used by the client to discover
@@ -223,15 +244,15 @@ static const AJNSessionPort kBasicServicePort = 25;
 - (BOOL)shouldAcceptSessionJoinerNamed:(NSString*)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions*)options
 {
     NSLog(@"AJNSessionPortListener::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u withSessionOptions:", joiner, sessionPort);
-    if (sessionPort == kBasicServicePort) {
-        return YES;
-    }
-    return NO;
+    BOOL shouldAcceptSessionJoiner = kBasicServicePort == sessionPort;
+    [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"Request from %@ to join session is %@.\n", joiner, shouldAcceptSessionJoiner ? @"accepted" : @"rejected"]];
+    return shouldAcceptSessionJoiner;
 }
 
 - (void)didJoin:(NSString*)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
     NSLog(@"AJNSessionPortListener::didJoin:%@ inSessionWithId:%u onSessionPort:%u withSessionOptions:", joiner, sessionId, sessionPort);
+    [self.delegate didReceiveStatusUpdateMessage:[NSString stringWithFormat:@"%@ successfully joined session %u on port %d.\n", joiner, sessionId, sessionPort]];
     
 }
 
