@@ -18,6 +18,6 @@
 
 @interface MyBasicSampleObject (AllJoyn)<MyMethodSample>
 
-- (NSString*)concatenateString:(NSString *)string1 withString:(NSString *)string2;
+- (NSString*)concatenateString:(NSString*)string1 withString:(NSString*)string2;
 
 @end

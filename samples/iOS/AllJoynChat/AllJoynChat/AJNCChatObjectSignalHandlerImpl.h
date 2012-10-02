@@ -17,26 +17,25 @@
 #import <Foundation/Foundation.h>
 #import "AJNSignalHandlerImpl.h"
 
-class AJNCChatObjectSignalHandlerImpl : public AJNSignalHandlerImpl
-{
-private:
+class AJNCChatObjectSignalHandlerImpl : public AJNSignalHandlerImpl {
+  private:
     const ajn::InterfaceDescription::Member* chatSignalMember;
-    
+
     /** Receive a signal from another Chat client */
     void ChatSignalHandler(const ajn::InterfaceDescription::Member* member, const char* srcPath, ajn::Message& msg);
-        
-public:
+
+  public:
     /**
      * Constructor for the AJN signal handler implementation.
      *
-     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
-     */    
+     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
+     */
     AJNCChatObjectSignalHandlerImpl(id<AJNSignalHandler> aDelegate);
-    
-    virtual void RegisterSignalHandler(ajn::BusAttachment &bus);
-    
-    virtual void UnregisterSignalHandler(ajn::BusAttachment &bus);
-    
+
+    virtual void RegisterSignalHandler(ajn::BusAttachment& bus);
+
+    virtual void UnregisterSignalHandler(ajn::BusAttachment& bus);
+
     /**
      * Virtual destructor for derivable class.
      */

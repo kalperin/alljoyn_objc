@@ -18,12 +18,12 @@
 
 @interface AJNCStartPageViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *chatSessionTypeSegmentedControl;
-@property (weak, nonatomic) IBOutlet UITextView *chatConversationTextView;
-@property (weak, nonatomic) IBOutlet UITextField *chatMessageTextField;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UIButton *sendButton;
-@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl*chatSessionTypeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UITextView*chatConversationTextView;
+@property (weak, nonatomic) IBOutlet UITextField*chatMessageTextField;
+@property (weak, nonatomic) IBOutlet UIButton*startButton;
+@property (weak, nonatomic) IBOutlet UIButton*sendButton;
+@property (weak, nonatomic) IBOutlet UIButton*stopButton;
 
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)didTouchStopButton:(id)sender;

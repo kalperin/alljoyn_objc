@@ -24,11 +24,11 @@
 typedef uint32_t AJNBusNameFlag;
 
 /**< RequestName input flag: Allow others to take ownership of this name */
-extern const AJNBusNameFlag kAJNBusNameFlagAllowReplacement;    
+extern const AJNBusNameFlag kAJNBusNameFlagAllowReplacement;
 /**< RequestName input flag: Attempt to take ownership of name if already taken */
 extern const AJNBusNameFlag kAJNBusNameFlagReplaceExisting;
 /**< RequestName input flag: Fail if name cannot be immediately obtained */
-extern const AJNBusNameFlag kAJNBusNameFlagDoNotQueue;     
+extern const AJNBusNameFlag kAJNBusNameFlagDoNotQueue;
 
 // @}
 
@@ -40,12 +40,12 @@ extern const AJNBusNameFlag kAJNBusNameFlagDoNotQueue;
  */
 // @{
 typedef enum {
-    /**< RequestName reply: Name was successfully obtained */    
-    kAJNBusRequestNameReplyPrimaryOwner = 1,   
-    /**< RequestName reply: Name is already owned, request for name has been queued */    
-    kAJNBusRequestNameReplyInQueue      = 2,   
-    /**< RequestName reply: Name is already owned and DO_NOT_QUEUE was specified in request */    
-    kAJNBusRequestNameReplyExists       = 3,   
+    /**< RequestName reply: Name was successfully obtained */
+    kAJNBusRequestNameReplyPrimaryOwner = 1,
+    /**< RequestName reply: Name is already owned, request for name has been queued */
+    kAJNBusRequestNameReplyInQueue      = 2,
+    /**< RequestName reply: Name is already owned and DO_NOT_QUEUE was specified in request */
+    kAJNBusRequestNameReplyExists       = 3,
     /**< RequestName reply: Name is already owned by this endpoint */
     kAJNBusRequestNameReplyAlreadyOwner = 4
 } AJNBusRequestNameReply;
@@ -59,12 +59,12 @@ typedef enum {
  */
 // @{
 typedef enum {
-    /**< ReleaseName reply: Name was released */    
-    kAJNBusReleaseNameReplyReleased     = 1,     
+    /**< ReleaseName reply: Name was released */
+    kAJNBusReleaseNameReplyReleased     = 1,
     /**< ReleaseName reply: Name does not exist */
-    kAJNBusReleaseNameReplyNonexistant  = 2,     
+    kAJNBusReleaseNameReplyNonexistant  = 2,
     /**< ReleaseName reply: Request to release name that is not owned by this endpoint */
-    kAJNBusReleaseNameReplyNotOwner     = 3      
+    kAJNBusReleaseNameReplyNotOwner     = 3
 } AJNBusReleaseNameReply;
 // @}
 
@@ -76,9 +76,9 @@ typedef enum {
  */
 // @{
 typedef enum {
-    /**< StartServiceByName reply: Service is started */    
-    kAJNBusStartReplySuccess        = 1,         
+    /**< StartServiceByName reply: Service is started */
+    kAJNBusStartReplySuccess        = 1,
     /**< StartServiceByName reply: Service is already running */
-    kAJNBusStartReplyAlreadyRunning = 2          
+    kAJNBusStartReplyAlreadyRunning = 2
 } AJNBusStartReply;
 // @}

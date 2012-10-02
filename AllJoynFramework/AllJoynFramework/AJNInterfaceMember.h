@@ -22,9 +22,9 @@
 typedef uint8_t AJNInterfaceAnnotationFlags;
 
 /**< No reply annotate flag */
-static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationNoReplyFlag     = 1; 
+static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationNoReplyFlag     = 1;
 /**< Deprecated annotate flag */
-static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  = 2; 
+static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  = 2;
 // @}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,22 +33,22 @@ static const AJNInterfaceAnnotationFlags kAJNInterfaceAnnotationDeprecatedFlag  
  *  Message type enumeration
  */
 typedef enum {
-    
+
     ///< an invalid message type
-    kAJNMessageTypeInvalid          = 0, 
-    
+    kAJNMessageTypeInvalid          = 0,
+
     ///< a method call message type
-    kAJNMessageTypeMethodCall       = 1, 
-    
+    kAJNMessageTypeMethodCall       = 1,
+
     ///< a method return message type
-    kAJNMessageTypeMethodReturn     = 2, 
-    
+    kAJNMessageTypeMethodReturn     = 2,
+
     ///< an error message type
-    kAJNMessageTypeError            = 3, 
-    
-    ///< a signal message type    
-    kAJNMessageTypeSignal           = 4  
-    
+    kAJNMessageTypeError            = 3,
+
+    ///< a signal message type
+    kAJNMessageTypeSignal           = 4
+
 } AJNMessageType;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,36 +66,36 @@ typedef enum {
 /**
  * Name of the member.
  */
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString*name;
 
 /**
  * Input type signature of the member. This is nil for a signal member.
  */
-@property (nonatomic, readonly) NSString *inputSignature;
+@property (nonatomic, readonly) NSString*inputSignature;
 
 /**
  * Output type signature of the member.
  */
-@property (nonatomic, readonly) NSString *outputSignature;
+@property (nonatomic, readonly) NSString*outputSignature;
 
 /**
  * Comma separated list of names of all arguments. This can be nil.
  */
-@property (nonatomic, readonly) NSArray *argumentNames;
+@property (nonatomic, readonly) NSArray*argumentNames;
 
 /**
  * Required permissions to invoke this call.
  */
-@property (nonatomic, readonly) NSString *accessPermissions;
+@property (nonatomic, readonly) NSString*accessPermissions;
 
 /**
  * Get the annotation value for the member
  *
- * @param annotationName    Name of annotation 
+ * @param annotationName    Name of annotation
  *
  * @return  - string value of annotation if found
  *          - nil if not found
  */
-- (NSString *)annotationWithName:(NSString *)annotationName;
+- (NSString*)annotationWithName:(NSString*)annotationName;
 
 @end

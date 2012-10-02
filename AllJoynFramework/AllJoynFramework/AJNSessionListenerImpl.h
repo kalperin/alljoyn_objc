@@ -23,38 +23,37 @@
 #import "AJNBusAttachment.h"
 #import "AJNSessionListener.h"
 
-class AJNSessionListenerImpl : public ajn::SessionListener
-{
-protected:
-    __weak AJNBusAttachment *busAttachment;
+class AJNSessionListenerImpl : public ajn::SessionListener {
+  protected:
+    __weak AJNBusAttachment*busAttachment;
 
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
     __weak id<AJNSessionListener> m_delegate;
-    
-public:
+
+  public:
     /**
      * Constructor for the AJN session listener implementation.
      *
      * @param aBusAttachment    Objective C bus attachment wrapper object.
-     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
-     */    
-    AJNSessionListenerImpl(AJNBusAttachment *aBusAttachment, id<AJNSessionListener> aDelegate);
-    
+     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
+     */
+    AJNSessionListenerImpl(AJNBusAttachment*aBusAttachment, id<AJNSessionListener> aDelegate);
+
     /**
      * Virtual destructor for derivable class.
      */
     virtual ~AJNSessionListenerImpl();
-    
+
     /**
      * Called by the bus when an existing session becomes disconnected.
      *
      * @param sessionId     Id of session that was lost.
      */
     virtual void SessionLost(ajn::SessionId sessionId);
-    
+
     /**
      * Called by the bus when a member of a multipoint session is added.
      *
@@ -62,7 +61,7 @@ public:
      * @param uniqueName    Unique name of member who was added.
      */
     virtual void SessionMemberAdded(ajn::SessionId sessionId, const char* uniqueName);
-    
+
     /**
      * Called by the bus when a member of a multipoint session is removed.
      *
@@ -70,14 +69,14 @@ public:
      * @param uniqueName    Unique name of member who was removed.
      */
     virtual void SessionMemberRemoved(ajn::SessionId sessionId, const char* uniqueName);
-    
+
     /**
      * Accessor for Objective-C delegate.
      *
      * return delegate         The Objective-C delegate called to handle the above event methods.
      */
     id<AJNSessionListener> getDelegate();
-    
+
     /**
      * Mutator for Objective-C delegate.
      *

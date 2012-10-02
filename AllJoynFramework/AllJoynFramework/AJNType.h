@@ -40,12 +40,12 @@ typedef enum {
     kAJNTypeVariant          = 'v',    ///< AllJoyn variant container type
     kAJNTypeInt64            = 'x',    ///< AllJoyn 64-bit signed integer basic type
     kAJNTypeByte             = 'y',    ///< AllJoyn 8-bit unsigned integer basic type
-    
+
     kAJNTypeStructOpen       = '(', /**< Never actually used as a typeId: specified as ALLJOYN_STRUCT */
     kAJNTypeStructClose      = ')', /**< Never actually used as a typeId: specified as ALLJOYN_STRUCT */
     kAJNTypeDictEntryOpen    = '{', /**< Never actually used as a typeId: specified as ALLJOYN_DICT_ENTRY */
     kAJNTypeDictEntryClose   = '}', /**< Never actually used as a typeId: specified as ALLJOYN_DICT_ENTRY */
-    
+
     kAJNTypeBooleanArray     = ('b' << 8) | 'a',   ///< AllJoyn array of booleans
     kAJNTypeDoubleArray      = ('d' << 8) | 'a',   ///< AllJoyn array of IEEE 754 doubles
     kAJNTypeInt32Array       = ('i' << 8) | 'a',   ///< AllJoyn array of 32-bit signed integers
@@ -55,7 +55,7 @@ typedef enum {
     kAJNTypeUInt32Array      = ('u' << 8) | 'a',   ///< AllJoyn array of 32-bit unsigned integers
     kAJNTypeInt64Array       = ('x' << 8) | 'a',   ///< AllJoyn array of 64-bit signed integers
     kAJNTypeByteArray        = ('y' << 8) | 'a',   ///< AllJoyn array of 8-bit unsigned integers
-    
+
     kAJNTypeWildcard         = '*'     ///< This never appears in a signature but is used for matching arbitrary message args
-    
+
 } AJNType;

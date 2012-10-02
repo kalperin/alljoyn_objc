@@ -33,7 +33,7 @@
  *
  * @return Object path
  */
-@property (nonatomic, readonly) NSString *path;
+@property (nonatomic, readonly) NSString*path;
 
 /**
  * Get the name of this object.
@@ -41,7 +41,7 @@
  *
  * @return Last component of object path.
  */
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString*name;
 
 /**
  * AJNBusObject initialization.
@@ -78,9 +78,9 @@
  */
 @interface AJNBusObject : AJNObject<AJNBusObject>
 
-@property (nonatomic, readonly) NSString *path;
+@property (nonatomic, readonly) NSString*path;
 
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString*name;
 
 - (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onPath:(NSString*)path;
 

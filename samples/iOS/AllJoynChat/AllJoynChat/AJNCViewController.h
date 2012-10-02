@@ -18,10 +18,10 @@
 
 @interface AJNCViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *sessionTypeSegmentedControl;
-@property (weak, nonatomic) IBOutlet UITextField *sessionNameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *conversationTextView;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+@property (weak, nonatomic) IBOutlet UISegmentedControl*sessionTypeSegmentedControl;
+@property (weak, nonatomic) IBOutlet UITextField*sessionNameTextField;
+@property (weak, nonatomic) IBOutlet UITextView*conversationTextView;
+@property (weak, nonatomic) IBOutlet UITextField*messageTextField;
 
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)didTouchSendButton:(id)sender;

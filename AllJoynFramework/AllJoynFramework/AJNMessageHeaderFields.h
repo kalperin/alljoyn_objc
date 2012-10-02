@@ -17,10 +17,10 @@
 #import "AJNObject.h"
 
 /**
- * AllJoyn Header field types  
+ * AllJoyn Header field types
  */
 typedef enum {
-    
+
     /* Wire-protocol defined header field types */
     kAJNMessageHeaderFieldTypeInvalid = 0,              ///< an invalid header field type
     kAJNMessageHeaderFieldTypePath,                     ///< an object path header field type
@@ -43,14 +43,14 @@ typedef enum {
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * AllJoyn header fields 
+ * AllJoyn header fields
  */
 @interface AJNMessageHeaderFields : AJNObject
 
 /**
  * The values of each header field. Each element in the values array is an AJNMessageArgument.
  */
-@property (nonatomic, readonly) NSArray *values;
+@property (nonatomic, readonly) NSArray*values;
 
 /**
  * The string representation of the header fields.

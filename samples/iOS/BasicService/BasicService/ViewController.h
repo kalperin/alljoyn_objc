@@ -18,6 +18,6 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *eventTextView;
+@property (weak, nonatomic) IBOutlet UITextView*eventTextView;
 
 @end

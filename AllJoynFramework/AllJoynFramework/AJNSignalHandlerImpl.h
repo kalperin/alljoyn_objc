@@ -21,50 +21,49 @@
 #import "AJNBusAttachment.h"
 #import "AJNSignalHandler.h"
 
-class AJNSignalHandlerImpl : public ajn::MessageReceiver
-{
-    
-protected:
-    
+class AJNSignalHandlerImpl : public ajn::MessageReceiver {
+
+  protected:
+
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
     __weak id<AJNSignalHandler> m_delegate;
 
-public:
-    
+  public:
+
     /**
      * Constructor for the AJN signal handler implementation.
      *
-     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
-     */    
+     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
+     */
     AJNSignalHandlerImpl(id<AJNSignalHandler> aDelegate);
-        
+
     /**
      * Pure virtual registration function. Implement in derived classes to handle
      * registration of signal handlers.
      */
-    virtual void RegisterSignalHandler(ajn::BusAttachment &bus) = 0;
-    
+    virtual void RegisterSignalHandler(ajn::BusAttachment& bus) = 0;
+
     /**
-     * Pure virtual unregistration function. Implement in derived classes to 
+     * Pure virtual unregistration function. Implement in derived classes to
      * handle unregistration of signal handlers.
-     */    
-    virtual void UnregisterSignalHandler(ajn::BusAttachment &bus) = 0;
-    
+     */
+    virtual void UnregisterSignalHandler(ajn::BusAttachment& bus) = 0;
+
     /**
      * Virtual destructor for derivable class.
      */
     virtual ~AJNSignalHandlerImpl();
-    
+
     /**
      * Accessor for Objective-C delegate.
      *
      * return delegate         The Objective-C delegate called to handle the above event methods.
      */
     id<AJNSignalHandler> getDelegate();
-    
+
     /**
      * Mutator for Objective-C delegate.
      *

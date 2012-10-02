@@ -18,9 +18,9 @@
 
 @interface AJNCMessage : NSObject
 
-@property (nonatomic, strong) NSString *senderName;
-@property (nonatomic, strong) NSString *dateTime;
-@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString*senderName;
+@property (nonatomic, strong) NSString*dateTime;
+@property (nonatomic, strong) NSString*text;
 
 - (id)initWithText:(NSString*)text fromSender:(NSString*)senderName atDateTime:(NSString*)dateTime;
 

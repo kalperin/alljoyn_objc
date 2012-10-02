@@ -24,7 +24,7 @@
 
 @interface BasicClient : NSObject
 
-@property (nonatomic, weak) NSObject<BasicClientDelegate> *delegate;
+@property (nonatomic, weak) NSObject<BasicClientDelegate>*delegate;
 
 - (void)sendHelloMessage;
 

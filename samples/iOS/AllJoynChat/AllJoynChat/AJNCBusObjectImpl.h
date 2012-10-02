@@ -16,13 +16,12 @@
 
 #import "AJNBusObjectImpl.h"
 
-class AJNCBusObjectImpl : public AJNBusObjectImpl
-{
-private:
+class AJNCBusObjectImpl : public AJNBusObjectImpl {
+  private:
     const ajn::InterfaceDescription::Member* chatSignalMember;
-    
-public:
-    AJNCBusObjectImpl(ajn::BusAttachment &bus, const char *path, id<AJNBusObject> aDelegate);
+
+  public:
+    AJNCBusObjectImpl(ajn::BusAttachment& bus, const char*path, id<AJNBusObject> aDelegate);
 
     /* send a chat signal */
     QStatus SendChatSignal(const char* msg, ajn::SessionId sessionId);

@@ -17,8 +17,8 @@
 #import "AJNSessionOptions.h"
 
 extern const AJNSessionPort kServicePort;
-extern NSString * const kServicePath;
-extern NSString * const kServiceName;
-extern NSString * const kInterfaceName;
-extern NSString * const kMethodName;
-extern NSString * const kAppName;
+extern NSString* const kServicePath;
+extern NSString* const kServiceName;
+extern NSString* const kInterfaceName;
+extern NSString* const kMethodName;
+extern NSString* const kAppName;

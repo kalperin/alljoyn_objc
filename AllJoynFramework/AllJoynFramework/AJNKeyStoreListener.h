@@ -57,7 +57,7 @@
  * @return  - ER_OK if successful
  *          - An error status otherwise
  */
-- (QStatus)getKeys:(AJNHandle)keyStore sink:(NSString*)sink;
+- (QStatus)getKeys:(AJNHandle) keyStore sink:(NSString*)sink;
 
 /**
  * Put keys into the key store from an encrypted byte string.
@@ -70,7 +70,7 @@
  *          - An error status otherwise
  *
  */
-- (QStatus)putKeys:(AJNHandle)keyStore source:(NSString*)source password:(NSString*)password;
+- (QStatus)putKeys:(AJNHandle) keyStore source:(NSString*)source password:(NSString*)password;
 
 
 @end
