@@ -58,15 +58,15 @@
 
 // signals
 //
-- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
-- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
 
 
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
 
-    
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // BasicStringsDelegate Signal Handler Protocol
@@ -77,20 +77,20 @@
 
 // signals
 //
-- (void)didReceiveTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
-- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
+- (void)didReceiveTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
+- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
 
 
 @end
 
-@interface AJNBusAttachment(BasicStringsDelegate)
+@interface AJNBusAttachment (BasicStringsDelegate)
 
 - (void)registerBasicStringsDelegateSignalHandler:(id<BasicStringsDelegateSignalHandler>)signalHandler;
 
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
-    
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -107,14 +107,14 @@
 
 // signals
 //
-- (void)sendMessage:(NSString*)message inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
+- (void)sendMessage:(NSString*)message inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
 
 
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
 
-    
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // BasicChatDelegate Signal Handler Protocol
@@ -125,19 +125,19 @@
 
 // signals
 //
-- (void)didReceiveMessage:(NSString*)message inSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
+- (void)didReceiveMessage:(NSString*)message inSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
 
 
 @end
 
-@interface AJNBusAttachment(BasicChatDelegate)
+@interface AJNBusAttachment (BasicChatDelegate)
 
 - (void)registerBasicChatDelegateSignalHandler:(id<BasicChatDelegateSignalHandler>)signalHandler;
 
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
-    
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -157,7 +157,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
-    
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -183,9 +183,9 @@
 
 // signals
 //
-- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
-- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
-- (void)sendMessage:(NSString*)message inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendMessage:(NSString*)message inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
 
 
 @end

@@ -24,7 +24,7 @@
 
 @interface BasicClient : NSObject
 
-@property (nonatomic, strong) NSObject<BasicClientDelegate> *delegate;
+@property (nonatomic, strong) NSObject<BasicClientDelegate>*delegate;
 
 + (BasicClient*)sharedInstance;
 

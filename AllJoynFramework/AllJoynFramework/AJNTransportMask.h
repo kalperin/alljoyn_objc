@@ -22,22 +22,22 @@
 typedef uint16_t AJNTransportMask;
 
 /**< no transports */
-extern const AJNTransportMask kAJNTransportMaskNone;        
+extern const AJNTransportMask kAJNTransportMaskNone;
 
 /**< ANY transport */
-extern const AJNTransportMask kAJNTransportMaskAny;         
+extern const AJNTransportMask kAJNTransportMaskAny;
 
 /**< Local (same device) transport */
-extern const AJNTransportMask kAJNTransportMaskLocal;       
+extern const AJNTransportMask kAJNTransportMaskLocal;
 
 /**< Bluetooth transport */
-extern const AJNTransportMask kAJNTransportMaskBluetooth;   
+extern const AJNTransportMask kAJNTransportMaskBluetooth;
 
 /**< Wireless local-area network transport */
-extern const AJNTransportMask kAJNTransportMaskWLAN;        
+extern const AJNTransportMask kAJNTransportMaskWLAN;
 
 /**< Wireless wide-area network transport */
-extern const AJNTransportMask kAJNTransportMaskWWAN;        
+extern const AJNTransportMask kAJNTransportMaskWWAN;
 
 /**< Wired local-area network transport */
 extern const AJNTransportMask kAJNTransportMaskLAN;
@@ -51,5 +51,5 @@ extern const AJNTransportMask kAJNTransportMaskProximity;
 /**< Transport using Wi-Fi Direct transport */
 extern const AJNTransportMask kAJNTransportMaskWiFiDirect;
 
-    
+
 

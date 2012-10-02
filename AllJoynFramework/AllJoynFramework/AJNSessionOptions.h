@@ -61,8 +61,8 @@ extern const AJNProximity kAJNProximityNetwork;
  */
 @interface AJNSessionOptions : AJNObject
 
-/** 
- * Traffic type 
+/**
+ * Traffic type
  */
 @property (nonatomic) AJNTrafficType trafficType;
 
@@ -74,12 +74,12 @@ extern const AJNProximity kAJNProximityNetwork;
  */
 @property (nonatomic) BOOL isMultipoint;
 
-/** 
+/**
  * Proximity
  */
 @property (nonatomic) AJNProximity proximity;
 
-/** 
+/**
  * Allowed transports
  */
 @property (nonatomic) AJNTransportMask transports;
@@ -94,7 +94,7 @@ extern const AJNProximity kAJNProximityNetwork;
  * @param transports    Allowed transport types bitmask.
  *
  */
-- (id)initWithTrafficType:(AJNTrafficType)traffic supportsMultipoint:(BOOL)isMultipoint proximity:(AJNProximity)proximity transportMask:(AJNTransportMask)transports;
+- (id)initWithTrafficType:(AJNTrafficType) traffic supportsMultipoint:(BOOL) isMultipoint proximity:(AJNProximity) proximity transportMask:(AJNTransportMask)transports;
 
 /*
  * Default initializer

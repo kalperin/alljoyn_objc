@@ -21,30 +21,29 @@
 
 /** Internal class that binds an objective-c authentication listener delegate to the AllJoyn C++ authentication listener
  */
-class AJNAuthenticationListenerImpl : public ajn::AuthListener
-{
-protected:
-    
+class AJNAuthenticationListenerImpl : public ajn::AuthListener {
+  protected:
+
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
     __weak id<AJNAuthenticationListener> m_delegate;
-    
-public:
-    
+
+  public:
+
     /**
      * Constructor for the AJN authentication listener implementation.
      *
-     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
-     */    
+     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
+     */
     AJNAuthenticationListenerImpl(id<AJNAuthenticationListener> aDelegate);
-    
+
     /**
      * Virtual destructor for derivable class.
      */
     virtual ~AJNAuthenticationListenerImpl();
-    
+
     /**
      * Authentication mechanism requests user credentials. If the user name is not an empty string
      * the request is for credentials for that specific user. A count allows the listener to decide
@@ -65,7 +64,7 @@ public:
      *          complete.
      */
     virtual bool RequestCredentials(const char* authMechanism, const char* peerName, uint16_t authCount, const char* userName, uint16_t credMask, Credentials& credentials);
-    
+
     /**
      * Authentication mechanism requests verification of credentials from a remote peer.
      *
@@ -79,7 +78,7 @@ public:
      *          credentials are being rejected.
      */
     virtual bool VerifyCredentials(const char* authMechanism, const char* peerName, const Credentials& credentials);
-    
+
     /**
      * Optional method that if implemented allows an application to monitor security violations. This
      * function is called when an attempt to decrypt an encrypted messages failed or when an unencrypted
@@ -90,7 +89,7 @@ public:
      * @param msg     The message that cause the security violation.
      */
     virtual void SecurityViolation(QStatus status, const ajn::Message& msg);
-    
+
     /**
      * Reports successful or unsuccessful completion of authentication.
      *
@@ -102,5 +101,5 @@ public:
      * @param success        true if the authentication was successful, otherwise false.
      */
     virtual void AuthenticationComplete(const char* authMechanism, const char* peerName, bool success);
-    
+
 };

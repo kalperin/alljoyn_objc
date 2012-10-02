@@ -34,14 +34,14 @@
 @class AJNInterfaceDescription;
 @class AJNInterfaceMember;
 
-/** 
+/**
  * Block definition for joining a session asynchronously
  */
-typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSessionOptions *opts, void *context);
+typedef void (^ AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSessionOptions*opts, void*context);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-/** 
+/**
  * Delegate used to receive notifications when joining a session asynchronously
  */
 @protocol AJNSessionDelegate <NSObject>
@@ -52,20 +52,20 @@ typedef void(^AJNJoinSessionBlock)(QStatus status, AJNSessionId sessionId, AJNSe
  * @param sessionOptions    Session options for the newly joined session.
  * @param context           User defined context which will be passed as-is to callback.
  */
-- (void)didJoinSession:(AJNSessionId)sessionId status:(QStatus)status sessionOptions:(AJNSessionOptions*)sessionOptions context:(AJNHandle)context;
+- (void)didJoinSession:(AJNSessionId) sessionId status:(QStatus) status sessionOptions:(AJNSessionOptions*)sessionOptions context:(AJNHandle)context;
 
 @end
 
 ////////////////////////////////////////////////////////////////////////////////
 
-/** 
+/**
  * Block definition for setting a link timeout asynchronously
  */
-typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *context);
+typedef void (^ AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void*context);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-/** 
+/**
  * Delegate used to receive notifications when setting a link timeout asynchronously
  */
 @protocol AJNLinkTimeoutDelegate <NSObject>
@@ -73,11 +73,11 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
 /**
  * Called when setLinkTimeoutAsync completes.
  *
- * @param timeout      Timeout value (possibly adjusted from original request). 
+ * @param timeout      Timeout value (possibly adjusted from original request).
  * @param status       ER_OK if successful
  * @param context      User defined context which will be passed as-is to callback.
  */
-- (void)didSetLinkTimeoutTo:(uint32_t)timeout status:(QStatus)status context:(void*)context;
+- (void)didSetLinkTimeoutTo:(uint32_t) timeout status:(QStatus) status context:(void*)context;
 
 @end
 
@@ -117,7 +117,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *
  * @return The unique name of this BusAttachment.
  */
-@property (nonatomic, readonly) NSString *uniqueName;
+@property (nonatomic, readonly) NSString*uniqueName;
 
 /**
  * Get the GUID of this BusAttachment.
@@ -127,7 +127,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *
  * @return GUID of this BusAttachment as a string.
  */
-@property (nonatomic, readonly) NSString *uniqueIdentifier;
+@property (nonatomic, readonly) NSString*uniqueIdentifier;
 
 /**
  * Check if peer security has been enabled for this bus attachment.
@@ -148,26 +148,26 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *
  * @return org.freedesktop.DBus proxy object
  */
-@property (nonatomic, readonly) AJNProxyBusObject *dbusProxyObject;
+@property (nonatomic, readonly) AJNProxyBusObject*dbusProxyObject;
 
 /**
  * Get the org.alljoyn.Bus proxy object.
  *
  * @return org.alljoyn.Bus proxy object
  */
-@property (nonatomic, readonly) AJNProxyBusObject *allJoynProxyObject;
+@property (nonatomic, readonly) AJNProxyBusObject*allJoynProxyObject;
 
 /**
  * Get the org.alljoyn.Debug proxy object.
  *
  * @return org.alljoyn.Debug proxy object
  */
-@property (nonatomic, readonly) AJNProxyBusObject *allJoynDebugProxyObject;
+@property (nonatomic, readonly) AJNProxyBusObject*allJoynDebugProxyObject;
 
 /**
  * Returns the existing activated interface descriptions.
  */
-@property (nonatomic, readonly) NSArray *interfaces;
+@property (nonatomic, readonly) NSArray*interfaces;
 
 /**
  * Construct a BusAttachment.
@@ -184,9 +184,9 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * @param allowRemoteMessages   True if this attachment is allowed to receive messages from remote devices.
  * @param maximumConcurrentOperations           The maximum number of concurrent method and signal handlers locally executing.
  */
-- (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL)allowRemoteMessages maximumConcurrentOperations:(NSUInteger)maximumConcurrentOperations;
+- (id)initWithApplicationName:(NSString*)applicationName allowRemoteMessages:(BOOL) allowRemoteMessages maximumConcurrentOperations:(NSUInteger)maximumConcurrentOperations;
 
-/** 
+/**
  * Explicitly destroys the underlying AllJoyn C++ API BusAttachment object
  */
 - (void)destroy;
@@ -594,7 +594,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
  *          - Other error status codes indicating a failure.
  */
-- (QStatus)bindSessionOnPort:(AJNSessionPort)port withOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
+- (QStatus)bindSessionOnPort:(AJNSessionPort) port withOptions:(AJNSessionOptions*)options withDelegate:(id<AJNSessionPortListener>)delegate;
 
 
 /**
@@ -615,7 +615,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * the original session. The joiner can then create additional sessions with the service by
  * calling JoinSession with these dynamic SessionPort ids.
  *
- * Session port value is not specified and thus the API will choose an available port. 
+ * Session port value is not specified and thus the API will choose an available port.
  *
  * @param options   Session options that joiners must agree to in order to
  *                  successfully join the session.
@@ -652,7 +652,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * @return  - The new session identifier.
  *          - A session id of 0 or -1 indicating a failure.
  */
-- (AJNSessionId)joinSessionWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options;
+- (AJNSessionId)joinSessionWithName:(NSString*)sessionName onPort:(AJNSessionPort) sessionPort withDelegate:(id<AJNSessionListener>) delegate options:(AJNSessionOptions*)options;
 
 /**
  * Join a session asynchronously.
@@ -672,7 +672,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
  *          - Other error status codes indicating a failure.
  */
-- (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options joinCompletedDelegate:(id<AJNSessionDelegate>)completionDelegate context:(AJNHandle)context;
+- (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort) sessionPort withDelegate:(id<AJNSessionListener>) delegate options:(AJNSessionOptions*)options joinCompletedDelegate:(id<AJNSessionDelegate>) completionDelegate context:(AJNHandle)context;
 
 
 /**
@@ -693,7 +693,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
  *          - Other error status codes indicating a failure.
  */
-- (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort)sessionPort withDelegate:(id<AJNSessionListener>)delegate options:(AJNSessionOptions*)options joinCompletedBlock:(AJNJoinSessionBlock)completionBlock context:(AJNHandle)context;
+- (QStatus)joinSessionAsyncWithName:(NSString*)sessionName onPort:(AJNSessionPort) sessionPort withDelegate:(id<AJNSessionListener>) delegate options:(AJNSessionOptions*)options joinCompletedBlock:(AJNJoinSessionBlock) completionBlock context:(AJNHandle)context;
 
 /**
  * Set the SessionListener for an existing sessionId.
@@ -704,7 +704,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * @param sessionId    The session id of an existing session.
  * @return  ER_OK if successful.
  */
-- (QStatus)bindSessionListener:(id<AJNSessionListener>)delegate toSession:(AJNSessionId)sessionId;
+- (QStatus)bindSessionListener:(id<AJNSessionListener>) delegate toSession:(AJNSessionId)sessionId;
 
 /**
  * Leave an existing session.
@@ -768,7 +768,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
  *          - Other error status codes indicating a failure.
  */
-- (QStatus)setLinkTimeoutAsync:(uint32_t)timeout forSession:(AJNSessionId)sessionId completionDelegate:(id<AJNLinkTimeoutDelegate>)delegate context:(void*)context;
+- (QStatus)setLinkTimeoutAsync:(uint32_t) timeout forSession:(AJNSessionId) sessionId completionDelegate:(id<AJNLinkTimeoutDelegate>) delegate context:(void*)context;
 
 /**
  * Set the link timeout for a session asynchronously.
@@ -794,7 +794,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
  *          - Other error status codes indicating a failure.
  */
-- (QStatus)setLinkTimeoutAsync:(uint32_t)timeout forSession:(AJNSessionId)sessionId completionBlock:(AJNLinkTimeoutBlock)block context:(void*)context;
+- (QStatus)setLinkTimeoutAsync:(uint32_t) timeout forSession:(AJNSessionId) sessionId completionBlock:(AJNLinkTimeoutBlock) block context:(void*)context;
 
 /**
  * Get the file descriptor for a raw (non-message based) session.
@@ -950,7 +950,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * @return  - ER_OK if peer security was enabled.
  *          - ER_BUS_BUS_NOT_STARTED BusAttachment::Start has not be called
  */
-- (QStatus)enablePeerSecurity:(NSString*)authenticationMechanisms authenticationListener:(id<AJNAuthenticationListener>)listener keystoreFileName:(NSString*)fileName sharing:(BOOL)isShared;
+- (QStatus)enablePeerSecurity:(NSString*)authenticationMechanisms authenticationListener:(id<AJNAuthenticationListener>) listener keystoreFileName:(NSString*)fileName sharing:(BOOL)isShared;
 
 /**
  * Set a key store listener to listen for key store load and store requests.
@@ -1019,7 +1019,7 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  *          - ER_UNKNOWN_GUID if there is no authenticated peer with the specified GUID
  *          - Other errors
  */
-- (QStatus)setKeyExpiration:(uint32_t)timeout forRemotePeerId:(NSString*)peerId;
+- (QStatus)setKeyExpiration:(uint32_t) timeout forRemotePeerId:(NSString*)peerId;
 
 /**
  * Get the peer GUID for this peer of the local peer or an authenticated remote peer. The bus
@@ -1066,13 +1066,13 @@ typedef void(^AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *conte
  * tracing.  Setting the level 0, forces debug output to be off for the
  * specified subsystem.
  *
- * @param level     debug level to set for the module 
+ * @param level     debug level to set for the module
  * @param module    name of the module to generate debug output
  *
  * @return  - ER_OK if debug request was successfully sent to the AllJoyn daemon.
  *          - ER_BUS_NO_SUCH_OBJECT if daemon was not built in debug mode.
  */
-- (QStatus)setDaemonDebugLevel:(uint32_t)level forModule:(NSString*)module;
+- (QStatus)setDaemonDebugLevel:(uint32_t) level forModule:(NSString*)module;
 
 /**
  * Returns the current non-absolute real-time clock used internally by AllJoyn. This value can be

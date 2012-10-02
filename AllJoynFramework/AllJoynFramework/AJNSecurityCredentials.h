@@ -24,22 +24,22 @@
 typedef uint16_t AJNSecurityCredentialType;
 
 /**< Bit 0 indicates credentials include a password, pincode, or passphrase */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePassword; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePassword;
 
 /**< Bit 1 indicates credentials include a user name */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeUserName; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeUserName;
 
 /**< Bit 2 indicates credentials include a chain of PEM-encoded X509 certificates */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeCertificateChain; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeCertificateChain;
 
 /**< Bit 3 indicates credentials include a PEM-encoded private key */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePrivateKey; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypePrivateKey;
 
 /**< Bit 4 indicates credentials include a logon entry that can be used to logon a remote user */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeLogonEntry; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeLogonEntry;
 
 /**< Bit 5 indicates credentials include an expiration time */
-extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime; 
+extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime;
 // @}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -53,10 +53,10 @@ extern const AJNSecurityCredentialType kAJNSecurityCredentialTypeExpirationTime;
 typedef uint16_t AJNSecurityCredentialRequest;
 
 /**< Indicates the credential request is for a newly created password */
-extern const uint16_t AJNSecurityCredentialRequestNewPassword; 
+extern const uint16_t AJNSecurityCredentialRequestNewPassword;
 
 /**< Indicates the credential request is for a one time use password */
-extern const uint16_t AJNSecurityCredentialRequestOneTimePassword; 
+extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
 // @}
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -69,23 +69,23 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
 /**
  * A requested password, pincode, or passphrase.
  */
-@property (nonatomic) NSString *password;
+@property (nonatomic) NSString*password;
 
 /**
  * A requested user name.
  */
-@property (nonatomic) NSString *userName;
+@property (nonatomic) NSString*userName;
 
 /**
  * A requested public key certificate chain. The certificates must be PEM encoded.
  */
-@property (nonatomic) NSString *certificateChain;
+@property (nonatomic) NSString*certificateChain;
 
 /**
  * A requested private key. The private key must be PEM encoded and may be encrypted. If
  * the private key is encrypted the passphrase required to decrypt it must also be supplied.
  */
-@property (nonatomic) NSString *privateKey;
+@property (nonatomic) NSString*privateKey;
 
 /**
  * A logon entry. For example for the Secure Remote Password protocol in RFC 5054, a
@@ -93,7 +93,7 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
  * N:g:s:v where N,g,s, and v are ASCII encoded hexadecimal strings and are separated by
  * colons.
  */
-@property (nonatomic) NSString *logonEntry;
+@property (nonatomic) NSString*logonEntry;
 
 /**
  * An expiration time in seconds relative to the current time for the credentials. This value is optional and

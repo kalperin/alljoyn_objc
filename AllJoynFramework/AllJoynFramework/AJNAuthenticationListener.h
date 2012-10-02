@@ -20,7 +20,7 @@
 #import "AJNMessage.h"
 
 /**
- * Protocol to allow authentication mechanisms to interact with the application 
+ * Protocol to allow authentication mechanisms to interact with the application
  */
 @protocol AJNAuthenticationListener <NSObject>
 
@@ -39,7 +39,7 @@
  *
  * @return  The credentials returned. The caller should return nil if the request is being rejected. If the request is rejected the authentication is complete.
  */
-- (AJNSecurityCredentials*)requestSecurityCredentialsWithAuthenticationMechanism:(NSString*)authenticationMechanism peerName:(NSString*)peerName authenticationCount:(uint16_t)authenticationCount userName:(NSString*)userName credentialTypeMask:(AJNSecurityCredentialType)mask;
+- (AJNSecurityCredentials*)requestSecurityCredentialsWithAuthenticationMechanism:(NSString*)authenticationMechanism peerName:(NSString*)peerName authenticationCount:(uint16_t) authenticationCount userName:(NSString*)userName credentialTypeMask:(AJNSecurityCredentialType)mask;
 
 /**
  * Reports successful or unsuccessful completion of authentication.
@@ -73,6 +73,6 @@
  * @param errorCode  A status code indicating the type of security violation.
  * @param message    The message that cause the security violation.
  */
-- (void)securityViolationOccurredWithErrorCode:(QStatus)errorCode forMessage:(AJNMessage*)message;
+- (void)securityViolationOccurredWithErrorCode:(QStatus) errorCode forMessage:(AJNMessage*)message;
 
 @end

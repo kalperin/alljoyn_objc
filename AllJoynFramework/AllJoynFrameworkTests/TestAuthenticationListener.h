@@ -20,19 +20,19 @@
 
 @interface TestAuthenticationListener : NSObject<AJNAuthenticationListener>
 
-@property (nonatomic, strong) AJNBusAttachment *bus;
-@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) AJNBusAttachment*bus;
+@property (nonatomic, strong) NSString*userName;
 @property (nonatomic) NSUInteger maximumAuthentications;
 @property (nonatomic) uint32_t keyExpiration;
 
 - (id)initOnBus:(AJNBusAttachment*)bus withUserName:(NSString*)userName maximumAuthenticationsAllowed:(NSUInteger)maximumAuthentications;
 
-- (AJNSecurityCredentials*)requestSecurityCredentialsWithAuthenticationMechanism:(NSString*)authenticationMechanism peerName:(NSString*)peerName authenticationCount:(uint16_t)authenticationCount userName:(NSString*)userName credentialTypeMask:(AJNSecurityCredentialType)mask;
+- (AJNSecurityCredentials*)requestSecurityCredentialsWithAuthenticationMechanism:(NSString*)authenticationMechanism peerName:(NSString*)peerName authenticationCount:(uint16_t) authenticationCount userName:(NSString*)userName credentialTypeMask:(AJNSecurityCredentialType)mask;
 
 - (void)authenticationUsing:(NSString*)authenticationMechanism forRemotePeer:(NSString*)peer didCompleteWithStatus:(BOOL)success;
 
 - (BOOL)verifySecurityCredentials:(AJNSecurityCredentials*)credentials usingAuthenticationMechanism:(NSString*)authenticationMechanism forRemotePeer:(NSString*)peerName;
 
-- (void)securityViolationOccurredWithErrorCode:(QStatus)errorCode forMessage:(AJNMessage*)message;
+- (void)securityViolationOccurredWithErrorCode:(QStatus) errorCode forMessage:(AJNMessage*)message;
 
 @end

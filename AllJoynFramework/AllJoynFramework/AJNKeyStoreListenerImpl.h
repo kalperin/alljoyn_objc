@@ -17,30 +17,29 @@
 #import <alljoyn/KeystoreListener.h>
 #import "AJNKeyStoreListener.h"
 
-class AJNKeyStoreListenerImpl : public ajn::KeyStoreListener
-{
-protected:
-    
+class AJNKeyStoreListenerImpl : public ajn::KeyStoreListener {
+  protected:
+
     /**
      * Objective C delegate called when one of the below virtual functions
      * is called.
      */
     __weak id<AJNKeyStoreListener> m_delegate;
-    
-public:
-    
+
+  public:
+
     /**
      * Constructor for the AJN key store handler implementation.
      *
-     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.     
-     */    
+     * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
+     */
     AJNKeyStoreListenerImpl(id<AJNKeyStoreListener> aDelegate);
 
     /**
      * Virtual destructor for derivable class.
      */
     virtual ~AJNKeyStoreListenerImpl();
-    
+
     /**
      * This method is called when a key store needs to be loaded.
      * @remark The application must call <tt>#PutKeys</tt> to put the new key store data into the
@@ -54,8 +53,8 @@ public:
      *
      */
     QStatus LoadRequest(ajn::KeyStore& keyStore);
-    
-    
+
+
     /**
      * This method is called when a key store needs to be stored.
      * @remark The application must call <tt>#GetKeys</tt> to obtain the key data to be stored.
@@ -67,8 +66,8 @@ public:
      *      - An error status otherwise
      */
     QStatus StoreRequest(ajn::KeyStore& keyStore);
-    
-    
+
+
     /**
      * Get the current keys from the key store as an encrypted byte string.
      *
@@ -79,7 +78,7 @@ public:
      *      - An error status otherwise
      */
     QStatus GetKeys(ajn::KeyStore& keyStore, qcc::String& sink);
-    
+
 
     /**
      * Put keys into the key store from an encrypted byte string.
@@ -94,7 +93,7 @@ public:
      *
      */
     QStatus PutKeys(ajn::KeyStore& keyStore, const qcc::String& source, const qcc::String& password);
-    
+
 
     /**
      * Accessor for Objective-C delegate.
@@ -102,8 +101,8 @@ public:
      * return delegate         The Objective-C delegate called to handle the above event methods.
      */
     id<AJNKeyStoreListener> getDelegate();
-    
-    
+
+
     /**
      * Mutator for Objective-C delegate.
      *

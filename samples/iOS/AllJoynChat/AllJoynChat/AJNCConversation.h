@@ -26,14 +26,14 @@ typedef enum {
 
 @interface AJNCConversation : NSObject<AJNChatReceiver>
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, readonly) NSString *displayName;
+@property (nonatomic, strong) NSString*name;
+@property (nonatomic, readonly) NSString*displayName;
 @property (nonatomic) AJNSessionId identifier;
-@property (nonatomic, strong) AJNCBusObject *chatObject;
-@property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong) AJNCBusObject*chatObject;
+@property (nonatomic, strong) NSMutableArray*messages;
 @property (nonatomic) AJNCConversationType type;
 @property (nonatomic) NSInteger totalParticipants;
 
-- (id)initWithName:(NSString*)name identifier:(AJNSessionId)sessionId busObject:(AJNCBusObject*)chatObject;
+- (id)initWithName:(NSString*)name identifier:(AJNSessionId) sessionId busObject:(AJNCBusObject*)chatObject;
 
 @end

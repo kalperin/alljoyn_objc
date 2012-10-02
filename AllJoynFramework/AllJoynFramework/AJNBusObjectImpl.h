@@ -20,17 +20,16 @@
 
 @protocol AJNBusObject;
 
-class AJNBusObjectImpl : public ajn::BusObject
-{
-protected:
+class AJNBusObjectImpl : public ajn::BusObject {
+  protected:
     __weak id<AJNBusObject> delegate;
-    
-public:
-    AJNBusObjectImpl(ajn::BusAttachment &bus, const char *path, id<AJNBusObject> aDelegate);
-    
-    virtual QStatus RegisterSignalHandlers(ajn::BusAttachment &bus);
-    
-    virtual QStatus UnregisterSignalHandlers(ajn::BusAttachment &bus);
+
+  public:
+    AJNBusObjectImpl(ajn::BusAttachment& bus, const char*path, id<AJNBusObject> aDelegate);
+
+    virtual QStatus RegisterSignalHandlers(ajn::BusAttachment& bus);
+
+    virtual QStatus UnregisterSignalHandlers(ajn::BusAttachment& bus);
 
     virtual void ObjectRegistered();
 };

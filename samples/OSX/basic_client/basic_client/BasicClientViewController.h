@@ -19,7 +19,7 @@
 
 @interface BasicClientViewController : NSViewController<BasicClientDelegate>
 
-@property (unsafe_unretained) IBOutlet NSTextView *eventTextView;
+@property (unsafe_unretained) IBOutlet NSTextView*eventTextView;
 
 
 - (IBAction)didTapHelloWorldButton:(id)sender;

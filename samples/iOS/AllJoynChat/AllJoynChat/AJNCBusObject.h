@@ -24,13 +24,13 @@
 
 @interface AJNCBusObject : AJNBusObject<AJNChatReceiver>
 
-@property (nonatomic, strong) AJNCConversation *session;
+@property (nonatomic, strong) AJNCConversation*session;
 @property (nonatomic, strong) id<AJNChatReceiver> delegate;
 
-- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment onServicePath:(NSString *)path;
+- (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onServicePath:(NSString*)path;
 
 - (void)sendChatMessage:(NSString*)message onSession:(AJNSessionId)sessionId;
 
-- (void)chatMessageReceived:(NSString *)message from:(NSString *)sender onObjectPath:(NSString*)path forSession:(AJNSessionId)sessionId;
+- (void)chatMessageReceived:(NSString*)message from:(NSString*)sender onObjectPath:(NSString*)path forSession:(AJNSessionId)sessionId;
 
 @end

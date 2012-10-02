@@ -19,12 +19,11 @@
 
 @protocol MyMethodSample;
 
-class BasicSampleObjectImpl : public AJNBusObjectImpl
-{
-public:
-    BasicSampleObjectImpl(ajn::BusAttachment &bus, const char *path, id<MyMethodSample> aDelegate);
-    
+class BasicSampleObjectImpl : public AJNBusObjectImpl {
+  public:
+    BasicSampleObjectImpl(ajn::BusAttachment& bus, const char*path, id<MyMethodSample> aDelegate);
+
     void Concatenate(const ajn::InterfaceDescription::Member* member, ajn::Message& msg);
-    
+
     virtual void ObjectRegistered();
 };
