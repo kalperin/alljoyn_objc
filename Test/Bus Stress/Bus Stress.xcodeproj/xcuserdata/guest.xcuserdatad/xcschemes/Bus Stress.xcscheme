@@ -61,7 +61,7 @@
          <EnvironmentVariable
             key = "ER_DEBUG_ALL"
             value = "15"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "ER_ PROXIMITY_SCANNER"

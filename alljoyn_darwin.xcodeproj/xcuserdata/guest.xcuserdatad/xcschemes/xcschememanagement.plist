@@ -4,42 +4,42 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>alljoyn_c_ios.xcscheme</key>
+		<key>alljoyn_c_ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>alljoyn_c_osx.xcscheme</key>
+		<key>alljoyn_c_osx.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>alljoyn_core_ios.xcscheme</key>
+		<key>alljoyn_core_ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>alljoyn_core_ios_armv7.xcscheme</key>
+		<key>alljoyn_core_ios_armv7.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>alljoyn_core_ios_armv7s.xcscheme</key>
+		<key>alljoyn_core_ios_armv7s.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>alljoyn_core_osx.xcscheme</key>
+		<key>alljoyn_core_osx.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>alljoyn_streaming_ios.xcscheme</key>
+		<key>alljoyn_streaming_ios.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>alljoyn_streaming_osx.xcscheme</key>
+		<key>alljoyn_streaming_osx.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
