@@ -44,6 +44,16 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>alljoyn_unity_ios.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>alljoyn_unity_osx.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>bastress.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -67,6 +77,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A441CDF7161F6479008A4779</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC01C787152CDCEE00DD620F</key>
 		<dict>
 			<key>primary</key>
@@ -153,6 +168,11 @@
 			<true/>
 		</dict>
 		<key>ACD124FE150FF96400AF6FA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ACFED7B21624CE2900697423</key>
 		<dict>
 			<key>primary</key>
 			<true/>

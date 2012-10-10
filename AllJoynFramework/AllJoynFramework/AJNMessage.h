@@ -79,7 +79,7 @@
  *
  * @return  the name of an authentication mechanism or an empty string.
  */
-@property (nonatomic, readonly) NSString*authenticationMechanism;
+@property (nonatomic, readonly) NSString *authenticationMechanism;
 
 /**
  * Return the type of the message
@@ -91,7 +91,7 @@
  *
  * @return Returns the message arguments in an array. The array is populated with instances of the AJNMessageArgument class.
  */
-@property (nonatomic, readonly) NSArray*arguments;
+@property (nonatomic, readonly) NSArray *arguments;
 
 /**
  * Accessor function to get serial number for the message. Usually only important for
@@ -113,35 +113,35 @@
  *
  * @return A reference to the header fields for this message.
  */
-@property (nonatomic, readonly) AJNMessageHeaderFields*headerFields;
+@property (nonatomic, readonly) AJNMessageHeaderFields *headerFields;
 
 /**
  * Property containing the signature for this message
  * @return  - The AllJoyn SIGNATURE string stored in the AllJoyn header field
  *          - An empty string if unable to find the AllJoyn signature
  */
-@property (nonatomic, readonly) NSString*signature;
+@property (nonatomic, readonly) NSString *signature;
 
 /**
  * Property containing the object path for this message
  * @return  - The AllJoyn object path string stored in the AllJoyn header field
  *          - An empty string if unable to find the AllJoyn object path
  */
-@property (nonatomic, readonly) NSString*objectPath;
+@property (nonatomic, readonly) NSString *objectPath;
 
 /**
  * Property containing the interface for this message
  * @return  - The AllJoyn interface string stored in the AllJoyn header field
  *          - An empty string if unable to find the interface
  */
-@property (nonatomic, readonly) NSString*interfaceName;
+@property (nonatomic, readonly) NSString *interfaceName;
 
 /**
  * Accessor function to get the member (method/signal) name for this message
  * @return  - The AllJoyn member (method/signal) name string stored in the AllJoyn header field
  *          - An empty string if unable to find the member name
  */
-@property (nonatomic, readonly) NSString*memberName;
+@property (nonatomic, readonly) NSString *memberName;
 
 /**
  * Accessor function to get the sender for this message.
@@ -149,21 +149,21 @@
  * @return  - The senders well-known name string stored in the AllJoyn header field.
  *          - An empty string if the message did not specify a sender.
  */
-@property (nonatomic, readonly) NSString*senderName;
+@property (nonatomic, readonly) NSString *senderName;
 
 /**
  * Get the unique name of the endpoint that the message was received on.
  *
  * @return  - The unique name of the endpoint that the message was received on.
  */
-@property (nonatomic, readonly) NSString*receiverEndpointName;
+@property (nonatomic, readonly) NSString *receiverEndpointName;
 
 /**
  * Accessor function to get the destination for this message
  * @return  - The message destination string stored in the AllJoyn header field.
  *          - An empty string if unable to find the message destination.
  */
-@property (nonatomic, readonly) NSString*destination;
+@property (nonatomic, readonly) NSString *destination;
 
 /**
  * Accessor function to get the compression token for the message.
@@ -186,7 +186,7 @@
  * @return  - If the message is an error message return the error name from the AllJoyn header
  *          - NULL if the message type is not MESSAGE_ERROR.
  */
-@property (nonatomic, readonly) NSString*errorName;
+@property (nonatomic, readonly) NSString *errorName;
 
 /**
  * Returns a complete description of an error by concatenating the error name and the error
@@ -195,7 +195,7 @@
  * @return  - If the message is an error message return the error description
  *          - An empty string if the message type is not MESSAGE_ERROR.
  */
-@property (nonatomic, readonly) NSString*errorDescription;
+@property (nonatomic, readonly) NSString *errorDescription;
 
 /**
  * In debug builds returns a string that provides a brief description of the message. In release
@@ -203,7 +203,7 @@
  *
  * @return a brief description of the message or an empty string.
  */
-@property (nonatomic, readonly) NSString*description;
+@property (nonatomic, readonly) NSString *description;
 
 /**
  * In debug builds returns an XML string representation of the message. In release builds
@@ -211,7 +211,7 @@
  *
  * @return an XML string representation of the message or an empty string.
  */
-@property (nonatomic, readonly) NSString*xmlDescription;
+@property (nonatomic, readonly) NSString *xmlDescription;
 
 /**
  * Returns the timestamp (in milliseconds) for this message. If the message header contained a

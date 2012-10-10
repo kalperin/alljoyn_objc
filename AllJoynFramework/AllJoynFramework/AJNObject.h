@@ -34,6 +34,6 @@
    @param handle The handle to the C++ API object associated with this objective-c API object.
    @param deletionFlag A flag indicating whether or not the objective-c class should call delete on the handle when dealloc is called.
  */
-- (id)initWithHandle:(AJNHandle) handle shouldDeleteHandleOnDealloc:(BOOL)deletionFlag;
+- (id)initWithHandle:(AJNHandle)handle shouldDeleteHandleOnDealloc:(BOOL)deletionFlag;
 
 @end

@@ -22,8 +22,8 @@
 
 class AJNSessionPortListenerImpl : public ajn::SessionPortListener {
   protected:
-    static const char*AJN_SESSION_PORT_LISTENER_DISPATCH_QUEUE_NAME;
-    __weak AJNBusAttachment*busAttachment;
+    static const char* AJN_SESSION_PORT_LISTENER_DISPATCH_QUEUE_NAME;
+    __weak AJNBusAttachment* busAttachment;
 
     /**
      * Objective C delegate called when one of the below virtual functions
@@ -40,7 +40,7 @@ class AJNSessionPortListenerImpl : public ajn::SessionPortListener {
      * @param aBusAttachment    Objective C bus attachment wrapper object.
      * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
      */
-    AJNSessionPortListenerImpl(AJNBusAttachment*aBusAttachment, id<AJNSessionPortListener> aDelegate);
+    AJNSessionPortListenerImpl(AJNBusAttachment* aBusAttachment, id<AJNSessionPortListener> aDelegate);
 
     /**
      * Virtual destructor for derivable class.

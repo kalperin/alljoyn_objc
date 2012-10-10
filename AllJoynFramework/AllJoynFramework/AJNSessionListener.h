@@ -38,7 +38,7 @@
  * @param memberName    Unique name of member who was added.
  * @param sessionId     Id of session whose member(s) changed.
  */
-- (void)didAddMemberNamed:(NSString*)memberName toSession:(AJNSessionId)sessionId;
+- (void)didAddMemberNamed:(NSString *)memberName toSession:(AJNSessionId)sessionId;
 
 /**
  * Called by the bus when a member of a multipoint session is removed.
@@ -46,6 +46,6 @@
  * @param memberName    Unique name of member who was added.
  * @param sessionId     Id of session whose member(s) changed.
  */
-- (void)didRemoveMemberNamed:(NSString*)memberName fromSession:(AJNSessionId)sessionId;
+- (void)didRemoveMemberNamed:(NSString *)memberName fromSession:(AJNSessionId)sessionId;
 
 @end

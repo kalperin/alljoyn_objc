@@ -34,10 +34,10 @@ static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAcc
 @interface AJNInterfaceProperty : AJNObject
 
 /** Name of the property */
-@property (nonatomic, readonly) NSString*name;
+@property (nonatomic, readonly) NSString *name;
 
 /** Signature of the property */
-@property (nonatomic, readonly) NSString*signature;
+@property (nonatomic, readonly) NSString *signature;
 
 /** Access permissions flags for the property */
 @property (nonatomic, readonly) AJNInterfacePropertyAccessPermissionsFlags accessPermissions;
@@ -50,6 +50,6 @@ static const AJNInterfacePropertyAccessPermissionsFlags kAJNInterfacePropertyAcc
  * @return  - string value of annotation if found
  *          - nil if not found
  */
-- (NSString*)annotationWithName:(NSString*)annotationName;
+- (NSString *)annotationWithName:(NSString *)annotationName;
 
 @end

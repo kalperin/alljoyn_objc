@@ -94,7 +94,7 @@ extern const AJNProximity kAJNProximityNetwork;
  * @param transports    Allowed transport types bitmask.
  *
  */
-- (id)initWithTrafficType:(AJNTrafficType) traffic supportsMultipoint:(BOOL) isMultipoint proximity:(AJNProximity) proximity transportMask:(AJNTransportMask)transports;
+- (id)initWithTrafficType:(AJNTrafficType)traffic supportsMultipoint:(BOOL)isMultipoint proximity:(AJNProximity)proximity transportMask:(AJNTransportMask)transports;
 
 /*
  * Default initializer
@@ -107,7 +107,7 @@ extern const AJNProximity kAJNProximityNetwork;
  * @param sessionOptions Options to be compared against this one.
  * @return true iff this SessionOpts can use the option set offered by other.
  */
-- (BOOL)isCompatibleWithSessionOptions:(AJNSessionOptions*)sessionOptions;
+- (BOOL)isCompatibleWithSessionOptions:(AJNSessionOptions *)sessionOptions;
 
 /**
  * Compare SessionOpts
@@ -138,6 +138,6 @@ extern const AJNProximity kAJNProximityNetwork;
  * @return true if this SessionOpts is designated as less than the SessionOpts
  *         being compared against.
  */
-- (BOOL)isLessThanSessionOptions:(AJNSessionOptions*)sessionOptions;
+- (BOOL)isLessThanSessionOptions:(AJNSessionOptions *)sessionOptions;
 
 @end

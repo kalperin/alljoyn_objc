@@ -37,7 +37,7 @@
  * @param options           Session options requested by the joiner.
  * @return   Return true if JoinSession request is accepted. false if rejected.
  */
-- (BOOL)shouldAcceptSessionJoinerNamed:(NSString*)joiner onSessionPort:(AJNSessionPort) sessionPort withSessionOptions:(AJNSessionOptions*)options;
+- (BOOL)shouldAcceptSessionJoinerNamed:(NSString *)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions *)options;
 
 @optional
 
@@ -51,6 +51,6 @@
  * @param sessionId      Id of session.
  * @param sessionPort    Session port that was joined.
  */
-- (void)didJoin:(NSString*)joiner inSessionWithId:(AJNSessionId) sessionId onSessionPort:(AJNSessionPort)sessionPort;
+- (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort;
 
 @end

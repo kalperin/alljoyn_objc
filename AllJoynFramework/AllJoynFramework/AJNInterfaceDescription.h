@@ -41,16 +41,16 @@
 @interface AJNInterfaceDescription : AJNObject
 
 /** Name of interface */
-@property (readonly, nonatomic) NSString*name;
+@property (readonly, nonatomic) NSString *name;
 
 /** The members of the interface */
-@property (readonly, nonatomic) NSArray*members;
+@property (readonly, nonatomic) NSArray *members;
 
 /** The properties of the interface */
-@property (readonly, nonatomic) NSArray*properties;
+@property (readonly, nonatomic) NSArray *properties;
 
 /** An XML description of the interface */
-@property (readonly, nonatomic) NSString*xmlDescription;
+@property (readonly, nonatomic) NSString *xmlDescription;
 
 /**
  * Indicates if this interface is secure. Secure interfaces require end-to-end authentication.
@@ -80,7 +80,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotation:(AJNInterfaceAnnotationFlags) annotation accessPermissions:(NSString*)accessPermissions;
+- (QStatus)addMethodWithName:(NSString *)methodName inputSignature:(NSString *)inputSignature outputSignature:(NSString *)outputSignature argumentNames:(NSArray *)arguments annotation:(AJNInterfaceAnnotationFlags) annotation accessPermissions:(NSString *)accessPermissions;
 
 /**
  * Add a method call member to the interface.
@@ -94,7 +94,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments annotation:(AJNInterfaceAnnotationFlags)annotation;
+- (QStatus)addMethodWithName:(NSString *)methodName inputSignature:(NSString *)inputSignature outputSignature:(NSString *)outputSignature argumentNames:(NSArray *)arguments annotation:(AJNInterfaceAnnotationFlags)annotation;
 
 /**
  * Add a method call member to the interface.
@@ -107,7 +107,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addMethodWithName:(NSString*)methodName inputSignature:(NSString*)inputSignature outputSignature:(NSString*)outputSignature argumentNames:(NSArray*)arguments;
+- (QStatus)addMethodWithName:(NSString *)methodName inputSignature:(NSString *)inputSignature outputSignature:(NSString *)outputSignature argumentNames:(NSArray *)arguments;
 
 /**
  * Lookup a member method description by name
@@ -116,7 +116,7 @@
  * @return  - Pointer to member.
  *          - NULL if does not exist.
  */
-- (AJNInterfaceMember*)methodWithName:(NSString*)methodName;
+- (AJNInterfaceMember *)methodWithName:(NSString *)methodName;
 
 /**
  * Add a signal member to the interface.
@@ -128,7 +128,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addSignalWithName:(NSString*)name inputSignature:(NSString*)inputSignature argumentNames:(NSArray*)arguments;
+- (QStatus)addSignalWithName:(NSString *)name inputSignature:(NSString *)inputSignature argumentNames:(NSArray *)arguments;
 
 /**
  * Add a signal member to the interface.
@@ -141,7 +141,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addSignalWithName:(NSString*)name inputSignature:(NSString*)inputSignature argumentNames:(NSArray*)arguments annotation:(AJNInterfaceAnnotationFlags)annotation;
+- (QStatus)addSignalWithName:(NSString *)name inputSignature:(NSString *)inputSignature argumentNames:(NSArray *)arguments annotation:(AJNInterfaceAnnotationFlags)annotation;
 
 /**
  * Add a signal member to the interface.
@@ -155,7 +155,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if member already exists
  */
-- (QStatus)addSignalWithName:(NSString*)name inputSignature:(NSString*)inputSignature argumentNames:(NSArray*)arguments annotation:(uint8_t) annotation accessPermissions:(NSString*)permissions;
+- (QStatus)addSignalWithName:(NSString *)name inputSignature:(NSString *)inputSignature argumentNames:(NSArray *)arguments annotation:(uint8_t) annotation accessPermissions:(NSString *)permissions;
 
 /**
  * Lookup a member signal description by name
@@ -164,7 +164,7 @@
  * @return  - Pointer to member.
  *          - nil if does not exist.
  */
-- (AJNInterfaceMember*)signalWithName:(NSString*)signalName;
+- (AJNInterfaceMember *)signalWithName:(NSString *)signalName;
 
 /**
  * Add a property to the interface.
@@ -185,7 +185,7 @@
  * @return  - ER_OK if successful.
  *          - ER_BUS_PROPERTY_ALREADY_EXISTS if the property can not be added because it already exists.
  */
-- (QStatus)addPropertyWithName:(NSString*)name signature:(NSString*)signature accessPermissions:(AJNInterfacePropertyAccessPermissionsFlags)permissions;
+- (QStatus)addPropertyWithName:(NSString *)name signature:(NSString *)signature accessPermissions:(AJNInterfacePropertyAccessPermissionsFlags)permissions;
 
 /**
  * Check for existence of a property.
@@ -193,7 +193,7 @@
  * @param propertyName       Name of the property to lookup
  * @return An object representing the property if the property exists, otherwise nil.
  */
-- (AJNInterfaceProperty*)propertyWithName:(NSString*)propertyName;
+- (AJNInterfaceProperty *)propertyWithName:(NSString *)propertyName;
 
 /**
  * Lookup a member description by name
@@ -202,7 +202,7 @@
  * @return  - Pointer to member.
  *          - nil if does not exist.
  */
-- (AJNInterfaceMember*)memberWithName:(NSString*)name;
+- (AJNInterfaceMember *)memberWithName:(NSString *)name;
 
 /**
  * Get the value of an annotation on the interface
@@ -211,7 +211,7 @@
  * @return  - string value of the annotation if annotation found.
  *          - nil if annotation not found
  */
-- (NSString*)annotationWithName:(NSString*)annotationName;
+- (NSString *)annotationWithName:(NSString *)annotationName;
 
 /**
  * Add an annotation to the interface.
@@ -222,7 +222,7 @@
  *          - ER_BUS_PROPERTY_ALREADY_EXISTS if the annotation can not be added
  *                                        because it already exists.
  */
-- (QStatus)addAnnotationWithName:(NSString*)annotationName value:(NSString*)annotationValue;
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue;
 
 /**
  * Get the annotation value for a member (signal or method).
@@ -233,7 +233,7 @@
  * @return  - string value of annotation if found
  *          - nil if annotation not found
  */
-- (NSString*)annotationWithName:(NSString*)annotationName forMemberWithName:(NSString*)memberName;
+- (NSString *)annotationWithName:(NSString *)annotationName forMemberWithName:(NSString *)memberName;
 
 /**
  * Add an annotation to a member (signal or method).
@@ -245,7 +245,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if annotation already exists
  */
-- (QStatus)addAnnotationWithName:(NSString*)annotationName value:(NSString*)annotationValue forMemberWithName:(NSString*)memberName;
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue forMemberWithName:(NSString *)memberName;
 
 /**
  * Get the annotation value for a property.
@@ -256,7 +256,7 @@
  * @return  - string value of annotation if found
  *          - nil if annotation not found
  */
-- (NSString*)annotationWithName:(NSString*)annotationName forPropertyWithName:(NSString*)propertyName;
+- (NSString *)annotationWithName:(NSString *)annotationName forPropertyWithName:(NSString *)propertyName;
 
 /**
  * Add an annotation to a property.
@@ -268,7 +268,7 @@
  * @return  - ER_OK if successful
  *          - ER_BUS_MEMBER_ALREADY_EXISTS if annotation already exists
  */
-- (QStatus)addAnnotationWithName:(NSString*)annotationName value:(NSString*)annotationValue forPropertyWithName:(NSString*)propertyName;
+- (QStatus)addAnnotationWithName:(NSString *)annotationName value:(NSString *)annotationValue forPropertyWithName:(NSString *)propertyName;
 
 /**
  * Check for existence of a member. Optionally check the signature also.
@@ -282,7 +282,7 @@
  * @param outputs       Output parameter signature of the member to lookup (leave NULL for signals)
  * @return TRUE if the member name exists, otherwise returns FALSE.
  */
-- (BOOL)hasMemberWithName:(NSString*)name inputSignature:(NSString*)inputs outputSignature:(NSString*)outputs;
+- (BOOL)hasMemberWithName:(NSString *)name inputSignature:(NSString *)inputs outputSignature:(NSString *)outputs;
 
 /**
  * Activate this interface. An interface must be activated before it can be used. Activating an

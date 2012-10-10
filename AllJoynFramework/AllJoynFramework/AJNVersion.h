@@ -24,12 +24,12 @@
 /**
  * Version information for the AllJoyn library
  */
-+ (NSString*)versionInformation;
++ (NSString *)versionInformation;
 
 /**
  * Build information for the AllJoyn library.
  */
-+ (NSString*)buildInformation;
++ (NSString *)buildInformation;
 
 /**
  * Version number of the AllJoyn library.

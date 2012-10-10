@@ -36,7 +36,7 @@
                                 <rect key="frame" x="320" y="379" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="didBeginEditingChatConversationTextField:" destination="Iu8-Xi-xEI" eventType="editingDidBegin" id="3H1-MK-Q3x"/>
                                     <action selector="didEndEditingChatConversationTextField:" destination="Iu8-Xi-xEI" eventType="editingDidEnd" id="mbW-O6-Ha3"/>

@@ -69,23 +69,23 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
 /**
  * A requested password, pincode, or passphrase.
  */
-@property (nonatomic) NSString*password;
+@property (nonatomic) NSString *password;
 
 /**
  * A requested user name.
  */
-@property (nonatomic) NSString*userName;
+@property (nonatomic) NSString *userName;
 
 /**
  * A requested public key certificate chain. The certificates must be PEM encoded.
  */
-@property (nonatomic) NSString*certificateChain;
+@property (nonatomic) NSString *certificateChain;
 
 /**
  * A requested private key. The private key must be PEM encoded and may be encrypted. If
  * the private key is encrypted the passphrase required to decrypt it must also be supplied.
  */
-@property (nonatomic) NSString*privateKey;
+@property (nonatomic) NSString *privateKey;
 
 /**
  * A logon entry. For example for the Secure Remote Password protocol in RFC 5054, a
@@ -93,7 +93,7 @@ extern const uint16_t AJNSecurityCredentialRequestOneTimePassword;
  * N:g:s:v where N,g,s, and v are ASCII encoded hexadecimal strings and are separated by
  * colons.
  */
-@property (nonatomic) NSString*logonEntry;
+@property (nonatomic) NSString *logonEntry;
 
 /**
  * An expiration time in seconds relative to the current time for the credentials. This value is optional and

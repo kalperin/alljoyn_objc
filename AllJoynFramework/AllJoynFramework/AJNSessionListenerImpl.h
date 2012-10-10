@@ -25,7 +25,7 @@
 
 class AJNSessionListenerImpl : public ajn::SessionListener {
   protected:
-    __weak AJNBusAttachment*busAttachment;
+    __weak AJNBusAttachment* busAttachment;
 
     /**
      * Objective C delegate called when one of the below virtual functions
@@ -40,7 +40,7 @@ class AJNSessionListenerImpl : public ajn::SessionListener {
      * @param aBusAttachment    Objective C bus attachment wrapper object.
      * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
      */
-    AJNSessionListenerImpl(AJNBusAttachment*aBusAttachment, id<AJNSessionListener> aDelegate);
+    AJNSessionListenerImpl(AJNBusAttachment* aBusAttachment, id<AJNSessionListener> aDelegate);
 
     /**
      * Virtual destructor for derivable class.

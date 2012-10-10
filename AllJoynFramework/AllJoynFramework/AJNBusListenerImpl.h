@@ -24,7 +24,7 @@
  */
 class AJNBusListenerImpl : public ajn::BusListener {
   protected:
-    __weak AJNBusAttachment*busAttachment;
+    __weak AJNBusAttachment* busAttachment;
 
     /**
      * Objective C delegate called when one of the below virtual functions
@@ -40,7 +40,7 @@ class AJNBusListenerImpl : public ajn::BusListener {
      * @param aBusAttachment    Objective C bus attachment wrapper object.
      * @param aDelegate         Objective C delegate called when one of the below virtual functions is called.
      */
-    AJNBusListenerImpl(AJNBusAttachment*aBusAttachment, id<AJNBusListener> aDelegate);
+    AJNBusListenerImpl(AJNBusAttachment* aBusAttachment, id<AJNBusListener> aDelegate);
 
     /**
      * Virtual destructor for derivable class.

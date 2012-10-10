@@ -155,6 +155,20 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = alljoyn_darwin;
 		};
+		ACFED7B21624CE2900697423 /* alljoyn_unity_ios */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "-u OS=darwin CPU=arm BD=on WS=off VARIANT=$(CONFIGURATION) --$(ACTION)";
+			buildConfigurationList = ACFED7B31624CE2900697423 /* Build configuration list for PBXLegacyTarget "alljoyn_unity_ios" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/local/bin/scons;
+			buildWorkingDirectory = ../alljoyn_unity;
+			dependencies = (
+			);
+			name = alljoyn_unity_ios;
+			passBuildSettingsInEnvironment = 1;
+			productName = alljoyn_unity_osx;
+		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXProject section */
@@ -183,6 +197,7 @@
 				AC9C2C6E15FA9B4C00C60607 /* alljoyn_c_osx */,
 				AC8D8CFE161376FE00361742 /* alljoyn_c_ios */,
 				A441CDF7161F6479008A4779 /* alljoyn_unity_osx */,
+				ACFED7B21624CE2900697423 /* alljoyn_unity_ios */,
 			);
 		};
 /* End PBXProject section */
@@ -474,6 +489,37 @@
 			};
 			name = Release;
 		};
+		ACFED7B41624CE2900697423 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = alljoyn_unity_ios;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ACFED7B51624CE2900697423 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = alljoyn_unity_ios;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +609,15 @@
 			buildConfigurations = (
 				ACB4AFBA150E631F0054D964 /* Debug */,
 				ACB4AFBB150E631F0054D964 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACFED7B31624CE2900697423 /* Build configuration list for PBXLegacyTarget "alljoyn_unity_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACFED7B41624CE2900697423 /* Debug */,
+				ACFED7B51624CE2900697423 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

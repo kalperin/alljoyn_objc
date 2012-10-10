@@ -66,27 +66,27 @@ typedef enum {
 /**
  * Name of the member.
  */
-@property (nonatomic, readonly) NSString*name;
+@property (nonatomic, readonly) NSString *name;
 
 /**
  * Input type signature of the member. This is nil for a signal member.
  */
-@property (nonatomic, readonly) NSString*inputSignature;
+@property (nonatomic, readonly) NSString *inputSignature;
 
 /**
  * Output type signature of the member.
  */
-@property (nonatomic, readonly) NSString*outputSignature;
+@property (nonatomic, readonly) NSString *outputSignature;
 
 /**
  * Comma separated list of names of all arguments. This can be nil.
  */
-@property (nonatomic, readonly) NSArray*argumentNames;
+@property (nonatomic, readonly) NSArray *argumentNames;
 
 /**
  * Required permissions to invoke this call.
  */
-@property (nonatomic, readonly) NSString*accessPermissions;
+@property (nonatomic, readonly) NSString *accessPermissions;
 
 /**
  * Get the annotation value for the member
@@ -96,6 +96,6 @@ typedef enum {
  * @return  - string value of annotation if found
  *          - nil if not found
  */
-- (NSString*)annotationWithName:(NSString*)annotationName;
+- (NSString *)annotationWithName:(NSString *)annotationName;
 
 @end

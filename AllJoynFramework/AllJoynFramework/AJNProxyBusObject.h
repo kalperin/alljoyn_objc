@@ -40,7 +40,7 @@
  * @param context   Context passed into introspectRemoteObjectAsync
  * @param status ER_OK if successful
  */
-- (void)didCompleteIntrospectionOfObject:(AJNProxyBusObject*)object context:(AJNHandle) context withStatus:(QStatus)status;
+- (void)didCompleteIntrospectionOfObject:(AJNProxyBusObject *)object context:(AJNHandle)context withStatus:(QStatus)status;
 
 /**
  * Reply handler for asynchronous method call.
@@ -48,7 +48,7 @@
  * @param replyMessage  The received message.
  * @param context       User-defined context passed to MethodCall and returned upon reply.
  */
-- (void)didReceiveMethodReply:(AJNMessage*)replyMessage context:(AJNHandle)context;
+- (void)didReceiveMethodReply:(AJNMessage *)replyMessage context:(AJNHandle)context;
 
 /**
  * Handler for receiving the value of a property asynchronously
@@ -61,7 +61,7 @@
  *                  - Other error status codes indicating the reason the get request failed.
  * @param context   Caller provided context passed in to GetPropertyAsync()
  */
-- (void)didReceiveValueForProperty:(AJNMessageArgument*)value ofObject:(AJNProxyBusObject*)object completionStatus:(QStatus) status context:(AJNHandle)context;
+- (void)didReceiveValueForProperty:(AJNMessageArgument *)value ofObject:(AJNProxyBusObject *)object completionStatus:(QStatus)status context:(AJNHandle)context;
 
 /**
  * Handler for receiving all the values of all properties on an object asynchronously
@@ -73,7 +73,7 @@
  *                    - Other error status codes indicating the reason the get request failed.
  * @param context       Caller provided context passed in to GetPropertyAsync()
  */
-- (void)didReceiveValuesForAllProperties:(AJNMessageArgument*)values ofObject:(AJNProxyBusObject*)object completionStatus:(QStatus) status context:(AJNHandle)context;
+- (void)didReceiveValuesForAllProperties:(AJNMessageArgument *)values ofObject:(AJNProxyBusObject *)object completionStatus:(QStatus)status context:(AJNHandle)context;
 
 /**
  * Callback registered with SetPropertyAsync()
@@ -85,7 +85,7 @@
  *                  - Other error status codes indicating the reason the set request failed.
  * @param context   Caller provided context passed in to SetPropertyAsync()
  */
-- (void)didComleteSetPropertyOnObject:(AJNProxyBusObject*)object completionStatus:(QStatus) status context:(AJNHandle)context;
+- (void)didComleteSetPropertyOnObject:(AJNProxyBusObject *)object completionStatus:(QStatus)status context:(AJNHandle)context;
 
 
 @end
@@ -104,14 +104,14 @@
  *
  * @return Object path
  */
-@property (nonatomic, readonly) NSString*path;
+@property (nonatomic, readonly) NSString *path;
 
 /**
  * Return the remote service name for this object.
  *
  * @return Service name (typically a well-known service name but may be a unique name)
  */
-@property (nonatomic, readonly) NSString*serviceName;
+@property (nonatomic, readonly) NSString *serviceName;
 
 /**
  * Return the session Id for this object.
@@ -127,14 +127,14 @@
  *
  * @return  The interfaces implemented by the object.
  */
-@property (nonatomic, readonly) NSArray*interfaces;
+@property (nonatomic, readonly) NSArray *interfaces;
 
 /**
  * Returns an array of ProxyBusObjects for the children of this ProxyBusObject.
  *
  * @return  The children of the object, or nil if there are none.
  */
-@property (nonatomic, readonly) NSArray*children;
+@property (nonatomic, readonly) NSArray *children;
 
 /**
  * Indicates if this is a valid (usable) proxy bus object.
@@ -160,7 +160,7 @@
  * @param path           The absolute (non-relative) object path for the remote object.
  * @param sessionId      The session id the be used for communicating with remote object.
  */
-- (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment serviceName:(NSString*)serviceName objectPath:(NSString*)path sessionId:(AJNSessionId)sessionId;
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment serviceName:(NSString *)serviceName objectPath:(NSString *)path sessionId:(AJNSessionId)sessionId;
 
 /**
  * Add an existing interface to this object using the interface's name.
@@ -169,7 +169,7 @@
  * @return  - ER_OK if successful.
  *          - An error status otherwise.
  */
-- (QStatus)addInterfaceNamed:(NSString*)interfaceName;
+- (QStatus)addInterfaceNamed:(NSString *)interfaceName;
 
 /**
  * Add an interface to this ProxyBusObject.
@@ -186,7 +186,7 @@
  * @return  - ER_OK if successful.
  *          - An error status otherwise
  */
-- (QStatus)addInterfaceFromDescription:(AJNInterfaceDescription*)interfaceDescription;
+- (QStatus)addInterfaceFromDescription:(AJNInterfaceDescription *)interfaceDescription;
 
 /**
  * Returns a pointer to an interface description. Returns nil if the object does not implement
@@ -197,7 +197,7 @@
  * @return  - A pointer to the requested interface description.
  *          - nil if requested interface is not implemented or not found
  */
-- (AJNInterfaceDescription*)interfaceWithName:(NSString*)name;
+- (AJNInterfaceDescription *)interfaceWithName:(NSString *)name;
 
 /**
  * Tests if this object implements the requested interface.
@@ -206,7 +206,7 @@
  *
  * @return  TRUE if the object implements the requested interface
  */
-- (BOOL)implementsInterfaceWithName:(NSString*)name;
+- (BOOL)implementsInterfaceWithName:(NSString *)name;
 
 /**
  * Get a path descendant ProxyBusObject (child) by its relative path name.
@@ -220,7 +220,7 @@
  * @return  - The (potentially deep) descendant ProxyBusObject
  *          - nil if not found.
  */
-- (AJNProxyBusObject*)childAtPath:(NSString*)path;
+- (AJNProxyBusObject *)childAtPath:(NSString *)path;
 
 /**
  * Add a child object (direct or deep object path descendant) to this object.
@@ -236,7 +236,7 @@
  *      - #ER_BUS_BAD_CHILD_PATH if the path is a bad path
  *      - #ER_BUS_OBJ_ALREADY_EXISTS the the object already exists on the ProxyBusObject
  */
-- (QStatus)addChild:(AJNProxyBusObject*)child;
+- (QStatus)addChild:(AJNProxyBusObject *)child;
 
 /**
  * Remove a child object and any descendants it may have.
@@ -247,7 +247,7 @@
  *          - ER_BUS_OBJ_NOT_FOUND if the Child object was not found
  *          - ER_FAIL any other unexpected error.
  */
-- (QStatus)removeChildAtPath:(NSString*)path;
+- (QStatus)removeChildAtPath:(NSString *)path;
 
 /**
  * Make a synchronous method call from this object
@@ -259,7 +259,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply;
+- (QStatus)callMethod:(AJNInterfaceMember *)method withArguments:(NSArray *)arguments methodReply:(AJNMessage **)reply;
 
 /**
  * Make a synchronous method call from this object
@@ -277,7 +277,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t) timeout flags:(uint8_t)flags;
+- (QStatus)callMethod:(AJNInterfaceMember *)method withArguments:(NSArray *)arguments methodReply:(AJNMessage **)reply timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make an asynchronous method call from this object
@@ -294,7 +294,7 @@
  * @return  - ER_OK if successful
  *          - An error status otherwise
  */
-- (QStatus)callMethod:(AJNInterfaceMember*)method withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>) replyDelegate context:(AJNHandle) context timeout:(uint32_t) timeout flags:(uint8_t)flags;
+- (QStatus)callMethod:(AJNInterfaceMember *)method withArguments:(NSArray *)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>) replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make a synchronous method call from this object
@@ -307,7 +307,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply;
+- (QStatus)callMethodWithName:(NSString *)methodName onInterfaceWithName:(NSString *)interfaceName withArguments:(NSArray *)arguments methodReply:(AJNMessage **)reply;
 
 /**
  * Make a synchronous method call from this object
@@ -325,7 +325,7 @@
  * @return  - ER_OK if the method call succeeded and the reply message type is MESSAGE_METHOD_RET
  *          - ER_BUS_REPLY_IS_ERROR_MESSAGE if the reply message type is MESSAGE_ERROR
  */
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReply:(AJNMessage**)reply timeout:(uint32_t) timeout flags:(uint8_t)flags;
+- (QStatus)callMethodWithName:(NSString *)methodName onInterfaceWithName:(NSString *)interfaceName withArguments:(NSArray *)arguments methodReply:(AJNMessage **)reply timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Make an asynchronous method call from this object
@@ -343,7 +343,7 @@
  * @return  - ER_OK if successful
  *          - An error status otherwise
  */
-- (QStatus)callMethodWithName:(NSString*)methodName onInterfaceWithName:(NSString*)interfaceName withArguments:(NSArray*)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>) replyDelegate context:(AJNHandle) context timeout:(uint32_t) timeout flags:(uint8_t)flags;
+- (QStatus)callMethodWithName:(NSString *)methodName onInterfaceWithName:(NSString *)interfaceName withArguments:(NSArray *)arguments methodReplyDelegate:(id<AJNProxyBusObjectDelegate>)replyDelegate context:(AJNHandle)context timeout:(uint32_t)timeout flags:(uint8_t)flags;
 
 /**
  * Query the remote object on the bus to determine the interfaces and
@@ -377,7 +377,7 @@
  * @return  - ER_OK if successful.
  *          - An error status otherwise
  */
-- (QStatus)introspectRemoteObject:(id<AJNProxyBusObjectDelegate>) completionHandler context:(AJNHandle)context;
+- (QStatus)introspectRemoteObject:(id<AJNProxyBusObjectDelegate>)completionHandler context:(AJNHandle)context;
 
 /**
  * Initialize this proxy object from an XML string. Calling this method does several things:
@@ -402,7 +402,7 @@
  * @return  - ER_OK if parsing is completely successful.
  *          - An error status otherwise.
  */
-- (QStatus)buildFromXml:(NSString*)xmlProxyObjectDescription errorLogId:(NSString*)identifier;
+- (QStatus)buildFromXml:(NSString *)xmlProxyObjectDescription errorLogId:(NSString *)identifier;
 
 /**
  * Get a property from an interface on the remote object.
@@ -412,7 +412,7 @@
  *
  * @return The property's value wrapped in an AJNMessageArgument object if successful. Otherwise, the return value is nil.
  */
-- (AJNMessageArgument*)propertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName;
+- (AJNMessageArgument *)propertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName;
 
 /**
  * Make an asynchronous request to get a property from an interface on the remote object.
@@ -428,7 +428,7 @@
  *      - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *      - An error status otherwise
  */
-- (QStatus)propertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName completionDelegate:(id<AJNProxyBusObjectDelegate>) delegate context:(AJNHandle) context timeout:(uint32_t)timeout;
+- (QStatus)propertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName completionDelegate:(id<AJNProxyBusObjectDelegate>)delegate context:(AJNHandle)context timeout:(uint32_t)timeout;
 
 /**
  * Get all properties from an interface on the remote object.
@@ -440,7 +440,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
  */
-- (QStatus)propertyValues:(AJNMessageArgument**)values ofInterfaceWithName:(NSString*)interfaceName;
+- (QStatus)propertyValues:(AJNMessageArgument **)values ofInterfaceWithName:(NSString *)interfaceName;
 
 /**
  * Make an asynchronous request to get all properties from an interface on the remote object.
@@ -453,7 +453,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *          - An error status otherwise
  */
-- (QStatus)propertyValuesForInterfaceWithName:(NSString*)interfaceName completionDelegate:(id<AJNProxyBusObjectDelegate>) delegate context:(AJNHandle) context timeout:(uint32_t)timeout;
+- (QStatus)propertyValuesForInterfaceWithName:(NSString *)interfaceName completionDelegate:(id<AJNProxyBusObjectDelegate>)delegate context:(AJNHandle)context timeout:(uint32_t)timeout;
 
 /**
  * Set a property on an interface on the remote object.
@@ -466,7 +466,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
  */
-- (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toValue:(AJNMessageArgument*)value;
+- (QStatus)setPropertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName toValue:(AJNMessageArgument *)value;
 
 /**
  * Make an asynchronous request to set a property on an interface on the remote object.
@@ -482,7 +482,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the specified interfaces does not exist on the remote object.
  *          - An error status otherwise
  */
-- (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toValue:(AJNMessageArgument*)value completionDelegate:(id<AJNProxyBusObjectDelegate>) delegate context:(AJNHandle) context timeout:(uint32_t)timeout;
+- (QStatus)setPropertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName toValue:(AJNMessageArgument *)value completionDelegate:(id<AJNProxyBusObjectDelegate>)delegate context:(AJNHandle)context timeout:(uint32_t)timeout;
 
 /**
  * Set a uint32 property.
@@ -495,7 +495,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
  */
-- (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toIntValue:(NSInteger)value;
+- (QStatus)setPropertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName toIntValue:(NSInteger)value;
 
 /**
  * Set a string property.
@@ -508,7 +508,7 @@
  *          - ER_BUS_OBJECT_NO_SUCH_INTERFACE if the no such interface on this remote object.
  *          - ER_BUS_NO_SUCH_PROPERTY if the property does not exist
  */
-- (QStatus)setPropertyWithName:(NSString*)propertyName forInterfaceWithName:(NSString*)interfaceName toStringValue:(NSString*)value;
+- (QStatus)setPropertyWithName:(NSString *)propertyName forInterfaceWithName:(NSString *)interfaceName toStringValue:(NSString *)value;
 
 /**
  * Explicitly secure the connection to the remote peer for this proxy object. Peer-to-peer

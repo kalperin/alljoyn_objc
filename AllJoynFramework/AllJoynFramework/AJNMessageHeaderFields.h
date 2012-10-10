@@ -50,11 +50,11 @@ typedef enum {
 /**
  * The values of each header field. Each element in the values array is an AJNMessageArgument.
  */
-@property (nonatomic, readonly) NSArray*values;
+@property (nonatomic, readonly) NSArray *values;
 
 /**
  * The string representation of the header fields.
  */
-- (NSString*)stringValue;
+- (NSString *)stringValue;
 
 @end

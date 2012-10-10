@@ -39,14 +39,14 @@
  *
  * @return The signature string for this MsgArg
  */
-@property (nonatomic, readonly) NSString*signature;
+@property (nonatomic, readonly) NSString *signature;
 
 /**
  * Returns an XML string representation of this type
  *
  * @return  The XML string
  */
-@property (nonatomic, readonly) NSString*xml;
+@property (nonatomic, readonly) NSString *xml;
 
 /**
  * Returns a string representation of the signature of an array of message args.
@@ -55,7 +55,7 @@
  *
  * @return The signature string for the message args.
  */
-- (NSString*)signatureFromMessageArguments:(NSArray*)arguments;
+- (NSString *)signatureFromMessageArguments:(NSArray *)arguments;
 
 /**
  * Returns an XML string representation for an array of message args.
@@ -64,7 +64,7 @@
  *
  * @return The XML string representation of the message args.
  */
-- (NSString*)xmlFromMessageArguments:(NSArray*)arguments;
+- (NSString *)xmlFromMessageArguments:(NSArray *)arguments;
 
 /**
  * Checks the signature of this arg.
@@ -73,7 +73,7 @@
  *
  * @return  true if this arg has the specified signature, otherwise returns false.
  */
-- (BOOL)conformsToSignature:(NSString*)signature;
+- (BOOL)conformsToSignature:(NSString *)signature;
 
 /**
  * Set value of a message arg from a signature and a list of values. Note that any values or
@@ -133,7 +133,7 @@
  *
  * @return Returns ER_OK if the MsgArg was successfully set or an error status otherwise.
  */
-- (QStatus)setValue:(NSString*)signature, ...;
+- (QStatus)setValue:(NSString *)signature, ...;
 
 /**
  * Matches a signature to the MsArg and if the signature matches unpacks the component values of a MsgArg. Note that the values
@@ -220,7 +220,7 @@
  *          - ER_BUS_SIGNATURE_MISMATCH if the signature did not match.
  *          - An error status otherwise
  */
-- (QStatus)value:(NSString*)signature, ...;
+- (QStatus)value:(NSString *)signature, ...;
 
 /**
  * Clear the MsgArg setting the type to ALLJOYN_INVALID and freeing any memory allocated for the

@@ -31,6 +31,6 @@
  *
  * @return  string representation of the status code.
  */
-+ (NSString*)descriptionForStatusCode:(QStatus)status;
++ (NSString *)descriptionForStatusCode:(QStatus)status;
 
 @end

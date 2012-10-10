@@ -33,7 +33,7 @@
  *
  * @return Object path
  */
-@property (nonatomic, readonly) NSString*path;
+@property (nonatomic, readonly) NSString *path;
 
 /**
  * Get the name of this object.
@@ -41,7 +41,7 @@
  *
  * @return Last component of object path.
  */
-@property (nonatomic, readonly) NSString*name;
+@property (nonatomic, readonly) NSString *name;
 
 /**
  * AJNBusObject initialization.
@@ -49,7 +49,7 @@
  * @param busAttachment  Bus that this object exists on.
  * @param path           Object path for object.
  */
-- (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onPath:(NSString*)path;
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment onPath:(NSString *)path;
 
 /**
  * Called by the message bus when the object has been successfully registered. The object can
@@ -66,7 +66,7 @@
  * @param value         The new value of the property
  * @param sessionId     ID of the session we broadcast the signal to (0 for all)
  */
-- (void)emitPropertyWithName:(NSString*)propertyName onInterfaceWithName:(NSString*)interfaceName changedToValue:(AJNMessageArgument*)value inSession:(AJNSessionId)sessionId;
+- (void)emitPropertyWithName:(NSString *)propertyName onInterfaceWithName:(NSString *)interfaceName changedToValue:(AJNMessageArgument *)value inSession:(AJNSessionId)sessionId;
 
 
 @end
@@ -78,11 +78,11 @@
  */
 @interface AJNBusObject : AJNObject<AJNBusObject>
 
-@property (nonatomic, readonly) NSString*path;
+@property (nonatomic, readonly) NSString *path;
 
-@property (nonatomic, readonly) NSString*name;
+@property (nonatomic, readonly) NSString *name;
 
-- (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onPath:(NSString*)path;
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment onPath:(NSString *)path;
 
 - (void)objectWasRegistered;
 

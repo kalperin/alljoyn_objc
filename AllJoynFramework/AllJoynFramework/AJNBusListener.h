@@ -35,13 +35,13 @@
  *
  * @param busAttachment  The bus the listener is registered with.
  */
-- (void)listenerDidRegisterWithBus:(AJNBusAttachment*)busAttachment;
+- (void)listenerDidRegisterWithBus:(AJNBusAttachment *)busAttachment;
 
 /**
  * Called by the bus when the listener is unregistered.
  * @param busAttachment  The bus the listener is unregistering with.
  */
-- (void)listenerDidUnregisterWithBus:(AJNBusAttachment*)busAttachment;
+- (void)listenerDidUnregisterWithBus:(AJNBusAttachment *)busAttachment;
 
 /**
  * Called by the bus when an external bus is discovered that is advertising a well-known name
@@ -51,7 +51,7 @@
  * @param transport    Transport that received the advertisement.
  * @param namePrefix   The well-known name prefix used in call to FindAdvertisedName that triggered this callback.
  */
-- (void)didFindAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask) transport namePrefix:(NSString*)namePrefix;
+- (void)didFindAdvertisedName:(NSString *)name withTransportMask:(AJNTransportMask) transport namePrefix:(NSString *)namePrefix;
 
 /**
  * Called by the bus when an advertisement previously reported through FoundName has become unavailable.
@@ -60,7 +60,7 @@
  * @param transport    Transport that stopped receiving the given advertised name.
  * @param namePrefix   The well-known name prefix that was used in a call to FindAdvertisedName that triggered this callback.
  */
-- (void)didLoseAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask) transport namePrefix:(NSString*)namePrefix;
+- (void)didLoseAdvertisedName:(NSString *)name withTransportMask:(AJNTransportMask) transport namePrefix:(NSString *)namePrefix;
 
 /**
  * Called by the bus when the ownership of any well-known name changes.
@@ -69,7 +69,7 @@
  * @param newOwner       The unique name that now owns the name or NULL if the there is no new owner.
  * @param previousOwner  The unique name that previously owned the name or NULL if there was no previous owner.
  */
-- (void)nameOwnerChanged:(NSString*)name to:(NSString*)newOwner from:(NSString*)previousOwner;
+- (void)nameOwnerChanged:(NSString *)name to:(NSString *)newOwner from:(NSString *)previousOwner;
 
 /**
  * Called when a BusAttachment this listener is registered with is stopping.
