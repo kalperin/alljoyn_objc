@@ -22,15 +22,15 @@ typedef enum _BusStressManagerOperationMode {
     kBusStressManagerOperationModeService = 2
 } BusStressManagerOperationMode;
 
-@protocol BusStressManagerDelegate <NSObject>
+@protocol BusStressManagerDelegate<NSObject>
 
-- (void)didCompleteIteration:(NSInteger) iterationNumber totalIterations:(NSInteger)totalInterations;
+- (void)didCompleteIteration:(NSInteger)iterationNumber totalIterations:(NSInteger)totalInterations;
 
 @end
 
 @interface BusStressManager : NSObject
 
-+ (void)runStress:(NSInteger) iterations threadCount:(NSInteger) threadCount deleteBusFlag:(BOOL) shouldDeleteBusAttachment stopThreadsFlag:(BOOL) stopThreads operationMode:(BusStressManagerOperationMode) mode delegate:(id<BusStressManagerDelegate>)delegate;
++ (void)runStress:(NSInteger)iterations threadCount:(NSInteger)threadCount deleteBusFlag:(BOOL)shouldDeleteBusAttachment stopThreadsFlag:(BOOL)stopThreads operationMode:(BusStressManagerOperationMode)mode delegate:(id<BusStressManagerDelegate>)delegate;
 
 + (void)stopStress;
 

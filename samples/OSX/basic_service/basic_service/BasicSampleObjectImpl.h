@@ -21,7 +21,7 @@
 
 class BasicSampleObjectImpl : public AJNBusObjectImpl {
   public:
-    BasicSampleObjectImpl(ajn::BusAttachment& bus, const char*path, id<MyMethodSample> aDelegate);
+    BasicSampleObjectImpl(ajn::BusAttachment& bus, const char* path, id<MyMethodSample> aDelegate);
 
     void Concatenate(const ajn::InterfaceDescription::Member* member, ajn::Message& msg);
 

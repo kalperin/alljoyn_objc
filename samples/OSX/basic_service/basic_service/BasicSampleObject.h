@@ -20,14 +20,14 @@
 #import "BasicService.h"
 
 const AJNSessionPort kBasicObjectServicePort = 25;
-NSString* const kBasicObjectServicePath = @ "/sample";
-NSString* const kBasicObjectServiceName = @ "org.alljoyn.bus.sample";
-NSString* const kBasicObjectInterfaceName = @ "org.alljoyn.bus.sample";
-NSString* const kBasicObjectMethodName = @ "cat";
+NSString * const kBasicObjectServicePath = @ "/sample";
+NSString * const kBasicObjectServiceName = @ "org.alljoyn.bus.sample";
+NSString * const kBasicObjectInterfaceName = @ "org.alljoyn.bus.sample";
+NSString * const kBasicObjectMethodName = @ "cat";
 
 @protocol MyMethodSample <AJNBusInterface>
 
-- (NSString*)concatenateString:(NSString*)string1 withString:(NSString*)string2;
+- (NSString*)concatenateString:(NSString *)string1 withString:(NSString *)string2;
 
 @end
 

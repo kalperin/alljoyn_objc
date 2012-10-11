@@ -18,15 +18,15 @@
 
 @protocol BasicClientDelegate <NSObject>
 
-- (void)didReceiveStatusUpdateMessage:(NSString*)message;
+- (void)didReceiveStatusUpdateMessage:(NSString *)message;
 
 @end
 
 @interface BasicClient : NSObject
 
-@property (nonatomic, strong) NSObject<BasicClientDelegate>*delegate;
+@property (nonatomic, strong) NSObject<BasicClientDelegate> *delegate;
 
-+ (BasicClient*)sharedInstance;
++ (BasicClient *)sharedInstance;
 
 - (void)sendHelloMessage;
 

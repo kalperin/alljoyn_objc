@@ -19,6 +19,6 @@
 
 @interface BasicServiceViewController : NSViewController<BasicServiceDelegate>
 
-@property (unsafe_unretained) IBOutlet NSTextView*eventTextView;
+@property (unsafe_unretained) IBOutlet NSTextView *eventTextView;
 
 @end

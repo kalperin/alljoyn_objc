@@ -23,6 +23,6 @@
 - (void)start;
 - (void)stop;
 
-+ (SampleService*)sharedInstance;
++ (SampleService *)sharedInstance;
 
 @end

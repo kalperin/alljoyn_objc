@@ -47,7 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC32FC5D15ED6CA200E6F431 /* alljoyn_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = alljoyn_core; path = ../../../alljoyn_core; sourceTree = "<group>"; };
 		AC898AB31602497F001F19EA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC1723115EEC42300525051 /* AJNBasicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNBasicObject.h; sourceTree = "<group>"; };
 		ACC1723215EEC42300525051 /* AJNBasicObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNBasicObject.mm; sourceTree = "<group>"; };
@@ -208,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				AC898AB31602497F001F19EA /* Default-568h@2x.png */,
-				AC32FC5D15ED6CA200E6F431 /* alljoyn_core */,
 				ACEC12DD15EBD640001F105B /* Bus Stress */,
 				ACEC12D615EBD640001F105B /* Frameworks */,
 				ACEC12D415EBD640001F105B /* Products */,

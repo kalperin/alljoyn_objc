@@ -47,19 +47,19 @@
 
 // properties
 //
-@property (nonatomic, strong) NSString* testStringProperty;
+@property (nonatomic, strong) NSString *testStringProperty;
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
+- (void)methodWithOutString:(NSString *)str1 inString2:(NSString *)str2 outString1:(NSString **)outStr1 outString2:(NSString**)outStr2;
+- (void)methodWithOnlyOutString:(NSString **)outStr1 outString2:(NSString **)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 
 // signals
 //
-- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
-- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestStringPropertyChangedFrom:(NSString *)oldString to:(NSString *)newString inSession:(AJNSessionId) sessionId toDestination:(NSString *)destinationPath;
+- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId)sessionId toDestination:(NSString *)destinationPath;
 
 
 @end
@@ -77,8 +77,8 @@
 
 // signals
 //
-- (void)didReceiveTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
-- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
+- (void)didReceiveTestStringPropertyChangedFrom:(NSString *)oldString to:(NSString *)newString inSession:(AJNSessionId)sessionId fromSender:(NSString *)sender;
+- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId)sessionId fromSender:(NSString *)sender;
 
 
 @end
@@ -103,11 +103,11 @@
 
 // properties
 //
-@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) NSString *name;
 
 // signals
 //
-- (void)sendMessage:(NSString*)message inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendMessage:(NSString *)message inSession:(AJNSessionId)sessionId toDestination:(NSString *)destinationPath;
 
 
 @end
@@ -125,7 +125,7 @@
 
 // signals
 //
-- (void)didReceiveMessage:(NSString*)message inSession:(AJNSessionId) sessionId fromSender:(NSString*)sender;
+- (void)didReceiveMessage:(NSString *)message inSession:(AJNSessionId)sessionId fromSender:(NSString *)sender;
 
 
 @end
@@ -150,7 +150,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value;
+- (void)pingWithValue:(NSNumber *)value;
 
 
 @end
@@ -169,23 +169,23 @@
 
 // properties
 //
-@property (nonatomic, strong) NSString* testStringProperty;
-@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, strong) NSString *testStringProperty;
+@property (nonatomic, readonly) NSString *name;
 
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
+- (void)methodWithOutString:(NSString *)str1 inString2:(NSString *)str2 outString1:(NSString **)outStr1 outString2:(NSString **)outStr2;
+- (void)methodWithOnlyOutString:(NSString **)outStr1 outString2:(NSString **)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 
 
 // signals
 //
-- (void)sendTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
-- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
-- (void)sendMessage:(NSString*)message inSession:(AJNSessionId) sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTestStringPropertyChangedFrom:(NSString *)oldString to:(NSString *)newString inSession:(AJNSessionId)sessionId toDestination:(NSString *)destinationPath;
+- (void)sendTestSignalWithNoArgsInSession:(AJNSessionId)sessionId toDestination:(NSString *)destinationPath;
+- (void)sendMessage:(NSString *)message inSession:(AJNSessionId)sessionId toDestination:(NSString *)destinationPath;
 
 
 @end
@@ -203,15 +203,15 @@
 
 // properties
 //
-@property (nonatomic, strong) NSString* testStringProperty;
-@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, strong) NSString *testStringProperty;
+@property (nonatomic, readonly) NSString *name;
 
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
+- (void)methodWithOutString:(NSString *)str1 inString2:(NSString *)str2 outString1:(NSString **)outStr1 outString2:(NSString **)outStr2;
+- (void)methodWithOnlyOutString:(NSString **)outStr1 outString2:(NSString **)outStr2;
 - (void)methodWithNoReturnAndNoArgs;
 
 
@@ -234,7 +234,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value;
+- (void)pingWithValue:(NSNumber *)value;
 
 
 // signals
@@ -260,7 +260,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value;
+- (void)pingWithValue:(NSNumber *)value;
 
 
 @end

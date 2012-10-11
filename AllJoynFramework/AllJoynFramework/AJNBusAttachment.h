@@ -214,7 +214,7 @@ typedef void (^ AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *con
  * @return  - Interface description
  *          - nil if cannot be created.
  */
-- (AJNInterfaceDescription *)createInterfaceWithName:(NSString*)interfaceName;
+- (AJNInterfaceDescription *)createInterfaceWithName:(NSString *)interfaceName;
 
 /**
  * Create an interface description with a given name.

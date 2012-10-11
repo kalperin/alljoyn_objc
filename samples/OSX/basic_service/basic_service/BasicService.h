@@ -18,7 +18,7 @@
 
 @protocol BasicServiceDelegate <NSObject>
 
-- (void)didReceiveStatusUpdateMessage:(NSString*)message;
+- (void)didReceiveStatusUpdateMessage:(NSString *)message;
 
 @end
 
@@ -28,6 +28,6 @@
 
 - (void)run;
 
-+ (BasicService*)sharedInstance;
++ (BasicService *)sharedInstance;
 
 @end

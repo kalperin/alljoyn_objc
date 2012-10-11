@@ -23,6 +23,6 @@
 
 @property (nonatomic, strong) id<AJNChatReceiver> delegate;
 
-- (void)chatMessageReceived:(NSString*)message from:(NSString*)sender onObjectPath:(NSString*)path forSession:(AJNSessionId)sessionId;
+- (void)chatMessageReceived:(NSString *)message from:(NSString *)sender onObjectPath:(NSString *)path forSession:(AJNSessionId)sessionId;
 
 @end

@@ -36,8 +36,8 @@
 - (void)start;
 - (void)stop;
 
-- (NSString*)callServiceToConcatenateString:(NSString*)str1 withString:(NSString*)str2;
+- (NSString *)callServiceToConcatenateString:(NSString *)str1 withString:(NSString *)str2;
 
-+ (SampleClient*)sharedInstance;
++ (SampleClient *)sharedInstance;
 
 @end

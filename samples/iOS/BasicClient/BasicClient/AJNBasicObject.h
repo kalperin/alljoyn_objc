@@ -50,7 +50,7 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
 
 // signals
 //
@@ -74,7 +74,7 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
 
 
 // signals
@@ -99,7 +99,7 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
+- (NSString *)concatenateString:(NSString *)str1 withString:(NSString *)str2;
 
 @end
 
