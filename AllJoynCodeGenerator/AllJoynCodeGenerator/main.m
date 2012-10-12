@@ -53,7 +53,7 @@ int main(int argc, const char * argv[])
             //
             usage();
             
-            return 0;
+            return 1;
         }
         
         //  Validate that the input file exists.
@@ -61,7 +61,7 @@ int main(int argc, const char * argv[])
         NSString *xmlFilePath = [NSString stringWithCString:argv[1] encoding:NSUTF8StringEncoding];
         if (![[NSFileManager defaultManager] fileExistsAtPath:xmlFilePath]) {
             NSLog(@"The input file specified does not exist %@", xmlFilePath);
-            return 0;
+            return 1;
         }
         
         // Validate that the base file name uses valid characters
@@ -70,7 +70,7 @@ int main(int argc, const char * argv[])
         if (![[baseFileName stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]] isEqualToString:baseFileName]
             && ![[baseFileName stringByTrimmingCharactersInSet:[NSCharacterSet letterCharacterSet]] isEqualToString:baseFileName]) {
             NSLog(@"The base file name should contain only letters or numbers.");
-            return 0;
+            return 1;
         }
         
         // Parse out the directory of the input file for use as the location of the output files
