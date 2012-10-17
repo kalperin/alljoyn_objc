@@ -21,7 +21,7 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
+            buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
@@ -50,6 +50,26 @@
                BlueprintName = "AllJoynFramework_iOSTests"
                ReferencedContainer = "container:AllJoynFramework_iOS.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BusAttachmentTests">
+               </Test>
+               <Test
+                  Identifier = "InterfaceDescriptionTests">
+               </Test>
+               <Test
+                  Identifier = "BusObjectTests/testSessionId">
+               </Test>
+               <Test
+                  Identifier = "BusObjectTests/testSessionJoiner">
+               </Test>
+               <Test
+                  Identifier = "BusObjectTests/testShouldCallMethodAndReturnResult">
+               </Test>
+               <Test
+                  Identifier = "BusObjectTests/testShouldSendAndReceiveSignalSuccessfully">
+               </Test>
+            </SkippedTests>
             <LocationScenarioReference
                identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
                referenceType = "1">
