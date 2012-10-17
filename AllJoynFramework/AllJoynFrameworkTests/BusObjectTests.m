@@ -258,8 +258,17 @@ const NSInteger kBusObjectTestsServicePort = 999;
     NSString *proxyPropertyValue;
     NSString *servicePropertyValue;
     proxy.testStringProperty = @"Hello World!!!";
+    
+    sleep(1);
+    
     proxyPropertyValue = proxy.testStringProperty;
+    
+    sleep(1);
+    
     servicePropertyValue = basicObject.testStringProperty;
+    
+    sleep(1);
+    
     STAssertTrue([proxyPropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
     STAssertTrue([servicePropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
     
