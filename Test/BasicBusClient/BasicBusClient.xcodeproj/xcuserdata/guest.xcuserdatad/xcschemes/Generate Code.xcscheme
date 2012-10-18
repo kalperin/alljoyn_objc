@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ACB4AFB6150E631F0054D964"
-               BuildableName = "alljoyn_core_osx"
-               BlueprintName = "alljoyn_core_osx"
-               ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
+               BlueprintIdentifier = "AC9DD87B16307B0000F5D0AB"
+               BuildableName = "Generate Code"
+               BlueprintName = "Generate Code"
+               ReferencedContainer = "container:BasicBusClient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -39,44 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bbclient">
-      </PathRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-c 150"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-r 25"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-n &quot;com.greg&quot;"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-d"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "BUS_ADDRESS"
-            value = "null:"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "ER_DEBUG_ALL"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "ER_DEBUG_IPNS"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

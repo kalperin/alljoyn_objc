@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ACB4AFB6150E631F0054D964"
-               BuildableName = "alljoyn_core_osx"
-               BlueprintName = "alljoyn_core_osx"
-               ReferencedContainer = "container:alljoyn_darwin.xcodeproj">
+               BlueprintIdentifier = "AC9DD821162F31E300F5D0AB"
+               BuildableName = "BasicBusService.app"
+               BlueprintName = "BasicBusService"
+               ReferencedContainer = "container:BasicBusService.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC9DD821162F31E300F5D0AB"
+            BuildableName = "BasicBusService.app"
+            BlueprintName = "BasicBusService"
+            ReferencedContainer = "container:BasicBusService.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,44 +48,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <PathRunnable
-         FilePath = "/Users/guest/Documents/alljoyn-fun-times/alljoyn_core/build/darwin/x86/debug/dist/bin/bbclient">
-      </PathRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-c 150"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-r 25"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-n &quot;com.greg&quot;"
-            isEnabled = "NO">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-d"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "BUS_ADDRESS"
-            value = "null:"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "ER_DEBUG_ALL"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "ER_DEBUG_IPNS"
-            value = "15"
-            isEnabled = "NO">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC9DD821162F31E300F5D0AB"
+            BuildableName = "BasicBusService.app"
+            BlueprintName = "BasicBusService"
+            ReferencedContainer = "container:BasicBusService.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -86,6 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AC9DD821162F31E300F5D0AB"
+            BuildableName = "BasicBusService.app"
+            BlueprintName = "BasicBusService"
+            ReferencedContainer = "container:BasicBusService.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
