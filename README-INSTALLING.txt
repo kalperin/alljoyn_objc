@@ -62,7 +62,7 @@ Installation
 
 			É
 
-7. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
+9. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
    This environment variable needs to be present whenever you build projects using the
    AllJoyn SDK. To set the environment variable open a Terminal window and type the following:
 	
