@@ -19,28 +19,29 @@ Prerequisites
    http://itunes.apple.com/us/app/xcode/id497799835?mt=12
 2. OpenSSL is required for iOS development and is available at the following web
    address: http://www.openssl.org/
-   AllJoyn has been tested with version 1.01 of OpenSSL.
+   AllJoyn has been tested with version 1.0.1 of OpenSSL.
 3. Download the Xcode project that can be used to build OpenSSL for iOS from GitHub,
-   at the following web address: https://github.com/sqlcipher/openssl-xcode/ 
+   at the following web address: https://github.com/sqlcipher/openssl-xcode/
 
 Installation
 
-1. Unzip the SDK package to a folder on your development system.
-2. Copy the OpenSSL source into the following folder in your AllJoyn SDK root
-   folder: <ALLJOYN_SDK_ROOT>/common/crypto/openssl/openssl-1.01/
-3. Navigate to the above folder in Finder and copy the openssl.xcodeproj folder you
-   downloaded from GitHub into this folder.
+1. Unzip the AllJoyn SDK package to a folder on your development system.
+2. Copy the OpenSSL source into a separate folder on your development system, not
+   under the AllJoyn SDK.
+3. Navigate to the OpenSSL source top folder in Finder, and copy the openssl.xcodeproj
+   folder you downloaded from GitHub into this folder.
 4. Build the libssl and libcrypto libraries one at a time for each combination of
    configuration (debug|release) and platform (iphoneos|iphonesimulator) that you
-   need for your iOS project. For each platform/configuration combination, copy the
-   resultant libssl.a and libcrypto.a files to the following folder structure:
-  <ALLJOYN_SDK_ROOT>/common/crypto/openssl/openssl-1.01/build/[Debug | Release]-[iphoneos | iphonesimulator]/
+   need for your iOS project.
+5. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
+   This environment variable needs to be present whenever you build projects using the
+   AllJoyn SDK.
 
 Tour
 
-The SDK contains an alljoyn_core folder and an alljoyn_objc folder. 
+The SDK contains an alljoyn_core folder and an alljoyn_objc folder.
 
-Samples for iOS and OS/X. The samples are located under alljoyn_objc/samples. 
+Samples for iOS and OS/X. The samples are located under alljoyn_objc/samples.
 
 Code Generator. A code generator is included to assist your development of
 AllJoyn-enabled apps for iOS and Mac OS/X. The source for this tool is located
