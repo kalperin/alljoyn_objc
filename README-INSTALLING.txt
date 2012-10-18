@@ -26,16 +26,41 @@ Prerequisites
 Installation
 
 1. Unzip the AllJoyn SDK package to a folder on your development system.
+
 2. Copy the OpenSSL source into a separate folder on your development system, not
    under the AllJoyn SDK.
+
 3. Navigate to the OpenSSL source top folder in Finder, and copy the openssl.xcodeproj
    folder you downloaded from GitHub into this folder.
-4. Build the libssl and libcrypto libraries one at a time for each combination of
-   configuration (debug|release) and platform (iphoneos|iphonesimulator) that you
-   need for your iOS project.
-5. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
+
+4. Open the openssl.xcodeproj in Xcode.
+
+5. In Xcode, build the crypto target (libssl.a and libcrypto.a) for each 
+   combination of configuration (debug|release) and platform (iphoneos|iphonesimulator) that you
+   need for your iOS project by selecting Product->Build For->(your desired configuration).
+
+6. Create a new folder called "build" under the top-level OpenSSL folder created in step 1.
+
+7. Locate your OpenSSL build products folders (i.e.: Debug-iphoneos) in the
+   /Users/<your username>/Libarary/Developer/Xcode/DerivedData/XXXXXXXXXXXXX-openssl/Build/Products 
+   folder, and copy all the build products folders to the build folder created in step 6.
+
+8. You should now have a folder structure similar to this:
+
+	openssl-1.0.1c
+
+		build
+			Debug-iphoneos
+
+			Debug-iphonesimulator
+
+			É
+
+7. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
    This environment variable needs to be present whenever you build projects using the
-   AllJoyn SDK.
+   AllJoyn SDK. To set the environment variable open a Terminal window and type the following:
+	
+	launchctl setenv OPENSSL_ROOT <path to top level folder containing openssl>
 
 Tour
 

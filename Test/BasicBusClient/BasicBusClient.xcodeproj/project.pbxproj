@@ -153,7 +153,6 @@
 		AC85B97D162CB5580013BCF2 = {
 			isa = PBXGroup;
 			children = (
-				AC9DD9041630827000F5D0AB /* libstdc++.6.0.9.dylib */,
 				AC85B992162CB5580013BCF2 /* BasicBusClient */,
 				AC85B98B162CB5580013BCF2 /* Frameworks */,
 				AC85B989162CB5580013BCF2 /* Products */,
@@ -171,6 +170,7 @@
 		AC85B98B162CB5580013BCF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC9DD9041630827000F5D0AB /* libstdc++.6.0.9.dylib */,
 				AC9DD902163081C100F5D0AB /* libstdc++.dylib */,
 				AC9DD900163081B800F5D0AB /* SystemConfiguration.framework */,
 				AC85B98C162CB5580013BCF2 /* UIKit.framework */,
@@ -616,6 +616,7 @@
 				AC9DD87E16307B0000F5D0AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
