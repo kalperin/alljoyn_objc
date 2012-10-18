@@ -43,16 +43,22 @@ Installation
 
 7. Locate your OpenSSL build products folders (i.e.: Debug-iphoneos) in the
    /Users/<your username>/Libarary/Developer/Xcode/DerivedData/XXXXXXXXXXXXX-openssl/Build/Products 
-   folder, and copy all the build products folders to the build folder created in step 6.
+   folder, and copy all the <configuration>-<platform> folders, like Debug-iphoneos, to the build 
+   folder created in step 6.
 
-8. You should now have a folder structure similar to this:
+8. You should now have a folder structure similar to this containing libssl and libcrypto
+   for each $(CONFIGURATION)-$(PLATFORM_NAME) you built in step 5:
 
 	openssl-1.0.1c
 
 		build
 			Debug-iphoneos
+				libssl.a
+				libcrypto.a
 
 			Debug-iphonesimulator
+				libssl.a
+				libcrypto.a
 
 			É
 
