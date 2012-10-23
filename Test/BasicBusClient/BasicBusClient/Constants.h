@@ -14,14 +14,10 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
-#import "PingClient.h"
+#import "AJNSessionOptions.h"
 
-@interface ViewController : UIViewController <PingClientDelegate>
-
-@property (weak, nonatomic) IBOutlet UITextField *advertisedNameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
-
-- (IBAction)didTouchStartButton:(id)sender;
-
-@end
+extern const AJNSessionPort kServicePort;
+extern NSString * const kServicePath;
+extern NSString * const kServiceName;
+extern NSString * const kInterfaceName;
+extern NSString * const kAppName;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC489D3E1631D26F00FC482B /* PingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC489D3D1631D26F00FC482B /* PingClient.m */; };
+		AC489D421631D30700FC482B /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AC489D411631D30700FC482B /* Constants.m */; };
 		AC85B98D162CB5580013BCF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC85B98C162CB5580013BCF2 /* UIKit.framework */; };
 		AC85B98F162CB5580013BCF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC85B98E162CB5580013BCF2 /* Foundation.framework */; };
 		AC85B991162CB5580013BCF2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC85B990162CB5580013BCF2 /* CoreGraphics.framework */; };
@@ -51,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC489D3C1631D26F00FC482B /* PingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingClient.h; sourceTree = "<group>"; };
+		AC489D3D1631D26F00FC482B /* PingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingClient.m; sourceTree = "<group>"; };
+		AC489D401631D30700FC482B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AC489D411631D30700FC482B /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		AC85B988162CB5580013BCF2 /* BasicBusClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicBusClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC85B98C162CB5580013BCF2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AC85B98E162CB5580013BCF2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +194,10 @@
 				AC9DD88416307D1600F5D0AB /* AJNPingObject.mm */,
 				AC9DD88516307D1600F5D0AB /* PingObject.h */,
 				AC9DD88616307D1600F5D0AB /* PingObject.m */,
+				AC489D3C1631D26F00FC482B /* PingClient.h */,
+				AC489D3D1631D26F00FC482B /* PingClient.m */,
+				AC489D401631D30700FC482B /* Constants.h */,
+				AC489D411631D30700FC482B /* Constants.m */,
 				AC85B99B162CB5580013BCF2 /* AppDelegate.h */,
 				AC85B99C162CB5580013BCF2 /* AppDelegate.m */,
 				AC85B9A4162CB5580013BCF2 /* MainStoryboard_iPhone.storyboard */,
@@ -390,6 +400,8 @@
 				AC9DD8FD1630810500F5D0AB /* AJNStatus.m in Sources */,
 				AC9DD8FE1630810500F5D0AB /* AJNTransportMask.m in Sources */,
 				AC9DD8FF1630810500F5D0AB /* AJNVersion.mm in Sources */,
+				AC489D3E1631D26F00FC482B /* PingClient.m in Sources */,
+				AC489D421631D30700FC482B /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

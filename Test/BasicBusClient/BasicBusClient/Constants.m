@@ -14,14 +14,10 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
-#import "PingClient.h"
+#import "Constants.h"
 
-@interface ViewController : UIViewController <PingClientDelegate>
-
-@property (weak, nonatomic) IBOutlet UITextField *advertisedNameTextField;
-@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
-
-- (IBAction)didTouchStartButton:(id)sender;
-
-@end
+const AJNSessionPort kServicePort = 24;
+NSString * const kServicePath = @"/org/alljoyn/alljoyn_test";
+NSString * const kServiceName = @"org.alljoyn.alljoyn_test";
+NSString * const kInterfaceName = @"org.alljoyn.alljoyn_test";
+NSString * const kAppName = @"bbclient";

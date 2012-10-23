@@ -18,14 +18,22 @@
 
 @interface ViewController ()
 
+@property (nonatomic) bool isConnectedToService;
+
 @end
 
 @implementation ViewController
 
+@synthesize eventsTextView = _eventsTextView;
+@synthesize advertisedNameTextField = _advertisedNameTextField;
+@synthesize isConnectedToService = _isConnectedToService;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
+    [PingClient.sharedInstance setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +44,43 @@
 
 - (IBAction)didTouchStartButton:(id)sender
 {
+    if (!self.isConnectedToService) {
+        [PingClient.sharedInstance connectToService:self.advertisedNameTextField.text];
+    }
+}
+
+#pragma mark - PingClientDelegate implementation
+
+- (void)didConnectWithService:(NSString *)serviceName
+{
+    [self receivedStatusMessage:[NSString stringWithFormat:@"Successfully connected with the service named %@", serviceName]];
+    
+    self.isConnectedToService = true;
+}
+
+- (void)shouldDisconnectFromService:(NSString *)serviceName
+{
+    [self receivedStatusMessage:[NSString stringWithFormat:@"Disconnected from the service named %@", serviceName]];
+    
+    [PingClient.sharedInstance disconnect];
+    
+    self.isConnectedToService = false;
+}
+
+- (void)receivedStatusMessage:(NSString *)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableString *string = self.eventsTextView.text.length ? [self.eventsTextView.text mutableCopy] : [[NSMutableString alloc] init];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [string appendFormat:@"[%@]\n",[formatter stringFromDate:[NSDate date]]];
+        [string appendString:message];
+        [string appendString:@"\n\n"];
+        [self.eventsTextView setText:string];
+        NSLog(@"%@",string);
+        [self.eventsTextView scrollRangeToVisible:NSMakeRange([self.eventsTextView.text length], 0)];
+    });
 }
 
 @end

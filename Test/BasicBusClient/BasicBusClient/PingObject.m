@@ -37,23 +37,18 @@
 
 - (NSString*)sendPingString:(NSString*)outStr withDelay:(NSNumber*)delay
 {
-    // TODO: complete the implementation of this method
-    //
-     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
+    // TODO
+    return nil;
 }
 
 - (NSString*)sendPingString:(NSString*)outStr
 {
-    // TODO: complete the implementation of this method
-    //
-     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
+    return outStr;
 }
 
 - (void)sendPingAtTimeInSeconds:(NSNumber*)sendTimeSecs timeInMilliseconds:(NSNumber*)sendTimeMillisecs receivedTimeInSeconds:(NSNumber**)receivedTimeSecs receivedTimeInMilliseconds:(NSNumber**)receivedTimeMillisecs
 {
-    // TODO: complete the implementation of this method
-    //
-     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
+    // TODO
 }
 
 
