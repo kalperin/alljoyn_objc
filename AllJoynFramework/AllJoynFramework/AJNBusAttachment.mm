@@ -647,7 +647,9 @@ public:
     }
     if (status != ER_OK) {
         NSLog(@"ERROR: AJNBusAttachment::joinSessionWithName:onPort:withDelegate:options: failed. %@", [AJNStatus descriptionForStatusCode:status]);
-        sessionId = 0;
+        if (status != ER_ALLJOYN_JOINSESSION_REPLY_ALREADY_JOINED) {
+            sessionId = 0;
+        }
     }
     return sessionId;    
 }
