@@ -54,6 +54,7 @@
                     <connections>
                         <outlet property="advertisedNameTextField" destination="fj5-he-Lx8" id="GZ1-0L-7o2"/>
                         <outlet property="eventsTextView" destination="OIg-dc-WXI" id="kQz-qM-xN3"/>
+                        <outlet property="startButton" destination="tvm-Fa-k7t" id="cmF-vz-j6I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

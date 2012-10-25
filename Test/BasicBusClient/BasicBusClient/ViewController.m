@@ -46,6 +46,11 @@
 {
     if (!self.isConnectedToService) {
         [PingClient.sharedInstance connectToService:self.advertisedNameTextField.text];
+        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+    else {
+        [PingClient.sharedInstance disconnect];
+        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
     }
 }
 
@@ -62,7 +67,9 @@
 {
     [self receivedStatusMessage:[NSString stringWithFormat:@"Disconnected from the service named %@", serviceName]];
     
-    [PingClient.sharedInstance disconnect];
+    if (self.isConnectedToService) {
+        [PingClient.sharedInstance disconnect];
+    }
     
     self.isConnectedToService = false;
 }

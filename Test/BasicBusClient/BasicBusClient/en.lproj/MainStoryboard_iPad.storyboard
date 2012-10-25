@@ -54,25 +54,13 @@
                     <connections>
                         <outlet property="advertisedNameTextField" destination="fMQ-yx-Jrg" id="nrI-cu-COu"/>
                         <outlet property="eventsTextView" destination="OTm-HL-lVZ" id="z7s-dS-cVf"/>
+                        <outlet property="startButton" destination="DNn-vo-INp" id="We8-if-Gra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchStartButton:"/>
-                <relationship kind="outlet" name="advertisedNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="eventsTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
