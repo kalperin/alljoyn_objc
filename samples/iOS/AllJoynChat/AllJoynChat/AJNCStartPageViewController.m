@@ -408,7 +408,9 @@
 
 - (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
-    self.sessionId = sessionId;
+    if (self.chatSessionTypeSegmentedControl.selectedSegmentIndex == 1) {
+        self.sessionId = sessionId;
+    }
     
     NSMutableString *string = self.chatConversationTextView.text.length ? [self.chatConversationTextView.text mutableCopy] : [[NSMutableString alloc] init];    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
