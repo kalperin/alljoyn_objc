@@ -28,6 +28,13 @@
 @synthesize advertisedNameTextField = _advertisedNameTextField;
 @synthesize isConnectedToService = _isConnectedToService;
 
+- (void)setIsConnectedToService:(bool)isConnectedToService
+{
+    NSString *title = isConnectedToService ? @"Stop" : @"Start";
+    [self.startButton setTitle:title forState:UIControlStateNormal];
+    _isConnectedToService = isConnectedToService;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,12 +53,12 @@
 {
     if (!self.isConnectedToService) {
         [PingClient.sharedInstance connectToService:self.advertisedNameTextField.text];
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
     }
     else {
         [PingClient.sharedInstance disconnect];
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
     }
+    
+    self.isConnectedToService = !self.isConnectedToService;
 }
 
 #pragma mark - PingClientDelegate implementation

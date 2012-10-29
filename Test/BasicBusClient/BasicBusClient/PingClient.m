@@ -176,7 +176,7 @@ static PingClient *s_sharedInstance;
                 [self.delegate didConnectWithService:name];
             }
             
-            [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Successfully joined session [%d].", sessionId]];
+            [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Successfully joined session [%u].", sessionId]];
             
             // once we successfully join the session with service, create a proxy bus
             // object that we can use to communicate with the service.
