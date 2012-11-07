@@ -120,7 +120,7 @@ static PingService *s_sharedInstance;
         
         // let others on the bus know that this service exists
         //
-        status = [self.bus advertiseName:kServiceName withTransportMask:sessionOptions.transports];
+        status = [self.bus advertiseName:self.serviceName withTransportMask:sessionOptions.transports];
         if (status != ER_OK) {
             [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Failed to advertise service name. %@",[AJNStatus descriptionForStatusCode:status]]];
             @throw [NSException exceptionWithName:@"start Failed" reason:@"Unable to advertise service name" userInfo:nil];
