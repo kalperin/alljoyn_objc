@@ -74,7 +74,7 @@ public:
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-FileTransferObjectImpl::FileTransferObjectImpl(BusAttachment &bus, const char *path, id<FileTransferDelegate> aDelegate) : 
+FileTransferObjectImpl::FileTransferObjectImpl(BusAttachment &bus, const char* path, id<FileTransferDelegate> aDelegate) : 
     AJNBusObjectImpl(bus,path,aDelegate)
 {
     const InterfaceDescription* interfaceDescription = NULL;
@@ -98,7 +98,7 @@ FileTransferObjectImpl::FileTransferObjectImpl(BusAttachment &bus, const char *p
 }
 
 
-QStatus FileTransferObjectImpl::SendFileTransfer(const char * name,uint32_t curr,MsgArg* data, const char* destination, SessionId sessionId, uint16_t timeToLive, uint8_t flags)
+QStatus FileTransferObjectImpl::SendFileTransfer(const char* name, uint32_t curr, MsgArg* data, const char* destination, SessionId sessionId, uint16_t timeToLive, uint8_t flags)
 {
 
     MsgArg args[3];
@@ -108,7 +108,7 @@ QStatus FileTransferObjectImpl::SendFileTransfer(const char * name,uint32_t curr
 
     args[1].Set( "u", curr );
 
-    args[2].Set( "ay", data );
+    args[2] = *data;
 
 
     return Signal(destination, sessionId, *FileTransferSignalMember, args, 3, timeToLive, flags);
@@ -183,8 +183,7 @@ QStatus FileTransferObjectImpl::SendFileTransfer(const char * name,uint32_t curr
     self.handle = nil;
 }
 
-    - (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath
-
+- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath
 {
     
     self.busObject->SendFileTransfer([name UTF8String], [curr unsignedIntValue], (MsgArg*)[data handle], [destinationPath UTF8String], sessionId);
@@ -332,11 +331,11 @@ void FileTransferDelegateSignalHandlerImpl::FileTransferSignalHandler(const ajn:
 {
     @autoreleasepool {
         
-    qcc::String inArg0 = msg->GetArg(0)->v_string.str;
-        
-    uint32_t inArg1 = msg->GetArg(1)->v_uint32;
-        
-    AJNMessageArgument* inArg2 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(2)];        
+        qcc::String inArg0 = msg->GetArg(0)->v_string.str;
+            
+        uint32_t inArg1 = msg->GetArg(1)->v_uint32;
+            
+        AJNMessageArgument* inArg2 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(2)];        
         
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];

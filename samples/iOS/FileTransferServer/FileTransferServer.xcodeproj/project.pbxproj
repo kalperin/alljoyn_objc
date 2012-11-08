@@ -47,6 +47,8 @@
 		ACB05E7816408E330024AC85 /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E6116408E320024AC85 /* AJNVersion.mm */; };
 		ACB05E80164091290024AC85 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05E7F164091290024AC85 /* SystemConfiguration.framework */; };
 		ACB05E82164091400024AC85 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05E81164091400024AC85 /* libstdc++.6.0.9.dylib */; };
+		ACB05E8516409A1A0024AC85 /* FileTransferServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E8416409A1A0024AC85 /* FileTransferServiceController.m */; };
+		ACB05E8816418E0B0024AC85 /* AJNServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E8716418E0B0024AC85 /* AJNServiceController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +134,10 @@
 		ACB05E7D164091220024AC85 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		ACB05E7F164091290024AC85 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ACB05E81164091400024AC85 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		ACB05E8316409A190024AC85 /* FileTransferServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTransferServiceController.h; sourceTree = "<group>"; };
+		ACB05E8416409A1A0024AC85 /* FileTransferServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTransferServiceController.m; sourceTree = "<group>"; };
+		ACB05E8616418E0B0024AC85 /* AJNServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNServiceController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNServiceController.h; sourceTree = "<group>"; };
+		ACB05E8716418E0B0024AC85 /* AJNServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJNServiceController.m; path = ../../../../AllJoynFramework/AllJoynFramework/AJNServiceController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,8 @@
 				ACB05E2516408D880024AC85 /* AJNFileTransferObject.mm */,
 				ACB05E2616408D880024AC85 /* FileTransferObject.h */,
 				ACB05E2716408D890024AC85 /* FileTransferObject.m */,
+				ACB05E8316409A190024AC85 /* FileTransferServiceController.h */,
+				ACB05E8416409A1A0024AC85 /* FileTransferServiceController.m */,
 				ACB05DE4164071140024AC85 /* AppDelegate.h */,
 				ACB05DE5164071140024AC85 /* AppDelegate.m */,
 				ACB05E15164083CA0024AC85 /* Constants.h */,
@@ -256,6 +264,8 @@
 				ACB05E4D16408E320024AC85 /* AJNProxyBusObject.mm */,
 				ACB05E4E16408E320024AC85 /* AJNSecurityCredentials.h */,
 				ACB05E4F16408E320024AC85 /* AJNSecurityCredentials.mm */,
+				ACB05E8616418E0B0024AC85 /* AJNServiceController.h */,
+				ACB05E8716418E0B0024AC85 /* AJNServiceController.m */,
 				ACB05E5016408E320024AC85 /* AJNSessionListener.h */,
 				ACB05E5116408E320024AC85 /* AJNSessionListenerImpl.h */,
 				ACB05E5216408E320024AC85 /* AJNSessionListenerImpl.mm */,
@@ -392,6 +402,8 @@
 				ACB05E7616408E330024AC85 /* AJNStatus.m in Sources */,
 				ACB05E7716408E330024AC85 /* AJNTransportMask.m in Sources */,
 				ACB05E7816408E330024AC85 /* AJNVersion.mm in Sources */,
+				ACB05E8516409A1A0024AC85 /* FileTransferServiceController.m in Sources */,
+				ACB05E8816418E0B0024AC85 /* AJNServiceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
