@@ -261,7 +261,7 @@ void SecureObjectImpl::Ping(const InterfaceDescription::Member *member, Message&
     // make the function call using the C++ proxy object
     //
     
-    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.samples.secure.SecureInterface", "Ping", inArgs, 1, reply, 5000);
+    QStatus status = self.proxyBusObject->MethodCall("org.alljoyn.bus.samples.secure.SecureInterface", "Ping", inArgs, 1, reply, 60000);
     if (ER_OK != status) {
         NSLog(@"ERROR: ProxyBusObject::MethodCall on org.alljoyn.bus.samples.secure.SecureInterface failed. %@", [AJNStatus descriptionForStatusCode:status]);
         
