@@ -50,6 +50,7 @@
 		AC88114D164AC9C2006CD25A /* SecureObjectModel.xml in Resources */ = {isa = PBXBuildFile; fileRef = AC88114C164AC9C2006CD25A /* SecureObjectModel.xml */; };
 		AC88116B164ACBA7006CD25A /* AJNSecureObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC881168164ACBA7006CD25A /* AJNSecureObject.mm */; };
 		AC88116C164ACBA7006CD25A /* SecureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC88116A164ACBA7006CD25A /* SecureObject.m */; };
+		AC8811E3164DB7DA006CD25A /* AuthenticationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8811E2164DB7DA006CD25A /* AuthenticationTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,8 @@
 		AC881168164ACBA7006CD25A /* AJNSecureObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AJNSecureObject.mm; sourceTree = "<group>"; };
 		AC881169164ACBA7006CD25A /* SecureObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureObject.h; sourceTree = "<group>"; };
 		AC88116A164ACBA7006CD25A /* SecureObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureObject.m; sourceTree = "<group>"; };
+		AC8811E1164DB7D9006CD25A /* AuthenticationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationTableViewController.h; sourceTree = "<group>"; };
+		AC8811E2164DB7DA006CD25A /* AuthenticationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				AC88102B1649DA32006CD25A /* MainStoryboard_iPad.storyboard */,
 				AC881169164ACBA7006CD25A /* SecureObject.h */,
 				AC88116A164ACBA7006CD25A /* SecureObject.m */,
+				AC8811E1164DB7D9006CD25A /* AuthenticationTableViewController.h */,
+				AC8811E2164DB7DA006CD25A /* AuthenticationTableViewController.m */,
 				AC88102E1649DA32006CD25A /* ViewController.h */,
 				AC88102F1649DA32006CD25A /* ViewController.m */,
 				AC88114C164AC9C2006CD25A /* SecureObjectModel.xml */,
@@ -406,6 +411,7 @@
 				AC8811401649DFFC006CD25A /* Constants.m in Sources */,
 				AC88116B164ACBA7006CD25A /* AJNSecureObject.mm in Sources */,
 				AC88116C164ACBA7006CD25A /* SecureObject.m in Sources */,
+				AC8811E3164DB7DA006CD25A /* AuthenticationTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +636,7 @@
 				AC881154164ACAAB006CD25A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

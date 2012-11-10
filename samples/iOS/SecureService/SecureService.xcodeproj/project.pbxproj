@@ -18,7 +18,6 @@
 		AC8810651649DB10006CD25A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8810641649DB10006CD25A /* Default-568h@2x.png */; };
 		AC8810681649DB10006CD25A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8810661649DB10006CD25A /* MainStoryboard_iPhone.storyboard */; };
 		AC88106B1649DB10006CD25A /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8810691649DB10006CD25A /* MainStoryboard_iPad.storyboard */; };
-		AC88106E1649DB10006CD25A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC88106D1649DB10006CD25A /* ViewController.m */; };
 		AC8810751649DC66006CD25A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8810741649DC66006CD25A /* SystemConfiguration.framework */; };
 		AC8810771649DC6D006CD25A /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8810761649DC6D006CD25A /* libstdc++.6.0.9.dylib */; };
 		AC8810B51649DC99006CD25A /* AJNAuthenticationListenerImpl.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC88107B1649DC99006CD25A /* AJNAuthenticationListenerImpl.mm */; };
@@ -47,6 +46,10 @@
 		AC8810CC1649DC99006CD25A /* AJNTransportMask.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8810B11649DC99006CD25A /* AJNTransportMask.m */; };
 		AC8810CD1649DC99006CD25A /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC8810B41649DC99006CD25A /* AJNVersion.mm */; };
 		AC8811431649E04E006CD25A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8811421649E04E006CD25A /* Constants.m */; };
+		AC8811EB164DD219006CD25A /* AuthenticationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8811EA164DD219006CD25A /* AuthenticationTableViewController.m */; };
+		AC8811EF164DD41D006CD25A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8811EE164DD41D006CD25A /* ViewController.m */; };
+		AC8811F4164DD43B006CD25A /* AJNSecureObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC8811F1164DD43B006CD25A /* AJNSecureObject.mm */; };
+		AC8811F5164DD43B006CD25A /* SecureObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8811F3164DD43B006CD25A /* SecureObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,8 +68,6 @@
 		AC8810641649DB10006CD25A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AC8810671649DB10006CD25A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		AC88106A1649DB10006CD25A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		AC88106C1649DB10006CD25A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AC88106D1649DB10006CD25A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AC8810741649DC66006CD25A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC8810761649DC6D006CD25A /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		AC8810791649DC99006CD25A /* AJNAuthenticationListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNAuthenticationListener.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNAuthenticationListener.h; sourceTree = "<group>"; };
@@ -131,6 +132,14 @@
 		AC8810B41649DC99006CD25A /* AJNVersion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNVersion.mm; path = ../../../../AllJoynFramework/AllJoynFramework/AJNVersion.mm; sourceTree = "<group>"; };
 		AC8811411649E04E006CD25A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AC8811421649E04E006CD25A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		AC8811E9164DD219006CD25A /* AuthenticationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationTableViewController.h; sourceTree = "<group>"; };
+		AC8811EA164DD219006CD25A /* AuthenticationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationTableViewController.m; sourceTree = "<group>"; };
+		AC8811ED164DD41D006CD25A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AC8811EE164DD41D006CD25A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC8811F0164DD43B006CD25A /* AJNSecureObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNSecureObject.h; path = ../../SecureClient/SecureClient/AJNSecureObject.h; sourceTree = "<group>"; };
+		AC8811F1164DD43B006CD25A /* AJNSecureObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNSecureObject.mm; path = ../../SecureClient/SecureClient/AJNSecureObject.mm; sourceTree = "<group>"; };
+		AC8811F2164DD43B006CD25A /* SecureObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecureObject.h; path = ../../SecureClient/SecureClient/SecureObject.h; sourceTree = "<group>"; };
+		AC8811F3164DD43B006CD25A /* SecureObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecureObject.m; path = ../../SecureClient/SecureClient/SecureObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,14 +191,20 @@
 			isa = PBXGroup;
 			children = (
 				AC8810781649DC7E006CD25A /* AllJoynFramework */,
+				AC8811F0164DD43B006CD25A /* AJNSecureObject.h */,
+				AC8811F1164DD43B006CD25A /* AJNSecureObject.mm */,
+				AC8811F2164DD43B006CD25A /* SecureObject.h */,
+				AC8811F3164DD43B006CD25A /* SecureObject.m */,
 				AC88105D1649DB10006CD25A /* AppDelegate.h */,
 				AC88105E1649DB10006CD25A /* AppDelegate.m */,
 				AC8811411649E04E006CD25A /* Constants.h */,
 				AC8811421649E04E006CD25A /* Constants.m */,
 				AC8810661649DB10006CD25A /* MainStoryboard_iPhone.storyboard */,
 				AC8810691649DB10006CD25A /* MainStoryboard_iPad.storyboard */,
-				AC88106C1649DB10006CD25A /* ViewController.h */,
-				AC88106D1649DB10006CD25A /* ViewController.m */,
+				AC8811E9164DD219006CD25A /* AuthenticationTableViewController.h */,
+				AC8811EA164DD219006CD25A /* AuthenticationTableViewController.m */,
+				AC8811ED164DD41D006CD25A /* ViewController.h */,
+				AC8811EE164DD41D006CD25A /* ViewController.m */,
 				AC8810551649DB10006CD25A /* Supporting Files */,
 			);
 			path = SecureService;
@@ -345,7 +360,6 @@
 			files = (
 				AC88105B1649DB10006CD25A /* main.m in Sources */,
 				AC88105F1649DB10006CD25A /* AppDelegate.m in Sources */,
-				AC88106E1649DB10006CD25A /* ViewController.m in Sources */,
 				AC8810B51649DC99006CD25A /* AJNAuthenticationListenerImpl.mm in Sources */,
 				AC8810B61649DC99006CD25A /* AJNBus.m in Sources */,
 				AC8810B71649DC99006CD25A /* AJNBusAttachment.mm in Sources */,
@@ -372,6 +386,10 @@
 				AC8810CC1649DC99006CD25A /* AJNTransportMask.m in Sources */,
 				AC8810CD1649DC99006CD25A /* AJNVersion.mm in Sources */,
 				AC8811431649E04E006CD25A /* Constants.m in Sources */,
+				AC8811EB164DD219006CD25A /* AuthenticationTableViewController.m in Sources */,
+				AC8811EF164DD41D006CD25A /* ViewController.m in Sources */,
+				AC8811F4164DD43B006CD25A /* AJNSecureObject.mm in Sources */,
+				AC8811F5164DD43B006CD25A /* SecureObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

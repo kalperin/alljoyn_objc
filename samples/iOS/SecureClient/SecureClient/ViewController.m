@@ -34,6 +34,9 @@
 @implementation ViewController
 
 @synthesize secureObjectProxy = _secureObjectProxy;
+@synthesize startButton = _startButton;
+@synthesize clientController = _clientController;
+@synthesize password = _password;
 
 - (NSString *)applicationName
 {
@@ -69,6 +72,7 @@
     self.clientController.allowRemoteMessages = YES;
     self.clientController.multiPointSessionsEnabled = YES;
     self.clientController.delegate = self;
+    
 }
 
 - (IBAction)didTouchStartButton:(id)sender
@@ -98,6 +102,11 @@
 - (AJNProxyBusObject *)proxyObjectOnBus:(AJNBusAttachment *)bus inSession:(AJNSessionId)sessionId
 {
     self.secureObjectProxy = [[SecureObjectProxy alloc] initWithBusAttachment:bus serviceName:self.serviceName objectPath:kServicePath sessionId:sessionId];
+    
+    // now we need to authenticate
+    //
+    [self.secureObjectProxy secureConnection:YES];
+    
     return self.secureObjectProxy;
 }
 
@@ -142,15 +151,8 @@
     if ([authenticationMechanism compare:@"ALLJOYN_SRP_KEYX"] == NSOrderedSame) {
         if (mask & kAJNSecurityCredentialTypePassword) {
             if (authenticationCount <= 3) {
-                srand(time(NULL));
-                int pin = rand() % 1000000;
-                char pinStr[7];
-                snprintf(pinStr, 7, "%06d", pin);
-                NSString *message = [NSString stringWithFormat:@"Using password: [%s]", pinStr];
-                NSLog(@"%@", message);
-                [self didReceiveStatusMessage:message];                
                 credentials = [[AJNSecurityCredentials alloc] init];
-                credentials.password = [NSString stringWithCString:pinStr encoding:NSUTF8StringEncoding];
+                credentials.password = self.password;
             }
         }
     }

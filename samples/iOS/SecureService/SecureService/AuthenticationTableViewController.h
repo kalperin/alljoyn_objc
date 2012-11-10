@@ -16,12 +16,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface AuthenticationTableViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (nonatomic, strong) NSString *password;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
-- (IBAction)didTouchStartButton:(id)sender;
+- (IBAction)didTouchSetPasswordButton:(id)sender;
 
 @end

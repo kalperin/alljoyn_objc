@@ -18,4 +18,11 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
+@property (nonatomic, strong) NSString *password;
+
+- (IBAction)didTouchStartButton:(id)sender;
+
 @end
