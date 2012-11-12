@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--Authentication Table View Controller-->
+        <!--Authentication Table View Controller - Secure Client-->
         <scene sceneID="C0l-Xc-Jvi">
             <objects>
                 <tableViewController id="1Yp-Ql-P8p" customClass="AuthenticationTableViewController" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                             <outlet property="delegate" destination="1Yp-Ql-P8p" id="R5C-OZ-F6r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ae9-SN-JCQ"/>
+                    <navigationItem key="navigationItem" title="Secure Client" id="Ae9-SN-JCQ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="passwordTextField" destination="c2k-sO-bXr" id="5OI-i5-DWH"/>
@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="2" y="-512"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Secure Client-->
         <scene sceneID="lrC-bp-JzH">
             <objects>
                 <viewController id="xwS-Rw-ZSz" customClass="ViewController" sceneMemberID="viewController">
@@ -162,7 +162,7 @@
                             <constraint firstItem="ef3-dH-hL8" firstAttribute="top" secondItem="Os0-BG-Ugt" secondAttribute="top" constant="20" symbolic="YES" type="default" id="yTm-ln-Ani"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Td0-p3-PhQ"/>
+                    <navigationItem key="navigationItem" title="Secure Client" id="Td0-p3-PhQ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="eventsTextView" destination="my1-gW-7PV" id="ur0-HM-OjX"/>

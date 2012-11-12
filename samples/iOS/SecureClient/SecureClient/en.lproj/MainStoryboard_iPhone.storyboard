@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Secure Client-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                             <constraint firstItem="lWP-i7-EEm" firstAttribute="top" secondItem="BWi-4h-J0A" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wOl-Lf-eC0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="plr-Zm-tqM"/>
+                    <navigationItem key="navigationItem" title="Secure Client" id="plr-Zm-tqM"/>
                     <connections>
                         <outlet property="eventsTextView" destination="lWP-i7-EEm" id="b3s-Oa-Qb3"/>
                         <outlet property="startButton" destination="BWi-4h-J0A" id="Bu7-bp-ybJ"/>
@@ -54,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="1359" y="-86"/>
         </scene>
-        <!--Authentication Table View Controller-->
+        <!--Authentication Table View Controller - Secure Client-->
         <scene sceneID="sYk-I8-ir3">
             <objects>
                 <tableViewController id="kqj-aD-jRR" customClass="AuthenticationTableViewController" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                             <outlet property="delegate" destination="kqj-aD-jRR" id="i2w-PM-Luf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="azC-XF-R0M"/>
+                    <navigationItem key="navigationItem" title="Secure Client" id="azC-XF-R0M"/>
                     <connections>
                         <outlet property="passwordTextField" destination="zJg-gH-awS" id="n2L-YZ-5Om"/>
                     </connections>

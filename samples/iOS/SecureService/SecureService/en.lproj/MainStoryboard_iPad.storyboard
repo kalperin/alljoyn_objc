@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--Authentication Table View Controller-->
+        <!--Authentication Table View Controller - Secure Service-->
         <scene sceneID="84D-Ue-DAO">
             <objects>
                 <tableViewController id="30S-ah-dj4" customClass="AuthenticationTableViewController" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                             <outlet property="delegate" destination="30S-ah-dj4" id="cN3-7i-TVI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7QQ-Eh-Q0b"/>
+                    <navigationItem key="navigationItem" title="Secure Service" id="7QQ-Eh-Q0b"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="passwordTextField" destination="64B-WJ-4bx" id="F8J-WF-5rg"/>
@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="885" y="-96"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Secure Service-->
         <scene sceneID="rk6-Hx-cgc">
             <objects>
                 <viewController id="mwT-tn-3ZX" customClass="ViewController" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                             <constraint firstAttribute="bottom" secondItem="WWs-U8-ewy" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="uGE-os-KF7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="rxc-sB-1Ud"/>
+                    <navigationItem key="navigationItem" title="Secure Service" id="rxc-sB-1Ud"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="eventsTextView" destination="WWs-U8-ewy" id="8Zc-55-tZn"/>
@@ -194,6 +194,28 @@
             <point key="canvasLocation" x="2726" y="-96"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AuthenticationTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTouchDeleteKeystoreButton:"/>
+                <relationship kind="action" name="didTouchSetPasswordButton:"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTouchStartButton:"/>
+                <relationship kind="outlet" name="eventsTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

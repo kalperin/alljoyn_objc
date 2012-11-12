@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Secure Service-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
@@ -63,7 +63,7 @@
                             <constraint firstItem="ZRw-SA-RQ3" firstAttribute="top" secondItem="boU-Eu-q0M" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="r1t-iZ-W0l"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zkb-g1-eBh"/>
+                    <navigationItem key="navigationItem" title="Secure Service" id="zkb-g1-eBh"/>
                     <connections>
                         <outlet property="eventsTextView" destination="UpH-ti-qys" id="Db1-RL-Yc5"/>
                         <outlet property="passwordLabel" destination="9xc-tt-QzQ" id="0O6-AA-Zwi"/>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="1026" y="-76"/>
         </scene>
-        <!--Authentication Table View Controller-->
+        <!--Authentication Table View Controller - Secure Service-->
         <scene sceneID="7LA-i1-o5e">
             <objects>
                 <tableViewController id="Sfc-ai-KmQ" customClass="AuthenticationTableViewController" sceneMemberID="viewController">
@@ -166,7 +166,7 @@
                             <outlet property="delegate" destination="Sfc-ai-KmQ" id="qlq-ce-cx3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6WR-qB-4Xj"/>
+                    <navigationItem key="navigationItem" title="Secure Service" id="6WR-qB-4Xj"/>
                     <connections>
                         <outlet property="passwordTextField" destination="eNk-En-Gd8" id="I9q-9b-t97"/>
                     </connections>
