@@ -131,7 +131,7 @@
     // unregister as a listener
     //
     [self.bus unregisterBusListener:self];
-    [self sendStatusMessage:@"Bus listener registered successfully."];
+    [self sendStatusMessage:@"Bus listener unregistered successfully."];
     
     // disconnect the bus
     //
