@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 - (IBAction)didTouchSetPasswordButton:(id)sender;
+- (IBAction)didTouchDeleteKeystoreButton:(id)sender;
 
 @end

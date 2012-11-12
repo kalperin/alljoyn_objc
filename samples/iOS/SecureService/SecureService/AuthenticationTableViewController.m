@@ -20,6 +20,8 @@
 
 @property (nonatomic, strong) NSString *password;
 
+- (void)resetPassword;
+
 @end
 
 @implementation AuthenticationTableViewController
@@ -44,12 +46,8 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    srand(time(NULL));
-    int pin = rand() % 1000000;
-    char pinStr[7];
-    snprintf(pinStr, 7, "%06d", pin);
-    self.passwordTextField.text = [NSString stringWithCString:pinStr encoding:NSUTF8StringEncoding];
+
+    [self resetPassword];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +61,19 @@
     self.password = self.passwordTextField.text;
 }
 
+- (IBAction)didTouchDeleteKeystoreButton:(id)sender
+{
+    NSError *error;
+    NSString *keystoreFilePath = [NSString stringWithFormat:@"%@/alljoyn_keystore/s_central.ks", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
+    [[NSFileManager defaultManager] removeItemAtPath:keystoreFilePath error:&error];
+    if (error) {
+        NSLog(@"ERROR: Unable to delete keystore. %@", error);
+    }
+    else {
+        [self resetPassword];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self didTouchSetPasswordButton:self];
@@ -73,6 +84,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [segue.destinationViewController setPassword:self.password];
+}
+
+- (void)resetPassword
+{
+    srand(time(NULL));
+    int pin = rand() % 1000000;
+    char pinStr[7];
+    snprintf(pinStr, 7, "%06d", pin);
+    self.passwordTextField.text = [NSString stringWithCString:pinStr encoding:NSUTF8StringEncoding];
 }
 
 #pragma mark - Table view data source

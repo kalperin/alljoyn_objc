@@ -42,7 +42,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNG-AO-HC6">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="637" id="AO0-ss-z8E"/>
+                                                        <constraint firstAttribute="width" constant="249" id="otf-gk-kBL"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Set">
@@ -57,16 +57,34 @@
                                                         <segue destination="mwT-tn-3ZX" kind="push" id="t9h-dK-bA3"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpx-vp-lFd">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="249" id="2dC-lx-0Kv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Delete Keystore">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTouchDeleteKeystoreButton:" destination="30S-ah-dj4" eventType="touchUpInside" id="Kbq-hY-ZF7"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="qNG-AO-HC6" firstAttribute="centerX" secondItem="n0g-V4-8H5" secondAttribute="centerX" type="default" id="2Ix-2R-phb"/>
                                             <constraint firstItem="oUa-cA-bP1" firstAttribute="top" secondItem="n0g-V4-8H5" secondAttribute="top" constant="21" id="78i-Y2-iP4"/>
                                             <constraint firstAttribute="bottom" secondItem="qNG-AO-HC6" secondAttribute="bottom" constant="22" id="7gh-7b-0p2"/>
+                                            <constraint firstItem="oUa-cA-bP1" firstAttribute="leading" secondItem="n0g-V4-8H5" secondAttribute="leading" constant="65" id="FC1-Iu-HIP"/>
+                                            <constraint firstItem="Jpx-vp-lFd" firstAttribute="trailing" secondItem="64B-WJ-4bx" secondAttribute="trailing" type="default" id="KNn-1g-aTh"/>
                                             <constraint firstItem="64B-WJ-4bx" firstAttribute="top" secondItem="oUa-cA-bP1" secondAttribute="top" type="default" id="OFR-25-ero"/>
+                                            <constraint firstItem="Jpx-vp-lFd" firstAttribute="baseline" secondItem="qNG-AO-HC6" secondAttribute="baseline" type="default" id="OR1-L0-Twz"/>
                                             <constraint firstItem="64B-WJ-4bx" firstAttribute="bottom" secondItem="oUa-cA-bP1" secondAttribute="bottom" type="default" id="Sce-Q6-7nw"/>
-                                            <constraint firstItem="qNG-AO-HC6" firstAttribute="trailing" secondItem="64B-WJ-4bx" secondAttribute="trailing" type="default" id="qCb-Z2-lkg"/>
+                                            <constraint firstItem="qNG-AO-HC6" firstAttribute="leading" secondItem="n0g-V4-8H5" secondAttribute="leading" constant="66" id="W90-th-ttR"/>
                                             <constraint firstItem="64B-WJ-4bx" firstAttribute="leading" secondItem="oUa-cA-bP1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="yIW-hg-cfh"/>
                                         </constraints>
                                     </tableViewCell>
@@ -88,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="1859" y="-96"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Secure Service Sample-->
         <scene sceneID="Wdt-fj-WMV">
             <objects>
-                <navigationController id="rzu-ic-HzQ" sceneMemberID="viewController">
+                <navigationController title="Secure Service Sample" id="rzu-ic-HzQ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zq3-TJ-vp7">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -176,27 +194,6 @@
             <point key="canvasLocation" x="2726" y="-96"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AuthenticationTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchSetPasswordButton:"/>
-                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchStartButton:"/>
-                <relationship kind="outlet" name="eventsTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="passwordLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

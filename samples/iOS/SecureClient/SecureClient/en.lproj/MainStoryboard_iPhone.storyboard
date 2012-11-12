@@ -7,7 +7,6 @@
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -51,6 +50,7 @@
                         <outlet property="startButton" destination="BWi-4h-J0A" id="Bu7-bp-ybJ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1359" y="-86"/>
         </scene>
@@ -92,7 +92,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPn-bU-kcf">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="259" id="cSN-0S-ozN"/>
+                                                        <constraint firstAttribute="width" constant="120" id="H8b-KA-zsw"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Set">
@@ -107,17 +107,35 @@
                                                         <segue destination="2" kind="push" id="JGX-Y6-KpS"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mb-31-IMh">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="0ca-Hj-gi6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Delete Keystore">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTouchDeleteKeystoreButton:" destination="kqj-aD-jRR" eventType="touchUpInside" id="nWf-mo-xCe"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="pPn-bU-kcf" firstAttribute="centerX" secondItem="gUg-iH-acD" secondAttribute="centerX" type="default" id="5KW-gl-e5g"/>
                                             <constraint firstItem="zJg-gH-awS" firstAttribute="top" secondItem="SR9-Fq-ywe" secondAttribute="top" type="default" id="6xt-Ti-X0K"/>
                                             <constraint firstItem="zJg-gH-awS" firstAttribute="leading" secondItem="SR9-Fq-ywe" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="GnJ-oP-Bk6"/>
                                             <constraint firstAttribute="bottom" secondItem="pPn-bU-kcf" secondAttribute="bottom" constant="22" id="LDW-Xd-kt8"/>
                                             <constraint firstItem="zJg-gH-awS" firstAttribute="bottom" secondItem="SR9-Fq-ywe" secondAttribute="bottom" type="default" id="OYw-JZ-pB1"/>
-                                            <constraint firstItem="zJg-gH-awS" firstAttribute="trailing" secondItem="pPn-bU-kcf" secondAttribute="trailing" type="default" id="RnQ-1f-tSX"/>
+                                            <constraint firstItem="0Mb-31-IMh" firstAttribute="baseline" secondItem="pPn-bU-kcf" secondAttribute="baseline" type="default" id="RGE-EL-wwZ"/>
+                                            <constraint firstItem="0Mb-31-IMh" firstAttribute="trailing" secondItem="zJg-gH-awS" secondAttribute="trailing" type="default" id="ROa-TO-Avs"/>
                                             <constraint firstItem="SR9-Fq-ywe" firstAttribute="top" secondItem="gUg-iH-acD" secondAttribute="top" constant="21" id="Yy9-fw-YOS"/>
+                                            <constraint firstItem="pPn-bU-kcf" firstAttribute="leading" secondItem="gUg-iH-acD" secondAttribute="leading" constant="31" id="gUl-Kg-kMs"/>
+                                            <constraint firstItem="SR9-Fq-ywe" firstAttribute="leading" secondItem="gUg-iH-acD" secondAttribute="leading" constant="30" id="iNc-xx-dCV"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

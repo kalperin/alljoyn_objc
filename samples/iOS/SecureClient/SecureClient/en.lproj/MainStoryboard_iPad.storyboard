@@ -42,7 +42,7 @@
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scl-rg-cgr">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="637" id="Fvq-n9-rDB"/>
+                                                        <constraint firstAttribute="width" constant="303" id="CG9-Fi-ReC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <state key="normal" title="Set">
@@ -57,17 +57,35 @@
                                                         <segue destination="xwS-Rw-ZSz" kind="push" id="XgT-eQ-aSO"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwV-ya-ddJ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="303" id="h7U-e6-Vfp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Delete Keystore">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTouchDeleteKeystoreButton:" destination="1Yp-Ql-P8p" eventType="touchUpInside" id="gix-dm-I40"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Scl-rg-cgr" secondAttribute="bottom" constant="22" id="7fW-nI-TIp"/>
                                             <constraint firstItem="c2k-sO-bXr" firstAttribute="bottom" secondItem="qjg-ff-rC5" secondAttribute="bottom" type="default" id="DCK-fp-k0C"/>
+                                            <constraint firstItem="KwV-ya-ddJ" firstAttribute="baseline" secondItem="Scl-rg-cgr" secondAttribute="baseline" type="default" id="TTx-1E-BwI"/>
+                                            <constraint firstItem="Scl-rg-cgr" firstAttribute="leading" secondItem="YId-Dc-8zv" secondAttribute="leading" constant="66" id="XXl-LF-Ibo"/>
                                             <constraint firstItem="c2k-sO-bXr" firstAttribute="leading" secondItem="qjg-ff-rC5" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="dSl-sh-BmT"/>
                                             <constraint firstItem="c2k-sO-bXr" firstAttribute="top" secondItem="qjg-ff-rC5" secondAttribute="top" type="default" id="gF4-Ag-G0i"/>
-                                            <constraint firstItem="Scl-rg-cgr" firstAttribute="centerX" secondItem="YId-Dc-8zv" secondAttribute="centerX" type="default" id="m4L-Pt-M5b"/>
+                                            <constraint firstItem="qjg-ff-rC5" firstAttribute="leading" secondItem="YId-Dc-8zv" secondAttribute="leading" constant="65" id="i01-Ns-Jhc"/>
                                             <constraint firstItem="qjg-ff-rC5" firstAttribute="top" secondItem="YId-Dc-8zv" secondAttribute="top" constant="21" id="mc5-tf-wXW"/>
-                                            <constraint firstItem="Scl-rg-cgr" firstAttribute="trailing" secondItem="c2k-sO-bXr" secondAttribute="trailing" type="default" id="vQ5-tv-eAf"/>
+                                            <constraint firstItem="KwV-ya-ddJ" firstAttribute="trailing" secondItem="c2k-sO-bXr" secondAttribute="trailing" type="default" id="v37-nk-0th"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
@@ -160,6 +178,7 @@
         <class className="AuthenticationTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AuthenticationTableViewController.h"/>
             <relationships>
+                <relationship kind="action" name="didTouchDeleteKeystoreButton:"/>
                 <relationship kind="action" name="didTouchSetPasswordButton:"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
             </relationships>

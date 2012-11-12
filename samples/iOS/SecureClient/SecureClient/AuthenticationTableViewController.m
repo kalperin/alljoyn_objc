@@ -57,6 +57,16 @@
     self.password = self.passwordTextField.text;
 }
 
+- (IBAction)didTouchDeleteKeystoreButton:(id)sender
+{
+    NSError *error;
+    NSString *keystoreFilePath = [NSString stringWithFormat:@"%@/alljoyn_keystore/s_central.ks", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]];
+    [[NSFileManager defaultManager] removeItemAtPath:keystoreFilePath error:&error];
+    if (error) {
+        NSLog(@"ERROR: Unable to delete keystore. %@", error);
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self didTouchSetPasswordButton:self];

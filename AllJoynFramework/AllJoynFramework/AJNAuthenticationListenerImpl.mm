@@ -64,7 +64,9 @@ AJNAuthenticationListenerImpl::~AJNAuthenticationListenerImpl()
 bool AJNAuthenticationListenerImpl::RequestCredentials(const char* authMechanism, const char* peerName, uint16_t authCount, const char* userName, uint16_t credMask, Credentials& credentials)
 {
     AJNSecurityCredentials *creds = [m_delegate requestSecurityCredentialsWithAuthenticationMechanism:[NSString stringWithCString:authMechanism encoding:NSUTF8StringEncoding] peerName:[NSString stringWithCString:peerName encoding:NSUTF8StringEncoding] authenticationCount:authCount userName:[NSString stringWithCString:userName encoding:NSUTF8StringEncoding] credentialTypeMask:credMask];
-    credentials = *(creds.credentials);
+    if (creds) {
+        credentials = *(creds.credentials);
+    }
     return creds != nil;
 }
 
