@@ -181,7 +181,7 @@ static PingClient *s_sharedInstance;
             // once we successfully join the session with service, create a proxy bus
             // object that we can use to communicate with the service.
             //
-            self.pingObjectProxy = [[PingObjectProxy alloc] initWithBusAttachment:self.bus serviceName:kServiceName objectPath:kServicePath sessionId:sessionId];
+            self.pingObjectProxy = [[PingObjectProxy alloc] initWithBusAttachment:self.bus serviceName:self.serviceName objectPath:kServicePath sessionId:sessionId];
             [self.delegate receivedStatusMessage:@"Allocated Ping object proxy."];
 
             
