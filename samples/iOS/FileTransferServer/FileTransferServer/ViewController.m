@@ -27,8 +27,6 @@
 - (AJNBusObject *)objectOnBus:(AJNBusAttachment *)bus;
 - (void)shouldUnloadObjectOnBus:(AJNBusAttachment *)bus;
 
-- (void)didStartBus:(AJNBusAttachment *)bus;
-
 @end
 
 @implementation ViewController
@@ -56,16 +54,73 @@
     return kServicePort;
 }
 
+- (AJNBusObject *)object
+{
+    return self.fileTransferObject;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
+    // allocate the service bus controller and set bus properties
+    //
+    self.serviceController = [[AJNServiceController alloc] init];
+    self.serviceController.trafficType = kAJNTrafficMessages;
+    self.serviceController.proximityOptions = kAJNProximityAny;
+    self.serviceController.transportMask = kAJNTransportMaskAny;
+    self.serviceController.allowRemoteMessages = YES;
+    self.serviceController.multiPointSessionsEnabled = NO;
+    self.serviceController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)didTouchStartButton:(id)sender
+{
+    if (self.serviceController.bus.isStarted) {
+        [self.serviceController stop];
+        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    }
+    else {
+        [self.serviceController start];
+        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }    
+}
+
+
+- (void)shouldUnloadObjectOnBus:(AJNBusAttachment *)bus
+{
+    self.fileTransferObject = nil;
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+}
+
+- (AJNBusObject *)objectOnBus:(AJNBusAttachment *)bus
+{
+    self.fileTransferObject = [[FileTransferObject alloc] initWithBusAttachment:self.serviceController.bus onPath:kServicePath];
+    
+    return self.fileTransferObject;
+}
+
+- (void)didReceiveStatusMessage:(NSString*)message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableString *string = self.eventsTextView.text.length ? [self.eventsTextView.text mutableCopy] : [[NSMutableString alloc] init];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [string appendFormat:@"[%@]\n",[formatter stringFromDate:[NSDate date]]];
+        [string appendString:message];
+        [string appendString:@"\n\n"];
+        [self.eventsTextView setText:string];
+        NSLog(@"%@",string);
+        [self.eventsTextView scrollRangeToVisible:NSMakeRange([self.eventsTextView.text length], 0)];
+    });
 }
 
 @end

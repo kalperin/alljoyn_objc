@@ -19,11 +19,6 @@
 
 using namespace ajn;
 
-AJNBusObjectImpl::AJNBusObjectImpl(const char* path, id<AJNBusObject> aDelegate) : BusObject(path)
-{
-    
-}
-
 AJNBusObjectImpl::AJNBusObjectImpl(BusAttachment& bus, const char* path, id<AJNBusObject> aDelegate) : BusObject(bus, path), delegate(aDelegate)
 {
     
