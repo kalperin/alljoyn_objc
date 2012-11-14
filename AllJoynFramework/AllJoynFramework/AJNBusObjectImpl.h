@@ -26,6 +26,8 @@ class AJNBusObjectImpl : public ajn::BusObject {
 
   public:
     AJNBusObjectImpl(ajn::BusAttachment& bus, const char* path, id<AJNBusObject> aDelegate);
+    
+    AJNBusObjectImpl(const char* path, id<AJNBusObject> aDelegate);
 
     virtual QStatus RegisterSignalHandlers(ajn::BusAttachment& bus);
 

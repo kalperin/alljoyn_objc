@@ -62,6 +62,15 @@ using namespace ajn;
     return [NSString stringWithCString:self.busObject->GetName().c_str() encoding:NSUTF8StringEncoding];
 }
 
+- (id)initWithPath:(NSString*)path
+{
+    self = [super init];
+    if (self) {
+        // initialization
+    }
+    return self;
+}
+
 - (id)initWithBusAttachment:(AJNBusAttachment*)busAttachment onPath:(NSString*)path
 {
     self = [super init];

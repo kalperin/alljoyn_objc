@@ -82,6 +82,8 @@
 
 @property (nonatomic, readonly) NSString *name;
 
+- (id)initWithPath:(NSString *)path;
+
 - (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment onPath:(NSString *)path;
 
 - (void)objectWasRegistered;
