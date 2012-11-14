@@ -15,12 +15,46 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "ViewController.h"
+#import "Constants.h"
+#import "AJNServiceController.h"
+#import "FileTransferObject.h"
 
-@interface ViewController ()
+@interface ViewController () <AJNServiceDelegate>
+
+@property (nonatomic, strong) AJNServiceController *serviceController;
+@property (nonatomic, strong) FileTransferObject *fileTransferObject;
+
+- (AJNBusObject *)objectOnBus:(AJNBusAttachment *)bus;
+- (void)shouldUnloadObjectOnBus:(AJNBusAttachment *)bus;
+
+- (void)didStartBus:(AJNBusAttachment *)bus;
 
 @end
 
 @implementation ViewController
+
+@synthesize serviceController = _serviceController;
+@synthesize fileTransferObject = _fileTransferObject;
+
+- (NSString *)applicationName
+{
+    return kAppName;
+}
+
+- (NSString *)serviceName
+{
+    return kServiceName;
+}
+
+- (AJNBusNameFlag)serviceNameFlags
+{
+    return kAJNBusNameFlagDoNotQueue | kAJNBusNameFlagReplaceExisting;
+}
+
+- (AJNSessionPort)sessionPort
+{
+    return kServicePort;
+}
 
 - (void)viewDidLoad
 {

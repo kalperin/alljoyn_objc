@@ -34,6 +34,8 @@
 		AC880FEE16484601006CD25A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC880FED16484601006CD25A /* SystemConfiguration.framework */; };
 		AC880FF016484607006CD25A /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC880FEF16484607006CD25A /* libstdc++.6.0.9.dylib */; };
 		AC880FF316484AF1006CD25A /* AJNClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC880FF216484AF1006CD25A /* AJNClientController.m */; };
+		AC939FC01654431600C91CF0 /* AJNFileTransferObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC939FBD1654431600C91CF0 /* AJNFileTransferObject.mm */; };
+		AC939FC11654431700C91CF0 /* FileTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939FBF1654431600C91CF0 /* FileTransferObject.m */; };
 		ACB05DA1164070F60024AC85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA0164070F60024AC85 /* UIKit.framework */; };
 		ACB05DA3164070F60024AC85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA2164070F60024AC85 /* Foundation.framework */; };
 		ACB05DA5164070F60024AC85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA4164070F60024AC85 /* CoreGraphics.framework */; };
@@ -111,6 +113,10 @@
 		AC880FF116484AF1006CD25A /* AJNClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNClientController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.h; sourceTree = "<group>"; };
 		AC880FF216484AF1006CD25A /* AJNClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJNClientController.m; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.m; sourceTree = "<group>"; };
 		AC880FF816484E5C006CD25A /* AJNBusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNBusController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNBusController.h; sourceTree = "<group>"; };
+		AC939FBC1654431600C91CF0 /* AJNFileTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNFileTransferObject.h; path = ../../FileTransferServer/FileTransferServer/AJNFileTransferObject.h; sourceTree = "<group>"; };
+		AC939FBD1654431600C91CF0 /* AJNFileTransferObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNFileTransferObject.mm; path = ../../FileTransferServer/FileTransferServer/AJNFileTransferObject.mm; sourceTree = "<group>"; };
+		AC939FBE1654431600C91CF0 /* FileTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTransferObject.h; path = ../../FileTransferServer/FileTransferServer/FileTransferObject.h; sourceTree = "<group>"; };
+		AC939FBF1654431600C91CF0 /* FileTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileTransferObject.m; path = ../../FileTransferServer/FileTransferServer/FileTransferObject.m; sourceTree = "<group>"; };
 		ACB05D9C164070F60024AC85 /* FileTransferClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileTransferClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB05DA0164070F60024AC85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACB05DA2164070F60024AC85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,6 +252,10 @@
 			isa = PBXGroup;
 			children = (
 				AC880F9B164845C9006CD25A /* AllJoynFramework */,
+				AC939FBC1654431600C91CF0 /* AJNFileTransferObject.h */,
+				AC939FBD1654431600C91CF0 /* AJNFileTransferObject.mm */,
+				AC939FBE1654431600C91CF0 /* FileTransferObject.h */,
+				AC939FBF1654431600C91CF0 /* FileTransferObject.m */,
 				ACB05DAF164070F60024AC85 /* AppDelegate.h */,
 				ACB05DB0164070F60024AC85 /* AppDelegate.m */,
 				ACB05DB8164070F60024AC85 /* MainStoryboard_iPhone.storyboard */,
@@ -366,6 +376,8 @@
 				AC880FEB164845E5006CD25A /* AJNTransportMask.m in Sources */,
 				AC880FEC164845E5006CD25A /* AJNVersion.mm in Sources */,
 				AC880FF316484AF1006CD25A /* AJNClientController.m in Sources */,
+				AC939FC01654431600C91CF0 /* AJNFileTransferObject.mm in Sources */,
+				AC939FC11654431700C91CF0 /* FileTransferObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

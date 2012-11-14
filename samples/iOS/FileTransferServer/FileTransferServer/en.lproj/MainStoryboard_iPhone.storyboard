@@ -1,23 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ycD-wx-x9C">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller - File Transfer Server-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5f-Gk-KOT">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hn9-QO-7cw"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-AM-cJU">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="msl-Mz-nQ6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-DY-fAU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="u78-hI-Tdq"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-fA-Gnb"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vf1-fA-Gnb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="152" id="1o2-F2-OTo"/>
+                            <constraint firstItem="Hn9-QO-7cw" firstAttribute="top" secondItem="P5f-Gk-KOT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="478-fH-EVQ"/>
+                            <constraint firstItem="4oX-DY-fAU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="89" id="51h-8n-vQy"/>
+                            <constraint firstAttribute="trailing" secondItem="P5f-Gk-KOT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7jo-86-hdM"/>
+                            <constraint firstItem="vf1-fA-Gnb" firstAttribute="centerX" secondItem="Hn9-QO-7cw" secondAttribute="centerX" type="default" id="DYe-UV-dv4"/>
+                            <constraint firstAttribute="bottom" secondItem="Tgn-AM-cJU" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="EoM-Xk-zoX"/>
+                            <constraint firstItem="P5f-Gk-KOT" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="FQm-Vp-I4R"/>
+                            <constraint firstItem="P5f-Gk-KOT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="GRU-LZ-sON"/>
+                            <constraint firstAttribute="trailing" secondItem="Tgn-AM-cJU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="V5q-HD-CHI"/>
+                            <constraint firstItem="Hn9-QO-7cw" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="aX2-Io-Ic7"/>
+                            <constraint firstItem="4oX-DY-fAU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="azC-2t-Q0r"/>
+                            <constraint firstAttribute="trailing" secondItem="4oX-DY-fAU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eei-ET-0Lh"/>
+                            <constraint firstItem="Tgn-AM-cJU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kME-3R-Vi9"/>
+                            <constraint firstAttribute="trailing" secondItem="Hn9-QO-7cw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qAS-JW-zAe"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="File Transfer Server" id="yMa-e4-C3a"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="795" y="77"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NsZ-Xr-tPG">
+            <objects>
+                <navigationController id="ycD-wx-x9C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gAZ-XS-Enc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="HjL-IR-CTx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qbf-6x-wj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="77"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
