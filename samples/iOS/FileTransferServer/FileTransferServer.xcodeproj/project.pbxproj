@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC939FD1165465AF00C91CF0 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = AC939FD0165465AF00C91CF0 /* image.png */; };
 		AC939FD516555BAE00C91CF0 /* AJNClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939FD416555BAD00C91CF0 /* AJNClientController.m */; };
+		ACA3D3B21656F72E006CDDE8 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = ACA3D3B11656F72E006CDDE8 /* image.png */; };
 		ACB05DD6164071140024AC85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD5164071140024AC85 /* UIKit.framework */; };
 		ACB05DD8164071140024AC85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD7164071140024AC85 /* Foundation.framework */; };
 		ACB05DDA164071140024AC85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD9164071140024AC85 /* CoreGraphics.framework */; };
@@ -53,10 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC939FD0165465AF00C91CF0 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image.png; path = "../../../../../../alljoyn-darwin-beta/alljoyn_objc/samples/JamJoyn/image.png"; sourceTree = "<group>"; };
 		AC939FD216555BAB00C91CF0 /* AJNBusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNBusController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNBusController.h; sourceTree = "<group>"; };
 		AC939FD316555BAC00C91CF0 /* AJNClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNClientController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.h; sourceTree = "<group>"; };
 		AC939FD416555BAD00C91CF0 /* AJNClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJNClientController.m; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.m; sourceTree = "<group>"; };
+		ACA3D3B11656F72E006CDDE8 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		ACB05DD1164071140024AC85 /* FileTransferServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileTransferServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB05DD5164071140024AC85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACB05DD7164071140024AC85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,7 +205,7 @@
 				ACB05DF0164071140024AC85 /* MainStoryboard_iPad.storyboard */,
 				ACB05DF3164071140024AC85 /* ViewController.h */,
 				ACB05DF4164071140024AC85 /* ViewController.mm */,
-				AC939FD0165465AF00C91CF0 /* image.png */,
+				ACA3D3B11656F72E006CDDE8 /* image.png */,
 				ACB05E14164080710024AC85 /* FileTransferObjectModel.xml */,
 				ACB05DDC164071140024AC85 /* Supporting Files */,
 			);
@@ -368,7 +368,7 @@
 				ACB05DEC164071140024AC85 /* Default-568h@2x.png in Resources */,
 				ACB05DEF164071140024AC85 /* MainStoryboard_iPhone.storyboard in Resources */,
 				ACB05DF2164071140024AC85 /* MainStoryboard_iPad.storyboard in Resources */,
-				AC939FD1165465AF00C91CF0 /* image.png in Resources */,
+				ACA3D3B21656F72E006CDDE8 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
