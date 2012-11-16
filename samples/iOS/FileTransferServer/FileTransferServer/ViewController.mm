@@ -118,8 +118,6 @@ NSString * const kImageFileName = @"image";
             
             msgArg.Set("ay", bytesRead, buffer);
 
-            AJNMessageArgument *messageArgument = [[AJNMessageArgument alloc] init];
-            [messageArgument setValue:@"ay", bytesRead, buffer];
             [self.fileTransferObject sendTransferFileNamed:filePath currentIndex:[NSNumber numberWithInteger:countOfChunksSent] fileData:[[AJNMessageArgument alloc] initWithHandle:&msgArg] inSession:self.serviceController.sessionId toDestination:nil flags:flags];
             
             dispatch_async(dispatch_get_main_queue(), ^{
