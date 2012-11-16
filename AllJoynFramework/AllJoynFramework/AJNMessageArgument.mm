@@ -60,6 +60,16 @@ using namespace ajn;
     return [NSString stringWithCString:self.msgArg->ToString().c_str() encoding:NSUTF8StringEncoding];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.handle = new MsgArg();
+        self.shouldDeleteHandleOnDealloc = YES;
+    }
+    return self;
+}
+
 - (NSString *)signatureFromMessageArguments:(NSArray *)arguments
 {
     NSString *result = nil;

@@ -66,6 +66,7 @@
 @property (nonatomic) AJNProximity proximityOptions;
 @property (nonatomic) AJNTransportMask transportMask;
 @property (nonatomic) BOOL multiPointSessionsEnabled;
+@property (nonatomic, readonly) AJNSessionId sessionId;
 
 // Connection options
 //

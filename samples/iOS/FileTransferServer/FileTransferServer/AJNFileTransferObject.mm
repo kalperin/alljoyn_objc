@@ -183,10 +183,10 @@ QStatus FileTransferObjectImpl::SendFileTransfer(const char* name, uint32_t curr
     self.handle = nil;
 }
 
-- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath
+- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath flags:(uint8_t)flags
 {
     
-    self.busObject->SendFileTransfer([name UTF8String], [curr unsignedIntValue], (MsgArg*)[data handle], [destinationPath UTF8String], sessionId);
+    self.busObject->SendFileTransfer([name UTF8String], [curr unsignedIntValue], (MsgArg*)[data handle], [destinationPath UTF8String], sessionId, flags);
         
 }
 
@@ -334,8 +334,10 @@ void FileTransferDelegateSignalHandlerImpl::FileTransferSignalHandler(const ajn:
         qcc::String inArg0 = msg->GetArg(0)->v_string.str;
             
         uint32_t inArg1 = msg->GetArg(1)->v_uint32;
+        
+        MsgArg *pArg2 = new MsgArg(*(msg->GetArg(2)));
             
-        AJNMessageArgument* inArg2 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(2)];        
+        AJNMessageArgument* inArg2 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)pArg2 shouldDeleteHandleOnDealloc:YES];
         
         NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];

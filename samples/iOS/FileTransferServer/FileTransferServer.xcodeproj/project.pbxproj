@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC939FD1165465AF00C91CF0 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = AC939FD0165465AF00C91CF0 /* image.png */; };
+		AC939FD516555BAE00C91CF0 /* AJNClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939FD416555BAD00C91CF0 /* AJNClientController.m */; };
 		ACB05DD6164071140024AC85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD5164071140024AC85 /* UIKit.framework */; };
 		ACB05DD8164071140024AC85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD7164071140024AC85 /* Foundation.framework */; };
 		ACB05DDA164071140024AC85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DD9164071140024AC85 /* CoreGraphics.framework */; };
@@ -18,7 +20,7 @@
 		ACB05DEC164071140024AC85 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DEB164071140024AC85 /* Default-568h@2x.png */; };
 		ACB05DEF164071140024AC85 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DED164071140024AC85 /* MainStoryboard_iPhone.storyboard */; };
 		ACB05DF2164071140024AC85 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DF0164071140024AC85 /* MainStoryboard_iPad.storyboard */; };
-		ACB05DF5164071140024AC85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05DF4164071140024AC85 /* ViewController.m */; };
+		ACB05DF5164071140024AC85 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB05DF4164071140024AC85 /* ViewController.mm */; };
 		ACB05E17164083CA0024AC85 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E16164083CA0024AC85 /* Constants.m */; };
 		ACB05E2816408D890024AC85 /* AJNFileTransferObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E2516408D880024AC85 /* AJNFileTransferObject.mm */; };
 		ACB05E2916408D890024AC85 /* FileTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05E2716408D890024AC85 /* FileTransferObject.m */; };
@@ -51,6 +53,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC939FD0165465AF00C91CF0 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image.png; path = "../../../../../../alljoyn-darwin-beta/alljoyn_objc/samples/JamJoyn/image.png"; sourceTree = "<group>"; };
+		AC939FD216555BAB00C91CF0 /* AJNBusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNBusController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNBusController.h; sourceTree = "<group>"; };
+		AC939FD316555BAC00C91CF0 /* AJNClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNClientController.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.h; sourceTree = "<group>"; };
+		AC939FD416555BAD00C91CF0 /* AJNClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJNClientController.m; path = ../../../../AllJoynFramework/AllJoynFramework/AJNClientController.m; sourceTree = "<group>"; };
 		ACB05DD1164071140024AC85 /* FileTransferServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileTransferServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB05DD5164071140024AC85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACB05DD7164071140024AC85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,7 +73,7 @@
 		ACB05DEE164071140024AC85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ACB05DF1164071140024AC85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		ACB05DF3164071140024AC85 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ACB05DF4164071140024AC85 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ACB05DF4164071140024AC85 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		ACB05E14164080710024AC85 /* FileTransferObjectModel.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FileTransferObjectModel.xml; sourceTree = "<group>"; };
 		ACB05E15164083CA0024AC85 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		ACB05E16164083CA0024AC85 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -198,7 +204,8 @@
 				ACB05DED164071140024AC85 /* MainStoryboard_iPhone.storyboard */,
 				ACB05DF0164071140024AC85 /* MainStoryboard_iPad.storyboard */,
 				ACB05DF3164071140024AC85 /* ViewController.h */,
-				ACB05DF4164071140024AC85 /* ViewController.m */,
+				ACB05DF4164071140024AC85 /* ViewController.mm */,
+				AC939FD0165465AF00C91CF0 /* image.png */,
 				ACB05E14164080710024AC85 /* FileTransferObjectModel.xml */,
 				ACB05DDC164071140024AC85 /* Supporting Files */,
 			);
@@ -229,6 +236,7 @@
 				ACB05E2F16408E320024AC85 /* AJNBus.m */,
 				ACB05E3016408E320024AC85 /* AJNBusAttachment.h */,
 				ACB05E3116408E320024AC85 /* AJNBusAttachment.mm */,
+				AC939FD216555BAB00C91CF0 /* AJNBusController.h */,
 				ACB05E3216408E320024AC85 /* AJNBusInterface.h */,
 				ACB05E3316408E320024AC85 /* AJNBusListener.h */,
 				ACB05E3416408E320024AC85 /* AJNBusListenerImpl.h */,
@@ -237,6 +245,8 @@
 				ACB05E3716408E320024AC85 /* AJNBusObject.mm */,
 				ACB05E3816408E320024AC85 /* AJNBusObjectImpl.h */,
 				ACB05E3916408E320024AC85 /* AJNBusObjectImpl.mm */,
+				AC939FD316555BAC00C91CF0 /* AJNClientController.h */,
+				AC939FD416555BAD00C91CF0 /* AJNClientController.m */,
 				ACB05E3A16408E320024AC85 /* AJNHandle.h */,
 				ACB05E3B16408E320024AC85 /* AJNInterfaceDescription.h */,
 				ACB05E3C16408E320024AC85 /* AJNInterfaceDescription.mm */,
@@ -358,6 +368,7 @@
 				ACB05DEC164071140024AC85 /* Default-568h@2x.png in Resources */,
 				ACB05DEF164071140024AC85 /* MainStoryboard_iPhone.storyboard in Resources */,
 				ACB05DF2164071140024AC85 /* MainStoryboard_iPad.storyboard in Resources */,
+				AC939FD1165465AF00C91CF0 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +381,7 @@
 			files = (
 				ACB05DE2164071140024AC85 /* main.m in Sources */,
 				ACB05DE6164071140024AC85 /* AppDelegate.m in Sources */,
-				ACB05DF5164071140024AC85 /* ViewController.m in Sources */,
+				ACB05DF5164071140024AC85 /* ViewController.mm in Sources */,
 				ACB05E17164083CA0024AC85 /* Constants.m in Sources */,
 				ACB05E2816408D890024AC85 /* AJNFileTransferObject.mm in Sources */,
 				ACB05E2916408D890024AC85 /* FileTransferObject.m in Sources */,
@@ -398,6 +409,7 @@
 				ACB05E7716408E330024AC85 /* AJNTransportMask.m in Sources */,
 				ACB05E7816408E330024AC85 /* AJNVersion.mm in Sources */,
 				ACB05E8816418E0B0024AC85 /* AJNServiceController.m in Sources */,
+				AC939FD516555BAE00C91CF0 /* AJNClientController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

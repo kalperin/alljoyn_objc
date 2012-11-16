@@ -17,5 +17,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalReceivedLabel;
+@property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
+
+- (IBAction)didTouchStartButton:(id)sender;
 
 @end

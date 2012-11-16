@@ -47,7 +47,7 @@
 
 // signals
 //
-- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath flags:(uint8_t)flags;
 
 
 @end
@@ -97,7 +97,7 @@
 
 // signals
 //
-- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath;
+- (void)sendTransferFileNamed:(NSString*)name currentIndex:(NSNumber*)curr fileData:(AJNMessageArgument*)data inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath flags:(uint8_t)flags;
 
 
 @end

@@ -36,6 +36,7 @@
 		AC880FF316484AF1006CD25A /* AJNClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC880FF216484AF1006CD25A /* AJNClientController.m */; };
 		AC939FC01654431600C91CF0 /* AJNFileTransferObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC939FBD1654431600C91CF0 /* AJNFileTransferObject.mm */; };
 		AC939FC11654431700C91CF0 /* FileTransferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939FBF1654431600C91CF0 /* FileTransferObject.m */; };
+		AC939FDC1655661B00C91CF0 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AC939FDB1655661B00C91CF0 /* Constants.m */; };
 		ACB05DA1164070F60024AC85 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA0164070F60024AC85 /* UIKit.framework */; };
 		ACB05DA3164070F60024AC85 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA2164070F60024AC85 /* Foundation.framework */; };
 		ACB05DA5164070F60024AC85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB05DA4164070F60024AC85 /* CoreGraphics.framework */; };
@@ -47,7 +48,7 @@
 		ACB05DB7164070F60024AC85 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DB6164070F60024AC85 /* Default-568h@2x.png */; };
 		ACB05DBA164070F60024AC85 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DB8164070F60024AC85 /* MainStoryboard_iPhone.storyboard */; };
 		ACB05DBD164070F60024AC85 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACB05DBB164070F60024AC85 /* MainStoryboard_iPad.storyboard */; };
-		ACB05DC0164070F60024AC85 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB05DBF164070F60024AC85 /* ViewController.m */; };
+		ACB05DC0164070F60024AC85 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACB05DBF164070F60024AC85 /* ViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		AC939FBD1654431600C91CF0 /* AJNFileTransferObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNFileTransferObject.mm; path = ../../FileTransferServer/FileTransferServer/AJNFileTransferObject.mm; sourceTree = "<group>"; };
 		AC939FBE1654431600C91CF0 /* FileTransferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTransferObject.h; path = ../../FileTransferServer/FileTransferServer/FileTransferObject.h; sourceTree = "<group>"; };
 		AC939FBF1654431600C91CF0 /* FileTransferObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileTransferObject.m; path = ../../FileTransferServer/FileTransferServer/FileTransferObject.m; sourceTree = "<group>"; };
+		AC939FDA1655661B00C91CF0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../FileTransferServer/FileTransferServer/Constants.h; sourceTree = "<group>"; };
+		AC939FDB1655661B00C91CF0 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = ../../FileTransferServer/FileTransferServer/Constants.m; sourceTree = "<group>"; };
 		ACB05D9C164070F60024AC85 /* FileTransferClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileTransferClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB05DA0164070F60024AC85 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACB05DA2164070F60024AC85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,7 +136,7 @@
 		ACB05DB9164070F60024AC85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		ACB05DBC164070F60024AC85 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		ACB05DBE164070F60024AC85 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ACB05DBF164070F60024AC85 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ACB05DBF164070F60024AC85 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +261,12 @@
 				AC939FBF1654431600C91CF0 /* FileTransferObject.m */,
 				ACB05DAF164070F60024AC85 /* AppDelegate.h */,
 				ACB05DB0164070F60024AC85 /* AppDelegate.m */,
+				AC939FDA1655661B00C91CF0 /* Constants.h */,
+				AC939FDB1655661B00C91CF0 /* Constants.m */,
 				ACB05DB8164070F60024AC85 /* MainStoryboard_iPhone.storyboard */,
 				ACB05DBB164070F60024AC85 /* MainStoryboard_iPad.storyboard */,
 				ACB05DBE164070F60024AC85 /* ViewController.h */,
-				ACB05DBF164070F60024AC85 /* ViewController.m */,
+				ACB05DBF164070F60024AC85 /* ViewController.mm */,
 				ACB05DA7164070F60024AC85 /* Supporting Files */,
 			);
 			path = FileTransferClient;
@@ -350,7 +355,7 @@
 			files = (
 				ACB05DAD164070F60024AC85 /* main.m in Sources */,
 				ACB05DB1164070F60024AC85 /* AppDelegate.m in Sources */,
-				ACB05DC0164070F60024AC85 /* ViewController.m in Sources */,
+				ACB05DC0164070F60024AC85 /* ViewController.mm in Sources */,
 				AC880FD5164845E5006CD25A /* AJNAuthenticationListenerImpl.mm in Sources */,
 				AC880FD6164845E5006CD25A /* AJNBus.m in Sources */,
 				AC880FD7164845E5006CD25A /* AJNBusAttachment.mm in Sources */,
@@ -378,6 +383,7 @@
 				AC880FF316484AF1006CD25A /* AJNClientController.m in Sources */,
 				AC939FC01654431600C91CF0 /* AJNFileTransferObject.mm in Sources */,
 				AC939FC11654431700C91CF0 /* FileTransferObject.m in Sources */,
+				AC939FDC1655661B00C91CF0 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@
 
 @interface AJNClientController()
 
+@property (nonatomic) AJNSessionId sessionId;
+
 - (void)sendStatusMessage:(NSString *)message;
 
 @end
@@ -27,6 +29,7 @@
 
 @synthesize bus = _bus;
 @synthesize delegate = _delegate;
+@synthesize sessionId = _sessionId;
 
 @synthesize allowRemoteMessages = _allowRemoteMessages;
 @synthesize trafficType = _trafficType;
@@ -142,7 +145,6 @@
     }
     [self sendStatusMessage:@"Bus disconnected successfully."];
     
-    
     // stop the bus
     //
     status = [self.bus stop];
@@ -193,7 +195,9 @@
             
             AJNSessionId sessionId = [self.bus joinSessionWithName:name onPort:self.delegate.sessionPort withDelegate:self options:sessionOptions];
             
-            if (sessionId > 0) {
+            if (sessionId > 0 && self.sessionId == 0) {
+                
+                self.sessionId = sessionId;
                 
                 [self sendStatusMessage:[NSString stringWithFormat:@"Successfully joined session [%u].", sessionId]];
                 

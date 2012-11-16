@@ -18,6 +18,8 @@
 
 @interface AJNServiceController() <AJNBusListener, AJNSessionListener, AJNSessionPortListener>
 
+@property (nonatomic) AJNSessionId sessionId;
+
 - (void)sendStatusMessage:(NSString *)message;
 
 @end
@@ -26,6 +28,7 @@
 
 @synthesize bus = _bus;
 @synthesize delegate = _delegate;
+@synthesize sessionId = _sessionId;
 
 @synthesize allowRemoteMessages = _allowRemoteMessages;
 @synthesize trafficType = _trafficType;
@@ -270,10 +273,13 @@
 - (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
     NSLog(@"SampleService::didJoin:%@ inSessionWithId:%u onSessionPort:%u", joiner, sessionId, sessionPort);
+
+    self.sessionId = sessionId;
     
     if ([self.delegate respondsToSelector:@selector(didJoin:inSessionWithId:onSessionPort:)]) {
         [self.delegate didJoin:joiner inSessionWithId:sessionId onSessionPort:sessionPort];
     }
+
 }
 
 - (BOOL)shouldAcceptSessionJoinerNamed:(NSString *)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions *)options

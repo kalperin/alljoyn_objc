@@ -28,42 +28,27 @@
                             <progressView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hn9-QO-7cw"/>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-AM-cJU">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="224" id="msl-Mz-nQ6"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oX-DY-fAU">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="u78-hI-Tdq"/>
-                                </constraints>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-fA-Gnb"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vf1-fA-Gnb" firstAttribute="top" secondItem="3" secondAttribute="top" constant="152" id="1o2-F2-OTo"/>
                             <constraint firstItem="Hn9-QO-7cw" firstAttribute="top" secondItem="P5f-Gk-KOT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="478-fH-EVQ"/>
-                            <constraint firstItem="4oX-DY-fAU" firstAttribute="top" secondItem="3" secondAttribute="top" constant="89" id="51h-8n-vQy"/>
                             <constraint firstAttribute="trailing" secondItem="P5f-Gk-KOT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7jo-86-hdM"/>
-                            <constraint firstItem="vf1-fA-Gnb" firstAttribute="centerX" secondItem="Hn9-QO-7cw" secondAttribute="centerX" type="default" id="DYe-UV-dv4"/>
                             <constraint firstAttribute="bottom" secondItem="Tgn-AM-cJU" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="EoM-Xk-zoX"/>
                             <constraint firstItem="P5f-Gk-KOT" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="FQm-Vp-I4R"/>
                             <constraint firstItem="P5f-Gk-KOT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="GRU-LZ-sON"/>
                             <constraint firstAttribute="trailing" secondItem="Tgn-AM-cJU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="V5q-HD-CHI"/>
+                            <constraint firstItem="Tgn-AM-cJU" firstAttribute="top" secondItem="Hn9-QO-7cw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="W3M-Wt-kc1"/>
                             <constraint firstItem="Hn9-QO-7cw" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="aX2-Io-Ic7"/>
-                            <constraint firstItem="4oX-DY-fAU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="azC-2t-Q0r"/>
-                            <constraint firstAttribute="trailing" secondItem="4oX-DY-fAU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="eei-ET-0Lh"/>
                             <constraint firstItem="Tgn-AM-cJU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kME-3R-Vi9"/>
                             <constraint firstAttribute="trailing" secondItem="Hn9-QO-7cw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qAS-JW-zAe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="File Transfer Server" id="yMa-e4-C3a"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="vf1-fA-Gnb" id="3S0-YR-E2t"/>
                         <outlet property="eventsTextView" destination="Tgn-AM-cJU" id="F2B-Qg-vaf"/>
-                        <outlet property="imageView" destination="4oX-DY-fAU" id="Y62-GH-ieZ"/>
                         <outlet property="progressView" destination="Hn9-QO-7cw" id="cQm-dX-d6V"/>
                         <outlet property="startButton" destination="P5f-Gk-KOT" id="Lwh-Oq-ene"/>
                     </connections>
