@@ -169,7 +169,7 @@ static PingClient *s_sharedInstance;
         
         AJNSessionId sessionId = [self.bus joinSessionWithName:name onPort:kServicePort withDelegate:self options:sessionOptions];
         
-        if (sessionId != -1) {
+        if (sessionId > 0) {
             // let our delegate know that we connected to the service
             //
             if ([self.delegate respondsToSelector:@selector(didConnectWithService)]) {
@@ -202,6 +202,10 @@ static PingClient *s_sharedInstance;
             // we are done so let the client know it should do a disconnect
             //
             [self.delegate shouldDisconnectFromService:name];
+        }
+        else {
+            [self.delegate receivedStatusMessage:@"ERROR: Failed to join session with service."];
+            NSLog(@"%@", @"ERROR: Failed to join session with service.");
         }
     }
     
