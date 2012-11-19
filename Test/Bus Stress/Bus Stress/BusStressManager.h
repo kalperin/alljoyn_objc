@@ -14,7 +14,7 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import "AJNTransportMask.h"
 
 typedef enum _BusStressManagerOperationMode {
     kBusStressManagerOperationModeNone = 0,
@@ -25,6 +25,8 @@ typedef enum _BusStressManagerOperationMode {
 @protocol BusStressManagerDelegate<NSObject>
 
 - (void)didCompleteIteration:(NSInteger)iterationNumber totalIterations:(NSInteger)totalInterations;
+
+- (AJNTransportMask)transportMask;
 
 @end
 

@@ -185,6 +185,24 @@
     self.numberOfThreadsLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)self.numberOfThreadsSlider.value];
 }
 
+- (AJNTransportMask)transportMask
+{
+    AJNTransportMask transportMask;
+    switch (self.transportTypeSegmentedControl.selectedSegmentIndex) {
+        case 0:
+            transportMask = kAJNTransportMaskAny;
+            break;
+            
+        case 1:
+            transportMask = kAJNTransportMaskICE;
+            break;
+            
+        default:
+            break;
+    }
+    return transportMask;    
+}
+
 - (void)didCompleteIteration:(NSInteger)iterationNumber totalIterations:(NSInteger)totalInterations
 {
     dispatch_async(dispatch_get_main_queue(), ^{

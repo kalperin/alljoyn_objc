@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E53" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="tS2-xt-F2k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="tS2-xt-F2k">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Bus Stress View Controller-->
         <scene sceneID="IKk-wk-2lm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w0r-qc-Lff" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="tS2-xt-F2k" customClass="BusStressViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vgp-Ah-ac9">
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
@@ -193,7 +192,7 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="7jN-VL-vyV">
-                                        <rect key="frame" x="0.0" y="489" width="768" height="56"/>
+                                        <rect key="frame" x="0.0" y="489" width="768" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="45" y="0.0" width="678" height="54"/>
@@ -213,6 +212,32 @@
                                                         <segment title="Default"/>
                                                         <segment title="Client"/>
                                                         <segment title="Service"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="amJ-W7-cY0">
+                                        <rect key="frame" x="0.0" y="544" width="768" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="45" y="0.0" width="678" height="54"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Transport" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="t3a-Fy-KKx">
+                                                    <rect key="frame" x="20" y="16" width="184" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="kba-zv-Jdb">
+                                                    <rect key="frame" x="383" y="5" width="275" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Any"/>
+                                                        <segment title="ICE"/>
                                                     </segments>
                                                 </segmentedControl>
                                             </subviews>
@@ -241,34 +266,14 @@
                         <outlet property="stopButton" destination="9TJ-1S-Za5" id="oS5-3U-aii"/>
                         <outlet property="stopThreadsBeforeJoinSwitch" destination="c8v-7l-b1X" id="yCi-yX-Djo"/>
                         <outlet property="stressTestActivityIndicatorView" destination="GR7-K8-0rG" id="cEe-ZS-osS"/>
+                        <outlet property="transportTypeSegmentedControl" destination="kba-zv-Jdb" id="1XW-NE-k35"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w0r-qc-Lff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="182" y="63"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BusStressViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BusStressViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchStartButton:"/>
-                <relationship kind="action" name="didTouchStopButton:"/>
-                <relationship kind="action" name="numberOfIterationsValueChanged:"/>
-                <relationship kind="action" name="numberOfThreadsValueChanged:"/>
-                <relationship kind="outlet" name="deleteBusAttachmentsSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="iterationsCompletedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="iterationsCompletedProgressView" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="numberOfIterationsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfIterationsSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="numberOfThreadsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberOfThreadsSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="operationModeSegmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stopButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="stopThreadsBeforeJoinSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

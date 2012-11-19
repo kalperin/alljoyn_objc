@@ -34,6 +34,7 @@ static BOOL s_stopStressFlag;
 @property (nonatomic, strong) AJNBusAttachment *bus;
 @property (nonatomic, strong) BasicObject *busObject;
 @property (nonatomic) BOOL shouldDeleteBusAttachment;
+@property (nonatomic) AJNTransportMask transportMask;
 
 - (void)setup;
 - (void)tearDown;
@@ -120,7 +121,7 @@ static BOOL s_stopStressFlag;
         
         [self.bus enableConcurrentCallbacks];
         
-        self.sessionId = [self.bus joinSessionWithName:name onPort:999 withDelegate:self options:[[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny]];
+        self.sessionId = [self.bus joinSessionWithName:name onPort:999 withDelegate:self options:[[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:self.transportMask]];
         self.foundServiceName = name;
         
         NSLog(@"Client joined session %d", self.sessionId);
@@ -156,11 +157,11 @@ static BOOL s_stopStressFlag;
         NSLog(@"Request for name failed (%@)", name);
     }
     
-    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:self.transportMask];
     
     status = [self.bus bindSessionOnPort:999 withOptions:sessionOptions withDelegate:self];
     
-    status = [self.bus advertiseName:name withTransportMask:kAJNTransportMaskAny];
+    status = [self.bus advertiseName:name withTransportMask:self.transportMask];
     if (ER_OK != status) {
         NSLog(@"Could not advertise (%@)", name);
     }
@@ -265,6 +266,9 @@ static BOOL s_stopStressFlag;
     NSString *name = [NSString stringWithFormat:@"bastress%d", rand()];
     self.bus = [[AJNBusAttachment alloc] initWithApplicationName:name allowRemoteMessages:YES];
     QStatus status =  [self.bus start];
+    if (ER_OK != status) {
+        NSLog(@"Bus start failed.");
+    }
     status = [self.bus connectWithArguments:@"null:"];
     if (ER_OK != status) {
         NSLog(@"Bus connect failed.");
@@ -294,7 +298,7 @@ static BOOL s_stopStressFlag;
         NSLog(@"Request for name failed (%@)", name);
     }
     
-    status = [self.bus advertiseName:name withTransportMask:kAJNTransportMaskAny];
+    status = [self.bus advertiseName:name withTransportMask:self.transportMask];
     if (ER_OK != status) {
         NSLog(@"Could not advertise (%@)", name);
     }
@@ -359,6 +363,7 @@ static BOOL s_stopStressFlag;
                     stressOperation = [[ServiceStressOperation alloc] init];
                 }
                 stressOperation.shouldDeleteBusAttachment = shouldDeleteBusAttachment;
+                stressOperation.transportMask = delegate.transportMask;
                 
                 [queue addOperation:stressOperation];
             }
