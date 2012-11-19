@@ -80,14 +80,14 @@
 //
 - (void)client:(NSString *)clientName didJoinSession:(AJNSessionId)sessionId
 {
-    [self receivedStatusMessage:[NSString stringWithFormat:@"Client %@ joined session %d", clientName, sessionId]];
+    [self receivedStatusMessage:[NSString stringWithFormat:@"Client %@ joined session %u", clientName, sessionId]];
 }
 
 // The delegate is called when a client leaves a session
 //
 - (void)client:(NSString *)clientName didLeaveSession:(AJNSessionId)sessionId
 {
-    [self receivedStatusMessage:[NSString stringWithFormat:@"Client %@ left session %d", clientName, sessionId]];    
+    [self receivedStatusMessage:[NSString stringWithFormat:@"Client %@ left session %u", clientName, sessionId]];    
 }
 
 // Send updates on internal state of Ping Service
