@@ -37,18 +37,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="36f-6I-eIx">
+                                <segments>
+                                    <segment title="Any"/>
+                                    <segment title="ICE"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="P7c-Pa-4hN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="12Q-p6-pGg"/>
                             <constraint firstItem="P7c-Pa-4hN" firstAttribute="baseline" secondItem="bKc-D0-FGA" secondAttribute="baseline" type="default" id="77O-MR-XBW"/>
+                            <constraint firstItem="36f-6I-eIx" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Aox-2w-FSs"/>
                             <constraint firstItem="P7c-Pa-4hN" firstAttribute="leading" secondItem="bKc-D0-FGA" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="CQr-84-msa"/>
                             <constraint firstAttribute="bottom" secondItem="Tnb-h4-pDb" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CVk-NL-P64"/>
                             <constraint firstItem="P7c-Pa-4hN" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="D2K-gW-p0r"/>
-                            <constraint firstItem="Tnb-h4-pDb" firstAttribute="top" secondItem="P7c-Pa-4hN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="H52-75-cFQ"/>
+                            <constraint firstAttribute="trailing" secondItem="36f-6I-eIx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PJD-xB-CMJ"/>
                             <constraint firstAttribute="trailing" secondItem="Tnb-h4-pDb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aJX-WA-NNg"/>
+                            <constraint firstItem="Tnb-h4-pDb" firstAttribute="top" secondItem="36f-6I-eIx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="btB-GP-eeP"/>
                             <constraint firstItem="Tnb-h4-pDb" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ea5-Lk-IkP"/>
                             <constraint firstItem="bKc-D0-FGA" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iHu-vw-QOh"/>
+                            <constraint firstItem="36f-6I-eIx" firstAttribute="top" secondItem="P7c-Pa-4hN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wdu-9c-cKP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BBService" id="pym-yr-msX"/>
@@ -56,6 +65,7 @@
                         <outlet property="advertisedNameTextField" destination="bKc-D0-FGA" id="PWr-pX-Fsg"/>
                         <outlet property="eventsTextView" destination="Tnb-h4-pDb" id="tTh-Vf-UTe"/>
                         <outlet property="startButton" destination="P7c-Pa-4hN" id="Kvi-VL-uJY"/>
+                        <outlet property="transportTypeSegmentedControl" destination="36f-6I-eIx" id="Wtg-Uw-BUG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -81,20 +91,6 @@
             <point key="canvasLocation" x="876" y="-570"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchStartButton:"/>
-                <relationship kind="outlet" name="advertisedNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="eventsTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -98,7 +98,7 @@ static PingService *s_sharedInstance;
         
         // create the session options for this service's connections with its clients
         //
-        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:self.delegate.transportType];
         
         // request to become the owner of the service name for the ping object
         //
@@ -118,6 +118,10 @@ static PingService *s_sharedInstance;
         }
         [self.delegate receivedStatusMessage:@"Session to port binding successfully."];
         
+        NSString *message = [NSString stringWithFormat:@"Attempting to advertise service %@ using transport %@.", self.serviceName, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : @"ICE"];
+        NSLog(@"%@", message);
+        [self.delegate receivedStatusMessage:message];
+
         // let others on the bus know that this service exists
         //
         status = [self.bus advertiseName:self.serviceName withTransportMask:sessionOptions.transports];
@@ -139,7 +143,7 @@ static PingService *s_sharedInstance;
     
     // cancel name advertisement
     //
-    [self.bus cancelAdvertisedName:self.serviceName withTransportMask:kAJNTransportMaskAny];
+    [self.bus cancelAdvertisedName:self.serviceName withTransportMask:self.delegate.transportType];
     
     // unregister as a listener
     //
@@ -217,12 +221,12 @@ static PingService *s_sharedInstance;
 {
     NSLog(@"SampleService::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u", joiner, sessionPort);
     
-    [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Received join request from %@ on port %d.", joiner, sessionPort]];
+    [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Received join request from %@ on port %u.", joiner, sessionPort]];
     
     BOOL shouldAllowClientToJoinSession = sessionPort == kServicePort;
     
     if (shouldAllowClientToJoinSession) {
-        [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Accepted join request from %@ on port %d.", joiner, sessionPort]];
+        [self.delegate receivedStatusMessage:[NSString stringWithFormat:@"Accepted join request from %@ on port %u.", joiner, sessionPort]];
     }
     
     // only allow session joiners who use our designated port number

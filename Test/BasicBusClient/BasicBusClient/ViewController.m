@@ -15,6 +15,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "ViewController.h"
+#import "AJNBusAttachment.h"
 
 @interface ViewController ()
 
@@ -27,6 +28,24 @@
 @synthesize eventsTextView = _eventsTextView;
 @synthesize advertisedNameTextField = _advertisedNameTextField;
 @synthesize isConnectedToService = _isConnectedToService;
+
+- (AJNTransportMask)transportType
+{
+    AJNTransportMask transportMask;
+    switch (self.transportTypeSegmentedControl.selectedSegmentIndex) {
+        case 0:
+            transportMask = kAJNTransportMaskAny;
+            break;
+            
+        case 1:
+            transportMask = kAJNTransportMaskICE;
+            break;
+            
+        default:
+            break;
+    }
+    return transportMask;
+}
 
 - (void)setIsConnectedToService:(bool)isConnectedToService
 {

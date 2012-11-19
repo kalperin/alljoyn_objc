@@ -37,17 +37,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="soD-xc-RF0">
+                                <segments>
+                                    <segment title="Any"/>
+                                    <segment title="ICE"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cKU-Ms-w6e" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CyL-ef-CBa"/>
+                            <constraint firstAttribute="trailing" secondItem="soD-xc-RF0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GcM-AU-Uv6"/>
                             <constraint firstItem="f9T-09-nx3" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="R9F-rf-vRl"/>
                             <constraint firstItem="HfS-1D-Q4b" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="UPw-4j-5eT"/>
                             <constraint firstAttribute="bottom" secondItem="HfS-1D-Q4b" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Vx8-ia-CKh"/>
+                            <constraint firstItem="HfS-1D-Q4b" firstAttribute="top" secondItem="soD-xc-RF0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YQV-og-XFW"/>
                             <constraint firstAttribute="trailing" secondItem="HfS-1D-Q4b" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="bVd-ia-7Rb"/>
                             <constraint firstItem="f9T-09-nx3" firstAttribute="leading" secondItem="cKU-Ms-w6e" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="h57-XL-Atc"/>
                             <constraint firstAttribute="trailing" secondItem="f9T-09-nx3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="jUJ-Mf-lmL"/>
-                            <constraint firstItem="HfS-1D-Q4b" firstAttribute="top" secondItem="f9T-09-nx3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p2C-Gp-aX9"/>
+                            <constraint firstItem="soD-xc-RF0" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ujW-FU-ZBi"/>
+                            <constraint firstItem="soD-xc-RF0" firstAttribute="top" secondItem="f9T-09-nx3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xZj-b8-yl8"/>
                             <constraint firstItem="cKU-Ms-w6e" firstAttribute="baseline" secondItem="f9T-09-nx3" secondAttribute="baseline" type="default" id="zks-wx-npk"/>
                         </constraints>
                     </view>
@@ -56,6 +65,7 @@
                         <outlet property="advertisedNameTextField" destination="cKU-Ms-w6e" id="vvn-Fp-gZL"/>
                         <outlet property="eventsTextView" destination="HfS-1D-Q4b" id="FId-c4-k1B"/>
                         <outlet property="startButton" destination="f9T-09-nx3" id="nMG-v7-bUq"/>
+                        <outlet property="transportTypeSegmentedControl" destination="soD-xc-RF0" id="ai8-pk-fOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>

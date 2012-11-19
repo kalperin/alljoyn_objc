@@ -165,7 +165,12 @@ static PingClient *s_sharedInstance;
         // we found the name of the service we are looking for, so attempt to
         // connect to the service and establish a session
         //
-        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:self.delegate.transportType];
+        
+        NSString *message = [NSString stringWithFormat:@"Attempting to join session with service %@ using transport %@...", name, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : @"ICE"];
+        
+        NSLog(@"%@", message);
+        [self.delegate receivedStatusMessage:message];
         
         AJNSessionId sessionId = [self.bus joinSessionWithName:name onPort:kServicePort withDelegate:self options:sessionOptions];
         

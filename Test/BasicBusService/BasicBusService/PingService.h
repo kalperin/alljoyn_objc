@@ -23,6 +23,10 @@
 //
 @protocol PingServiceDelegate <NSObject>
 
+// transport mask to use for network communication
+//
+@property (nonatomic, readonly) AJNTransportMask transportType;
+
 // The delegate is called once a client joins a session with the service
 //
 - (void)client:(NSString *)clientName didJoinSession:(AJNSessionId)sessionId;

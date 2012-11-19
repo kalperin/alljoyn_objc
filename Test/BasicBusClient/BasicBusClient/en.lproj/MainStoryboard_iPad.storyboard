@@ -37,9 +37,17 @@
                                     <action selector="didTouchStartButton:" destination="2" eventType="touchUpInside" id="tqF-1y-dLd"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qi5-hO-yMt">
+                                <segments>
+                                    <segment title="Any"/>
+                                    <segment title="ICE"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qi5-hO-yMt" firstAttribute="top" secondItem="DNn-vo-INp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="36r-Tm-9i9"/>
+                            <constraint firstItem="Qi5-hO-yMt" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4vX-Wc-xo4"/>
                             <constraint firstAttribute="trailing" secondItem="OTm-HL-lVZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5LE-bR-QjI"/>
                             <constraint firstItem="DNn-vo-INp" firstAttribute="leading" secondItem="fMQ-yx-Jrg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="8QE-EV-04v"/>
                             <constraint firstItem="fMQ-yx-Jrg" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9eQ-Sw-8aG"/>
@@ -48,7 +56,8 @@
                             <constraint firstItem="DNn-vo-INp" firstAttribute="top" secondItem="5" secondAttribute="top" constant="20" symbolic="YES" type="default" id="K01-A4-clf"/>
                             <constraint firstAttribute="bottom" secondItem="OTm-HL-lVZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="NKI-jm-Gm7"/>
                             <constraint firstItem="fMQ-yx-Jrg" firstAttribute="baseline" secondItem="DNn-vo-INp" secondAttribute="baseline" type="default" id="NuP-Z4-DOn"/>
-                            <constraint firstItem="OTm-HL-lVZ" firstAttribute="top" secondItem="DNn-vo-INp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Qy6-0T-qoX"/>
+                            <constraint firstAttribute="trailing" secondItem="Qi5-hO-yMt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="UK8-Lu-CaK"/>
+                            <constraint firstItem="OTm-HL-lVZ" firstAttribute="top" secondItem="Qi5-hO-yMt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="t3D-O1-k9g"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BBClient" id="OnL-7k-0Bh"/>
@@ -56,6 +65,7 @@
                         <outlet property="advertisedNameTextField" destination="fMQ-yx-Jrg" id="nrI-cu-COu"/>
                         <outlet property="eventsTextView" destination="OTm-HL-lVZ" id="z7s-dS-cVf"/>
                         <outlet property="startButton" destination="DNn-vo-INp" id="We8-if-Gra"/>
+                        <outlet property="transportTypeSegmentedControl" destination="Qi5-hO-yMt" id="XhI-U2-Jer"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
@@ -81,20 +91,6 @@
             <point key="canvasLocation" x="856" y="-350"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTouchStartButton:"/>
-                <relationship kind="outlet" name="advertisedNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="eventsTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

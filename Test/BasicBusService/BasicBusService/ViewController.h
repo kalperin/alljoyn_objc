@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *advertisedNameTextField;
 @property (weak, nonatomic) IBOutlet UITextView *eventsTextView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *transportTypeSegmentedControl;
 
 - (IBAction)didTouchStartButton:(id)sender;
 

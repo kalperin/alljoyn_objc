@@ -58,6 +58,24 @@
 
 #pragma mark - PingServiceDelegate implementation
 
+- (AJNTransportMask)transportType
+{
+    AJNTransportMask transportMask;
+    switch (self.transportTypeSegmentedControl.selectedSegmentIndex) {
+        case 0:
+            transportMask = kAJNTransportMaskAny;
+            break;
+            
+        case 1:
+            transportMask = kAJNTransportMaskICE;
+            break;
+            
+        default:
+            break;
+    }
+    return transportMask;    
+}
+
 // The delegate is called once a client joins a session with the service
 //
 - (void)client:(NSString *)clientName didJoinSession:(AJNSessionId)sessionId

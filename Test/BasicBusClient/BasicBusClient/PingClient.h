@@ -14,11 +14,13 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import "AJNBusAttachment.h"
 
 // A simple delegate for the PingClient
 //
 @protocol PingClientDelegate <NSObject>
+
+@property (nonatomic, readonly) AJNTransportMask transportType;
 
 // The delegate is called once a connection is established between the client
 // and the service
