@@ -206,100 +206,100 @@ const NSInteger kBusObjectTestsServicePort = 999;
     [client tearDown];    
 }
 
-//- (void)testShouldSuccessfullyAccessPropertyOfObject
-//{
-//    BusObjectTests *client = [[BusObjectTests alloc] init];
-//    BasicObject *basicObject = nil;
-//    
-//    [client setUp];
-//    
-//    client.isTestClient = YES;
-//    
-//    [self.bus registerBusListener:self];
-//    [client.bus registerBusListener:client];
-//
-//    QStatus status = [self.bus start];
-//    STAssertTrue(status == ER_OK, @"Bus failed to start.");    
-//    status = [client.bus start];
-//    STAssertTrue(status == ER_OK, @"Bus for client failed to start.");        
-//    
-//    status = [self.bus connectWithArguments:@"null:"];
-//    STAssertTrue(status == ER_OK, @"Connection to bus via null transport failed.");
-//    status = [client.bus connectWithArguments:@"null:"];
-//    STAssertTrue(status == ER_OK, @"Client connection to bus via null transport failed.");
-//    
-//    status = [self.bus requestWellKnownName:kBusObjectTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
-//    STAssertTrue(status == ER_OK, @"Request for well known name failed.");
-//    
-//    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
-//    
-//    [self.bus registerBusObject:basicObject];
-//    
-//    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
-//    
-//    status = [self.bus bindSessionOnPort:kBusObjectTestsServicePort withOptions:sessionOptions withDelegate:self];
-//    STAssertTrue(status == ER_OK, @"Bind session on port %u failed.", kBusObjectTestsServicePort);
-//    
-//    status = [self.bus advertiseName:kBusObjectTestsAdvertisedName withTransportMask:kAJNTransportMaskAny];
-//    STAssertTrue(status == ER_OK, @"Advertise name failed.");
-//    
-//    status = [client.bus findAdvertisedName:kBusObjectTestsAdvertisedName];
-//    STAssertTrue(status == ER_OK, @"Client attempt to find advertised name %@ failed.", kBusObjectTestsAdvertisedName);
-//    
-//    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_shouldAcceptSessionJoinerNamed], @"The service did not report that it was queried for acceptance of the client joiner.");
-//    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_didJoinInSession], @"The service did not receive a notification that the client joined the session.");
-//    STAssertTrue(client.clientConnectionCompleted, @"The client did not report that it connected.");
-//    STAssertTrue(client.testSessionId == self.testSessionId, @"The client session id does not match the service session id.");
-//    
-//    BasicObjectProxy *proxy = [[BasicObjectProxy alloc] initWithBusAttachment:client.bus serviceName:kBusObjectTestsAdvertisedName objectPath:kBusObjectTestsObjectPath sessionId:self.testSessionId];
-//    
-//    [proxy introspectRemoteObject];
-//
-//    NSString *proxyPropertyValue;
-//    NSString *servicePropertyValue;
-//    proxy.testStringProperty = @"Hello World!!!";
-//    
-//    sleep(1);
-//    
-//    proxyPropertyValue = proxy.testStringProperty;
-//    
-//    sleep(1);
-//    
-//    servicePropertyValue = basicObject.testStringProperty;
-//    
-//    sleep(1);
-//    
-//    STAssertTrue([proxyPropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
-//    STAssertTrue([servicePropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
-//    
-//    basicObject.testStringProperty = @"Foo bar???";
-//    proxyPropertyValue = proxy.testStringProperty;
-//    servicePropertyValue = basicObject.testStringProperty;    
-//    STAssertTrue([proxyPropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
-//    STAssertTrue([servicePropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
-//    
-//    status = [client.bus disconnectWithArguments:@"null:"];
-//    STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
-//    status = [self.bus disconnectWithArguments:@"null:"];
-//    STAssertTrue(status == ER_OK, @"Disconnect from bus via null transport failed.");
-//    
-//    status = [client.bus stop];
-//    STAssertTrue(status == ER_OK, @"Client bus failed to stop.");
-//    status = [self.bus stop];
-//    STAssertTrue(status == ER_OK, @"Bus failed to stop.");
-//    
-//    STAssertTrue([self waitForBusToStop:kBusObjectTestsWaitTimeBeforeFailure], @"The bus listener should have been notified that the bus is stopping.");    
-//    STAssertTrue([client waitForBusToStop:kBusObjectTestsWaitTimeBeforeFailure], @"The client bus listener should have been notified that the bus is stopping.");    
-//    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_busDidDisconnectCompleted], @"The bus listener should have been notified that the bus was disconnected.");    
-//    
-//    proxy = nil;
-//    
-//    [client.bus unregisterBusListener:client];
-//    [self.bus unregisterBusListener:self];
-//    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
-//    
-//    [client tearDown];    
-//}
+- (void)testShouldSuccessfullyAccessPropertyOfObject
+{
+    BusObjectTests *client = [[BusObjectTests alloc] init];
+    BasicObject *basicObject = nil;
+    
+    [client setUp];
+    
+    client.isTestClient = YES;
+    
+    [self.bus registerBusListener:self];
+    [client.bus registerBusListener:client];
+
+    QStatus status = [self.bus start];
+    STAssertTrue(status == ER_OK, @"Bus failed to start.");    
+    status = [client.bus start];
+    STAssertTrue(status == ER_OK, @"Bus for client failed to start.");        
+    
+    status = [self.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Connection to bus via null transport failed.");
+    status = [client.bus connectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client connection to bus via null transport failed.");
+    
+    status = [self.bus requestWellKnownName:kBusObjectTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
+    STAssertTrue(status == ER_OK, @"Request for well known name failed.");
+    
+    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
+    
+    [self.bus registerBusObject:basicObject];
+    
+    AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+    
+    status = [self.bus bindSessionOnPort:kBusObjectTestsServicePort withOptions:sessionOptions withDelegate:self];
+    STAssertTrue(status == ER_OK, @"Bind session on port %u failed.", kBusObjectTestsServicePort);
+    
+    status = [self.bus advertiseName:kBusObjectTestsAdvertisedName withTransportMask:kAJNTransportMaskAny];
+    STAssertTrue(status == ER_OK, @"Advertise name failed.");
+    
+    status = [client.bus findAdvertisedName:kBusObjectTestsAdvertisedName];
+    STAssertTrue(status == ER_OK, @"Client attempt to find advertised name %@ failed.", kBusObjectTestsAdvertisedName);
+    
+    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_shouldAcceptSessionJoinerNamed], @"The service did not report that it was queried for acceptance of the client joiner.");
+    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_didJoinInSession], @"The service did not receive a notification that the client joined the session.");
+    STAssertTrue(client.clientConnectionCompleted, @"The client did not report that it connected.");
+    STAssertTrue(client.testSessionId == self.testSessionId, @"The client session id does not match the service session id.");
+    
+    BasicObjectProxy *proxy = [[BasicObjectProxy alloc] initWithBusAttachment:client.bus serviceName:kBusObjectTestsAdvertisedName objectPath:kBusObjectTestsObjectPath sessionId:self.testSessionId];
+    
+    [proxy introspectRemoteObject];
+
+    NSString *proxyPropertyValue;
+    NSString *servicePropertyValue;
+    proxy.testStringProperty = @"Hello World!!!";
+    
+    sleep(1);
+    
+    proxyPropertyValue = proxy.testStringProperty;
+    
+    sleep(1);
+    
+    servicePropertyValue = basicObject.testStringProperty;
+    
+    sleep(1);
+    
+    STAssertTrue([proxyPropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
+    STAssertTrue([servicePropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
+    
+    basicObject.testStringProperty = @"Foo bar???";
+    proxyPropertyValue = proxy.testStringProperty;
+    servicePropertyValue = basicObject.testStringProperty;    
+    STAssertTrue([proxyPropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
+    STAssertTrue([servicePropertyValue compare:@"Foo bar???"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
+    
+    status = [client.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Client disconnect from bus via null transport failed.");
+    status = [self.bus disconnectWithArguments:@"null:"];
+    STAssertTrue(status == ER_OK, @"Disconnect from bus via null transport failed.");
+    
+    status = [client.bus stop];
+    STAssertTrue(status == ER_OK, @"Client bus failed to stop.");
+    status = [self.bus stop];
+    STAssertTrue(status == ER_OK, @"Bus failed to stop.");
+    
+    STAssertTrue([self waitForBusToStop:kBusObjectTestsWaitTimeBeforeFailure], @"The bus listener should have been notified that the bus is stopping.");    
+    STAssertTrue([client waitForBusToStop:kBusObjectTestsWaitTimeBeforeFailure], @"The client bus listener should have been notified that the bus is stopping.");    
+    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_busDidDisconnectCompleted], @"The bus listener should have been notified that the bus was disconnected.");    
+    
+    proxy = nil;
+    
+    [client.bus unregisterBusListener:client];
+    [self.bus unregisterBusListener:self];
+    STAssertTrue([self waitForCompletion:kBusObjectTestsWaitTimeBeforeFailure onFlag:&_listenerDidUnregisterWithBusCompleted], @"The bus listener should have been notified that a listener was unregistered.");
+    
+    [client tearDown];    
+}
 
 - (void)testShouldSendAndReceiveSignalSuccessfully
 {
