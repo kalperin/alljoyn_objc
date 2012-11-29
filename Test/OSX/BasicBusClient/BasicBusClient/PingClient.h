@@ -41,7 +41,7 @@
 //
 @interface PingClient : NSObject
 
-@property (nonatomic, weak) id<PingClientDelegate> delegate;
+@property (nonatomic, strong) id<PingClientDelegate> delegate;
 
 - (id)initWithDelegate:(id<PingClientDelegate>)delegate;
 

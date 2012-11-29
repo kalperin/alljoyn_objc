@@ -15,8 +15,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Cocoa/Cocoa.h>
+#import "PingClient.h"
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController<PingClientDelegate>
 
 @property (weak) IBOutlet NSButton *startButton;
 @property (weak) IBOutlet NSTextField *advertisedNameTextField;
