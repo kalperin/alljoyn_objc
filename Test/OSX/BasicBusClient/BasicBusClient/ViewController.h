@@ -18,4 +18,11 @@
 
 @interface ViewController : NSViewController
 
+@property (weak) IBOutlet NSButton *startButton;
+@property (weak) IBOutlet NSTextField *advertisedNameTextField;
+@property (weak) IBOutlet NSSegmentedControl *transportTypeSegmentedControl;
+@property (unsafe_unretained) IBOutlet NSTextView *eventsTextView;
+
+- (IBAction)didTouchStartButton:(id)sender;
+
 @end

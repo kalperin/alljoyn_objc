@@ -32,4 +32,6 @@
     return self;
 }
 
+- (IBAction)didTouchStartButton:(id)sender {
+}
 @end
