@@ -111,6 +111,7 @@
         [formatter setDateStyle:NSDateFormatterShortStyle];
         [string appendFormat:@"[%@] ",[formatter stringFromDate:[NSDate date]]];
         [string appendString:message];
+        [string appendString:@"\r\n\r\n"];
         [self.eventsTextView setString:string];
         NSLog(@"%@",string);
     });

@@ -158,10 +158,6 @@
 		ACD90EEB1667D43500AB8C99 = {
 			isa = PBXGroup;
 			children = (
-				ACD90FAE1667F76900AB8C99 /* libstdc++.6.0.9.dylib */,
-				ACD90FAC1667F76300AB8C99 /* libssl.0.9.8.dylib */,
-				ACD90FAA1667F75E00AB8C99 /* libcrypto.0.9.8.dylib */,
-				ACD90FA81667F75700AB8C99 /* SystemConfiguration.framework */,
 				ACD90F001667D43600AB8C99 /* BasicBusClient */,
 				ACD90EF91667D43600AB8C99 /* Frameworks */,
 				ACD90EF71667D43600AB8C99 /* Products */,
@@ -179,6 +175,10 @@
 		ACD90EF91667D43600AB8C99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACD90FAE1667F76900AB8C99 /* libstdc++.6.0.9.dylib */,
+				ACD90FAC1667F76300AB8C99 /* libssl.0.9.8.dylib */,
+				ACD90FAA1667F75E00AB8C99 /* libcrypto.0.9.8.dylib */,
+				ACD90FA81667F75700AB8C99 /* SystemConfiguration.framework */,
 				ACD90EFA1667D43600AB8C99 /* Cocoa.framework */,
 				ACD90EFC1667D43600AB8C99 /* Other Frameworks */,
 			);
@@ -551,6 +551,7 @@
 				ACD90F161667D43600AB8C99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
