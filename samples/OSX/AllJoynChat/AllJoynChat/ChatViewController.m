@@ -249,6 +249,11 @@
     return self;
 }
 
+- (void)windowWillClose:(NSNotification *)notification
+{
+    [self.chatController stop];
+}
+
 - (IBAction)didTouchStartButton:(id)sender
 {
     [self.chatController startSession:self.advertisedNameTextField.stringValue sessionType:self.sessionTypeSegmentedControl.selectedSegment usingTransportMask:self.transportTypeSegmentedControl.selectedSegment == 0 ? kAJNTransportMaskAny : kAJNTransportMaskICE];

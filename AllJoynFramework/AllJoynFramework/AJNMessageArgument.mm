@@ -19,6 +19,37 @@
 
 using namespace ajn;
 
+class MsgArgEx : public MsgArg
+{
+public:
+    static QStatus Get(MsgArg* pMsgArg, const char* signature, va_list* argp)
+    {
+        size_t sigLen = (signature ? strlen(signature) : 0);
+        if (sigLen == 0) {
+            return ER_BAD_ARG_1;
+        }
+        QStatus status = VParseArgs(signature, sigLen, pMsgArg, 1, argp);
+        return status;        
+    }
+    
+    static QStatus Set(MsgArg* pMsgArg, const char* signature, va_list* argp)
+    {
+        QStatus status = ER_OK;
+        
+        pMsgArg->Clear();
+        size_t sigLen = (signature ? strlen(signature) : 0);
+        if ((sigLen < 1) || (sigLen > 255)) {
+            status = ER_BUS_BAD_SIGNATURE;
+        } else {
+            status = VBuildArgs(signature, sigLen, pMsgArg, 1, argp);
+            if ((status == ER_OK) && (*signature != 0)) {
+                status = ER_BUS_NOT_A_COMPLETE_TYPE;
+            }
+        }
+        return status;        
+    }
+};
+
 @interface AJNObject(Private)
 
 @property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
@@ -107,7 +138,7 @@ using namespace ajn;
 {
     va_list args;
     va_start(args, signature);
-    QStatus status = self.msgArg->Set([signature UTF8String], args);
+    QStatus status = MsgArgEx::Set(self.msgArg, [signature UTF8String], &args);
     va_end(args);
     return status;
 }
@@ -116,7 +147,7 @@ using namespace ajn;
 {
     va_list args;
     va_start(args, signature);
-    QStatus status = self.msgArg->Get([signature UTF8String], args);
+    QStatus status = MsgArgEx::Get(self.msgArg, [signature UTF8String], &args);
     va_end(args);
     return status;
 }

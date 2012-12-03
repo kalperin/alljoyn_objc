@@ -16,7 +16,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ChatViewController : NSViewController
+@interface ChatViewController : NSViewController<NSWindowDelegate>
 
 @property (weak) IBOutlet NSTextField *advertisedNameTextField;
 @property (weak) IBOutlet NSSegmentedControl *sessionTypeSegmentedControl;
@@ -29,5 +29,7 @@
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)didTouchStopButton:(id)sender;
 - (IBAction)didTouchSendButton:(id)sender;
+
+- (void)windowWillClose:(NSNotification *)notification;
 
 @end

@@ -357,19 +357,23 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSArray *messageTokens = [message componentsSeparatedByString:@"||"];
+        NSMutableString *string = self.chatConversationTextView.text.length ? [self.chatConversationTextView.text mutableCopy] : [[NSMutableString alloc] init];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setTimeStyle:NSDateFormatterMediumStyle];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        [string appendFormat:@"[%@]\n",[formatter stringFromDate:[NSDate date]]];
         if (messageTokens.count == 2) {
-            NSMutableString *string = self.chatConversationTextView.text.length ? [self.chatConversationTextView.text mutableCopy] : [[NSMutableString alloc] init];
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setTimeStyle:NSDateFormatterMediumStyle];
-            [formatter setDateStyle:NSDateFormatterShortStyle];
-            [string appendFormat:@"[%@]\n",[formatter stringFromDate:[NSDate date]]];
             [string appendFormat:@"From:<%@>\n", [messageTokens objectAtIndex:0]];
             [string appendString:[messageTokens objectAtIndex:1]];
             [string appendString:@"\n\n"];
-            [self.chatConversationTextView setText:string];        
-            NSLog(@"%@",string);
-            [self.chatConversationTextView scrollRangeToVisible:NSMakeRange([self.chatConversationTextView.text length], 0)];            
         }
+        else {
+            [string appendString:message];
+            [string appendString:@"\n\n"];            
+        }
+        [self.chatConversationTextView setText:string];
+        NSLog(@"%@",string);
+        [self.chatConversationTextView scrollRangeToVisible:NSMakeRange([self.chatConversationTextView.text length], 0)];
     });
 }
 
