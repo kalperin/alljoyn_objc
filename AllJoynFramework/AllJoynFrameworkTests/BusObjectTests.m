@@ -215,6 +215,10 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
     client.isTestClient = YES;
 
+    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
+    
+    [self.bus registerBusObject:basicObject];
+    
     [self.bus registerBusListener:self];
     [client.bus registerBusListener:client];
 
@@ -230,10 +234,6 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
     status = [self.bus requestWellKnownName:kBusObjectTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
     STAssertTrue(status == ER_OK, @"Request for well known name failed.");
-
-    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
-
-    [self.bus registerBusObject:basicObject];
 
     AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
 
@@ -259,15 +259,9 @@ const NSInteger kBusObjectTestsServicePort = 999;
     NSString *servicePropertyValue;
     proxy.testStringProperty = @"Hello World!!!";
 
-    sleep(1);
-
     proxyPropertyValue = proxy.testStringProperty;
 
-    sleep(1);
-
     servicePropertyValue = basicObject.testStringProperty;
-
-    sleep(1);
 
     STAssertTrue([proxyPropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the client-side object does not match what it was just set to. Actual value=[%@]",proxyPropertyValue);
     STAssertTrue([servicePropertyValue compare:@"Hello World!!!"] == NSOrderedSame, @"The value of the property in the service-side object does not match what it was just set to. Actual value=[%@]",servicePropertyValue);
