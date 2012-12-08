@@ -215,10 +215,6 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
     client.isTestClient = YES;
 
-    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
-    
-    [self.bus registerBusObject:basicObject];
-    
     [self.bus registerBusListener:self];
     [client.bus registerBusListener:client];
 
@@ -234,6 +230,10 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
     status = [self.bus requestWellKnownName:kBusObjectTestsAdvertisedName withFlags:kAJNBusNameFlagDoNotQueue|kAJNBusNameFlagReplaceExisting];
     STAssertTrue(status == ER_OK, @"Request for well known name failed.");
+
+    basicObject = [[BasicObject alloc] initWithBusAttachment:self.bus onPath:kBusObjectTestsObjectPath];
+
+    [self.bus registerBusObject:basicObject];
 
     AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
 
@@ -257,6 +257,7 @@ const NSInteger kBusObjectTestsServicePort = 999;
 
     NSString *proxyPropertyValue;
     NSString *servicePropertyValue;
+    
     proxy.testStringProperty = @"Hello World!!!";
 
     proxyPropertyValue = proxy.testStringProperty;

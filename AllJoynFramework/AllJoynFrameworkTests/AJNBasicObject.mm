@@ -52,6 +52,7 @@ private:
 	const InterfaceDescription::Member* TestSignalWithNoArgsSignalMember;
 	const InterfaceDescription::Member* ChatSignalMember;
 
+    qcc::String testStringProperty;
     
 public:
     BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicStringsDelegate, BasicChatDelegate> aDelegate);
@@ -161,7 +162,8 @@ QStatus BasicObjectImpl::Get(const char* ifcName, const char* propName, MsgArg& 
     
         if (strcmp(propName, "testStringProperty") == 0)
         {
-            status = val.Set( "s", [((id<BasicStringsDelegate>)delegate).testStringProperty UTF8String] );
+            testStringProperty = [((id<BasicStringsDelegate>)delegate).testStringProperty UTF8String];
+            status = val.Set( "s",  testStringProperty.c_str());
         }
     
     }
