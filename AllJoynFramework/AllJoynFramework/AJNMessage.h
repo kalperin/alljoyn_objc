@@ -18,6 +18,26 @@
 #import "AJNInterfaceMember.h"
 #import "AJNMessageHeaderFields.h"
 
+/** @name Flag types */
+// @{
+typedef uint8_t AJNMessageFlag;
+
+/** No reply is expected*/
+extern const AJNMessageFlag kAJNMessageFlagNoReplyExpected;
+/** Auto start the service */
+extern const AJNMessageFlag kAJNMessageFlagAutoStart;
+/** Allow messages from remote hosts (valid only in Hello message) */
+extern const AJNMessageFlag kAJNMessageFlagAllowRemoteMessages;
+/** Sessionless message  */
+extern const AJNMessageFlag kAJNMessageFlagSessionless;
+/** Global (bus-to-bus) broadcast */
+extern const AJNMessageFlag kAJNMessageFlagGlobalBroadcast;
+/** Header is compressed */
+extern const AJNMessageFlag kAJNMessageFlagCompressed;
+/** Body is encrypted */
+extern const AJNMessageFlag kAJNMessageFlagEncrypted;
+// @}
+
 /**
  * Class that represents a message sent on the AllJoyn bus
  */
@@ -42,7 +62,7 @@
  * @return flags for the message
  *
  */
-@property (nonatomic, readonly) uint8_t flags;
+@property (nonatomic, readonly) AJNMessageFlag flags;
 
 /**
  * Return true if message's TTL header indicates that it is expired

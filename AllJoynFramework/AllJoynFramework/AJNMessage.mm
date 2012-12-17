@@ -20,6 +20,28 @@
 
 using namespace ajn;
 
+////////////////////////////////////////////////////////////////////////////////
+//
+// Constants
+//
+
+/** No reply is expected*/
+const AJNMessageFlag kAJNMessageFlagNoReplyExpected     = 0x01;
+/** Auto start the service */
+const AJNMessageFlag kAJNMessageFlagAutoStart           = 0x02;
+/** Allow messages from remote hosts (valid only in Hello message) */
+const AJNMessageFlag kAJNMessageFlagAllowRemoteMessages = 0x04;
+/** Sessionless message  */
+const AJNMessageFlag kAJNMessageFlagSessionless         = 0x10;
+/** Global (bus-to-bus) broadcast */
+const AJNMessageFlag kAJNMessageFlagGlobalBroadcast     = 0x20;
+/** Header is compressed */
+const AJNMessageFlag kAJNMessageFlagCompressed          = 0x40;
+/** Body is encrypted */
+const AJNMessageFlag kAJNMessageFlagEncrypted           = 0x80;
+
+////////////////////////////////////////////////////////////////////////////////
+
 @interface AJNObject(Private)
 
 @property (nonatomic) BOOL shouldDeleteHandleOnDealloc;
@@ -55,7 +77,7 @@ using namespace ajn;
     return self.message->IsGlobalBroadcast();
 }
 
-- (uint8_t)flags
+- (AJNMessageFlag)flags
 {
     return self.message->GetFlags();
 }
