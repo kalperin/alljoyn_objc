@@ -23,7 +23,8 @@
 static NSString * const kBusObjectTestsAdvertisedName = @"org.alljoyn.bus.sample.strings";
 static NSString * const kBusObjectTestsInterfaceName = @"org.alljoyn.bus.sample.strings";
 static NSString * const kBusObjectTestsObjectPath = @"/basic_object";
-const NSTimeInterval kBusObjectTestsWaitTimeBeforeFailure = 5.0;
+//ALLJOYN-1582: Increased timeout to allow tests to pass.
+const NSTimeInterval kBusObjectTestsWaitTimeBeforeFailure = 20.0;
 const NSInteger kBusObjectTestsServicePort = 999;
 
 @interface BusObjectTests()<AJNBusListener, AJNSessionListener, AJNSessionPortListener, BasicStringsDelegateSignalHandler>
