@@ -36,8 +36,13 @@ QStatus AJNCBusObjectImpl::SendChatSignal(const char* msg, ajn::SessionId sessio
     NSLog(@"SendChatSignal( %s, %u)", msg, sessionId);
     
     ajn::MsgArg chatArg("s", msg);
-    uint8_t flags = 0;
-    return Signal(NULL, sessionId, *chatSignalMember, &chatArg, 1, 0, flags);
+    
+    // if we are using sessionless signals, ignore the session (obviously)
+    if (gMessageFlags == kAJNMessageFlagSessionless) {
+        sessionId = 0;
+    }
+    
+    return Signal(NULL, sessionId, *chatSignalMember, &chatArg, 1, 0, gMessageFlags);
 }
 
 

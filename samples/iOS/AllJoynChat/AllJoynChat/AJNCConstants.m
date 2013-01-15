@@ -22,3 +22,4 @@ NSString * const kServiceName = @"org.alljoyn.bus.samples.chat.";
 NSString * const kInterfaceName = @"org.alljoyn.bus.samples.chat";
 NSString * const kMethodName = @"Chat";
 NSString * const kAppName = @"chat";
+AJNMessageFlag gMessageFlags = 0x0;

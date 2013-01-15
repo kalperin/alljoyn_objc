@@ -51,7 +51,7 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B8Z-Ky-VSx">
-                                <rect key="frame" x="228" y="185" width="72" height="29"/>
+                                <rect key="frame" x="228" y="150" width="72" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Start">
@@ -89,6 +89,20 @@
                                     <action selector="didTouchStopButton:" destination="Iu8-Xi-xEI" eventType="touchUpInside" id="oh3-Do-XhI"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="LyW-23-3J9">
+                                <rect key="frame" x="143" y="150" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sessionSignalValueDidChange:" destination="Iu8-Xi-xEI" eventType="valueChanged" id="fKx-yx-AtD"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use a session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hvq-Z3-PFG">
+                                <rect key="frame" x="20" y="153" width="107" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -98,6 +112,8 @@
                         <outlet property="chatMessageTextField" destination="QKP-ig-qC1" id="vhv-AT-UCY"/>
                         <outlet property="chatSessionTypeSegmentedControl" destination="YRs-Eu-mUj" id="4Qh-dI-7IC"/>
                         <outlet property="sendButton" destination="vqI-gg-jow" id="LOM-V2-rgh"/>
+                        <outlet property="sessionLabel" destination="hvq-Z3-PFG" id="TsW-tY-tkL"/>
+                        <outlet property="sessionSwitch" destination="LyW-23-3J9" id="c6S-py-jWF"/>
                         <outlet property="startButton" destination="B8Z-Ky-VSx" id="Mje-Ao-6Yn"/>
                         <outlet property="stopButton" destination="aH6-QD-jTf" id="6l0-7H-T1x"/>
                     </connections>
