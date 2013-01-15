@@ -74,6 +74,11 @@
                     <annotation name="org.alljoyn.lang.objc" value="to:"/>
                 </arg>
             </signal>
+            <signal name="TestSignalWithComplexArgs">
+                <arg name="oldString" type="as">
+                    <annotation name="org.alljoyn.lang.objc" value="TestSignalWithComplexArgs:"/>
+                </arg>
+            </signal>
             <signal name="TestSignalWithNoArgs">
             </signal>
         </interface>

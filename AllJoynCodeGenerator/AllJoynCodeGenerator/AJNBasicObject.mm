@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
+// Copyright 2013, Qualcomm Innovation Center, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -40,6 +40,17 @@
 
 using namespace ajn;
 
+
+@interface AJNMessageArgument(Private)
+
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
+@property (nonatomic, readonly) MsgArg *msgArg;
+
+@end
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  C++ Bus Object class declaration for BasicObjectImpl
@@ -49,6 +60,7 @@ class BasicObjectImpl : public AJNBusObjectImpl
 {
 private:
     const InterfaceDescription::Member* TestStringPropertyChangedSignalMember;
+	const InterfaceDescription::Member* TestSignalWithComplexArgsSignalMember;
 	const InterfaceDescription::Member* TestSignalWithNoArgsSignalMember;
 	const InterfaceDescription::Member* ChatSignalMember;
 
@@ -76,6 +88,7 @@ public:
     // signals
     //
     QStatus SendTestStringPropertyChanged(const char * oldString,const char * newString, const char* destination, SessionId sessionId, uint16_t timeToLive = 0, uint8_t flags = 0);
+	QStatus SendTestSignalWithComplexArgs(MsgArg* oldString, const char* destination, SessionId sessionId, uint16_t timeToLive = 0, uint8_t flags = 0);
 	QStatus SendTestSignalWithNoArgs( const char* destination, SessionId sessionId, uint16_t timeToLive = 0, uint8_t flags = 0);
 	QStatus SendChat(const char * message, const char* destination, SessionId sessionId, uint16_t timeToLive = 0, uint8_t flags = 0);
 
@@ -142,6 +155,8 @@ BasicObjectImpl::BasicObjectImpl(BusAttachment &bus, const char *path, id<BasicS
     //
     TestStringPropertyChangedSignalMember = interfaceDescription->GetMember("TestStringPropertyChanged");
     assert(TestStringPropertyChangedSignalMember);    
+TestSignalWithComplexArgsSignalMember = interfaceDescription->GetMember("TestSignalWithComplexArgs");
+    assert(TestSignalWithComplexArgsSignalMember);    
 TestSignalWithNoArgsSignalMember = interfaceDescription->GetMember("TestSignalWithNoArgs");
     assert(TestSignalWithNoArgsSignalMember);    
 
@@ -173,7 +188,7 @@ QStatus BasicObjectImpl::Get(const char* ifcName, const char* propName, MsgArg& 
         if (strcmp(propName, "testArrayProperty") == 0)
         {
         
-            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty handle];
+            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty msgArg];
             val = *pPropertyValue;
             status = ER_OK;
             
@@ -217,7 +232,7 @@ QStatus BasicObjectImpl::Set(const char* ifcName, const char* propName, MsgArg& 
         if (strcmp(propName, "testArrayProperty") == 0)
         {
         
-            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty handle];
+            MsgArg *pPropertyValue = (MsgArg*)[((id<BasicStringsDelegate>)delegate).testArrayProperty msgArg];
             *pPropertyValue = val;
             status = ER_OK;
             
@@ -424,9 +439,9 @@ void BasicObjectImpl::MethodWithComplexTypesForArgs(const InterfaceDescription::
     // get all input arguments
     //
     
-    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(0)];        
+    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)new MsgArg(*(msg->GetArg(0))) shouldDeleteHandleOnDealloc:YES];        
         
-    AJNMessageArgument* inArg1 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(1)];        
+    AJNMessageArgument* inArg1 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)new MsgArg(*(msg->GetArg(1))) shouldDeleteHandleOnDealloc:YES];        
         
     // declare the output arguments
     //
@@ -468,6 +483,19 @@ QStatus BasicObjectImpl::SendTestStringPropertyChanged(const char * oldString,co
 
 
     return Signal(destination, sessionId, *TestStringPropertyChangedSignalMember, args, 2, timeToLive, flags);
+}
+
+
+QStatus BasicObjectImpl::SendTestSignalWithComplexArgs(MsgArg* oldString, const char* destination, SessionId sessionId, uint16_t timeToLive, uint8_t flags)
+{
+
+    MsgArg args[1];
+
+    
+    args[0].Set( "as", oldString );
+
+
+    return Signal(destination, sessionId, *TestSignalWithComplexArgsSignalMember, args, 1, timeToLive, flags);
 }
 
 
@@ -692,6 +720,12 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
             @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add signal to interface:  TestStringPropertyChanged" userInfo:nil];
         }
 
+        status = [interfaceDescription addSignalWithName:@"TestSignalWithComplexArgs" inputSignature:@"as" argumentNames:[NSArray arrayWithObjects:@"oldString", nil]];
+        
+        if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
+            @throw [NSException exceptionWithName:@"BusObjectInitFailed" reason:@"Unable to add signal to interface:  TestSignalWithComplexArgs" userInfo:nil];
+        }
+
         status = [interfaceDescription addSignalWithName:@"TestSignalWithNoArgs" inputSignature:@"" argumentNames:[NSArray arrayWithObjects: nil]];
         
         if (status != ER_OK && status != ER_BUS_MEMBER_ALREADY_EXISTS) {
@@ -806,6 +840,13 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 {
     
     self.busObject->SendTestStringPropertyChanged([oldString UTF8String], [newString UTF8String], [destinationPath UTF8String], sessionId);
+        
+}
+- (void)sendTestSignalWithComplexArgs:(AJNMessageArgument*)oldString inSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath
+
+{
+    
+    self.busObject->SendTestSignalWithComplexArgs([oldString msgArg], [destinationPath UTF8String], sessionId);
         
 }
 - (void)sendTestSignalWithNoArgsInSession:(AJNSessionId)sessionId toDestination:(NSString*)destinationPath
@@ -1100,9 +1141,9 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     Message reply(*((BusAttachment*)self.bus.handle));    
     MsgArg inArgs[2];
     
-    inArgs[0].Set("as", [stringArray handle]);
+    inArgs[0].Set("as", [stringArray msgArg]);
 
-    inArgs[1].Set("(si)", [aStruct handle]);
+    inArgs[1].Set("(si)", [aStruct msgArg]);
 
 
     // make the function call using the C++ proxy object
@@ -1271,6 +1312,9 @@ private:
     const ajn::InterfaceDescription::Member* TestStringPropertyChangedSignalMember;
     void TestStringPropertyChangedSignalHandler(const ajn::InterfaceDescription::Member* member, const char* srcPath, ajn::Message& msg);
 
+    const ajn::InterfaceDescription::Member* TestSignalWithComplexArgsSignalMember;
+    void TestSignalWithComplexArgsSignalHandler(const ajn::InterfaceDescription::Member* member, const char* srcPath, ajn::Message& msg);
+
     const ajn::InterfaceDescription::Member* TestSignalWithNoArgsSignalMember;
     void TestSignalWithNoArgsSignalHandler(const ajn::InterfaceDescription::Member* member, const char* srcPath, ajn::Message& msg);
 
@@ -1302,6 +1346,7 @@ public:
 BasicStringsDelegateSignalHandlerImpl::BasicStringsDelegateSignalHandlerImpl(id<AJNSignalHandler> aDelegate) : AJNSignalHandlerImpl(aDelegate)
 {
 	TestStringPropertyChangedSignalMember = NULL;
+	TestSignalWithComplexArgsSignalMember = NULL;
 	TestSignalWithNoArgsSignalMember = NULL;
 
 }
@@ -1332,6 +1377,32 @@ void BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler(ajn::BusAttach
         status =  bus.RegisterSignalHandler(this,
             static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandler),
             TestStringPropertyChangedSignalMember,
+            NULL);
+            
+        if (status != ER_OK) {
+            NSLog(@"ERROR: Interface BasicStringsDelegateSignalHandlerImpl::RegisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+        }
+    }
+    else {
+        NSLog(@"ERROR: org.alljoyn.bus.sample.strings not found.");
+    }
+    ////////////////////////////////////////////////////////////////////////////    
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Register signal handler for signal TestSignalWithComplexArgs
+    //
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
+
+    if (interface) {
+        // Store the TestSignalWithComplexArgs signal member away so it can be quickly looked up
+        TestSignalWithComplexArgsSignalMember = interface->GetMember("TestSignalWithComplexArgs");
+        assert(TestSignalWithComplexArgsSignalMember);
+
+        
+        // Register signal handler for TestSignalWithComplexArgs
+        status =  bus.RegisterSignalHandler(this,
+            static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestSignalWithComplexArgsSignalHandler),
+            TestSignalWithComplexArgsSignalMember,
             NULL);
             
         if (status != ER_OK) {
@@ -1398,6 +1469,26 @@ void BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler(ajn::BusAtta
     ////////////////////////////////////////////////////////////////////////////    
 
     ////////////////////////////////////////////////////////////////////////////
+    // Unregister signal handler for signal TestSignalWithComplexArgs
+    //
+    interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
+    
+    // Store the TestSignalWithComplexArgs signal member away so it can be quickly looked up
+    TestSignalWithComplexArgsSignalMember = interface->GetMember("TestSignalWithComplexArgs");
+    assert(TestSignalWithComplexArgsSignalMember);
+    
+    // Unregister signal handler for TestSignalWithComplexArgs
+    status =  bus.UnregisterSignalHandler(this,
+        static_cast<MessageReceiver::SignalHandler>(&BasicStringsDelegateSignalHandlerImpl::TestSignalWithComplexArgsSignalHandler),
+        TestSignalWithComplexArgsSignalMember,
+        NULL);
+        
+    if (status != ER_OK) {
+        NSLog(@"ERROR:BasicStringsDelegateSignalHandlerImpl::UnregisterSignalHandler failed. %@", [AJNStatus descriptionForStatusCode:status] );
+    }
+    ////////////////////////////////////////////////////////////////////////////    
+
+    ////////////////////////////////////////////////////////////////////////////
     // Unregister signal handler for signal TestSignalWithNoArgs
     //
     interface = bus.GetInterface("org.alljoyn.bus.sample.strings");
@@ -1436,6 +1527,26 @@ void BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandl
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestStringPropertyChangedFrom:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] to:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId fromSender:from];
+                
+        });
+        
+    }
+}
+
+void BasicStringsDelegateSignalHandlerImpl::TestSignalWithComplexArgsSignalHandler(const ajn::InterfaceDescription::Member* member, const char* srcPath, ajn::Message& msg)
+{
+    @autoreleasepool {
+        
+    AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)new MsgArg(*(msg->GetArg(0))) shouldDeleteHandleOnDealloc:YES];        
+        
+        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
+        AJNSessionId sessionId = msg->GetSessionId();        
+        NSLog(@"Received TestSignalWithComplexArgs signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithComplexArgs:inArg0 inSession:sessionId fromSender:from];
                 
         });
         
