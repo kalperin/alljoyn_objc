@@ -31,7 +31,7 @@
 
 @property (nonatomic) CGSize keyboardSize;
 @property (nonatomic) CGSize originalViewSize;
-
+@property (nonatomic, readonly) NSString *sessionlessSignalMatchRule;
 @end
 
 @implementation AJNCStartPageViewController
@@ -49,6 +49,11 @@
 @synthesize sessionId = _sessionId;
 @synthesize isChatConversationUIVisible = _isChatConversationUIVisible;
 @synthesize originalViewSize = _originalViewSize;
+
+- (NSString *)sessionlessSignalMatchRule
+{
+    return @"sessionless='t'";
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -104,20 +109,24 @@
     [UIView animateWithDuration:1 animations:^{
         if (visible && !self.isChatConversationUIVisible) {
             self.chatSessionTypeSegmentedControl.frame = CGRectOffset(self.chatSessionTypeSegmentedControl.frame, 0, 235);
-            self.startButton.frame = CGRectOffset(self.startButton.frame, 0, 235);
+            self.startButton.frame = CGRectOffset(self.startButton.frame, 0, 300);
             self.chatConversationTextView.frame = CGRectOffset(self.chatConversationTextView.frame, -300, 0);
             self.chatMessageTextField.frame = CGRectOffset(self.chatMessageTextField.frame, -300, 0);
             self.sendButton.frame = CGRectOffset(self.sendButton.frame, -300, 0);
-            self.stopButton.frame = CGRectOffset(self.stopButton.frame, -300, 0);        
+            self.stopButton.frame = CGRectOffset(self.stopButton.frame, -300, 0);
+            self.sessionLabel.frame = CGRectOffset(self.sessionLabel.frame, -350, 0);
+            self.sessionSwitch.frame = CGRectOffset(self.sessionSwitch.frame, -350, 0);
             self.isChatConversationUIVisible = YES;
         }
         else if (!visible && self.isChatConversationUIVisible) {
             self.chatSessionTypeSegmentedControl.frame = CGRectOffset(self.chatSessionTypeSegmentedControl.frame, 0, -235);
-            self.startButton.frame = CGRectOffset(self.startButton.frame, 0, -235);
+            self.startButton.frame = CGRectOffset(self.startButton.frame, 0, -300);
             self.chatConversationTextView.frame = CGRectOffset(self.chatConversationTextView.frame, 300, 0);
             self.chatMessageTextField.frame = CGRectOffset(self.chatMessageTextField.frame, 300, 0);
             self.sendButton.frame = CGRectOffset(self.sendButton.frame, 300, 0);     
             self.stopButton.frame = CGRectOffset(self.stopButton.frame, 300, 0);                
+            self.sessionLabel.frame = CGRectOffset(self.sessionLabel.frame, 350, 0);
+            self.sessionSwitch.frame = CGRectOffset(self.sessionSwitch.frame, 350, 0);
             self.isChatConversationUIVisible = NO;
         }
 
@@ -246,30 +255,40 @@
     if (status != ER_OK) {
         NSLog(@"ERROR: Failed to connect bus. %@", [AJNStatus descriptionForStatusCode:status]);
     }    
-    
-    // get the type of session to create
-    //
-    NSString *serviceName = [NSString stringWithFormat:@"%@%@", kServiceName, @"AllChatz"];
-    
-    if (self.chatSessionTypeSegmentedControl.selectedSegmentIndex == 0) { 
-        // join an existing session by finding the name
-        //
-        [self.busAttachment findAdvertisedName:serviceName];
+
+    if (gMessageFlags == kAJNMessageFlagSessionless) {
+        NSLog(@"Adding match rule : [%@]", self.sessionlessSignalMatchRule);
+        status = [self.busAttachment addMatchRule:self.sessionlessSignalMatchRule];
+        
+        if (status != ER_OK) {
+            NSLog(@"ERROR: Unable to %@ match rule. %@", self.sessionSwitch.isOn ? @"remove" : @"add", [AJNStatus descriptionForStatusCode:status]);
+        }
     }
     else {
-        // request the service name for the chat object
+
+        // get the type of session to create
         //
-        [self.busAttachment requestWellKnownName:serviceName withFlags:kAJNBusNameFlagReplaceExisting|kAJNBusNameFlagDoNotQueue];
+        NSString *serviceName = [NSString stringWithFormat:@"%@%@", kServiceName, @"AllChatz"];
         
-        // advertise a name and let others connect to our service
-        //
-        [self.busAttachment advertiseName:serviceName withTransportMask:kAJNTransportMaskAny];
-        
-        AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
-        
-        [self.busAttachment bindSessionOnPort:kServicePort withOptions:sessionOptions withDelegate:self];
-    }    
-    
+        if (self.chatSessionTypeSegmentedControl.selectedSegmentIndex == 0) { 
+            // join an existing session by finding the name
+            //
+            [self.busAttachment findAdvertisedName:serviceName];
+        }
+        else {
+            // request the service name for the chat object
+            //
+            [self.busAttachment requestWellKnownName:serviceName withFlags:kAJNBusNameFlagReplaceExisting|kAJNBusNameFlagDoNotQueue];
+            
+            // advertise a name and let others connect to our service
+            //
+            [self.busAttachment advertiseName:serviceName withTransportMask:kAJNTransportMaskAny];
+            
+            AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:YES proximity:kAJNProximityAny transportMask:kAJNTransportMaskAny];
+            
+            [self.busAttachment bindSessionOnPort:kServicePort withOptions:sessionOptions withDelegate:self];
+        }
+    }
 }
 
 - (IBAction)didTouchStopButton:(id)sender 
@@ -325,7 +344,9 @@
 {
     NSString *message = [NSString stringWithFormat:@"%@||%@", [[UIDevice currentDevice] name], self.chatMessageTextField.text];
     [self.chatObject sendChatMessage:message onSession:self.sessionId];
-    [self chatMessageReceived:message from:@"Local" onObjectPath:@"local" forSession:self.sessionId];
+    if (gMessageFlags != kAJNMessageFlagSessionless) {
+        [self chatMessageReceived:message from:@"Local" onObjectPath:@"local" forSession:self.sessionId];
+    }
     self.chatMessageTextField.text = @"";    
 }
 
@@ -345,6 +366,18 @@
 - (IBAction)didEndEditingChatConversationTextField:(id)sender 
 {
     [self didTouchSendButton:self];
+}
+
+- (IBAction)sessionSignalValueDidChange:(id)sender
+{
+    if (self.sessionSwitch.isOn) {
+        gMessageFlags = 0x0;
+        [self.chatSessionTypeSegmentedControl setEnabled:YES];
+    }
+    else {
+        gMessageFlags = kAJNMessageFlagSessionless;
+        [self.chatSessionTypeSegmentedControl setEnabled:NO];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

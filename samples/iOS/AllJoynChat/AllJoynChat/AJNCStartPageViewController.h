@@ -24,11 +24,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UILabel *sessionLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *sessionSwitch;
 
 - (IBAction)didTouchStartButton:(id)sender;
 - (IBAction)didTouchStopButton:(id)sender;
 - (IBAction)didTouchSendButton:(id)sender;
 - (IBAction)didBeginEditingChatConversationTextField:(id)sender;
 - (IBAction)didEndEditingChatConversationTextField:(id)sender;
+- (IBAction)sessionSignalValueDidChange:(id)sender;
 
 @end
