@@ -1,6 +1,6 @@
 <!--
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
+// Copyright 2013, Qualcomm Innovation Center, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -53,6 +53,17 @@
 #import "</xsl:text><xsl:value-of select="$baseFileName"/><xsl:text>.h"
 
 using namespace ajn;
+
+
+@interface AJNMessageArgument(Private)
+
+/**
+ * Helper to return the C++ API object that is encapsulated by this objective-c class
+ */
+@property (nonatomic, readonly) MsgArg *msgArg;
+
+@end
+
 </xsl:text>
 
 <xsl:apply-templates select=".//node" mode="cpp"/>
@@ -1064,7 +1075,7 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     qcc::AllJoynArray inArg<xsl:value-of select="position()-1"/> = msg->GetArg(<xsl:value-of select="position()-1"/>)->v_array;
         </xsl:when>
         <xsl:otherwise>
-    AJNMessageArgument* inArg<xsl:value-of select="position()-1"/> = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)msg->GetArg(<xsl:value-of select="position()-1"/>)];        
+    AJNMessageArgument* inArg<xsl:value-of select="position()-1"/> = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)new MsgArg(*(msg->GetArg(<xsl:value-of select="position()-1"/>))) shouldDeleteHandleOnDealloc:YES];        
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
@@ -1304,7 +1315,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
             <xsl:text>UTF8String</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-            <xsl:text>handle</xsl:text>
+            <xsl:text>msgArg</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
