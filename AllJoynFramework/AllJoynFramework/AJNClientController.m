@@ -168,6 +168,10 @@
     //
     self.bus = nil;
     [self sendStatusMessage:@"Deallocated bus attachment."];
+    
+    // zero out the session id
+    //
+    self.sessionId = 0;
 }
 
 #pragma mark - AJNBusListener delegate methods

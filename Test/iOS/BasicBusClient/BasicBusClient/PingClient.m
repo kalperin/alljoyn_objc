@@ -167,7 +167,7 @@ static PingClient *s_sharedInstance;
         //
         AJNSessionOptions *sessionOptions = [[AJNSessionOptions alloc] initWithTrafficType:kAJNTrafficMessages supportsMultipoint:NO proximity:kAJNProximityAny transportMask:self.delegate.transportType];
         
-        NSString *message = [NSString stringWithFormat:@"Attempting to join session with service %@ using transport %@...", name, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : @"ICE"];
+        NSString *message = [NSString stringWithFormat:@"Attempting to join session with service %@ using transport %@...", name, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : self.delegate.transportType == kAJNTransportMaskICE ? @"ICE" : @"Any Transport but ICE"];
         
         NSLog(@"%@", message);
         [self.delegate receivedStatusMessage:message];

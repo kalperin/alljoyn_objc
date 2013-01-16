@@ -41,6 +41,10 @@
             transportMask = kAJNTransportMaskICE;
             break;
             
+        case 2:
+            transportMask = kAJNTransportMaskAny ^ kAJNTransportMaskICE;
+            break;
+
         default:
             break;
     }
@@ -111,7 +115,7 @@
         [string appendString:message];
         [string appendString:@"\n\n"];
         [self.eventsTextView setText:string];
-        NSLog(@"%@",string);
+        NSLog(@"%@",message);
         [self.eventsTextView scrollRangeToVisible:NSMakeRange([self.eventsTextView.text length], 0)];
     });
 }
