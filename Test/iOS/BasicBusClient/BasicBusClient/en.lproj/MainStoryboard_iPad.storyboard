@@ -41,6 +41,7 @@
                                 <segments>
                                     <segment title="Any"/>
                                     <segment title="ICE"/>
+                                    <segment title="No ICE"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>

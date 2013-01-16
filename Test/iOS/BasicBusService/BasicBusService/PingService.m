@@ -118,7 +118,7 @@ static PingService *s_sharedInstance;
         }
         [self.delegate receivedStatusMessage:@"Session to port binding successfully."];
         
-        NSString *message = [NSString stringWithFormat:@"Attempting to advertise service %@ using transport %@.", self.serviceName, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : @"ICE"];
+        NSString *message = [NSString stringWithFormat:@"Attempting to advertise service %@ using transport %@.", self.serviceName, self.delegate.transportType == kAJNTransportMaskAny ? @"Any" : self.delegate.transportType == kAJNTransportMaskICE ? @"ICE" : @"Any but ICE"];
         NSLog(@"%@", message);
         [self.delegate receivedStatusMessage:message];
 
