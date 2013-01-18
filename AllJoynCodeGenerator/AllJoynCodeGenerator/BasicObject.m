@@ -35,42 +35,42 @@
 
 @implementation BasicObject
 
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
      @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
      @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
      @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
-- (void)methodWithNoReturnAndNoArgs
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
      @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
-- (NSString*)methodWithReturnAndNoInArgs
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
      @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must implement this method" userInfo:nil]);   
 }
 
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //
@@ -89,7 +89,7 @@
 
 @implementation PingObject
 
-- (void)pingWithValue:(NSNumber*)value
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message
 {
     // TODO: complete the implementation of this method
     //

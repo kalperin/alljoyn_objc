@@ -277,7 +277,7 @@ void BasicObjectImpl::Concatentate(const InterfaceDescription::Member *member, M
     // call the Objective-C delegate method
     //
     
-	outArg0 = [(id<BasicStringsDelegate>)delegate concatenateString:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] withString:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding]];
+	outArg0 = [(id<BasicStringsDelegate>)delegate concatenateString:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] withString:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] message:[[AJNMessage alloc] initWithHandle:&msg]];
             
         
     // formulate the reply
@@ -320,7 +320,7 @@ void BasicObjectImpl::MethodWithMultipleOutArgs(const InterfaceDescription::Memb
     // call the Objective-C delegate method
     //
     
-	[(id<BasicStringsDelegate>)delegate methodWithOutString:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inString2:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] outString1:&outArg0 outString2:&outArg1];
+	[(id<BasicStringsDelegate>)delegate methodWithOutString:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inString2:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] outString1:&outArg0 outString2:&outArg1  message:[[AJNMessage alloc] initWithHandle:&msg]];
             
         
     // formulate the reply
@@ -357,7 +357,7 @@ void BasicObjectImpl::MethodWithOnlyOutArgs(const InterfaceDescription::Member *
     // call the Objective-C delegate method
     //
     
-	[(id<BasicStringsDelegate>)delegate methodWithOnlyOutString:&outArg0 outString2:&outArg1];
+	[(id<BasicStringsDelegate>)delegate methodWithOnlyOutString:&outArg0 outString2:&outArg1  message:[[AJNMessage alloc] initWithHandle:&msg]];
             
         
     // formulate the reply
@@ -388,7 +388,7 @@ void BasicObjectImpl::MethodWithNoReturnAndNoArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	[(id<BasicStringsDelegate>)delegate methodWithNoReturnAndNoArgs];            
+	[(id<BasicStringsDelegate>)delegate methodWithNoReturnAndNoArgs:[[AJNMessage alloc] initWithHandle:&msg]];            
         
     
     }
@@ -410,7 +410,7 @@ void BasicObjectImpl::MethodWithReturnAndNoInArgs(const InterfaceDescription::Me
     // call the Objective-C delegate method
     //
     
-	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithReturnAndNoInArgs];
+	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithReturnAndNoInArgs:[[AJNMessage alloc] initWithHandle:&msg]];
             
         
     // formulate the reply
@@ -452,7 +452,7 @@ void BasicObjectImpl::MethodWithComplexTypesForArgs(const InterfaceDescription::
     // call the Objective-C delegate method
     //
     
-	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithStringArray:inArg0 structWithStringAndInt:inArg1];
+	outArg0 = [(id<BasicStringsDelegate>)delegate methodWithStringArray:inArg0 structWithStringAndInt:inArg1 message:[[AJNMessage alloc] initWithHandle:&msg]];
             
         
     // formulate the reply
@@ -477,10 +477,10 @@ QStatus BasicObjectImpl::SendTestStringPropertyChanged(const char * oldString,co
     MsgArg args[2];
 
     
-    args[0].Set( "s", oldString );
-
-    args[1].Set( "s", newString );
-
+            args[0].Set( "s", oldString );
+        
+            args[1].Set( "s", newString );
+        
 
     return Signal(destination, sessionId, *TestStringPropertyChangedSignalMember, args, 2, timeToLive, flags);
 }
@@ -491,9 +491,7 @@ QStatus BasicObjectImpl::SendTestSignalWithComplexArgs(MsgArg* oldString, const 
 
     MsgArg args[1];
 
-    
-    args[0].Set( "as", oldString );
-
+    args[0] = *oldString;
 
     return Signal(destination, sessionId, *TestSignalWithComplexArgsSignalMember, args, 1, timeToLive, flags);
 }
@@ -516,8 +514,8 @@ QStatus BasicObjectImpl::SendChat(const char * message, const char* destination,
     MsgArg args[1];
 
     
-    args[0].Set( "s", message );
-
+            args[0].Set( "s", message );
+        
 
     return Signal(destination, sessionId, *ChatSignalMember, args, 1, timeToLive, flags);
 }
@@ -608,7 +606,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     // call the Objective-C delegate method
     //
     
-	[(id<PingObjectDelegate>)delegate pingWithValue:[NSNumber numberWithUnsignedChar:inArg0]];            
+	[(id<PingObjectDelegate>)delegate pingWithValue:[NSNumber numberWithUnsignedChar:inArg0]  message:[[AJNMessage alloc] initWithHandle:&msg]];            
         
     
     }
@@ -782,7 +780,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
     
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -791,7 +789,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -800,7 +798,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -809,7 +807,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithNoReturnAndNoArgs
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -818,7 +816,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (NSString*)methodWithReturnAndNoInArgs
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -827,7 +825,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -1237,7 +1235,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
     
-- (void)pingWithValue:(NSNumber*)value
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message
 {
     //
     // GENERATED CODE - DO NOT EDIT

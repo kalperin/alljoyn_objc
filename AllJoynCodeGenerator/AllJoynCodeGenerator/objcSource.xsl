@@ -524,7 +524,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 
 <xsl:template match="method" mode="objc-proxy-method">
     <xsl:text>&#13;&#10;</xsl:text>
-    <xsl:apply-templates select="." mode="objc-declaration"/>
+    <xsl:apply-templates select="." mode="objc-proxy-declaration"/>
 {
     [self addInterfaceNamed:@"<xsl:value-of select="../@name"/>"];
     
@@ -742,6 +742,38 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
+            <xsl:text>:(AJNMessage *)message</xsl:text>
+        </xsl:when>
+        <xsl:when test="count(./arg[@direction='out']) > 1">
+            <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
+            <xsl:if test="count(./arg[@direction='in']) > 1">
+                <xsl:text>&#32;</xsl:text>
+            </xsl:if>
+            <xsl:apply-templates select="./arg[@direction='out']" mode="objc-messageParam"/>
+            <xsl:text> message:(AJNMessage *)message</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
+            <xsl:text> message:(AJNMessage *)message</xsl:text>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+<xsl:template match="method" mode="objc-proxy-declaration">
+    <xsl:text>- (</xsl:text>
+    <xsl:choose>
+        <xsl:when test="count(./arg[@direction='out']) > 1 or count(./arg[@direction='out']) = 0">
+            <xsl:text>void</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:apply-templates select="./arg[@direction='out']" mode="objc-argType"/>
+        </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>)</xsl:text>
+    <xsl:choose>
+        <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
+            <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
+            
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -992,15 +1024,15 @@ void <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@valu
     //
     <xsl:choose>
         <xsl:when test="count(arg[@direction='out'])=1">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg)=1"><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/></xsl:when><xsl:otherwise><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:otherwise></xsl:choose>];
+            <xsl:text>&#13;&#10;&#09;</xsl:text>outArg0 = [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg)=1"><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>:[[AJNMessage alloc] initWithHandle:&#38;msg]</xsl:when><xsl:otherwise><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/> message:[[AJNMessage alloc] initWithHandle:&#38;msg]</xsl:otherwise></xsl:choose>];
             
         </xsl:when>
         <xsl:when test="count(arg[@direction='out'])>1">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/><xsl:if test="count(arg[@direction='in']) > 0"><xsl:text> </xsl:text></xsl:if><xsl:apply-templates select="arg[@direction='out']" mode="objc-messageCall"/>];
+            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/><xsl:if test="count(arg[@direction='in']) > 0"><xsl:text> </xsl:text></xsl:if><xsl:apply-templates select="arg[@direction='out']" mode="objc-messageCall"/>  message:[[AJNMessage alloc] initWithHandle:&#38;msg]];
             
         </xsl:when>
         <xsl:when test="count(arg[@direction='out'])=0">
-            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg[@direction='in']) > 0"><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/></xsl:when><xsl:otherwise><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/></xsl:otherwise></xsl:choose>];            
+            <xsl:text>&#13;&#10;&#09;</xsl:text>[(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>&gt;)delegate <xsl:choose><xsl:when test="count(arg[@direction='in']) > 0"><xsl:apply-templates select="arg[@direction='in']" mode="objc-messageCall"/>  message:[[AJNMessage alloc] initWithHandle:&#38;msg]</xsl:when><xsl:otherwise><xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>:[[AJNMessage alloc] initWithHandle:&#38;msg]</xsl:otherwise></xsl:choose>];            
         </xsl:when>
     </xsl:choose>
 
@@ -1106,7 +1138,12 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
 </xsl:template>
 
 <xsl:template match="arg" mode="cpp-signal-msg-arg">
-    args[<xsl:value-of select="position()-1"/>].Set( "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/> );
+    <xsl:choose>
+        <xsl:when test="@type='s' or @type='o' or @type='y' or @type='d' or @type='b' or @type='n' or @type='q' or @type='i' or @type='u' or @type='x' or @type='t'">
+            args[<xsl:value-of select="position()-1"/>].Set( "<xsl:value-of select="@type"/>", <xsl:value-of select="@name"/> );
+        </xsl:when>
+        <xsl:otherwise>args[<xsl:value-of select="position()-1"/>] = *<xsl:value-of select="@name"/>;</xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template name="objcMessageCallArg">

@@ -78,6 +78,7 @@
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
+            <xsl:text>:(AJNMessage *)message</xsl:text>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -85,9 +86,11 @@
                 <xsl:text>&#32;</xsl:text>
             </xsl:if>
             <xsl:apply-templates select="./arg[@direction='out']" mode="objc-messageParam"/>
+            <xsl:text> message:(AJNMessage *)message</xsl:text>
         </xsl:when>
         <xsl:otherwise>
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
+            <xsl:text> message:(AJNMessage *)message</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
     <xsl:text>;&#13;&#10;</xsl:text>

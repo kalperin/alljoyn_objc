@@ -51,12 +51,12 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithNoReturnAndNoArgs;
-- (NSString*)methodWithReturnAndNoInArgs;
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct;
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message;
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message;
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message;
 
 // signals
 //
@@ -154,7 +154,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value;
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message;
 
 
 @end
@@ -180,12 +180,12 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2;
-- (void)methodWithNoReturnAndNoArgs;
-- (NSString*)methodWithReturnAndNoInArgs;
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct;
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message;
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message;
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message;
 
 
 // signals
@@ -245,7 +245,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value;
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message;
 
 
 // signals
