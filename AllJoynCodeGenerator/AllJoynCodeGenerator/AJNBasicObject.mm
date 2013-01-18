@@ -780,7 +780,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
     
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -789,7 +789,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -798,7 +798,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -807,7 +807,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -816,7 +816,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -825,7 +825,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     @throw([NSException exceptionWithName:@"NotImplementedException" reason:@"You must override this method in a subclass" userInfo:nil]);
 }
 
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -1235,7 +1235,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
 }
 
     
-- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)methodCallMessage
 {
     //
     // GENERATED CODE - DO NOT EDIT
@@ -1517,14 +1517,14 @@ void BasicStringsDelegateSignalHandlerImpl::TestStringPropertyChangedSignalHandl
         
     qcc::String inArg1 = msg->GetArg(1)->v_string.str;
         
-        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        AJNMessage *signalMessage = [[AJNMessage alloc] initWithHandle:&msg];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
         AJNSessionId sessionId = msg->GetSessionId();        
-        NSLog(@"Received TestStringPropertyChanged signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        NSLog(@"Received TestStringPropertyChanged signal from %@ on path %@ for session id %u [%s > %s]", [signalMessage senderName], objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestStringPropertyChangedFrom:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] to:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId fromSender:from];
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestStringPropertyChangedFrom:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] to:[NSString stringWithCString:inArg1.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId message:signalMessage];
                 
         });
         
@@ -1537,14 +1537,14 @@ void BasicStringsDelegateSignalHandlerImpl::TestSignalWithComplexArgsSignalHandl
         
     AJNMessageArgument* inArg0 = [[AJNMessageArgument alloc] initWithHandle:(AJNHandle)new MsgArg(*(msg->GetArg(0))) shouldDeleteHandleOnDealloc:YES];        
         
-        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        AJNMessage *signalMessage = [[AJNMessage alloc] initWithHandle:&msg];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
         AJNSessionId sessionId = msg->GetSessionId();        
-        NSLog(@"Received TestSignalWithComplexArgs signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        NSLog(@"Received TestSignalWithComplexArgs signal from %@ on path %@ for session id %u [%s > %s]", [signalMessage senderName], objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithComplexArgs:inArg0 inSession:sessionId fromSender:from];
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithComplexArgs:inArg0 inSession:sessionId message:signalMessage];
                 
         });
         
@@ -1555,14 +1555,14 @@ void BasicStringsDelegateSignalHandlerImpl::TestSignalWithNoArgsSignalHandler(co
 {
     @autoreleasepool {
         
-        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        AJNMessage *signalMessage = [[AJNMessage alloc] initWithHandle:&msg];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
         AJNSessionId sessionId = msg->GetSessionId();        
-        NSLog(@"Received TestSignalWithNoArgs signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        NSLog(@"Received TestSignalWithNoArgs signal from %@ on path %@ for session id %u [%s > %s]", [signalMessage senderName], objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithNoArgsInSession:sessionId fromSender:from];            
+            [(id<BasicStringsDelegateSignalHandler>)m_delegate didReceiveTestSignalWithNoArgsInSession:sessionId message:signalMessage];
                 
         });
         
@@ -1701,14 +1701,14 @@ void BasicChatDelegateSignalHandlerImpl::ChatSignalHandler(const ajn::InterfaceD
         
     qcc::String inArg0 = msg->GetArg(0)->v_string.str;
         
-        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        AJNMessage *signalMessage = [[AJNMessage alloc] initWithHandle:&msg];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
         AJNSessionId sessionId = msg->GetSessionId();        
-        NSLog(@"Received Chat signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        NSLog(@"Received Chat signal from %@ on path %@ for session id %u [%s > %s]", [signalMessage senderName], objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            [(id<BasicChatDelegateSignalHandler>)m_delegate didReceiveMessage:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId fromSender:from];
+            [(id<BasicChatDelegateSignalHandler>)m_delegate didReceiveMessage:[NSString stringWithCString:inArg0.c_str() encoding:NSUTF8StringEncoding] inSession:sessionId message:signalMessage];
                 
         });
         

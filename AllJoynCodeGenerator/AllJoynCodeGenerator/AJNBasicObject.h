@@ -51,12 +51,12 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
-- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message;
-- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message;
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message;
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)methodCallMessage;
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)methodCallMessage;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)methodCallMessage;
 
 // signals
 //
@@ -80,9 +80,9 @@
 
 // signals
 //
-- (void)didReceiveTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
-- (void)didReceiveTestSignalWithComplexArgs:(AJNMessageArgument*)oldString inSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
-- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
+- (void)didReceiveTestStringPropertyChangedFrom:(NSString*)oldString to:(NSString*)newString inSession:(AJNSessionId)sessionId message:(AJNMessage *)signalMessage;
+- (void)didReceiveTestSignalWithComplexArgs:(AJNMessageArgument*)oldString inSession:(AJNSessionId)sessionId message:(AJNMessage *)signalMessage;
+- (void)didReceiveTestSignalWithNoArgsInSession:(AJNSessionId)sessionId message:(AJNMessage *)signalMessage;
 
 
 @end
@@ -129,7 +129,7 @@
 
 // signals
 //
-- (void)didReceiveMessage:(NSString*)message inSession:(AJNSessionId)sessionId fromSender:(NSString*)sender;
+- (void)didReceiveMessage:(NSString*)message inSession:(AJNSessionId)sessionId message:(AJNMessage *)signalMessage;
 
 
 @end
@@ -154,7 +154,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message;
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)methodCallMessage;
 
 
 @end
@@ -180,12 +180,12 @@
 
 // methods
 //
-- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)message;
-- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
-- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)message;
-- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)message;
-- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)message;
-- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)message;
+- (NSString*)concatenateString:(NSString*)str1 withString:(NSString*)str2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithOutString:(NSString*)str1 inString2:(NSString*)str2 outString1:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithOnlyOutString:(NSString**)outStr1 outString2:(NSString**)outStr2 message:(AJNMessage *)methodCallMessage;
+- (void)methodWithNoReturnAndNoArgs:(AJNMessage *)methodCallMessage;
+- (NSString*)methodWithReturnAndNoInArgs:(AJNMessage *)methodCallMessage;
+- (NSString*)methodWithStringArray:(AJNMessageArgument*)stringArray structWithStringAndInt:(AJNMessageArgument*)aStruct message:(AJNMessage *)methodCallMessage;
 
 
 // signals
@@ -245,7 +245,7 @@
 
 // methods
 //
-- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)message;
+- (void)pingWithValue:(NSNumber*)value message:(AJNMessage *)methodCallMessage;
 
 
 // signals

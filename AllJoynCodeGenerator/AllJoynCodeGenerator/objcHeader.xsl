@@ -176,7 +176,7 @@
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
-            <xsl:text>:(AJNMessage *)message</xsl:text>
+            <xsl:text>:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -184,11 +184,11 @@
                 <xsl:text>&#32;</xsl:text>
             </xsl:if>
             <xsl:apply-templates select="./arg[@direction='out']" mode="objc-messageParam"/>
-            <xsl:text> message:(AJNMessage *)message</xsl:text>
+            <xsl:text> message:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:when>
         <xsl:otherwise>
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
-            <xsl:text> message:(AJNMessage *)message</xsl:text>
+            <xsl:text> message:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
     <xsl:text>;&#13;&#10;</xsl:text>
@@ -250,7 +250,7 @@
             <xsl:text>InSession:(AJNSessionId)sessionId</xsl:text>            
         </xsl:when>
     </xsl:choose>    
-    <xsl:text> fromSender:(NSString*)sender;&#13;&#10;</xsl:text>
+    <xsl:text> message:(AJNMessage *)signalMessage;&#13;&#10;</xsl:text>
 </xsl:template>
 
 <xsl:template match="property" mode="objc-declaration">

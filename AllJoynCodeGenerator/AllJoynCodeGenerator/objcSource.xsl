@@ -373,18 +373,18 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 {
     @autoreleasepool {
         <xsl:apply-templates select="arg" mode="cpp-unpack-message-arg"/>
-        NSString *from = [NSString stringWithCString:msg->GetSender() encoding:NSUTF8StringEncoding];
+        AJNMessage *signalMessage = [[AJNMessage alloc] initWithHandle:&#38;msg];
         NSString *objectPath = [NSString stringWithCString:msg->GetObjectPath() encoding:NSUTF8StringEncoding];
         AJNSessionId sessionId = msg->GetSessionId();        
-        NSLog(@"Received <xsl:value-of select="@name"/> signal from %@ on path %@ for session id %u [%s > %s]", from, objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
+        NSLog(@"Received <xsl:value-of select="@name"/> signal from %@ on path %@ for session id %u [%s > %s]", [signalMessage senderName], objectPath, msg->GetSessionId(), msg->GetRcvEndpointName(), msg->GetDestination() ? msg->GetDestination() : "broadcast");
         
         dispatch_async(dispatch_get_main_queue(), ^{
             <xsl:choose>
                 <xsl:when test="count(arg) > 0">
-            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:apply-templates select="./arg" mode="objc-messageCall"/> inSession:sessionId fromSender:from];
+            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:apply-templates select="./arg" mode="objc-messageCall"/> inSession:sessionId message:signalMessage];
                 </xsl:when>
                 <xsl:otherwise>
-            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:value-of select="@name"/>InSession:sessionId fromSender:from];            
+            [(id&lt;<xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/>SignalHandler&gt;)m_delegate didReceive<xsl:value-of select="@name"/>InSession:sessionId message:signalMessage];
                 </xsl:otherwise>
             </xsl:choose>
         });
@@ -742,7 +742,7 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
     <xsl:choose>
         <xsl:when test="count(./arg) = 0 or (count(./arg) = 1 and count(./arg[@direction='out']) = 1)">
             <xsl:call-template name="uncapitalizeFirstLetterOfNameAttr"/>
-            <xsl:text>:(AJNMessage *)message</xsl:text>
+            <xsl:text>:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:when>
         <xsl:when test="count(./arg[@direction='out']) > 1">
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
@@ -750,11 +750,11 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
                 <xsl:text>&#32;</xsl:text>
             </xsl:if>
             <xsl:apply-templates select="./arg[@direction='out']" mode="objc-messageParam"/>
-            <xsl:text> message:(AJNMessage *)message</xsl:text>
+            <xsl:text> message:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:when>
         <xsl:otherwise>
             <xsl:apply-templates select="./arg[@direction='in']" mode="objc-messageParam"/>
-            <xsl:text> message:(AJNMessage *)message</xsl:text>
+            <xsl:text> message:(AJNMessage *)methodCallMessage</xsl:text>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
