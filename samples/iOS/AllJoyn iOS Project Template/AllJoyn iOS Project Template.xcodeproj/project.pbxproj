@@ -13,7 +13,6 @@
 		AC339CD5157FE32C00AF660C /* SampleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339CD3157FE32C00AF660C /* SampleObject.m */; };
 		AC339D2515810D7000AF660C /* SampleService.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339D2415810D6F00AF660C /* SampleService.m */; };
 		AC339D2815810D8900AF660C /* SampleClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339D2715810D8800AF660C /* SampleClient.m */; };
-		AC339D2A15810DBC00AF660C /* *****README***** in Resources */ = {isa = PBXBuildFile; fileRef = AC339D2915810DBC00AF660C /* *****README***** */; };
 		AC339D3315811EEE00AF660C /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AC339D3215811EEE00AF660C /* Constants.m */; };
 		AC3A98071576B59100CFF856 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3A98061576B59100CFF856 /* UIKit.framework */; };
 		AC3A98091576B59100CFF856 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3A98081576B59100CFF856 /* Foundation.framework */; };
@@ -51,6 +50,7 @@
 		AC8D8DE61614C79500361742 /* AJNTransportMask.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D8DCD1614C79500361742 /* AJNTransportMask.m */; };
 		AC8D8DE71614C79500361742 /* AJNVersion.mm in Sources */ = {isa = PBXBuildFile; fileRef = AC8D8DD01614C79500361742 /* AJNVersion.mm */; };
 		AC8D8DE91614C7CA00361742 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8D8DE81614C7CA00361742 /* SystemConfiguration.framework */; };
+		AC9D673F16A9C8EE0014EF83 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC9D673E16A9C8EE0014EF83 /* README.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,6 @@
 		AC339D2415810D6F00AF660C /* SampleService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleService.m; sourceTree = "<group>"; };
 		AC339D2615810D8800AF660C /* SampleClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleClient.h; sourceTree = "<group>"; };
 		AC339D2715810D8800AF660C /* SampleClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleClient.m; sourceTree = "<group>"; };
-		AC339D2915810DBC00AF660C /* *****README***** */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "*****README*****"; sourceTree = "<group>"; };
 		AC339D3115811EED00AF660C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AC339D3215811EEE00AF660C /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		AC3A98021576B59100CFF856 /* AllJoyn iOS Project Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AllJoyn iOS Project Template.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +149,7 @@
 		AC8D8DCF1614C79500361742 /* AJNVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJNVersion.h; path = ../../../../AllJoynFramework/AllJoynFramework/AJNVersion.h; sourceTree = "<group>"; };
 		AC8D8DD01614C79500361742 /* AJNVersion.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AJNVersion.mm; path = ../../../../AllJoynFramework/AllJoynFramework/AJNVersion.mm; sourceTree = "<group>"; };
 		AC8D8DE81614C7CA00361742 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC9D673E16A9C8EE0014EF83 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				AC339CD6157FE33800AF660C /* AllJoyn Framework */,
-				AC339D2915810DBC00AF660C /* *****README***** */,
+				AC9D673E16A9C8EE0014EF83 /* README.txt */,
 				AC339CD0157FE32C00AF660C /* AJNSampleObject.h */,
 				AC339CD1157FE32C00AF660C /* AJNSampleObject.mm */,
 				AC339CD2157FE32C00AF660C /* SampleObject.h */,
@@ -388,7 +388,7 @@
 		AC3A97F91576B59000CFF856 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "2012-2013 Qualcomm Innovation Center, Inc.";
 			};
 			buildConfigurationList = AC3A97FC1576B59000CFF856 /* Build configuration list for PBXProject "AllJoyn iOS Project Template" */;
@@ -417,8 +417,8 @@
 			files = (
 				AC3A98111576B59100CFF856 /* InfoPlist.strings in Resources */,
 				AC339CB5157FC2FB00AF660C /* SampleAllJoynObjectModel.xml in Resources */,
-				AC339D2A15810DBC00AF660C /* *****README***** in Resources */,
 				AC8D8D991614C77300361742 /* Default-568h@2x.png in Resources */,
+				AC9D673F16A9C8EE0014EF83 /* README.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +719,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
@@ -740,6 +741,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -788,6 +790,7 @@
 				AC56121E1627492000C171F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
