@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
+// Copyright 2013, Qualcomm Innovation Center, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -75,6 +75,7 @@
 // Initialization
 //
 - (id)init;
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment;
 
 // Bus Control
 //

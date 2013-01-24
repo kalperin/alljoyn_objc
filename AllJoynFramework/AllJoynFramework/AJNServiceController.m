@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
+// Copyright 2013, Qualcomm Innovation Center, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -56,6 +56,26 @@
     return self;
 }
 
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment
+{
+    self = [super init];
+    
+    if (self) {
+        // set reasonable defaults for the service
+        //
+        self.allowRemoteMessages = YES;
+        self.trafficType = kAJNTrafficMessages;
+        self.proximityOptions = kAJNProximityAny;
+        self.transportMask = kAJNTransportMaskAny;
+        self.multiPointSessionsEnabled = YES;
+        self.connectionArguments = @"null:";
+        
+        self.bus = busAttachment;
+    }
+    
+    return self;
+}
+
 - (void)sendStatusMessage:(NSString *)message
 {
     if ([self.delegate respondsToSelector:@selector(didReceiveStatusMessage:)]) {
@@ -68,24 +88,30 @@
     QStatus status = ER_OK;
     
     @try {
-        // allocate and initalize the bus
-        //
-        self.bus = [[AJNBusAttachment alloc] initWithApplicationName:self.delegate.applicationName allowRemoteMessages:self.allowRemoteMessages];
         
-        // start the bus
-        //
-        status = [self.bus start];
-        if (status != ER_OK) {
-            [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to start. %@",[AJNStatus descriptionForStatusCode:status]]];
-            @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to start bus" userInfo:nil];
+        if (self.bus == nil) {
+            // allocate and initalize the bus
+            //
+            self.bus = [[AJNBusAttachment alloc] initWithApplicationName:self.delegate.applicationName allowRemoteMessages:self.allowRemoteMessages];
         }
-        [self sendStatusMessage:@"Bus started successfully."];
         
-        // notify the delegate that the bus started
-        //
-        if ([self.delegate respondsToSelector:@selector(didStartBus:)]) {
-            [self.delegate didStartBus:self.bus];
+        if (!self.bus.isStarted) {
+            // start the bus
+            //
+            status = [self.bus start];
+            if (status != ER_OK) {
+                [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to start. %@",[AJNStatus descriptionForStatusCode:status]]];
+                @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to start bus" userInfo:nil];
+            }
+            [self sendStatusMessage:@"Bus started successfully."];
+
+            // notify the delegate that the bus started
+            //
+            if ([self.delegate respondsToSelector:@selector(didStartBus:)]) {
+                [self.delegate didStartBus:self.bus];
+            }
         }
+        
         
         // inform the delegate that it is time to create the bus object
         //
@@ -105,19 +131,21 @@
         
         [self sendStatusMessage:@"Bus object registered successfully."];
         
-        // connect the bus using the arguments specified
-        //
-        status = [self.bus connectWithArguments:self.connectionArguments];
-        if (status != ER_OK) {
-            [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to connect. %@",[AJNStatus descriptionForStatusCode:status]]];
-            @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to connect to bus" userInfo:nil];
-        }
-        [self sendStatusMessage:@"Bus connected successfully."];
-
-        // notify the delegate that the bus connected
-        //
-        if ([self.delegate respondsToSelector:@selector(didConnectBus:)]) {
-            [self.delegate didConnectBus:self.bus];
+        if (!self.bus.isConnected) {
+            // connect the bus using the arguments specified
+            //
+            status = [self.bus connectWithArguments:self.connectionArguments];
+            if (status != ER_OK) {
+                [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to connect. %@",[AJNStatus descriptionForStatusCode:status]]];
+                @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to connect to bus" userInfo:nil];
+            }
+            [self sendStatusMessage:@"Bus connected successfully."];
+            
+            // notify the delegate that the bus connected
+            //
+            if ([self.delegate respondsToSelector:@selector(didConnectBus:)]) {
+                [self.delegate didConnectBus:self.bus];
+            }
         }
 
         // register the service controller as a bus listener, which allows us to find
@@ -187,7 +215,7 @@
     status = [self.bus disconnectWithArguments:self.connectionArguments];
     if (status != ER_OK) {
         [self sendStatusMessage:[NSString stringWithFormat:@"Failed to disconnect from bus. %@",[AJNStatus descriptionForStatusCode:status]]];
-        @throw [NSException exceptionWithName:@"PingClient::stop: Failed" reason:@"Failed to disconnect from bus" userInfo:nil];
+        @throw [NSException exceptionWithName:@"AJNServiceController::stop: Failed" reason:@"Failed to disconnect from bus" userInfo:nil];
     }
     [self sendStatusMessage:@"Bus disconnected successfully."];
     
@@ -197,7 +225,7 @@
     status = [self.bus stop];
     if (status != ER_OK) {
         [self sendStatusMessage:[NSString stringWithFormat:@"Failed to stop the bus. %@",[AJNStatus descriptionForStatusCode:status]]];
-        @throw [NSException exceptionWithName:@"PingClient::stop: Failed" reason:@"Failed to stop the bus" userInfo:nil];
+        @throw [NSException exceptionWithName:@"AJNServiceController::stop: Failed" reason:@"Failed to stop the bus" userInfo:nil];
     }
     
     [self.bus waitUntilStopCompleted];
@@ -228,7 +256,7 @@
 
 - (void)didFindAdvertisedName:(NSString *)name withTransportMask:(AJNTransportMask)transport namePrefix:(NSString *)namePrefix
 {
-    NSLog(@"PingClient::didFindAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix);
+    NSLog(@"AJNServiceController::didFindAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix);
     [self sendStatusMessage:[NSString stringWithFormat:@"Discovered advertised name [%@] on the bus.", name]];
     if ([self.delegate respondsToSelector:@selector(didFindAdvertisedName:withTransportMask:namePrefix:)]) {
         [self.delegate didFindAdvertisedName:name withTransportMask:transport namePrefix:namePrefix];
@@ -237,7 +265,7 @@
 
 - (void)didLoseAdvertisedName:(NSString*)name withTransportMask:(AJNTransportMask)transport namePrefix:(NSString*)namePrefix
 {
-    NSString *message = [NSString stringWithFormat:@"PingClient::didLoseAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix];
+    NSString *message = [NSString stringWithFormat:@"AJNServiceController::didLoseAdvertisedName:%@ withTransportMask:%i namePrefix:%@", name, transport, namePrefix];
     NSLog(@"%@", message);
     [self sendStatusMessage:message];
     if ([self.delegate respondsToSelector:@selector(didLoseAdvertisedName:withTransportMask:namePrefix:)]) {
@@ -247,7 +275,7 @@
 
 - (void)nameOwnerChanged:(NSString *)name to:(NSString *)newOwner from:(NSString *)previousOwner
 {
-    NSString *message = [NSString stringWithFormat:@"PingClient::nameOwnerChanged:%@ to:%@ namePrefix:%@", name, newOwner, previousOwner];
+    NSString *message = [NSString stringWithFormat:@"AJNServiceController::nameOwnerChanged:%@ to:%@ namePrefix:%@", name, newOwner, previousOwner];
     NSLog(@"%@", message);
     [self sendStatusMessage:message];
     if ([self.delegate respondsToSelector:@selector(nameOwnerChanged:to:from:)]) {
@@ -275,7 +303,7 @@
 
 - (void)didJoin:(NSString *)joiner inSessionWithId:(AJNSessionId)sessionId onSessionPort:(AJNSessionPort)sessionPort
 {
-    NSLog(@"SampleService::didJoin:%@ inSessionWithId:%u onSessionPort:%u", joiner, sessionId, sessionPort);
+    NSLog(@"AJNServiceController::didJoin:%@ inSessionWithId:%u onSessionPort:%u", joiner, sessionId, sessionPort);
 
     self.sessionId = sessionId;
     
@@ -287,7 +315,7 @@
 
 - (BOOL)shouldAcceptSessionJoinerNamed:(NSString *)joiner onSessionPort:(AJNSessionPort)sessionPort withSessionOptions:(AJNSessionOptions *)options
 {
-    NSLog(@"SampleService::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u", joiner, sessionPort);
+    NSLog(@"AJNServiceController::shouldAcceptSessionJoinerNamed:%@ onSessionPort:%u", joiner, sessionPort);
     
     [self sendStatusMessage:[NSString stringWithFormat:@"Received join request from %@ on port %d.", joiner, sessionPort]];
     
@@ -317,7 +345,7 @@
 
 - (void)sessionWasLost:(AJNSessionId)sessionId
 {
-    NSString *message = [NSString stringWithFormat:@"PingClient::sessionWasLost:%u", sessionId];
+    NSString *message = [NSString stringWithFormat:@"AJNServiceController::sessionWasLost:%u", sessionId];
     NSLog(@"%@", message);
     [self sendStatusMessage:message];
     if ([self.delegate respondsToSelector:@selector(sessionWasLost:)]) {
@@ -327,7 +355,7 @@
 
 - (void)didAddMemberNamed:(NSString*)memberName toSession:(AJNSessionId)sessionId
 {
-    NSString *message = [NSString stringWithFormat:@"PingClient::didAddMemberNamed:%@ toSession:%u", memberName, sessionId];
+    NSString *message = [NSString stringWithFormat:@"AJNServiceController::didAddMemberNamed:%@ toSession:%u", memberName, sessionId];
     NSLog(@"%@", message);
     [self sendStatusMessage:message];
     if ([self.delegate respondsToSelector:@selector(didAddMemberNamed:toSession:)]) {
@@ -337,7 +365,7 @@
 
 - (void)didRemoveMemberNamed:(NSString*)memberName fromSession:(AJNSessionId)sessionId
 {
-    NSString *message = [NSString stringWithFormat:@"PingClient::didRemoveMemberNamed:%@ fromSession:%u", memberName, sessionId];
+    NSString *message = [NSString stringWithFormat:@"AJNServiceController::didRemoveMemberNamed:%@ fromSession:%u", memberName, sessionId];
     NSLog(@"%@", message);
     [self sendStatusMessage:message];
     if ([self.delegate respondsToSelector:@selector(didRemoveMemberNamed:fromSession:)]) {

@@ -1,0 +1,45 @@
+<!--
+ ////////////////////////////////////////////////////////////////////////////////
+ // Copyright 2013, Qualcomm Innovation Center, Inc.
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+ // You may obtain a copy of the License at
+ //
+ // http://www.apache.org/licenses/LICENSE-2.0
+ //
+ // Unless required by applicable law or agreed to in writing, software
+ // distributed under the License is distributed on an "AS IS" BASIS,
+ // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ ////////////////////////////////////////////////////////////////////////////////
+ -->
+<xml>
+    <node name="/PerfService">
+        <annotation name="org.alljoyn.lang.objc" value="PerformanceObject"/>
+        <interface name="org.alljoyn.bus.test.perf.both">
+            <annotation name="org.alljoyn.lang.objc" value="PerformanceObjectDelegate"/>
+            <method name="CheckPacket">
+                <arg name="packetIndex" type="i" direction="in">
+                    <annotation name="org.alljoyn.lang.objc" value="checkPacketAtIndex:"/>
+                </arg>
+                <arg name="byteArray" type="ay" direction="in">
+                    <annotation name="org.alljoyn.lang.objc" value="payLoad:"/>
+                </arg>
+                <arg name="packetSize" type="i" direction="in">
+                    <annotation name="org.alljoyn.lang.objc" value="packetSize:"/>
+                </arg>
+                <arg name="result" type="b" direction="out"/>
+            </method>
+            <signal name="SendPacket">
+                <arg name="packetIndex" type="i">
+                    <annotation name="org.alljoyn.lang.objc" value="PacketAtIndex:"/>
+                </arg>
+                <arg name="byteArray" type="ay">
+                    <annotation name="org.alljoyn.lang.objc" value="payLoad:"/>
+                </arg>
+            </signal>
+        </interface>
+    </node>
+</xml>

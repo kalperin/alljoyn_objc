@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-// Copyright 2012, Qualcomm Innovation Center, Inc.
+// Copyright 2013, Qualcomm Innovation Center, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,6 +59,27 @@
 
 }
 
+- (id)initWithBusAttachment:(AJNBusAttachment *)busAttachment
+{
+    self = [super init];
+    
+    if (self) {
+        //
+        // set reasonable defaults for the client
+        //
+        self.allowRemoteMessages = YES;
+        self.trafficType = kAJNTrafficMessages;
+        self.proximityOptions = kAJNProximityAny;
+        self.transportMask = kAJNTransportMaskAny;
+        self.multiPointSessionsEnabled = YES;
+        self.connectionArguments = @"null:";
+
+        self.bus = busAttachment;
+    }
+    
+    return self;
+}
+
 - (void)sendStatusMessage:(NSString *)message
 {
     if ([self.delegate respondsToSelector:@selector(didReceiveStatusMessage:)]) {
@@ -71,38 +92,47 @@
     QStatus status = ER_OK;
     
     @try {
-        // allocate and initalize the bus
-        //
-        self.bus = [[AJNBusAttachment alloc] initWithApplicationName:self.delegate.applicationName allowRemoteMessages:self.allowRemoteMessages];
-        
-        // start the bus
-        //
-        status = [self.bus start];
-        if (status != ER_OK) {
-            [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to start. %@",[AJNStatus descriptionForStatusCode:status]]];
-            @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to start bus" userInfo:nil];
-        }
-        [self sendStatusMessage:@"Bus started successfully."];
-
-        // notify the delegate that the bus started
-        //
-        if ([self.delegate respondsToSelector:@selector(didStartBus:)]) {
-            [self.delegate didStartBus:self.bus];
+        if (self.bus == nil) {
+            
+            // allocate and initalize the bus
+            //
+            self.bus = [[AJNBusAttachment alloc] initWithApplicationName:self.delegate.applicationName allowRemoteMessages:self.allowRemoteMessages];
         }
         
-        // connect the bus using the specified transport
-        //
-        status = [self.bus connectWithArguments:self.connectionArguments];
-        if (status != ER_OK) {
-            [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to connect. %@",[AJNStatus descriptionForStatusCode:status]]];
-            @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to connect to bus" userInfo:nil];
+        if (!self.bus.isStarted) {
+            
+            // start the bus
+            //
+            status = [self.bus start];
+            if (status != ER_OK) {
+                [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to start. %@",[AJNStatus descriptionForStatusCode:status]]];
+                @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to start bus" userInfo:nil];
+            }
+            [self sendStatusMessage:@"Bus started successfully."];
+            
+            // notify the delegate that the bus started
+            //
+            if ([self.delegate respondsToSelector:@selector(didStartBus:)]) {
+                [self.delegate didStartBus:self.bus];
+            }
         }
-        [self sendStatusMessage:@"Bus connected successfully."];
-
-        // notify the delegate that the bus connected
-        //
-        if ([self.delegate respondsToSelector:@selector(didConnectBus:)]) {
-            [self.delegate didConnectBus:self.bus];
+        
+        if (!self.bus.isConnected) {
+            
+            // connect the bus using the specified transport
+            //
+            status = [self.bus connectWithArguments:self.connectionArguments];
+            if (status != ER_OK) {
+                [self sendStatusMessage:[NSString stringWithFormat:@"Bus failed to connect. %@",[AJNStatus descriptionForStatusCode:status]]];
+                @throw [NSException exceptionWithName:@"connectToService Failed" reason:@"Unable to connect to bus" userInfo:nil];
+            }
+            [self sendStatusMessage:@"Bus connected successfully."];
+            
+            // notify the delegate that the bus connected
+            //
+            if ([self.delegate respondsToSelector:@selector(didConnectBus:)]) {
+                [self.delegate didConnectBus:self.bus];
+            }
         }
         
         // register the client controller object as a bus listener, which allows us to find
