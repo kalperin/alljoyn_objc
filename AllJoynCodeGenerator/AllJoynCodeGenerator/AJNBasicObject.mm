@@ -974,9 +974,9 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     MsgArg inArgs[2];
     
     inArgs[0].Set("s", [str1 UTF8String]);
-
+        
     inArgs[1].Set("s", [str2 UTF8String]);
-
+        
 
     // make the function call using the C++ proxy object
     //
@@ -1010,9 +1010,9 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     MsgArg inArgs[2];
     
     inArgs[0].Set("s", [str1 UTF8String]);
-
+        
     inArgs[1].Set("s", [str2 UTF8String]);
-
+        
 
     // make the function call using the C++ proxy object
     //
@@ -1139,10 +1139,10 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     Message reply(*((BusAttachment*)self.bus.handle));    
     MsgArg inArgs[2];
     
-    inArgs[0].Set("as", [stringArray msgArg]);
-
-    inArgs[1].Set("(si)", [aStruct msgArg]);
-
+    inArgs[0] = *[stringArray msgArg];
+        
+    inArgs[1] = *[aStruct msgArg];
+        
 
     // make the function call using the C++ proxy object
     //
@@ -1276,7 +1276,7 @@ void PingObjectImpl::Ping(const InterfaceDescription::Member *member, Message& m
     MsgArg inArgs[1];
     
     inArgs[0].Set("y", [value unsignedCharValue]);
-
+        
 
     // make the function call using the C++ proxy object
     //
