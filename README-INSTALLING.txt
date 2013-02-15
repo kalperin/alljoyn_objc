@@ -2,7 +2,7 @@ AllJoyn iOS and OS/X SDK README
 
 ************************************************************************************
 
-PLEASE READ THIS DOCUMENT INCLUDED WITH THE SDK:
+PLEASE READ THIS DOCUMENT, at https://www.alljoyn.org/docs-and-downloads:
 
 AllJoyn Programming Guide for the Objective-C Language
 

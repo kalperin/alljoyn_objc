@@ -40,10 +40,10 @@
 		AC4711C916276AF700599E95 /* AllJoynUnityBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AllJoynUnityBundle-Prefix.pch"; sourceTree = "<group>"; };
 		AC4711F91627797E00599E95 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		AC47120616277D8E00599E95 /* libmono.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmono.0.dylib; path = ../../../../Applications/Unity/Unity.app/Contents/Frameworks/MonoEmbedRuntime/osx/libmono.0.dylib; sourceTree = "<group>"; };
-		ACD90F2F1667ED4100AB8C99 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/lib/BundledDaemon.o; sourceTree = "<group>"; };
-		ACD90F301667ED4100AB8C99 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/lib/libajdaemon.a; sourceTree = "<group>"; };
-		ACD90F311667ED4100AB8C99 /* liballjoyn_c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn_c.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/lib/liballjoyn_c.a; sourceTree = "<group>"; };
-		ACD90F321667ED4100AB8C99 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/lib/liballjoyn.a; sourceTree = "<group>"; };
+		ACD90F2F1667ED4100AB8C99 /* BundledDaemon.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = BundledDaemon.o; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib/BundledDaemon.o; sourceTree = "<group>"; };
+		ACD90F301667ED4100AB8C99 /* libajdaemon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libajdaemon.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib/libajdaemon.a; sourceTree = "<group>"; };
+		ACD90F311667ED4100AB8C99 /* liballjoyn_c.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn_c.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib/liballjoyn_c.a; sourceTree = "<group>"; };
+		ACD90F321667ED4100AB8C99 /* liballjoyn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liballjoyn.a; path = ../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib/liballjoyn.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,7 +263,7 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Unity/Unity.app/Contents/Frameworks/MonoEmbedRuntime/osx\"",
 					"\"$(SRCROOT)/AllJoynUnityBundle\"",
-					"\"$(SRCROOT)/../../../alljoyn_unity/build/darwin/x86/debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib\"",
 					"\"$(SRCROOT)\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
@@ -286,7 +286,7 @@
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Unity/Unity.app/Contents/Frameworks/MonoEmbedRuntime/osx\"",
 					"\"$(SRCROOT)/AllJoynUnityBundle\"",
-					"\"$(SRCROOT)/../../../alljoyn_unity/build/darwin/x86/debug/dist/lib\"",
+					"\"$(SRCROOT)/../../../alljoyn_unity/build/darwin/x86/debug/dist/cpp/lib\"",
 					"\"$(SRCROOT)\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
