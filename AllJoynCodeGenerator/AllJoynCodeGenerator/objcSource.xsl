@@ -607,11 +607,20 @@ void <xsl:value-of select="../annotation[@name='org.alljoyn.lang.objc']/@value"/
 
 <xsl:template match="arg" mode="objc-signal-args">
     <xsl:if test="position()>1"><xsl:text>, </xsl:text></xsl:if>
-    <xsl:text>[</xsl:text>
-    <xsl:value-of select="@name"/>
-        <xsl:text> </xsl:text>
-    <xsl:call-template name="objcArgTypeConversionToCpp"/>
-    <xsl:text>]</xsl:text>
+    <xsl:choose>
+        <xsl:when test="@type='b'">
+            <xsl:text>(</xsl:text>
+                <xsl:value-of select="@name"/>
+                <xsl:text> == YES ? true : false)</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+                <xsl:text>[</xsl:text>
+                <xsl:value-of select="@name"/>
+                    <xsl:text> </xsl:text>
+                <xsl:call-template name="objcArgTypeConversionToCpp"/>
+                <xsl:text>]</xsl:text>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="property" mode="objc-prop-accessor-return">
@@ -1160,7 +1169,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
                 <xsl:when test="@type='s' or @type='o'">[NSString stringWithCString:inArg<xsl:value-of select="position()-1"/>.c_str() encoding:NSUTF8StringEncoding]</xsl:when>
                 <xsl:when test="@type='y'">[NSNumber numberWithUnsignedChar:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
                 <xsl:when test="@type='d'">[NSNumber numberWithDouble:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
-                <xsl:when test="@type='b'">[NSNumber numberWithBool:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
+                <xsl:when test="@type='b'">(inArg<xsl:value-of select="position()-1"/> ? YES : NO)</xsl:when>
                 <xsl:when test="@type='n'">[NSNumber numberWithShort:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                
                 <xsl:when test="@type='q'">[NSNumber numberWithUnsignedShort:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                
                 <xsl:when test="@type='i'">[NSNumber numberWithInt:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                
@@ -1178,7 +1187,7 @@ QStatus <xsl:value-of select="../../annotation[@name='org.alljoyn.lang.objc']/@v
                 <xsl:when test="@type='s' or @type='o'">[NSString stringWithCString:inArg<xsl:value-of select="position()-1"/>.c_str() encoding:NSUTF8StringEncoding]</xsl:when>
                 <xsl:when test="@type='y'">[NSNumber numberWithUnsignedChar:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
                 <xsl:when test="@type='d'">[NSNumber numberWithDouble:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
-                <xsl:when test="@type='b'">[NSNumber numberWithBool:inArg<xsl:value-of select="position()-1"/>]</xsl:when>
+                <xsl:when test="@type='b'">(inArg<xsl:value-of select="position()-1"/> ? YES : NO)</xsl:when>
                 <xsl:when test="@type='n'">[NSNumber numberWithShort:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                
                 <xsl:when test="@type='q'">[NSNumber numberWithUnsignedShort:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                
                 <xsl:when test="@type='i'">[NSNumber numberWithInt:inArg<xsl:value-of select="position()-1"/>]</xsl:when>                                                
