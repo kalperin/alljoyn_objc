@@ -756,7 +756,7 @@ public:
 {
     QStatus status = self.busAttachment->CancelAdvertiseName([name UTF8String], mask);
     if (status != ER_OK) {
-        NSLog(@"ERROR: AJNBusAttacment::cancelAdvertisedName failed. %@", [AJNStatus descriptionForStatusCode:status]);
+        NSLog(@"ERROR: AJNBusAttacment::cancelAdvertisedName:withTransportMask failed. %@", [AJNStatus descriptionForStatusCode:status]);
     }
     return status;    
 }
@@ -770,6 +770,16 @@ public:
     return status;
 }
 
+- (QStatus)findAdvertisedName:(NSString *)name byTransport:(AJNTransportMask)transports
+{
+    QStatus status = self.busAttachment->FindAdvertisedNameByTransport([name UTF8String], transports);
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttacment::findAdvertisedName:byTransport: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;
+}
+
+
 - (QStatus)cancelFindAdvertisedName:(NSString*)name
 {
     QStatus status = self.busAttachment->CancelFindAdvertisedName([name UTF8String]);
@@ -778,6 +788,16 @@ public:
     }
     return status;    
 }
+
+- (QStatus)cancelFindAdvertisedName:(NSString*)name byTransport:(AJNTransportMask)transports
+{
+    QStatus status = self.busAttachment->CancelFindAdvertisedNameByTransport([name UTF8String], transports);
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNBusAttacment::cancelFindAdvertisedName:byTransport: failed. %@", [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;
+}
+
 
 - (QStatus)addMatchRule:(NSString*)matchRule
 {

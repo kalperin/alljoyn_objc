@@ -865,6 +865,37 @@ typedef void (^ AJNLinkTimeoutBlock)(QStatus status, uint32_t timeout, void *con
 - (QStatus)cancelFindAdvertisedName:(NSString *)name;
 
 /**
+ * Register interest in a well-known name prefix on a transport for the purpose of discovery.
+ * This method is a shortcut/helper that issues an org.alljoyn.Bus.FindAdvertisedNameByTransport method call to the local daemon
+ * and interprets the response.
+ *
+ * @param  name    Well-known name prefix that application is interested in receiving
+ *                           BusListener::FoundAdvertisedName notifications about.
+ * @param  transports    Transports over which to do well-known name discovery
+ *
+ * @return  - ER_OK iff daemon response was received and discovery was successfully started.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
+ */
+- (QStatus)findAdvertisedName:(NSString *)name byTransport:(AJNTransportMask)transports;
+
+/**
+ * Cancel interest in a well-known name prefix that was previously
+ * registered with FindAdvertisedName.  This method is a shortcut/helper
+ * that issues an org.alljoyn.Bus.CancelFindAdvertisedName method
+ * call to the local daemon and interprets the response.
+ *
+ * @param  name    Well-known name prefix that application is no longer interested in receiving
+ *                           BusListener::FoundAdvertisedName notifications about.
+ * @param transports    Transports over which to cancel well-known name discovery
+ *
+ * @return  - ER_OK iff daemon response was received and cancel was successfully completed.
+ *          - ER_BUS_NOT_CONNECTED if a connection has not been made with a local bus.
+ *          - Other error status codes indicating a failure.
+ */
+- (QStatus)cancelFindAdvertisedName:(NSString *)name byTransport:(AJNTransportMask)transports;
+
+/**
  * Add a DBus match rule.
  * This method is a shortcut/helper that issues an org.freedesktop.DBus.AddMatch method call to the local daemon.
  *
