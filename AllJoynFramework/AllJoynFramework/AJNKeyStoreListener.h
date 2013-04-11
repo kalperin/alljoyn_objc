@@ -14,7 +14,7 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Status.h>
+#import <alljoyn/Status.h>
 #import "AJNHandle.h"
 
 /**

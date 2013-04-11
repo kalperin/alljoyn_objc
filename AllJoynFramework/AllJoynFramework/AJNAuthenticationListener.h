@@ -15,7 +15,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <Status.h>
+#import <alljoyn/Status.h>
 #import "AJNSecurityCredentials.h"
 #import "AJNMessage.h"
 

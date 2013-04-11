@@ -15,7 +15,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <Status.h>
+#import <alljoyn/Status.h>
 
 /**
  * Access to status and error codes for AllJoyn

@@ -14,14 +14,22 @@
 // limitations under the License.
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-#import <alljoyn/Status.h>
-#import "AJNHandle.h"
+#import <objc/runtime.h>
+#import <qcc/String.h>
+#import <alljoyn/PasswordManager.h>
+#import "AJNPasswordManager.h"
 
-/**
- * The base protocol for all signal handlers. The code generator will create a
- * protocol that derives from this one.
- */
-@protocol AJNSignalHandler <AJNHandle>
+using namespace ajn;
+
+@implementation AJNPasswordManager
+
++(QStatus)setCredentialsForAuthMechanism:(NSString *)authMechanism usingPassword:(NSString *)password
+{
+    QStatus status = PasswordManager::SetCredentials([authMechanism UTF8String], [password UTF8String]);
+    if (status != ER_OK) {
+        NSLog(@"ERROR: AJNPasswordManager::setCredentialsForAuthMechanism:%@ usingPassword:%@ failed. %@",authMechanism, password, [AJNStatus descriptionForStatusCode:status]);
+    }
+    return status;
+}
 
 @end

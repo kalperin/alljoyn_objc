@@ -15,13 +15,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <alljoyn/Status.h>
-#import "AJNHandle.h"
+#import "AJNStatus.h"
+
+@interface AJNPasswordManager
 
 /**
- * The base protocol for all signal handlers. The code generator will create a
- * protocol that derives from this one.
+ * Set credentials used for the authentication of thin clients.
+ *
+ * @param  authMechanism    The name of the authentication mechanism issuing the request.
+ * @param  password         The password
+ * @return  - ER_OK if the credentials was successfully set
+ *
  */
-@protocol AJNSignalHandler <AJNHandle>
++(QStatus)setCredentialsForAuthMechanism:(NSString *)authMechanism usingPassword:(NSString *)password;
 
 @end
