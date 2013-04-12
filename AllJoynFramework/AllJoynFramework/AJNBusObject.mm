@@ -17,6 +17,7 @@
 #import <alljoyn/BusObject.h>
 #import <alljoyn/InterfaceDescription.h>
 #import <alljoyn/MsgArg.h>
+#import <alljoyn/Message.h>
 #import "AJNBusAttachment.h"
 #import "AJNBusObject.h"
 #import "AJNBusObjectImpl.h"
@@ -88,6 +89,16 @@ using namespace ajn;
 - (void)emitPropertyWithName:(NSString*)propertyName onInterfaceWithName:(NSString*)interfaceName changedToValue:(AJNMessageArgument*)value inSession:(AJNSessionId)sessionId
 {
     self.busObject->EmitPropChanged([interfaceName UTF8String], [propertyName UTF8String], *value.msgArg, sessionId);
+}
+
+- (QStatus)cancelSessionlessMessageWithSerial:(uint32_t)serialNumber
+{
+    return self.busObject->CancelSessionlessMessage(serialNumber);
+}
+
+- (QStatus)cancelSessionlessMessageWithMessage:(const AJNMessage *)message
+{
+    return self.busObject->CancelSessionlessMessage(*(Message *)message.handle);
 }
 
 @end

@@ -18,6 +18,7 @@
 #import "AJNObject.h"
 #import "AJNStatus.h"
 #import "AJNSessionOptions.h"
+#import "AJNMessage.h"
 
 @class AJNBusAttachment;
 @class AJNInterfaceDescription;
@@ -68,6 +69,23 @@
  */
 - (void)emitPropertyWithName:(NSString *)propertyName onInterfaceWithName:(NSString *)interfaceName changedToValue:(AJNMessageArgument *)value inSession:(AJNSessionId)sessionId;
 
+/**
+ * Remove sessionless message sent from this object from local daemon's
+ * store/forward cache.
+ *
+ * @param serialNumber    Serial number of previously sent sessionless signal.
+ * @return   ER_OK if successful.
+ */
+- (QStatus)cancelSessionlessMessageWithSerial:(uint32_t)serialNumber;
+
+/**
+ * Remove sessionless message sent from this object from local daemon's
+ * store/forward cache.
+ *
+ * @param message    Message to be removed.
+ * @return   ER_OK if successful.
+ */
+- (QStatus)cancelSessionlessMessageWithMessage:(const AJNMessage *)message;
 
 @end
 
