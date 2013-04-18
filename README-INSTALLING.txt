@@ -35,15 +35,15 @@ Installation
 
 4. Open the openssl.xcodeproj in Xcode.
 
-5. In Xcode, build the crypto target (libssl.a and libcrypto.a) for each 
+5. In Xcode, build the crypto target (libssl.a and libcrypto.a) for each
    combination of configuration (debug|release) and platform (iphoneos|iphonesimulator) that you
    need for your iOS project by selecting Product->Build For->(your desired configuration).
 
 6. Create a new folder called "build" under the top-level OpenSSL folder created in step 1.
 
 7. Locate your OpenSSL build products folders (i.e.: Debug-iphoneos) in the
-   /Users/<your username>/Libarary/Developer/Xcode/DerivedData/XXXXXXXXXXXXX-openssl/Build/Products 
-   folder, and copy all the <configuration>-<platform> folders, like Debug-iphoneos, to the build 
+   /Users/<your username>/Library/Developer/Xcode/DerivedData/XXXXXXXXXXXXX-openssl/Build/Products
+   folder, and copy all the <configuration>-<platform> folders, like Debug-iphoneos, to the build
    folder created in step 6.
 
 8. You should now have a folder structure similar to this containing libssl and libcrypto
