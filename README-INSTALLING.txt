@@ -49,24 +49,22 @@ Installation
 8. You should now have a folder structure similar to this containing libssl and libcrypto
    for each $(CONFIGURATION)-$(PLATFORM_NAME) you built in step 5:
 
-	openssl-1.0.1c
+      openssl-1.0.1c
 
-		build
-			Debug-iphoneos
-				libssl.a
-				libcrypto.a
+            build
+                  Debug-iphoneos
+                        libssl.a
+                        libcrypto.a
 
-			Debug-iphonesimulator
-				libssl.a
-				libcrypto.a
-
-			…
+                  Debug-iphonesimulator
+                        libssl.a
+                        libcrypto.a
 
 9. Define an environment variable OPENSSL_ROOT=<path to the OpenSSL source top folder>
    This environment variable needs to be present whenever you build projects using the
    AllJoyn SDK. To set the environment variable open a Terminal window and type the following:
-	
-	launchctl setenv OPENSSL_ROOT <path to top level folder containing openssl>
+
+       launchctl setenv OPENSSL_ROOT <path to top level folder containing openssl>
 
 Tour
 
@@ -78,10 +76,8 @@ Code Generator. A code generator is included to assist your development of
 AllJoyn-enabled apps for iOS and Mac OS/X. The source for this tool is located
 under alljoyn_objc/AllJoynCodeGenerator.
 
-Please take the time to read the “AllJoyn Programming Guide for the Objective-C
-Language” document and follow the tutorial contained within, as it explains in easy
+Please take the time to read the "AllJoyn Programming Guide for the Objective-C
+Language" document and follow the tutorial contained within, as it explains in easy
 to follow steps how to create a new AllJoyn-enabled iOS app from scratch, in
 addition to introducing you to some background concepts that will help you
 understand AllJoyn.
-
-
