@@ -212,7 +212,7 @@
     
     // disconnect the bus
     //
-    status = [self.bus disconnectWithArguments:self.connectionArguments];
+    status = [self.bus disconnectWithArguments:@"null:"];
     if (status != ER_OK) {
         [self sendStatusMessage:[NSString stringWithFormat:@"Failed to disconnect from bus. %@",[AJNStatus descriptionForStatusCode:status]]];
         @throw [NSException exceptionWithName:@"AJNServiceController::stop: Failed" reason:@"Failed to disconnect from bus" userInfo:nil];
