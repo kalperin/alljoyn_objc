@@ -241,7 +241,9 @@
     
     // empty the text view that contains the status message log
     //
-    self.eventsTextView.text = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.eventsTextView.text = nil;
+    });
     
     
     // determine the transport mask used based on the selection in the UI
@@ -471,7 +473,7 @@
                 [self displayPerformanceStatistics];
                 NSLog(@"Updating UI for packet at index %@ progress %f", packetIndex, progress);
             });
-            [self didTouchStartButton:self];
+            //[self didTouchStartButton:self];
         }
         else if([self.performanceStatistics shouldRefreshUserInterfaceForPacketAtIndex:[packetIndex intValue]]) {
             [self.performanceStatistics markTransferEndTime];            
