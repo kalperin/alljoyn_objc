@@ -2,3 +2,10 @@
 WorkspaceSettings.xcsettings
 Breakpoints.xcbkptlist
 guest.xcuserdatad
+*.xcuserdatad
+*.xcworkspacedata
+xcshareddata
+*/xcuserdata/*
+*/build/*
+.DS_Store
+
